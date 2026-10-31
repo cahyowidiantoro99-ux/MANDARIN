@@ -7,5 +7,5 @@ export function postgresMigration(path,schema=databaseSchema()){
  databaseSchema(schema);
  const sql=readFileSync(path,'utf8');
  if(schema==='public')return sql;
- return `CREATE SCHEMA IF NOT EXISTS ${schema}; GRANT USAGE ON SCHEMA ${schema} TO authenticated; SET search_path=${schema};\n`+sql.replace(/\bpublic\./g,`${schema}.`).replace(/search_path=public,/g,`search_path=${schema},`);
+ return `DO $schema$ BEGIN IF NOT EXISTS(SELECT 1 FROM pg_namespace WHERE nspname='${schema}') THEN CREATE SCHEMA ${schema}; END IF; END $schema$; GRANT USAGE ON SCHEMA ${schema} TO authenticated; SET search_path=${schema};\n`+sql.replace(/\bpublic\./g,`${schema}.`).replace(/search_path=public,/g,`search_path=${schema},`);
 }
