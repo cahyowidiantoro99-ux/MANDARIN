@@ -23,6 +23,8 @@ services:
         value: "1"
       - key: PG_SSL
         value: verify
+      - key: PG_SSL_CA_FILE
+        value: certs/supabase-ca.crt
       - key: DATABASE_SCHEMA
         value: ecb_mandarin
       - key: APP_ORIGIN

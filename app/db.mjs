@@ -6,7 +6,7 @@ import {databaseSchema,postgresMigration} from './postgres-schema.mjs';
 export const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export async function openDatabase({url=process.env.DATABASE_URL, file=process.env.SQLITE_PATH || resolve(ROOT,'data/development.sqlite')}={}) {
   let pool, sqlite;
-  if(url) { const {Pool}=await import('pg'); pool=new Pool({connectionString:url,ssl:process.env.PG_SSL==='disable'?false:{rejectUnauthorized:true},options:`-c search_path=${databaseSchema()}`,max:8}); }
+  if(url) { const {Pool}=await import('pg'); pool=new Pool({connectionString:url,ssl:process.env.PG_SSL==='disable'?false:{rejectUnauthorized:true,...(process.env.PG_SSL_CA_FILE?{ca:readFileSync(resolve(ROOT,process.env.PG_SSL_CA_FILE),'utf8')}:{})},options:`-c search_path=${databaseSchema()}`,max:8}); }
   else { if(process.env.NODE_ENV==='production') throw Error('Production requires PostgreSQL and Supabase Auth'); mkdirSync(dirname(file),{recursive:true}); sqlite=new DatabaseSync(file); sqlite.exec('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;'); }
   const wrap=client=>({
     async all(sql, params=[]) { if(client){let n=0;return (await client.query(sql.replace(/\?/g,()=>`$${++n}`),params)).rows;} return sqlite.prepare(sql).all(...params); },

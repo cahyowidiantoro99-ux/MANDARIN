@@ -18,6 +18,7 @@ COPY --chown=node:node --from=build /app/package.json ./package.json
 COPY --chown=node:node --from=build /app/app ./app
 COPY --chown=node:node --from=build /app/scripts ./scripts
 COPY --chown=node:node --from=build /app/migrations ./migrations
+COPY --chown=node:node certs ./certs
 COPY --chown=node:node --from=build /app/data/source-release.json ./data/source-release.json
 COPY --chown=node:node --from=build /app/dist-production ./public
 COPY --chown=node:node ["KOSAKATA PEKERJAAN", "./KOSAKATA PEKERJAAN/"]
