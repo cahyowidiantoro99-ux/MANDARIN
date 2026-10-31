@@ -194,4 +194,7 @@ GRANT SELECT ON package_vocabulary TO authenticated;
 CREATE TABLE IF NOT EXISTS vocabulary_progress (user_id UUID NOT NULL REFERENCES profiles(id), vocabulary_id UUID NOT NULL REFERENCES vocabulary(id), status TEXT NOT NULL CHECK(status IN ('known','review','unknown')), updated_at BIGINT NOT NULL, PRIMARY KEY(user_id,vocabulary_id));
 ALTER TABLE vocabulary_progress ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON vocabulary_progress FROM anon,authenticated;
+CREATE TABLE IF NOT EXISTS official_exam_state (session_id UUID PRIMARY KEY REFERENCES exam_sessions(id), paper_id TEXT NOT NULL, answers_json TEXT NOT NULL, grading_status TEXT NOT NULL, scores_json TEXT, grading_started BIGINT);
+ALTER TABLE official_exam_state ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON official_exam_state FROM anon,authenticated;
 COMMIT;

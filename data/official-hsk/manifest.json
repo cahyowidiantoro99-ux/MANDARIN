@@ -1,0 +1,6168 @@
+[
+  {
+    "id": "H11007",
+    "level": 1,
+    "source": "SOAL HSK LENGKAP/HSK1/đề H11007/H11007.pdf",
+    "sha256": "e7619d0b7e0f8f4c58cf8ab2995f08768797099832fafa0b65bc1d3cadd26f78",
+    "audio": "SOAL HSK LENGKAP/HSK1/đề H11007/H11007.mp3",
+    "minutes": 40,
+    "counts": {
+      "listening": 20,
+      "reading": 20,
+      "writing": 0
+    },
+    "total": 40,
+    "max_score": 200,
+    "items": [
+      {
+        "number": 1,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 2,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 3,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 4,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 5,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 6,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 7,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 8,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 9,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 10,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 11,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 12,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 13,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 14,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 15,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 16,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 17,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 18,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 19,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 20,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 21,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 22,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 23,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 24,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 25,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 26,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 27,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 28,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 29,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 30,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 31,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 32,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 33,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 34,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 35,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 36,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 37,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 38,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 39,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 40,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      }
+    ],
+    "phases": [
+      {
+        "id": "preparation",
+        "minutes": 5,
+        "pages": [
+          1
+        ],
+        "section": null
+      },
+      {
+        "id": "listening",
+        "minutes": 15,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "section": "listening",
+        "seconds": 921
+      },
+      {
+        "id": "transfer",
+        "minutes": 3,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "section": "listening"
+      },
+      {
+        "id": "reading",
+        "minutes": 17,
+        "pages": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "section": "reading"
+      }
+    ],
+    "writing_context": "",
+    "writing_key_context": "",
+    "audio_seconds": 921,
+    "total_seconds": 2421
+  },
+  {
+    "id": "H20901",
+    "level": 2,
+    "source": "SOAL HSK LENGKAP/HSK2/H20901.pdf",
+    "sha256": "9a74742f0a052c755ddf9819e010b1e2ca1bf3be8bb168207330ac2e736080f2",
+    "audio": "SOAL HSK LENGKAP/HSK2/H20901.mp3",
+    "minutes": 55,
+    "counts": {
+      "listening": 35,
+      "reading": 25,
+      "writing": 0
+    },
+    "total": 60,
+    "max_score": 200,
+    "items": [
+      {
+        "number": 1,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 2,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 3,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 4,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 5,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 6,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 7,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 8,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 9,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 10,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 11,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 12,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 13,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 14,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 15,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 16,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 17,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 18,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 19,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 20,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 21,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 22,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 23,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 24,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 25,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 26,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 27,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 28,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 29,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 30,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 31,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 32,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 33,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 34,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 35,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 36,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 37,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 38,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 39,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 40,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 41,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 42,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 43,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 44,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 45,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 46,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 47,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 48,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 49,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 50,
+        "section": "reading",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 51,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 52,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 53,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 54,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 55,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 56,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 57,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 58,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 59,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 60,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      }
+    ],
+    "phases": [
+      {
+        "id": "preparation",
+        "minutes": 5,
+        "pages": [
+          1
+        ],
+        "section": null
+      },
+      {
+        "id": "listening",
+        "minutes": 25,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "section": "listening",
+        "seconds": 1560
+      },
+      {
+        "id": "transfer",
+        "minutes": 3,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "section": "listening"
+      },
+      {
+        "id": "reading",
+        "minutes": 22,
+        "pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "section": "reading"
+      }
+    ],
+    "writing_context": "",
+    "writing_key_context": "",
+    "audio_seconds": 1560,
+    "total_seconds": 3360
+  },
+  {
+    "id": "H31001",
+    "level": 3,
+    "source": "SOAL HSK LENGKAP/HSK3/H31001.pdf",
+    "sha256": "0ee69478eaa3b37dfb28c4a2a1680d34b9b0d1f8251875a9cfa2c0e67d20e0eb",
+    "audio": "SOAL HSK LENGKAP/HSK3/H31001.mp3",
+    "minutes": 90,
+    "counts": {
+      "listening": 40,
+      "reading": 30,
+      "writing": 10
+    },
+    "total": 80,
+    "max_score": 300,
+    "items": [
+      {
+        "number": 1,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 2,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 3,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 4,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 5,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 6,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 7,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 8,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 9,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 10,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 11,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 12,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 13,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 14,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 15,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 16,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 17,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 18,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 19,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 20,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 21,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 22,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 23,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 24,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 25,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 26,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 27,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 28,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 29,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 30,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 31,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 32,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 33,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 34,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 35,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 36,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 37,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 38,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 39,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 40,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 41,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 42,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 43,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 44,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 45,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 46,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 47,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 48,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 49,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 50,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 51,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 52,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 53,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 54,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 55,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 56,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 57,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 58,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 59,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 60,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 61,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 62,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 63,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 64,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 65,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 66,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 67,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 68,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 69,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 70,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 71,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "弟弟高兴地笑了。",
+        "weight": 10
+      },
+      {
+        "number": 72,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "上午的考试比较简单。",
+        "weight": 10
+      },
+      {
+        "number": 73,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "这个城市的环境变得越来越好了。",
+        "weight": 10
+      },
+      {
+        "number": 74,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "那位医生送给他一个礼物。",
+        "weight": 10
+      },
+      {
+        "number": 75,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "其他班的成绩也有很大提高。",
+        "weight": 10
+      },
+      {
+        "number": 76,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "出",
+        "weight": 10
+      },
+      {
+        "number": 77,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "元",
+        "weight": 10
+      },
+      {
+        "number": 78,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "叫",
+        "weight": 10
+      },
+      {
+        "number": 79,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "中",
+        "weight": 10
+      },
+      {
+        "number": 80,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "米",
+        "weight": 10
+      }
+    ],
+    "phases": [
+      {
+        "id": "preparation",
+        "minutes": 5,
+        "pages": [
+          1
+        ],
+        "section": null
+      },
+      {
+        "id": "listening",
+        "minutes": 35,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "section": "listening",
+        "seconds": 2178
+      },
+      {
+        "id": "transfer",
+        "minutes": 5,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "section": "listening"
+      },
+      {
+        "id": "reading",
+        "minutes": 30,
+        "pages": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "section": "reading"
+      },
+      {
+        "id": "writing",
+        "minutes": 15,
+        "pages": [
+          13,
+          14
+        ],
+        "section": "writing"
+      }
+    ],
+    "writing_context": "H31001 - 12 \n三、书 写 \n第一部分  \n第 71-75 题 \n例如：小船    上    一    河    条    有 \n \n 河上有一条小船。                         \n \n \n \n71．弟弟    笑了    高兴地 \n72．简单    上午的考试    比较         \n73．越来越好    变得    这个城市的环境     了 \n74．送给他    那位    医生    一个礼物  \n75．其他班的成绩    有    也    很大    提高 \n \n \ntiengtrungnet.com\nH31001 - 13 \n \n第 二 部分  \n第 76-80 题 \n例如：没（  \n guān \n关   ）系，别难过，高兴点儿 。 \n \n \n \n \n76．医院离这儿很远，我们坐（  \n chū \n  ）租车去吧。  \n \n77．一（  \n yuán \n  ）是 10 角，一角是 10 分。 \n \n78．我不认识他，你知道他姓什么、（  \n jiào \n  ）什么吗？ \n \n79．（  \n Zhōng \n  ）间穿红裙子的一定是他妹妹。  \n \n80．我已经饱了，不想吃（  \n mǐ \n  ）饭了。  \ntiengtrungnet.com",
+    "writing_key_context": "书 写 \n \n第一部分 \n \n71．弟弟高兴地笑了。 \n72．上午的考试比较简单。 \n73．这个城市的环境变得越来越好了。 \n74．那位医生送给他一个礼物。 \n75．其他班的成绩也有很大提高。 \n \n第二部分 \n \n76．出 \n77．元 \n78．叫  \n79．中 \n80．米 \n \n \ntiengtrungnet.com",
+    "writing_pages": [
+      13,
+      14
+    ],
+    "audio_seconds": 2178,
+    "total_seconds": 5478
+  },
+  {
+    "id": "H41001",
+    "level": 4,
+    "source": "SOAL HSK LENGKAP/HSK4/H41001.pdf",
+    "sha256": "d5cf3ce68187986c7a63464d8c9efcc58bfebbcc8af7ee7f91f7ea5a53812fcc",
+    "audio": "SOAL HSK LENGKAP/HSK4/H41001.mp3",
+    "minutes": 105,
+    "counts": {
+      "listening": 45,
+      "reading": 40,
+      "writing": 15
+    },
+    "total": 100,
+    "max_score": 300,
+    "items": [
+      {
+        "number": 1,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 2,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 3,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 4,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 5,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 6,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 7,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 8,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "√"
+      },
+      {
+        "number": 9,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 10,
+        "section": "listening",
+        "kind": "judgment",
+        "choices": [
+          "√",
+          "×"
+        ],
+        "key": "×"
+      },
+      {
+        "number": 11,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 12,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 13,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 14,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 15,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 16,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 17,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 18,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 19,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 20,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 21,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 22,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 23,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 24,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 25,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 26,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 27,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 28,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 29,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 30,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 31,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 32,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 33,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 34,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 35,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 36,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 37,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 38,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 39,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 40,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 41,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 42,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 43,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 44,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 45,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 46,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 47,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 48,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 49,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 50,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 51,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 52,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 53,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 54,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 55,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "key": "F"
+      },
+      {
+        "number": 56,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "BCA"
+      },
+      {
+        "number": 57,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "ACB"
+      },
+      {
+        "number": 58,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "CBA"
+      },
+      {
+        "number": 59,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "CAB"
+      },
+      {
+        "number": 60,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "CBA"
+      },
+      {
+        "number": 61,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "CAB"
+      },
+      {
+        "number": 62,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "ACB"
+      },
+      {
+        "number": 63,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "BAC"
+      },
+      {
+        "number": 64,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "BCA"
+      },
+      {
+        "number": 65,
+        "section": "reading",
+        "kind": "ordering",
+        "choices": [
+          "ABC",
+          "ACB",
+          "BAC",
+          "BCA",
+          "CAB",
+          "CBA"
+        ],
+        "key": "ACB"
+      },
+      {
+        "number": 66,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 67,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 68,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 69,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 70,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 71,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 72,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 73,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 74,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 75,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 76,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 77,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 78,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 79,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 80,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 81,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 82,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 83,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 84,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 85,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 86,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "她很羡慕会弹钢琴的人。/ 会弹钢琴的人很羡慕她。",
+        "weight": 6
+      },
+      {
+        "number": 87,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "亚洲经济的增长速度正在逐渐提高。",
+        "weight": 6
+      },
+      {
+        "number": 88,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "这椅子是专为老年人提供的。",
+        "weight": 6
+      },
+      {
+        "number": 89,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "他的中文说得很流利。",
+        "weight": 6
+      },
+      {
+        "number": 90,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "报名人数已经超过了 900。",
+        "weight": 6
+      },
+      {
+        "number": 91,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "请按从小到大的顺序排列这些数字。/ 这些数字请按从小到大的顺序",
+        "weight": 6
+      },
+      {
+        "number": 92,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "那本小说的作者很有名",
+        "weight": 6
+      },
+      {
+        "number": 93,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "一个合格的警察最需要的是责任感。",
+        "weight": 6
+      },
+      {
+        "number": 94,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "代表们决定结束会议。",
+        "weight": 6
+      },
+      {
+        "number": 95,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "我对这个城市很熟悉。/ 对这个城市我很熟悉。",
+        "weight": 6
+      },
+      {
+        "number": 96,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "她每天都坚持写日记。",
+        "weight": 8
+      },
+      {
+        "number": 97,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "你尝一尝？味道很好。",
+        "weight": 8
+      },
+      {
+        "number": 98,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "鸡蛋被打破了。",
+        "weight": 8
+      },
+      {
+        "number": 99,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "走在海边，感觉很凉快。",
+        "weight": 8
+      },
+      {
+        "number": 100,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "这个小女孩儿很活泼。",
+        "weight": 8
+      }
+    ],
+    "phases": [
+      {
+        "id": "preparation",
+        "minutes": 5,
+        "pages": [
+          1
+        ],
+        "section": null
+      },
+      {
+        "id": "listening",
+        "minutes": 30,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "section": "listening",
+        "seconds": 1856
+      },
+      {
+        "id": "transfer",
+        "minutes": 5,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "section": "listening"
+      },
+      {
+        "id": "reading",
+        "minutes": 40,
+        "pages": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "section": "reading"
+      },
+      {
+        "id": "writing",
+        "minutes": 25,
+        "pages": [
+          15,
+          16
+        ],
+        "section": "writing"
+      }
+    ],
+    "writing_context": "H41001 - 14 \n三、书 写 \n第一部分  \n第 86-95 题：完成句子。 \n例如：那座桥    800 年的    历史    有     了 \n \n 那座桥有 800 年的历史了。            \n \n \n86．会弹钢琴的人    羡慕    很    她      \n \n87．亚洲经济的    正在    逐渐    提高     增长速度 \n \n88．专为老年人    提供的    这椅子    是 \n \n89．中文    很流利    说得    他的 \n \n90．已经    报名人数    900    超过了 \n \n91．请   从小到大的顺序    按    排列    这些数字 \n \n92．作者    很有名    小说的    那本 \n \n93．合格的警察    最需要的    一个    是责任感 \n \n94．代表们    结束    会议    决定 \n \n95．对    很熟悉    我    这个城市            \n \ntiengtrungnet.com\nH41001 - 15 \n \n第 二 部分  \n第 96-100 题：看图，用词造句。 \n例如：\n    乒乓球     她很喜欢打乒乓球。               \n \n \n \n \n96．    \n     日记         97．    \n      尝 \n \n \n98． \n  破          99．    \n     凉快     \n \n \n100．  \n    活泼  \ntiengtrungnet.com",
+    "writing_key_context": "书 写 \n \n第一部分 \n86．她很羡慕会弹钢琴的人。/ 会弹钢琴的人很羡慕她。 \n87．亚洲经济的增长速度正在逐渐提高。 \n88．这椅子是专为老年人提供的。 \n89．他的中文说得很流利。 \n90．报名人数已经超过了 900。  \n91．请按从小到大的顺序排列这些数字。/ 这些数字请按从小到大的顺序\n排列。 \n92．那本小说的作者很有名 \n93．一个合格的警察最需要的是责任感。 \n94．代表们决定结束会议。  \n95．我对这个城市很熟悉。/ 对这个城市我很熟悉。 \n \n \n第二部分 \n（参考答案） \n96．她每天都坚持写日记。    \n97．你尝一尝？味道很好。 \n98．鸡蛋被打破了。 \n99．走在海边，感觉很凉快。       \n100．这个小女孩儿很活泼。 \n \n \ntiengtrungnet.com",
+    "writing_pages": [
+      15,
+      16
+    ],
+    "audio_seconds": 1856,
+    "total_seconds": 6356
+  },
+  {
+    "id": "H51001",
+    "level": 5,
+    "source": "SOAL HSK LENGKAP/HSK5/H51001.pdf",
+    "sha256": "15f74b76b139ed1eac93a7e2f67dc846bccda8341e2ec9f4fad7040bc0969ad5",
+    "audio": "SOAL HSK LENGKAP/HSK5/H51001.mp3",
+    "minutes": 125,
+    "counts": {
+      "listening": 45,
+      "reading": 45,
+      "writing": 10
+    },
+    "total": 100,
+    "max_score": 300,
+    "items": [
+      {
+        "number": 1,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 2,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 3,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 4,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 5,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 6,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 7,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 8,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 9,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 10,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 11,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 12,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 13,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 14,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 15,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 16,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 17,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 18,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 19,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 20,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 21,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 22,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 23,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 24,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 25,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 26,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 27,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 28,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 29,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 30,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 31,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 32,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 33,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 34,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 35,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 36,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 37,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 38,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 39,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 40,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 41,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 42,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 43,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 44,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 45,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 46,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 47,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 48,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 49,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 50,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 51,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 52,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 53,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 54,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 55,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 56,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 57,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 58,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 59,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 60,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 61,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 62,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 63,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 64,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 65,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 66,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 67,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 68,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 69,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 70,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 71,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 72,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 73,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 74,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 75,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 76,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 77,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 78,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 79,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 80,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 81,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 82,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 83,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 84,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 85,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 86,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 87,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 88,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 89,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 90,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 91,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "他偶尔会去健身房锻炼。/ 他会偶尔去健身房锻炼。 / 偶尔他会去健",
+        "weight": 5
+      },
+      {
+        "number": 92,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "道歉的时候一定要态度诚恳。",
+        "weight": 5
+      },
+      {
+        "number": 93,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "春节是一个传统的节日。",
+        "weight": 5
+      },
+      {
+        "number": 94,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "北京给他留下了深刻的印象。",
+        "weight": 5
+      },
+      {
+        "number": 95,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "雨后常常能看到彩虹。",
+        "weight": 5
+      },
+      {
+        "number": 96,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "他已经把日程安排好了。/ 他把日程已经安排好了。",
+        "weight": 5
+      },
+      {
+        "number": 97,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "您总共消费 198 块钱。/ 您消费总共 198 块钱。",
+        "weight": 5
+      },
+      {
+        "number": 98,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "他的这段经历有很特殊的意义。",
+        "weight": 5
+      },
+      {
+        "number": 99,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "",
+        "weight": 30
+      },
+      {
+        "number": 100,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "",
+        "weight": 30
+      }
+    ],
+    "phases": [
+      {
+        "id": "preparation",
+        "minutes": 5,
+        "pages": [
+          1
+        ],
+        "section": null
+      },
+      {
+        "id": "listening",
+        "minutes": 30,
+        "pages": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "section": "listening",
+        "seconds": 1816
+      },
+      {
+        "id": "transfer",
+        "minutes": 5,
+        "pages": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "section": "listening"
+      },
+      {
+        "id": "reading",
+        "minutes": 45,
+        "pages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "section": "reading"
+      },
+      {
+        "id": "writing",
+        "minutes": 40,
+        "pages": [
+          16,
+          17
+        ],
+        "section": "writing"
+      }
+    ],
+    "writing_context": "H51001 - 15 \n三、书 写 \n第一部分  \n第 91-98 题：完成句子。 \n例如：发表    这篇论文    什么时候    是    的 \n \n 这篇论文是什么时候发表的？         \n \n \n \n91．锻炼    健身房    去    他    偶尔     会         \n \n92．一定    道歉的时候    态度诚恳    要      \n \n93．节日    是    春节    一个    传统的      \n \n94．北京    给    深刻的印象    他    留下了     \n \n95．彩虹    雨后    常常能    看到     \n \n96．他    日程    把    已经    安排好了   \n \n97．总共    消费    您    198 块钱         \n \n98．意义    他的    有    很特殊的    这段经历  \n \n \ntiengtrungnet.com\nH51001 - 16 \n \n第二部分  \n第 99-100 题：写短文。 \n \n99．请结合下列词语（要全部使用），写一篇 80 字左右的短文。  \n \n结账、干脆、感谢、临时、海鲜 \n \n \n \n \n100．请结合这张图片写一篇 80 字左右的短文。 \n \n \n \ntiengtrungnet.com",
+    "writing_key_context": "书 写 \n \n第一部分 \n91．他偶尔会去健身房锻炼。/ 他会偶尔去健身房锻炼。 / 偶尔他会去健\n身房锻炼。 \n92．道歉的时候一定要态度诚恳。  \n93．春节是一个传统的节日。 \n94．北京给他留下了深刻的印象。  \n95．雨后常常能看到彩虹。 \n96．他已经把日程安排好了。/ 他把日程已经安排好了。 \n97．您总共消费 198 块钱。/ 您消费总共 198 块钱。 \n98．他的这段经历有很特殊的意义。  \n \n \n第二部分 \n（略） \n \n \ntiengtrungnet.com",
+    "writing_pages": [
+      16,
+      17
+    ],
+    "audio_seconds": 1816,
+    "total_seconds": 7516
+  },
+  {
+    "id": "H61001",
+    "level": 6,
+    "source": "SOAL HSK LENGKAP/HSK6/H61001.pdf",
+    "sha256": "788be0ec287495f895266b326624514018bddb22b16eb0119f7974fbe0466a17",
+    "audio": "SOAL HSK LENGKAP/HSK6/H61001.mp3",
+    "minutes": 140,
+    "counts": {
+      "listening": 50,
+      "reading": 50,
+      "writing": 1
+    },
+    "total": 101,
+    "max_score": 300,
+    "items": [
+      {
+        "number": 1,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 2,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 3,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 4,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 5,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 6,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 7,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 8,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 9,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 10,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 11,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 12,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 13,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 14,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 15,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 16,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 17,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 18,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 19,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 20,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 21,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 22,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 23,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 24,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 25,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 26,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 27,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 28,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 29,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 30,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 31,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 32,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 33,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 34,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 35,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 36,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 37,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 38,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 39,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 40,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 41,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 42,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 43,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 44,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 45,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 46,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 47,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 48,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 49,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 50,
+        "section": "listening",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 51,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 52,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 53,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 54,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 55,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 56,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 57,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 58,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 59,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 60,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 61,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 62,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 63,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 64,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 65,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 66,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 67,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 68,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 69,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 70,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 71,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 72,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 73,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 74,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 75,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 76,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 77,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 78,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 79,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 80,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "key": "E"
+      },
+      {
+        "number": 81,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 82,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 83,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 84,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 85,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 86,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 87,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 88,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 89,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 90,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 91,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 92,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 93,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 94,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "A"
+      },
+      {
+        "number": 95,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 96,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 97,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 98,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "D"
+      },
+      {
+        "number": 99,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "B"
+      },
+      {
+        "number": 100,
+        "section": "reading",
+        "kind": "choice",
+        "choices": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "key": "C"
+      },
+      {
+        "number": 101,
+        "section": "writing",
+        "kind": "writing",
+        "choices": [],
+        "reference": "（略）",
+        "weight": 100
+      }
+    ],
+    "phases": [
+      {
+        "id": "preparation",
+        "minutes": 5,
+        "pages": [
+          1
+        ],
+        "section": null
+      },
+      {
+        "id": "listening",
+        "minutes": 35,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "section": "listening",
+        "seconds": 2163
+      },
+      {
+        "id": "transfer",
+        "minutes": 5,
+        "pages": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "section": "listening"
+      },
+      {
+        "id": "reading",
+        "minutes": 50,
+        "pages": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "section": "reading"
+      },
+      {
+        "id": "writing_read",
+        "minutes": 10,
+        "pages": [
+          19,
+          20
+        ],
+        "section": null
+      },
+      {
+        "id": "writing",
+        "minutes": 35,
+        "pages": [],
+        "section": "writing"
+      }
+    ],
+    "writing_context": "H61001 - 18 \n三、书 写 \n \n第 101 题：缩写。 \n（1）仔细阅读下面这篇文章，时间为 10 分钟，阅读时不能抄写、记录。 \n（2）10 分钟后，监考收回阅读材料，请你将这篇文章缩写成一篇短文，时\n间为 35 分钟。 \n（3）标题自拟。只需复述文章内容，不需加入自己的观点。 \n（4）字数为 400 左右。 \n（5）请把作文直接写在答题卡上。 \n \n \n \n有位医生年纪大了，但是他的医术非常高明，许多年轻人都想拜他为师。老\n医生最后选了其中一位年轻人， 带着他给病人看病， 传授他治病经验。 没过几年，\n年轻人就成了老医生的得力助手。 \n因为老医生的名气越来越大，从四面八方来看病的人与日俱增。为了不让来\n看病的人等得太久，老医生决定让年轻医生也独立给病人看病，并给了他一个独\n立的房间。两人约定：病情比较轻微的患者，由年轻医生诊断；病情比较严重的\n患者，由老医生出马。 \n这样实行了一段时间之后，找年轻医生看病的人越来越多。起初，老医生不\n以为然，反而很高兴： “小病都治好了，当然不会拖延成为大病，病人减少了，\n我也乐得轻松。 ” \n直到有一天，老医生发现，有几位病人的病情很严重，但是仍然坚持选择年\n轻医生，对此，他百思不得其解。 \n老医生和年轻医生的感情很好， 互相信赖， 所以他不相信年轻人会从中搞鬼，\n故意抢病人。 “但这是为什么呢？”老医生问他的妻子， “为什么大家不来找我看\n病？难道他们不知道我的医术高明吗？我刚刚获奖的消息就登在报纸的头版上，\n很多人都看得到啊！ ” \n正好老医生的妻子这几天感冒了，为解开丈夫心中的疑团，老医生的妻子就\n以普通病人的身份去丈夫的医院看病，顺便看看问题出在哪里。 \n医院里负责接待的护士很有礼貌，对两位医生的介绍也都非常客观，并没有\n刻意暗示病人要找哪一位医生看病。 \n来医院看病的病人非常多，虽然老医生和年轻医生已经分开看病，但病人等\n候的时间仍然比较长。在医院等候区等候的时候，病人们就聊起天来，交换彼此\n的看病经验。 \n老医生的妻子也坐在等候区， 仔细听周围病人谈论对医生的看法。 大家都说，\n年轻医生看病时非常仔细，跟病人的沟通很多，而且很亲切、很客气，经常给病\n人加油打气。 “不用担心啦，回去多喝开水，睡眠要充足，很快就会好起来的。 ”\n类似这样的鼓励，让病人感到很轻松、愉快。而老医生的情况正好相反，他看病\n的速度很快，往往病人不用开口多说，他就知道问题在哪里，跟病人之间缺少必\n要的沟通；同时他的表情很冷淡，仿佛对病人的痛苦毫不在意，缺少同情心。因\ntiengtrungnet.com\nH61001 - 19 \n此，病人们总结：虽然年轻医生的经验不够丰富，但是他足够耐心、细致，并且\n关心病人，找年轻医生看病，他们心里会得到很大的安慰和鼓励；而老医生虽然\n经验丰富，但是他看病时漫不经心、与己无关的态度，让病人本来就因身体疼痛\n而糟糕的心情雪上加霜。所以，他们最终都选择了年轻医生。 \n当妻子回到家告诉老医生这些见闻时，他惊讶地张大了嘴巴，然后陷入了沉\n思中„„ \ntiengtrungnet.com",
+    "writing_key_context": "书 写 \n \n101．（略） \ntiengtrungnet.com",
+    "writing_pages": [
+      19,
+      20
+    ],
+    "audio_seconds": 2163,
+    "total_seconds": 8463
+  }
+]

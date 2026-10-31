@@ -8,6 +8,7 @@ COPY scripts ./scripts
 COPY tests ./tests
 COPY migrations ./migrations
 COPY data/source-release.json ./data/source-release.json
+COPY data/official-hsk ./data/official-hsk
 RUN node scripts/build-production.mjs
 
 FROM node:24-bookworm-slim AS runtime
@@ -20,6 +21,7 @@ COPY --chown=node:node --from=build /app/scripts ./scripts
 COPY --chown=node:node --from=build /app/migrations ./migrations
 COPY --chown=node:node certs ./certs
 COPY --chown=node:node --from=build /app/data/source-release.json ./data/source-release.json
+COPY --chown=node:node --from=build /app/data/official-hsk ./data/official-hsk
 COPY --chown=node:node --from=build /app/dist-production ./public
 COPY --chown=node:node ["KOSAKATA PEKERJAAN", "./KOSAKATA PEKERJAAN/"]
 COPY --chown=node:node ["MATERI HSK LENGKAP", "./MATERI HSK LENGKAP/"]

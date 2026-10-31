@@ -9,3 +9,5 @@ CREATE TABLE IF NOT EXISTS profile_curriculum (user_id TEXT PRIMARY KEY REFERENC
 CREATE TABLE IF NOT EXISTS exam_exposure_order (session_id TEXT PRIMARY KEY REFERENCES exam_sessions(id), ordinal BIGINT NOT NULL UNIQUE);
 CREATE TABLE IF NOT EXISTS learning_session_metadata (session_id TEXT PRIMARY KEY REFERENCES learning_sessions(id), content_mode TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS vocabulary_progress (user_id TEXT NOT NULL REFERENCES profiles(id), vocabulary_id TEXT NOT NULL REFERENCES vocabulary(id), status TEXT NOT NULL CHECK(status IN ('known','review','unknown')), updated_at BIGINT NOT NULL, PRIMARY KEY(user_id,vocabulary_id));
+
+CREATE TABLE IF NOT EXISTS official_exam_state (session_id TEXT PRIMARY KEY REFERENCES exam_sessions(id), paper_id TEXT NOT NULL, answers_json TEXT NOT NULL, grading_status TEXT NOT NULL, scores_json TEXT, grading_started BIGINT);
