@@ -6,7 +6,7 @@ import {createApp} from '../app/server.mjs';
 // Runs inside the deployed container. Only this run's temporary learner is removed.
 const db=await openDatabase();let app,learnerId,learnerSession,leaderSession,base,verifiedValue;
 const marker='deployment_smoke_v1',checks=[];
-const suffix=randomUUID().slice(0,8),employeeId=`VERIFY-${suffix}`;
+const suffix=randomUUID().slice(0,8),employeeId=`VERIFY-${suffix}`.toUpperCase();
 const leaderEmail=process.env.LEADER_EMAIL;
 const email=`${leaderEmail.split('@')[0].split('+')[0]}+mandarin-check-${suffix}@${leaderEmail.split('@')[1]}`;
 const password='Verify!'+randomBytes(24).toString('base64url')+'9a';
@@ -38,14 +38,18 @@ finally{
  try{
   if(base)for(const session of [learnerSession,leaderSession])if(session)await json('/api/logout',{method:'POST',body:{},session});
   if(learnerId){
-   const own=await db.get('SELECT employee_id,email FROM profiles WHERE id=?',[learnerId]);assert.equal(own.employee_id,employeeId);assert.equal(own.email,email);
+   const candidates=await db.all('SELECT id,employee_id,email FROM profiles WHERE name=? AND employee_id LIKE ? AND email LIKE ?',['Temporary Deployment Verification','VERIFY-%',`${leaderEmail.split('@')[0].split('+')[0]}+mandarin-check-%@${leaderEmail.split('@')[1]}`]);
+   assert(candidates.some(p=>p.id===learnerId));
+   for(const own of candidates){
+   const match=own.email.match(/\+mandarin-check-([a-f0-9]{8})@/);assert(match);assert.equal(own.employee_id,`VERIFY-${match[1]}`.toUpperCase());const cleanupId=own.id;
    await db.tx(async t=>{
-    for(const table of ['exam_answers','placement_answers','exam_session_questions','exam_session_metadata','exam_exposure_order'])await t.run(`DELETE FROM ${table} WHERE session_id IN (SELECT id FROM exam_sessions WHERE user_id=?)`,[learnerId]);
-    await t.run('DELETE FROM placement_sessions WHERE id IN (SELECT id FROM exam_sessions WHERE user_id=?)',[learnerId]);
-    for(const table of ['exam_results','exam_sessions','auth_sessions','reset_tokens','weekly_targets','learning_progress','notification_preferences','notifications','audit_logs','profile_curriculum'])await t.run(`DELETE FROM ${table} WHERE user_id=?`,[learnerId]);
-    await t.run('DELETE FROM profiles WHERE id=?',[learnerId]);
+    for(const table of ['exam_answers','placement_answers','exam_session_questions','exam_session_metadata','exam_exposure_order'])await t.run(`DELETE FROM ${table} WHERE session_id IN (SELECT id FROM exam_sessions WHERE user_id=?)`,[cleanupId]);
+    await t.run('DELETE FROM placement_sessions WHERE id IN (SELECT id FROM exam_sessions WHERE user_id=?)',[cleanupId]);
+    for(const table of ['exam_results','exam_sessions','auth_sessions','reset_tokens','weekly_targets','learning_progress','notification_preferences','notifications','audit_logs','profile_curriculum'])await t.run(`DELETE FROM ${table} WHERE user_id=?`,[cleanupId]);
+    await t.run('DELETE FROM profiles WHERE id=?',[cleanupId]);
    });
-   const r=await fetch(`${process.env.SUPABASE_URL}/auth/v1/admin/users/${learnerId}`,{method:'DELETE',headers:{apikey:process.env.SUPABASE_SERVICE_ROLE_KEY,Authorization:`Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`},signal:AbortSignal.timeout(15000)});assert(r.ok,'Temporary verification Auth cleanup failed');
+   const r=await fetch(`${process.env.SUPABASE_URL}/auth/v1/admin/users/${cleanupId}`,{method:'DELETE',headers:{apikey:process.env.SUPABASE_SERVICE_ROLE_KEY,Authorization:`Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`},signal:AbortSignal.timeout(15000)});assert(r.ok,'Temporary verification Auth cleanup failed');
+   }
    console.log(JSON.stringify({temporary_verification_user_removed:true}));
   }
   if(verifiedValue&&!process.exitCode){await db.run('INSERT INTO app_config(id,value) VALUES(?,?) ON CONFLICT(id) DO UPDATE SET value=excluded.value',[marker,verifiedValue]);console.log(JSON.stringify({production_smoke:true,checks}));}
