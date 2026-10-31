@@ -43,6 +43,7 @@ Object.assign(zh,{
  'Placement Skill':'初始分级测评','Placement awal sudah selesai dan tidak perlu diulang.':'初始分级测评已完成，无需重复参加。','TINGKATKAN KEMAMPUAN ANDA':'提升语言能力','Evaluasi adaptif untuk melanjutkan ke tingkat Mandarin yang lebih tinggi.':'通过自适应测评，向更高的中文等级进阶。','Metode sama dengan Placement Skill. Nilai minimal 80 akan menaikkan level dan otomatis membuka ujian level berikutnya, sampai HSK 6.':'考试采用与初始分级测评相同的方式。成绩达到80分即可晋级，并自动进入下一级考试，最高至HSK六级。','Jika nilai kurang dari 80, rangkaian berhenti dan level tertinggi yang sudah dicapai tetap tersimpan. Anda dapat belajar kembali lalu mencoba ujian naik level lagi.':'成绩低于80分时，本轮考试结束，已达到的最高等级将予以保留。您可以巩固学习后再次参加晋级考试。','Selesaikan Placement Skill satu kali terlebih dahulu.':'请先完成一次初始分级测评。','Anda sudah mencapai level tertinggi HSK 6.':'您已达到最高等级HSK六级。','Riwayat ujian naik level':'晋级考试记录','Lanjutkan ke level berikutnya →':'继续下一级考试 →','Anda melewati ambang tahap ini. Ujian level berikutnya akan terbuka otomatis.':'您已通过本阶段测评，系统将自动进入下一级考试。','Placement sudah ditetapkan. Gunakan Ujian Naik Level.':'初始分级结果已确定，请通过晋级考试提升等级。'
 });
 Object.assign(zh,{'SELAMAT DATANG DI':'欢迎使用','LANGUAGE PERFORMANCE SYSTEM':'语言学习与评估系统','Ilustrasi pembelajaran Mandarin bersama asisten digital':'与数字学习助手共同学习中文的插图'});
+Object.assign(zh,{'ECB LANGUAGE PERFORMANCE SYSTEM':'ECB语言学习与评估系统','Tutup navigasi':'关闭导航'});
 const patterns = [
  [/^Level belajar Anda: (.+)$/,m=>'您的学习等级：'+m[1]],
  [/^Mulai ujian HSK (\d+) →$/,m=>'开始HSK '+m[1]+'级考试 →'],
