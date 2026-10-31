@@ -1,0 +1,11 @@
+// Technical CLI only. Read passwords from stdin, never command-line arguments or log files.
+import {openDatabase} from '../app/db.mjs';
+import {Auth} from '../app/auth.mjs';
+import {id,now,passwordHash,strongPassword,assert} from '../app/domain.mjs';
+const args=process.argv.slice(2),arg=k=>args[args.indexOf(k)+1];
+const mode=args[0];assert(['leader','reset'].includes(mode),400,'Usage: accounts.mjs leader --email EMAIL, or reset --username ID. Password via stdin.');
+let password='';for await(const c of process.stdin)password+=c;password=password.trim();assert(strongPassword(password),400,'Password tidak memenuhi kebijakan.');
+const db=await openDatabase();try{await db.migrate();const auth=new Auth(db,{demo:process.env.DEMO_MODE==='true'});if(mode==='leader'){
+ assert(!await db.get("SELECT id FROM profiles WHERE role='leader'"),409,'Akun leader sudah ada. Gunakan reset untuk rotasi.');const email=arg('--email');assert(typeof email==='string'&&email.includes('@'),400,'Email diperlukan.');let uid=id();if(auth.supabase){const a=await auth.remote('admin/users',{email,password,email_confirm:true},{admin:true});uid=a.id;}await db.run('INSERT INTO profiles(id,employee_id,name,email,department,division,job_title,self_level,role,password_hash,demo,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',[uid,'LEADER','Leader Bersama ECB',email,'KMU','Pimpinan','Leader',1,'leader',auth.supabase?null:passwordHash(password),auth.demo?1:0,now()]);console.log('Akun LEADER dibuat. Bagikan melalui kanal internal yang aman.');
+ }else{const p=await db.get('SELECT * FROM profiles WHERE employee_id=?',[arg('--username')?.toUpperCase()]);assert(p,404,'Akun tidak ditemukan.');if(auth.supabase){const key=process.env.SUPABASE_SERVICE_ROLE_KEY;const r=await fetch(`${process.env.SUPABASE_URL}/auth/v1/admin/users/${p.id}`,{method:'PUT',headers:{apikey:key,Authorization:`Bearer ${key}`,'Content-Type':'application/json'},body:JSON.stringify({password})});assert(r.ok,400,'Rotasi Supabase gagal.');}else await db.run('UPDATE profiles SET password_hash=? WHERE id=?',[passwordHash(password),p.id]);await db.run('DELETE FROM auth_sessions WHERE user_id=?',[p.id]);console.log('Password diperbarui; seluruh sesi aplikasi akun dicabut.');}
+}finally{password='';await db.close();}

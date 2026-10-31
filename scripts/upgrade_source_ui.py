@@ -1,0 +1,22 @@
+from pathlib import Path
+p=Path(__file__).resolve().parents[1]/'public/app.js'
+s=p.read_text(encoding='utf8')
+if 'function sourceRef(' in s:raise SystemExit('Source UI already installed')
+s=s.replace('HSK 2.0','HSK 3.0').replace('HSK2.0','HSK3.0')
+s=s.replace("function demoBanner(){return meta.demo?", "function demoBanner(){if(meta.demo&&meta.source_content)return '<div class=\"demo\"><strong>AKUN UJI</strong> · Materi berasal dari sumber Anda · HSK 3.0 · Riwayat fixture lama tidak berlaku sebagai penentu level.</div>';return meta.demo?")
+s=s.replace("let track='hsk',level=user.placement_level||1;", "let track='hsk',level=user.placement_level||1;")
+s=s.replace("'HSK 3.0 level 1–6 dan kosakata yang dekat dengan pekerjaan.')", "'HSK 3.0 level 1–6 dan kosakata yang dekat dengan pekerjaan.','<a class=\"btn secondary\" href=\"#library\">Perpustakaan sumber →</a>')")
+s=s.replace("${meta.demo?'Materi DEMO berulang untuk menguji alur aplikasi. Belum merupakan kurikulum ECB yang disahkan.':'Paket tanpa materi published akan menampilkan status menunggu review. Materi HSK 3.0 tidak otomatis menjadi HSK 3.0.'}", "${meta.source_content?'Materi diambil dari workbook dan dokumen Anda, lengkap dengan asal file/baris. Level mengikuti workbook HSK 3.0. Evaluasi ini internal, bukan sertifikasi HSK.':meta.demo?'Fixture hanya untuk pengujian perangkat lunak.':'Materi published belum tersedia.'}")
+s=s.replace("${p.word_count} kosakata ${meta.demo?'DEMO':''}", "${p.word_count} kosakata ${meta.source_content?'dari sumber':meta.demo?'DEMO':''} · ${p.lesson_count||0} materi")
+s=s.replace("${meta.demo?'<div class=\"notice mt\">Kosakata DEMO untuk pengujian. Pemetaan level dan materi resmi masih menunggu review.</div>':''}", "${meta.source_content?'<div class=\"notice mt\">Materi sumber HSK 3.0 dan kosakata kerja. Buka asal materi pada setiap kartu. Soal menggunakan kosakata, konteks, dan grammar sesuai level sumber.</div>':meta.demo?'<div class=\"notice mt\">Fixture khusus pengujian.</div>':''}")
+s=s.replace("${p.words.length?`<div class=\"learning-bar\">", "${(p.words.length||p.lessons?.length)?`<div class=\"learning-bar\">")
+s=s.replace('<div class="meaning">${esc(w.meaning)}</div></article>', '<div class="meaning">${esc(w.meaning)}</div>${meta.source_content?sourceRef(w.source_ref):\'\'}${meta.source_content&&w.examples?wordExamples(w.examples):\'\'}</article>')
+s=s.replace('</div><p class="weekly-note">Waktu divalidasi server:', '</div>${(p.lessons||[]).length?\'<section class="mt"><h2>Grammar, contoh & bacaan sumber</h2>\'+p.lessons.map(lessonHTML).join(\'\')+\'</section>\':\'\'}<p class="weekly-note">Waktu divalidasi server:')
+s=s.replace("${meta.demo?'DEMO · ':''}Satu jawaban benar per soal", "${q.assessment?.content_mode==='source'?'HSK 3.0 · materi sumber · ':meta.demo?'DEMO · ':''}Satu jawaban benar per soal")
+s=s.replace('<p>${esc(r.explanation)}</p></article>', '<p>${esc(r.explanation)}</p>${sourceRef(r.source_ref)}</article>')
+s=s.replace("else if(page==='profile')await profile();", "else if(page==='profile')await profile();else if(page==='library')await libraryPage();else if(page==='source')await sourcePage(arg);")
+s=s.replace("'examination','exam','ranking','profile']", "'examination','exam','ranking','profile','library','source']")
+# Add historical fixture notice before score display, retaining all old results as audit history.
+s=s.replace('<section class="panel mb"><div class="grid2"><div><div class="eyebrow">NILAI ANDA', '${q.status===\'void\'?\'<div class="notice error">Arsip hasil lama/fixture. Nilai ini tidak digunakan untuk placement atau ranking HSK 3.0. Mulai placement baru dari Dashboard.</div>\':\'\'}<section class="panel mb"><div class="grid2"><div><div class="eyebrow">NILAI ANDA')
+p.write_text(s,encoding='utf8')
+print('Source UI integrated.')

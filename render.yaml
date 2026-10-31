@@ -1,0 +1,42 @@
+# The service name is neutral. Verify the actual assigned origin before publication.
+services:
+  - type: web
+    name: ecb-mandarin
+    runtime: docker
+    region: singapore
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    preDeployCommand: node scripts/prepare-production.mjs
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "false"
+      - key: CONTENT_MODE
+        value: source
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: "10000"
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: PG_SSL
+        value: verify
+      - key: DATABASE_SCHEMA
+        value: ecb_mandarin
+      - key: APP_ORIGIN
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: LEADER_EMAIL
+        sync: false
+      - key: LEADER_PASSWORD
+        sync: false
