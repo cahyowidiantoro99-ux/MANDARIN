@@ -191,4 +191,7 @@ CREATE POLICY published_package_links ON package_vocabulary FOR SELECT TO authen
 GRANT SELECT ON package_vocabulary TO authenticated;
 -- profiles, questions, options, exam snapshots, answers, reset/session/rate tables have no write grants.
 -- Exam snapshots contain correct answers and are NEVER readable through PostgREST.
+CREATE TABLE IF NOT EXISTS vocabulary_progress (user_id UUID NOT NULL REFERENCES profiles(id), vocabulary_id UUID NOT NULL REFERENCES vocabulary(id), status TEXT NOT NULL CHECK(status IN ('known','review','unknown')), updated_at BIGINT NOT NULL, PRIMARY KEY(user_id,vocabulary_id));
+ALTER TABLE vocabulary_progress ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON vocabulary_progress FROM anon,authenticated;
 COMMIT;

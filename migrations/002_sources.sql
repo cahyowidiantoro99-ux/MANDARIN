@@ -8,3 +8,4 @@ CREATE TABLE IF NOT EXISTS exam_session_metadata (session_id TEXT PRIMARY KEY RE
 CREATE TABLE IF NOT EXISTS profile_curriculum (user_id TEXT PRIMARY KEY REFERENCES profiles(id), curriculum TEXT NOT NULL, migrated_at BIGINT NOT NULL);
 CREATE TABLE IF NOT EXISTS exam_exposure_order (session_id TEXT PRIMARY KEY REFERENCES exam_sessions(id), ordinal BIGINT NOT NULL UNIQUE);
 CREATE TABLE IF NOT EXISTS learning_session_metadata (session_id TEXT PRIMARY KEY REFERENCES learning_sessions(id), content_mode TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS vocabulary_progress (user_id TEXT NOT NULL REFERENCES profiles(id), vocabulary_id TEXT NOT NULL REFERENCES vocabulary(id), status TEXT NOT NULL CHECK(status IN ('known','review','unknown')), updated_at BIGINT NOT NULL, PRIMARY KEY(user_id,vocabulary_id));

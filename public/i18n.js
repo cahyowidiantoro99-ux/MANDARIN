@@ -36,7 +36,20 @@ Object.assign(zh,{
  'Assessment resmi dalam periode':'本统计周期内的正式测评','Buka paket':'打开学习单元','Level HSK':'HSK等级','Tampilkan':'显示','Pelajari kembali':'重新学习','Menunggu konten yang disetujui':'等待已审核通过的学习内容','Materi diambil dari workbook dan dokumen Anda, lengkap dengan asal file/baris. Level mengikuti workbook HSK 3.0. Evaluasi ini internal, bukan sertifikasi HSK.':'资料提取自原始工作簿与文档，并保留文件及行号出处。等级以HSK 3.0源工作簿为准。此评估用于公司内部学习管理，不等同于官方HSK认证。','Materi published belum tersedia.':'暂无已发布的学习资料。','Akses khusus Leader.':'仅限管理账号访问。','Akun Leader hanya dapat membaca data.':'管理账号仅可查看数据。','Diagnostic sudah diselesaikan.':'岗位词汇诊断测评已完成。','Jawaban sudah dikunci.':'答案已锁定。','Selesaikan ujian yang sedang aktif terlebih dahulu.':'请先完成当前进行中的测评。','Sesi belajar sudah ditutup.':'本次学习会话已结束。','Sesi tidak valid.':'会话无效，请重试。','Paket tidak ditemukan.':'未找到该学习单元。','Ujian masih berlangsung.':'测评尚在进行中。','Ujian tidak ditemukan.':'未找到该测评。','Sumber tidak ditemukan.':'未找到该源资料。','Token pemulihan tidak valid.':'账号恢复凭证无效或已过期。','Placement sudah selesai.':'分级测评已完成。','Placement sudah ditetapkan. Hubungi IT untuk evaluasi ulang.':'分级测评等级已确定。如需重新评估，请联系IT人员。','Jenis ujian tidak valid.':'测评类型无效。','Jalur ujian tidak sesuai.':'测评类别不匹配。','Preferensi tidak valid.':'偏好设置无效。','Perlu file pengganti':'需要替换文件','SELESAI':'已完成','Fixture khusus pengujian.':'仅用于软件测试的示例资料。','Fixture hanya untuk pengujian perangkat lunak.':'仅用于软件测试的示例资料。','File belum dapat dibaca.':'文件暂无法读取。','Materi departemen tidak diganti dengan kosakata karangan.':'部门资料将保留原始来源要求，不使用未经依据的词汇替代。','Buka soal':'打开题目','Tren nilai assessment resmi':'正式测评成绩趋势'
 });
 Object.assign(id,{'WORK':'KOSAKATA KERJA','Work':'Kosakata Kerja','IMPROVEMENT':'PENINGKATAN','COMPLETION':'PENYELESAIAN','OVERALL':'KESELURUHAN','EMPLOYEE PROGRESS':'PERKEMBANGAN KARYAWAN','COMPANY LEARNING INTELLIGENCE':'INFORMASI PEMBELAJARAN PERUSAHAAN','SOURCE LIBRARY':'PERPUSTAKAAN SUMBER'});
+Object.assign(zh,{
+ 'Edit profil':'编辑资料','Batal':'取消','Kelola informasi pribadi dan data pekerjaan Anda.':'管理您的个人及岗位信息。','Nomor ID untuk login dikelola oleh IT.':'登录所用的员工编号由IT人员管理。','Perubahan departemen berlaku pada materi berikutnya.':'部门变更将适用于后续学习资料。','Status hafalan':'词汇掌握状态','Hafal':'已掌握','Ragu-ragu':'有待巩固','Belum hafal':'尚未掌握','Belum ditandai':'尚未标记','Progres pembelajaran':'学习进度','Penguasaan kosakata':'词汇掌握度','Semua kosakata hafal':'词汇已全部掌握','Sudah dipelajari':'已学习','Sedang dipelajari':'学习中','Belum dipelajari':'尚未学习','Sesi belajar selesai':'学习会话已完成','Progres ujian mingguan':'每周测评进度','Belum dikerjakan':'未开始','Sedang dikerjakan':'进行中','Belum lulus':'未通过','Latihan lagi':'再次练习','Progres jawaban':'答题进度','Latihan dan hasil kelulusan ditandai terpisah dari penyelesaian ujian wajib.':'练习记录与通过情况将单独标记，不与必修测评完成进度混淆。','Status hafalan tidak valid.':'词汇掌握状态无效。','Kosakata tidak ditemukan.':'未找到该词汇。','Field status tidak valid.':'状态字段无效。','Pelajari kosakata dan materi HSK 3.0 sesuai level Anda. Evaluasi ini internal, bukan sertifikasi HSK.':'请根据您的等级学习词汇及HSK 3.0课程。本测评用于公司内部学习管理，不等同于官方HSK认证。','Materi sumber HSK 3.0 dan kosakata kerja. Soal menggunakan kosakata, konteks, dan grammar sesuai level sumber.':'本课程使用HSK 3.0及岗位词汇资料。试题的词汇、语境与语法均依据资料等级设置。'
+});
 const patterns = [
+ [/^(\d+) (Hafal|Ragu-ragu|Belum hafal)$/,m=>`${m[1]}条${zh[m[2]]}`],
+ [/^(\d+) \/ (\d+) kosakata sudah dipelajari$/,m=>`已学习${m[1]} / ${m[2]}条词汇`],
+ [/^(\d+) \/ (\d+) kosakata dipelajari$/,m=>`已学习${m[1]} / ${m[2]}条词汇`],
+ [/^(\d+)% hafal$/,m=>`掌握率${m[1]}%`],
+ [/^Penguasaan kosakata: (\d+)%$/,m=>`词汇掌握度：${m[1]}%`],
+ [/^(\d+) kosakata hafal$/,m=>`已掌握${m[1]}条词汇`],
+ [/^(\d+) \/ (\d+) paket selesai$/,m=>`已完成${m[1]} / ${m[2]}个学习单元`],
+ [/^(\d+) \/ 2 ujian selesai$/,m=>`已完成${m[1]} / 2项测评`],
+ [/^(\d+) \/ 2 ujian lulus$/,m=>`已通过${m[1]} / 2项测评`],
+ [/^Nilai: (.+)$/,m=>`成绩：${translateText(m[1],'zh')}`],
  [/^HSK 3\.0 \/ LEVEL (\d+)(?: ✓ SELESAI)?$/,m=>`HSK 3.0 / ${m[1]}级${m[0].includes('SELESAI')?' · 已完成':''}`],
  [/^(\d+) kosakata(?: (dari sumber|DEMO))? · (\d+) materi$/,m=>`${m[1]}条词汇${m[2]==='dari sumber'?'（源资料）':''} · ${m[3]}项学习资料`],
  [/^Placement: (.+) · Baseline HSK: (.+) · Baseline Work: (.+)\.$/,m=>`分级测评：${m[1]==='Belum selesai'?'未完成':m[1]} · HSK基线成绩：${m[2]} · 岗位词汇基线成绩：${m[3]}。`],

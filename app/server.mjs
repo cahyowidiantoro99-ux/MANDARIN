@@ -28,6 +28,7 @@ export async function createApp(options={}){
    if(path==='/api/me'&&method==='GET')return reply(res,200,{user:publicProfile(user,true),csrf:user.csrf,demo});
    if(path==='/api/logout'&&method==='POST'){await auth.logout(raw);return reply(res,200,{ok:true},{'Set-Cookie':'ecb_session=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});}
    if(path==='/api/dashboard'&&method==='GET')return reply(res,200,await service.dashboard(user));
+   const vocabularyMatch=path.match(/^\/api\/vocabulary\/([a-f0-9-]{36})\/progress$/);if(vocabularyMatch&&method==='PUT'){assert(Object.keys(body).every(k=>k==='status'),400,'Field status tidak valid.');return reply(res,200,await service.vocabularyProgress(user,vocabularyMatch[1],body.status));}
    if(path==='/api/profile'&&method==='PATCH')return reply(res,200,await service.updateProfile(user,body));
    if(path==='/api/packages'&&method==='GET')return reply(res,200,await service.packages(user));
    if(path==='/api/content-status'&&method==='GET')return reply(res,200,await service.contentStatus(user));
