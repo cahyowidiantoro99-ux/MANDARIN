@@ -15,7 +15,7 @@ export function selectQuestions(rows,count,{used=[],excluded=new Set(),mode='ran
  if(!['grammar','translation'].includes(mode)){
   // Grammar + contextual comprehension prevent a high level from becoming a basic pinyin-only quiz.
   const plan=track==='hsk'
-   ? ['placement','weekly'].includes(mode)?{grammar:Math.floor(count*.2),context:Math.floor(count*.4),translation:count-Math.floor(count*.2)-Math.floor(count*.4)}
+   ? ['placement','levelup','weekly'].includes(mode)?{grammar:Math.floor(count*.2),context:Math.floor(count*.4),translation:count-Math.floor(count*.2)-Math.floor(count*.4)}
      : {grammar:Math.floor(count*.2),context:Math.floor(count*.35),pinyin:Math.floor(count*.1),translation:count-Math.floor(count*.2)-Math.floor(count*.35)-Math.floor(count*.1)}
    : {grammar:Math.floor(count*.2),context:Math.floor(count*.3),translation:Math.floor(count*.4),pinyin:Math.floor(count*.1)};
   for(const[kind,n]of Object.entries(plan))take(q=>q.kind===kind,n);
