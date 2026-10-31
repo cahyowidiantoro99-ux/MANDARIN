@@ -197,4 +197,20 @@ REVOKE ALL ON vocabulary_progress FROM anon,authenticated;
 CREATE TABLE IF NOT EXISTS official_exam_state (session_id UUID PRIMARY KEY REFERENCES exam_sessions(id), paper_id TEXT NOT NULL, answers_json TEXT NOT NULL, grading_status TEXT NOT NULL, scores_json TEXT, grading_started BIGINT);
 ALTER TABLE official_exam_state ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON official_exam_state FROM anon,authenticated;
+-- Learning Center Phase 1: backend-only; no Data API grants.
+
+CREATE TABLE IF NOT EXISTS lc_review_state(user_id UUID NOT NULL REFERENCES profiles(id),vocabulary_id UUID NOT NULL REFERENCES vocabulary(id),due_at BIGINT NOT NULL,interval_seconds INTEGER NOT NULL,repetitions INTEGER NOT NULL DEFAULT 0,recall_successes INTEGER NOT NULL DEFAULT 0,last_correct INTEGER NOT NULL DEFAULT 0,reviewed_at BIGINT NOT NULL,PRIMARY KEY(user_id,vocabulary_id));
+CREATE TABLE IF NOT EXISTS lc_reviews(id TEXT PRIMARY KEY,user_id UUID NOT NULL REFERENCES profiles(id),vocabulary_id UUID NOT NULL REFERENCES vocabulary(id),status TEXT NOT NULL,correct INTEGER,created_at BIGINT NOT NULL);
+CREATE TABLE IF NOT EXISTS lc_challenges(id TEXT PRIMARY KEY,user_id UUID NOT NULL REFERENCES profiles(id),kind TEXT NOT NULL,target_id TEXT NOT NULL,payload TEXT NOT NULL,answers TEXT NOT NULL,created_at BIGINT NOT NULL,revealed_at BIGINT,submitted INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE IF NOT EXISTS lc_xp(user_id UUID NOT NULL REFERENCES profiles(id),day TEXT NOT NULL,activity TEXT NOT NULL,target_id TEXT NOT NULL,amount INTEGER NOT NULL CHECK(amount>0 AND amount<=15),created_at BIGINT NOT NULL,PRIMARY KEY(user_id,day,activity,target_id));
+CREATE TABLE IF NOT EXISTS lc_practice(id TEXT PRIMARY KEY,user_id UUID NOT NULL REFERENCES profiles(id),target_id TEXT NOT NULL,score INTEGER NOT NULL,passed INTEGER NOT NULL,created_at BIGINT NOT NULL);
+CREATE INDEX IF NOT EXISTS lc_due_user ON lc_review_state(user_id,due_at);
+CREATE INDEX IF NOT EXISTS lc_reviews_user ON lc_reviews(user_id,created_at);
+CREATE INDEX IF NOT EXISTS lc_challenge_user ON lc_challenges(user_id,created_at);
+CREATE INDEX IF NOT EXISTS lc_practice_user ON lc_practice(user_id,created_at);
+ALTER TABLE lc_review_state ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_review_state FROM anon,authenticated;
+ALTER TABLE lc_reviews ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_reviews FROM anon,authenticated;
+ALTER TABLE lc_challenges ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_challenges FROM anon,authenticated;
+ALTER TABLE lc_xp ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_xp FROM anon,authenticated;
+ALTER TABLE lc_practice ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_practice FROM anon,authenticated;
 COMMIT;

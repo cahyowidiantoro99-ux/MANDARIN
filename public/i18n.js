@@ -1,5 +1,6 @@
 // Curated interface translations. Learning content and answers retain their source text.
 const zh = {
+ 'Pusat Pembelajaran':'学习中心',
  'Overview':'总览','Employees':'员工','Results':'测评结果','Dashboard':'学习概览','Learning':'学习中心','Examination':'测评中心','Ranking':'排行榜','Profile':'个人资料',
  'LEADER PORTAL':'管理端','EMPLOYEE PORTAL':'员工端','Leader Portal':'管理端','Employee Portal':'员工端','Leader Portal /':'管理端 /','Employee Portal /':'员工端 /',
  'LANGUAGE PERFORMANCE':'语言学习与评估','ECB Language Performance System':'ECB语言学习与评估系统','PT ECB / LANGUAGE PERFORMANCE SYSTEM':'PT ECB / 语言学习与评估系统',

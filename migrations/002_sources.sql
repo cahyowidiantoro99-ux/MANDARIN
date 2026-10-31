@@ -11,3 +11,15 @@ CREATE TABLE IF NOT EXISTS learning_session_metadata (session_id TEXT PRIMARY KE
 CREATE TABLE IF NOT EXISTS vocabulary_progress (user_id TEXT NOT NULL REFERENCES profiles(id), vocabulary_id TEXT NOT NULL REFERENCES vocabulary(id), status TEXT NOT NULL CHECK(status IN ('known','review','unknown')), updated_at BIGINT NOT NULL, PRIMARY KEY(user_id,vocabulary_id));
 
 CREATE TABLE IF NOT EXISTS official_exam_state (session_id TEXT PRIMARY KEY REFERENCES exam_sessions(id), paper_id TEXT NOT NULL, answers_json TEXT NOT NULL, grading_status TEXT NOT NULL, scores_json TEXT, grading_started BIGINT);
+
+-- Learning Center Phase 1: additive, preserves all existing progress.
+
+CREATE TABLE IF NOT EXISTS lc_review_state(user_id TEXT NOT NULL REFERENCES profiles(id),vocabulary_id TEXT NOT NULL REFERENCES vocabulary(id),due_at BIGINT NOT NULL,interval_seconds INTEGER NOT NULL,repetitions INTEGER NOT NULL DEFAULT 0,recall_successes INTEGER NOT NULL DEFAULT 0,last_correct INTEGER NOT NULL DEFAULT 0,reviewed_at BIGINT NOT NULL,PRIMARY KEY(user_id,vocabulary_id));
+CREATE TABLE IF NOT EXISTS lc_reviews(id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES profiles(id),vocabulary_id TEXT NOT NULL REFERENCES vocabulary(id),status TEXT NOT NULL,correct INTEGER,created_at BIGINT NOT NULL);
+CREATE TABLE IF NOT EXISTS lc_challenges(id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES profiles(id),kind TEXT NOT NULL,target_id TEXT NOT NULL,payload TEXT NOT NULL,answers TEXT NOT NULL,created_at BIGINT NOT NULL,revealed_at BIGINT,submitted INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE IF NOT EXISTS lc_xp(user_id TEXT NOT NULL REFERENCES profiles(id),day TEXT NOT NULL,activity TEXT NOT NULL,target_id TEXT NOT NULL,amount INTEGER NOT NULL CHECK(amount>0 AND amount<=15),created_at BIGINT NOT NULL,PRIMARY KEY(user_id,day,activity,target_id));
+CREATE TABLE IF NOT EXISTS lc_practice(id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES profiles(id),target_id TEXT NOT NULL,score INTEGER NOT NULL,passed INTEGER NOT NULL,created_at BIGINT NOT NULL);
+CREATE INDEX IF NOT EXISTS lc_due_user ON lc_review_state(user_id,due_at);
+CREATE INDEX IF NOT EXISTS lc_reviews_user ON lc_reviews(user_id,created_at);
+CREATE INDEX IF NOT EXISTS lc_challenge_user ON lc_challenges(user_id,created_at);
+CREATE INDEX IF NOT EXISTS lc_practice_user ON lc_practice(user_id,created_at);
