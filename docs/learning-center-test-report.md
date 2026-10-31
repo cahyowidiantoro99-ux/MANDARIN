@@ -32,3 +32,6 @@ The pre-deploy Supabase advisor reported existing informational notices for inte
 ## Deployment
 
 Production deployment and read-only verification are recorded in `DEPLOYMENT_STATUS.md`. A successful local test is not, by itself, a claim that the production rollout completed.
+
+Production verification: Render dep-dbj2dmdh3lcs7384ok1g is LIVE at commit 4dd5146017731e23da625fd33b83557c5af8bf7e. Health and new JS asset HTTP200; private summary without a session HTTP401. Employee browser session loaded the Learning Center and all nine work themes with the department filter. Five new tables are owned by ecb_mandarin_app, RLS enabled, anon/authenticated SELECT denied. Existing counts before/after are unchanged: 8 profiles, 7,492 vocabulary, 9 vocabulary_progress, 36 exam_results. New review/XP tables remained empty during read-only cloud checks. No live employee learning attempt was submitted for testing.
+- Live grammar search for 于 returned the matching source patterns 于 and 至于; Show more expanded the visible list from six to twelve. These UI checks were read-only.
