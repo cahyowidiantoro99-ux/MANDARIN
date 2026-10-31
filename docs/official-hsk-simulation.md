@@ -32,3 +32,7 @@ Learning uses senior style (rate .72, pitch .88), preferring Microsoft Kangkang.
 - https://www.chinesetest.cn/HSK/1?lang=en
 - https://www.chinesetest.cn/HSK/6
 - Original PDF covers, question pages, answer keys, and matching MP3s identified by manifest SHA-256.
+
+## Gemini free-tier configuration
+
+Set AI_GRADING_PROVIDER=gemini, GEMINI_GRADING_MODEL=gemini-3.8-flash and GEMINI_API_KEY in Render secrets. The key is sent only in the x-goog-api-key header to Google's fixed Generative Language endpoint. Original writing tasks and submitted answers are sent without profile identity. Free-tier content handling follows Google's terms. No OpenAI fallback occurs when Gemini is selected. Quota exhaustion or incomplete output leaves the result pending and preserves answers; the user can retry later. No billing upgrade is required or enabled by this configuration. AI scores remain internal estimates.

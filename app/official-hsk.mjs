@@ -1,11 +1,12 @@
+import {writingProviderReady,writingProvider} from './writing-provider.mjs';
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {id,assert,periodBounds} from './domain.mjs';
 export const officialPapers=JSON.parse(readFileSync(resolve('data/official-hsk/manifest.json'),'utf8'));
 const paperFor=id=>{const p=officialPapers.find(p=>p.id===id);assert(p,404,'Paket HSK tidak ditemukan.');return p;};
-export const aiGradingReady=()=>Boolean(process.env.OPENAI_API_KEY&&process.env.OPENAI_GRADING_MODEL);
+export const aiGradingReady=writingProviderReady;
 export function officialPhase(paper,started,now){let end=Number(started);for(const phase of paper.phases){const start=end;end+=phase.seconds||phase.minutes*60;if(now<end)return {...phase,start,end};}return null;}
-export function officialCatalog(){return officialPapers.map(({id,level,counts,total,minutes,total_seconds,max_score,phases})=>({id,level,counts,total,minutes,total_seconds,max_score,phases:phases.map(({id,minutes})=>({id,minutes})),ai_ready:aiGradingReady()}));}
+export function officialCatalog(){return officialPapers.map(({id,level,counts,total,minutes,total_seconds,max_score,phases})=>({id,level,counts,total,minutes,total_seconds,max_score,phases:phases.map(({id,minutes})=>({id,minutes})),ai_ready:aiGradingReady(),ai_provider:writingProvider().provider}));}
 export async function officialState(t,sid){return t.get('SELECT * FROM official_exam_state WHERE session_id=?',[sid]);}
 export async function officialView(service,t,s,state){state||=await officialState(t,s.id);const p=paperFor(state.paper_id),phase=s.status==='active'?officialPhase(p,s.started_at,service.clock()):null;const scores=state.scores_json?JSON.parse(state.scores_json):null,result=await t.get('SELECT score,passed FROM exam_results WHERE session_id=?',[s.id]);let continuation=null;if(result?.passed&&Number(s.level)<6){const profile=await t.get('SELECT placement_level FROM profiles WHERE id=?',[s.user_id]),later=await t.get("SELECT id FROM exam_sessions WHERE user_id=? AND mode='levelup' AND status IN ('active','submitted') AND level>? LIMIT 1",[s.user_id,s.level]);if(Number(profile.placement_level)===Number(s.level)&&!later)continuation={mode:'levelup',level:Number(s.level)+1};}return {...s,continuation,format:'official_archive',paper:{id:p.id,level:p.level,total:p.total,counts:p.counts,minutes:p.minutes,total_seconds:p.total_seconds,max_score:p.max_score,phases:p.phases.map(({id,minutes})=>({id,minutes}))},phase,server_now:service.clock(),items:p.items.filter(i=>!phase||i.section===phase.section).map(({key,reference,...i})=>i),answers:JSON.parse(state.answers_json),grading_status:state.grading_status,grading_attempted:Boolean(state.grading_started),ai_ready:aiGradingReady(),scores,result:result?{...result,passed:!!result.passed}:null};}
 export async function startOfficial(service,u,input={}){service.employee(u);return service.db.tx(async t=>{
