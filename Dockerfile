@@ -25,4 +25,4 @@ COPY --chown=node:node ["MATERI HSK LENGKAP", "./MATERI HSK LENGKAP/"]
 COPY --chown=node:node ["SOAL HSK LENGKAP", "./SOAL HSK LENGKAP/"]
 USER node
 EXPOSE 10000
-CMD ["node", "app/server.mjs"]
+CMD ["node", "scripts/start-production.mjs"]

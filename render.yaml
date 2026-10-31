@@ -4,11 +4,10 @@ services:
     name: ecb-mandarin
     runtime: docker
     region: singapore
-    plan: starter
+    plan: free
     dockerfilePath: ./Dockerfile
     dockerContext: .
     healthCheckPath: /api/health
-    preDeployCommand: node scripts/prepare-production.mjs
     envVars:
       - key: NODE_ENV
         value: production
