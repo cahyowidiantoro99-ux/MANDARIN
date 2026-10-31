@@ -44,6 +44,7 @@ Object.assign(zh,{
 });
 Object.assign(zh,{'SELAMAT DATANG DI':'欢迎使用','LANGUAGE PERFORMANCE SYSTEM':'语言学习与评估系统','Ilustrasi pembelajaran Mandarin bersama asisten digital':'与数字学习助手共同学习中文的插图'});
 Object.assign(zh,{'ECB LANGUAGE PERFORMANCE SYSTEM':'ECB语言学习与评估系统','Tutup navigasi':'关闭导航'});
+Object.assign(zh,{'Level Mandarin (HSK) menurut Anda':'您自评的中文水平（HSK）','Suara':'语音','Gaya suara':'声音风格','Anak-anak':'儿童','Dewasa':'成人','Lansia':'长者','Suara Mandarin':'普通话语音','Hentikan suara':'停止播放','Dengarkan':'播放','Dengarkan pelafalan':'播放发音','Memuat suara Mandarin…':'正在加载普通话语音…','Siap mendengarkan':'可播放','Memutar suara…':'正在播放…','Suara Mandarin belum tersedia':'暂无普通话语音','Aktifkan suara Mandarin di pengaturan bahasa perangkat.':'请在设备的语言设置中启用普通话语音。','Suara sintetis perangkat. Gaya usia mengatur tempo dan nada.':'使用设备合成语音。年龄风格仅调整语速与音高。','Suara tidak dapat diputar. Coba suara Mandarin lain.':'语音播放失败，请尝试其他普通话语音。'});
 const patterns = [
  [/^Level belajar Anda: (.+)$/,m=>'您的学习等级：'+m[1]],
  [/^Mulai ujian HSK (\d+) →$/,m=>'开始HSK '+m[1]+'级考试 →'],
