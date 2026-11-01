@@ -1,9 +1,10 @@
+import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {openDatabase} from '../app/db.mjs';
 import {seed} from '../scripts/seed.mjs';
 import {Service} from '../app/service.mjs';
-import {readingSegments} from '../app/question-reading.mjs';
+import {readingSegments,addQuestionReading} from '../app/question-reading.mjs';
 test('Vocabulary choices persist, remain private and calculate reviewed versus mastered progress',async()=>{
  const db=await openDatabase({file:':memory:',url:null});try{await db.migrate();await seed(db,{demo:true});const s=new Service(db,{demo:true}),u=await db.get("SELECT * FROM profiles WHERE employee_id='DEMO002'"),other=await db.get("SELECT * FROM profiles WHERE employee_id='DEMO003'"),leader=await db.get("SELECT * FROM profiles WHERE role='leader'");const p=(await s.packages(u)).find(p=>p.word_count===10),words=(await s.package(u,p.id)).words;
  for(const [i,status] of ['known','review','unknown'].entries())await s.vocabularyProgress(u,words[i].id,status);
@@ -13,3 +14,5 @@ test('Vocabulary choices persist, remain private and calculate reviewed versus m
  }finally{await db.close();}
 });
 test('Pinyin uses phrase context and preserves original question text',()=>{const parts=readingSegments('银行，行走。');assert.equal(parts.map(x=>x.text).join(''),'银行，行走。');assert.equal(parts[0].pinyin,'yín háng');assert.equal(parts[2].pinyin,'xíng zǒu');assert.equal(readingSegments('Pertanyaan Indonesia'),null);});
+
+test('Pinyin assessment never annotates its prompt or Hanzi options with an answer hint',()=>{const corpus=JSON.parse(readFileSync('data/source-release.json')).questions.filter(q=>q.kind==='pinyin'||/pinyin|拼音|读音/i.test(q.prompt));assert(corpus.length>7000);for(const q of corpus){const r=addQuestionReading(q);assert.equal(r.prompt_reading,null);assert(r.options.every(o=>o.reading===null));}for(const q of [{kind:'pinyin',prompt:'Pilih bacaan 压力计'},{kind:'translation',prompt:'Pilih Pinyin yang tepat untuk 压力计'},{kind:'context',prompt:'选择正确的拼音：银行'}]){const r=addQuestionReading({...q,options:[{id:'x',label:'银行'}]});assert.equal(r.prompt_reading,null);assert.equal(r.options[0].reading,null);}assert(addQuestionReading({kind:'context',prompt:'Arti 银行',options:[]}).prompt_reading);});

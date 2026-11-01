@@ -1,9 +1,22 @@
-let current=null,currentButton=null;
+let current=null,currentButton=null,startTimer=null;
 const engine=()=>globalThis.speechSynthesis;
 const voices=()=>engine()?.getVoices().filter(v=>/^(zh|cmn)(-|_|$)/i.test(v.lang)&&!/^zh[-_]HK/i.test(v.lang))||[];
-export function stopSpeech(){current=null;currentButton=null;engine()?.cancel();document.querySelectorAll('[data-speak]').forEach(b=>b.setAttribute('aria-pressed','false'));}
-export function speechSettings(){return '<span id="speech-status" class="sr-only" role="status">长者 · Microsoft Kangkang</span>';}
-export function wireSpeech(root,{notify=()=>{}}={}){
- const status=root.querySelector('#speech-status');const report=text=>{if(status)status.textContent=text;notify(text);};
- const click=e=>{const button=e.target.closest('[data-speak]');if(!button||!root.contains(button))return;const wasCurrent=button===currentButton;stopSpeech();if(wasCurrent)return;const list=voices(),preferred=list.find(v=>/Microsoft.*Kangkang|Kangkang/i.test(v.name)),voice=preferred||list.find(v=>/^zh[-_]CN$/i.test(v.lang))||list[0];if(!voice||!globalThis.SpeechSynthesisUtterance){report('Aktifkan suara Mandarin di pengaturan bahasa perangkat.');return;}const text=decodeURIComponent(button.dataset.speak),utterance=new SpeechSynthesisUtterance(text);utterance.voice=voice;utterance.lang=voice.lang;utterance.rate=.72;utterance.pitch=.88;current=utterance;currentButton=button;button.setAttribute('aria-pressed','true');if(preferred){if(status)status.textContent='长者 · Microsoft Kangkang';}else report('Microsoft Kangkang tidak tersedia di perangkat ini; memakai suara Mandarin yang tersedia.');utterance.onend=()=>{if(current===utterance)stopSpeech();};utterance.onerror=()=>{if(current===utterance){stopSpeech();report('Suara tidak dapat diputar. Periksa suara Mandarin perangkat.');}};engine().speak(utterance);};root.addEventListener('click',click);return()=>{stopSpeech();root.removeEventListener('click',click);};
+export const speechAvailable=()=>!!(globalThis.SpeechSynthesisUtterance&&voices().length);
+export function stopSpeech(){clearTimeout(startTimer);current=null;currentButton=null;engine()?.cancel();document.querySelectorAll('[data-speak]').forEach(b=>b.setAttribute('aria-pressed','false'));}
+export function speechSettings(){return '';}
+export function speakMandarin(text,{rate=1,start=()=>{},end=()=>{},error=()=>{}}={}){
+ const list=voices(),voice=list.find(v=>/Kangkang/i.test(v.name))||list.find(v=>v.localService&&/^zh[-_]CN$/i.test(v.lang))||list.find(v=>/^zh[-_]CN$/i.test(v.lang))||list[0];
+ if(!voice||!globalThis.SpeechSynthesisUtterance){error();return false;}
+ const u=new SpeechSynthesisUtterance(text);u.voice=voice;u.lang=voice.lang;u.rate=.72*rate;u.pitch=.88;current=u;
+ const fail=()=>{if(current!==u)return;stopSpeech();error();};
+ u.onstart=()=>{if(current!==u)return;clearTimeout(startTimer);start();};u.onend=()=>{if(current!==u)return;stopSpeech();end();};u.onerror=fail;
+ // A failed device voice must not leave a queued or loading button indefinitely.
+ startTimer=setTimeout(fail,1500);try{engine().speak(u);}catch{fail();return false;}return true;
+}
+export function wireSpeech(root){
+ const sync=()=>root.querySelectorAll('[data-speak],[data-audio],[data-line],#lp-narrate,#lp-stop').forEach(b=>{b.hidden=!speechAvailable();});sync();
+ const synth=engine();synth?.addEventListener?.('voiceschanged',sync);const observer=new MutationObserver(sync);observer.observe(root,{childList:true,subtree:true});
+ const click=e=>{const button=e.target.closest('[data-speak]');if(!button||!root.contains(button))return;const wasCurrent=button===currentButton;stopSpeech();if(wasCurrent)return;
+ const ok=speakMandarin(decodeURIComponent(button.dataset.speak),{start:()=>button.setAttribute('aria-pressed','true'),error:()=>{button.hidden=true;}});if(ok)currentButton=button;};
+ root.addEventListener('click',click);return()=>{stopSpeech();observer.disconnect();synth?.removeEventListener?.('voiceschanged',sync);root.removeEventListener('click',click);};
 }
