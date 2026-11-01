@@ -23,3 +23,11 @@ CREATE INDEX IF NOT EXISTS lc_due_user ON lc_review_state(user_id,due_at);
 CREATE INDEX IF NOT EXISTS lc_reviews_user ON lc_reviews(user_id,created_at);
 CREATE INDEX IF NOT EXISTS lc_challenge_user ON lc_challenges(user_id,created_at);
 CREATE INDEX IF NOT EXISTS lc_practice_user ON lc_practice(user_id,created_at);
+
+-- Learning Center Phase 2: additive only.
+
+CREATE TABLE IF NOT EXISTS lc_activity_results(id TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES profiles(id),kind TEXT NOT NULL,target_id TEXT NOT NULL,score INTEGER NOT NULL CHECK(score>=0 AND score<=100),completed INTEGER NOT NULL,created_at BIGINT NOT NULL);
+CREATE TABLE IF NOT EXISTS lc_saved_words(user_id TEXT NOT NULL REFERENCES profiles(id),vocabulary_id TEXT NOT NULL REFERENCES vocabulary(id),created_at BIGINT NOT NULL,PRIMARY KEY(user_id,vocabulary_id));
+CREATE TABLE IF NOT EXISTS lc_preferences(user_id TEXT PRIMARY KEY REFERENCES profiles(id),work_days TEXT NOT NULL,rest_dates TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS lc_badges(user_id TEXT NOT NULL REFERENCES profiles(id),code TEXT NOT NULL,earned_at BIGINT NOT NULL,PRIMARY KEY(user_id,code));
+CREATE INDEX IF NOT EXISTS lc_activity_user ON lc_activity_results(user_id,created_at);

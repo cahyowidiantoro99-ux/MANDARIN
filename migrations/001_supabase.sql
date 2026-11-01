@@ -213,4 +213,15 @@ ALTER TABLE lc_reviews ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_reviews FROM 
 ALTER TABLE lc_challenges ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_challenges FROM anon,authenticated;
 ALTER TABLE lc_xp ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_xp FROM anon,authenticated;
 ALTER TABLE lc_practice ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_practice FROM anon,authenticated;
+-- Learning Center Phase 2
+
+CREATE TABLE IF NOT EXISTS lc_activity_results(id TEXT PRIMARY KEY,user_id UUID NOT NULL REFERENCES profiles(id),kind TEXT NOT NULL,target_id TEXT NOT NULL,score INTEGER NOT NULL CHECK(score>=0 AND score<=100),completed INTEGER NOT NULL,created_at BIGINT NOT NULL);
+CREATE TABLE IF NOT EXISTS lc_saved_words(user_id UUID NOT NULL REFERENCES profiles(id),vocabulary_id UUID NOT NULL REFERENCES vocabulary(id),created_at BIGINT NOT NULL,PRIMARY KEY(user_id,vocabulary_id));
+CREATE TABLE IF NOT EXISTS lc_preferences(user_id UUID PRIMARY KEY REFERENCES profiles(id),work_days TEXT NOT NULL,rest_dates TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS lc_badges(user_id UUID NOT NULL REFERENCES profiles(id),code TEXT NOT NULL,earned_at BIGINT NOT NULL,PRIMARY KEY(user_id,code));
+CREATE INDEX IF NOT EXISTS lc_activity_user ON lc_activity_results(user_id,created_at);
+ALTER TABLE lc_activity_results ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_activity_results FROM anon,authenticated;
+ALTER TABLE lc_saved_words ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_saved_words FROM anon,authenticated;
+ALTER TABLE lc_preferences ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_preferences FROM anon,authenticated;
+ALTER TABLE lc_badges ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_badges FROM anon,authenticated;
 COMMIT;
