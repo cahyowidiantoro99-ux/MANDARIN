@@ -22,3 +22,10 @@ Database/tests: `migrations/001_supabase.sql`, `migrations/002_sources.sql`, `te
 Documentation: this report, `docs/learning-center-phase2.md`, and two content CSV templates. Final deployment/data-preservation checks are in local `DEPLOYMENT_STATUS.md`.
 - Final production build/security lint passed: 68 JavaScript files. Template CSV validation passed: 15 story-sentence rows/10 columns, 5 comparison rows/19 columns. git diff --check passed.
 - Browser media behavior follows the documented APIs: https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder and https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia. Optional recognition support/privacy limits: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition.
+
+## Production rollout
+
+Render deploy dep-dbj85fetlv9c73cg729g is LIVE at runtime commit e763239dc2bc06882a5856779fd8207f3f29ba33. Health HTTP200, PostgreSQL production_content; new JS HTTP200 (23,953 bytes), unauthenticated private catalogue HTTP401. The four new tables are owned by ecb_mandarin_app with RLS enabled and no anon/authenticated SELECT grants. Security advisors were checked before and after rollout; backend-only RLS-without-policy informational notices are intentional with zero grants. Shared/pre-existing public-function/Auth advisories were not altered by this release.
+
+The production browser session had expired and showed login. Authenticated interactive flows were exercised in isolated SQLite/PGlite/browser tests, not by impersonating an employee or creating cloud test results. No physical microphone/recognition provider test was performed. Existing account, exam, vocabulary-review and XP counts were compared around deployment and recorded in DEPLOYMENT_STATUS.md.
+Data counts before/after were unchanged: profiles 8, exam_results 38, vocabulary_progress 11, reviews 22, XP transactions 23. New activity/personal-word rows remained zero during read-only verification. RLS-only notice reference: https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy .
