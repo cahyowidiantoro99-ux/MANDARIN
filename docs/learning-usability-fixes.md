@@ -27,3 +27,10 @@ No schema migration, auth setting or secret change. Existing employee records, e
 - `node scripts/build-production.mjs`: syntax/security lint and production bundle passed. No TypeScript/typecheck configuration exists.
 
 Build/deploy remains the existing pnpm-locked Docker process and `node scripts/start-production.mjs`. No new dependencies, subscriptions or media downloads.
+
+## Production rollout
+
+- Render `dep-dbj8rqrbc2fs73c52jvg` **Live**, 2026-11-01 00:57:46 UTC (08:57 WITA), runtime commit `77250b906692aac87740f00e70308225a7e490ae`.
+- Health HTTP 200, production content, PostgreSQL. Served speech.js, learning-center.js, learning-play.js and style.css each match reviewed source by SHA-256 (normalized line endings).
+- Immediate before/after read-only counts unchanged: profiles 8, exam results 38, vocabulary progress 11, review history 22, XP transactions 24.
+- Explicit browser assertions passed for green correct recall, red wrong selection plus green correct answer, selected status, three vertically separated grammar steps, and full-deck count. Verified again with full source corpus, including a package exceeding 20 words.
