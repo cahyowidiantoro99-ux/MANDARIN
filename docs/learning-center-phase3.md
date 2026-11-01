@@ -25,7 +25,7 @@ No new migration or schema/grant/auth changes required: Phase 1–2 tables alrea
 
 ## Run and deploy
 
-Node >=24, install locked dependencies with `npm ci`; `node scripts/build.mjs`; `node --test tests/*.test.mjs`. Local development: `node --env-file-if-exists=.env app/server.mjs` with existing documented configuration. Never seed demo data into production.
+Node >=24, install locked dependencies with `pnpm install --frozen-lockfile` (pnpm 11.25.0 as used by Docker); `node scripts/build.mjs`; `node --test tests/*.test.mjs`. Local development: `node --env-file-if-exists=.env app/server.mjs` with existing documented configuration. Never seed demo data into production.
 
 Production: build `node scripts/build-production.mjs`; push the reviewed source to existing repository main, manually deploy existing Render `ecb-mandarin`, start command `node scripts/start-production.mjs`. No environment secret change or new subscription required. Verify `/api/health`, new static asset, unauthenticated denial, and database preservation. Existing idempotent startup migration is unchanged.
 

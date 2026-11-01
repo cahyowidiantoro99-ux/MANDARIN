@@ -16,3 +16,11 @@
 ## Production rollout
 
 Pre-deploy read-only baseline: profiles 8, exam_results 38, vocabulary_progress 11, lc_reviews 22, lc_xp 24. No production test user or learning record created. Runtime deployment and post-deploy verification recorded below after rollout.
+
+- Render deployment `dep-dbj8fmgu01pc73eodo90` **Live**, finished 2026-11-01 00:32:12 UTC (08:32 WITA), runtime commit `80a631c9c2200e65475294983c3b577ccb0867a8`.
+- `/api/health`: HTTP 200, `production_content`, PostgreSQL.
+- `/learning-analytics.js`: HTTP 200; SHA-256 of served asset matches reviewed source (line-ending normalized).
+- Anonymous `/api/leader/learning`: HTTP 401. Authenticated Leader behavior verified locally against SQLite and actual PostgreSQL/PGlite, not by switching the production Employee session.
+- Existing production Employee browser session refreshed successfully. Real HSK 6 grammar and work-theme recommendations visibly rendered. Screenshot: `artifacts/learning-phase3-production.jpg`. No exercise submission or new session created during verification.
+- Post-deploy read-only counts: profiles **8**, exam_results **38**, vocabulary_progress **11**, lc_reviews **22**, lc_xp **24**; equal to immediate pre-deploy baseline.
+- Additional full-source UI run (`SOURCE_LEARNING_SMOKE=1 node tests/learning-center-ui.mjs`) passed against existing published corpus in isolated local DB.
