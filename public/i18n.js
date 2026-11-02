@@ -1,3 +1,4 @@
+import {learningZh,learningPatterns,learningId} from './learning-i18n.js';
 // Curated interface translations. Learning content and answers retain their source text.
 const zh = {
  'Latihan interaktif':'互动练习',
@@ -52,7 +53,8 @@ Object.assign(zh,{
  'Perbesar':'放大','Perkecil':'缩小','SIMULASI HSK · ARSIP RESMI':'HSK模拟考试 · 官方试卷档案','Simulasi HSK':'HSK模拟考试','Hasil simulasi HSK':'HSK模拟考试结果','Paket asli PDF dan audio dari SOAL HSK LENGKAP; bukan kuis kosakata singkat.':'使用您提供的完整HSK试题档案中的原始PDF及配套音频，不再采用简短词汇测验。','Ujian memakai listening, reading dan writing sesuai paket sumber. Durasi mencakup 5 menit persiapan serta waktu pemindahan jawaban listening. Angka durasi bersifat perkiraan; listening mengikuti panjang MP3 asli.':'考试按原试卷设置听力、阅读及书写部分，总时长包含5分钟准备时间和听力答案誊写时间。时长为近似值，听力按原始MP3的实际长度计时。','Level simulasi':'模拟考试等级','Mulai / lanjut simulasi HSK →':'开始／继续HSK模拟考试 →','Format mengikuti arsip HSK yang Anda berikan. Ini simulasi internal, bukan sertifikasi atau ujian HSK 3.0 terbaru. Kenaikan level internal tetap mensyaratkan nilai minimal 80%; skor simulasi tidak terkalibrasi sebagai skor resmi.':'考试格式依据您提供的HSK档案。这是内部模拟考试，不提供官方认证，也不代表最新版HSK 3.0考试。内部晋级仍需达到总分的80%；模拟成绩未经官方标定。','AI untuk penilaian jawaban tulis belum dikonfigurasi. Jawaban yang perlu AI akan disimpan sebagai menunggu penilaian; level tidak dinaikkan sebelum nilai lengkap.':'书写部分的AI评分尚未配置。需AI评阅的答案将保存为待评分状态，成绩完整前不会晋级。','Struktur paket HSK':'HSK试卷结构','LISTENING':'听力','READING':'阅读','WRITING':'书写','MENIT':'分钟','Persiapan identitas':'身份信息准备','Listening':'听力','Reading':'阅读','Writing':'书写','Pemindahan jawaban listening':'听力答案誊写','Membaca bahan ringkasan':'阅读缩写材料','Bagian berpindah otomatis mengikuti waktu server. Bagian yang berakhir dikunci.':'各部分按服务器计时自动切换，已结束的部分将锁定。','Waktu persiapan 5 menit. Periksa identitas dan perangkat audio; listening dimulai otomatis setelah persiapan.':'准备时间为5分钟，请核对身份信息并检查音频设备。准备结束后自动进入听力部分。','Baca bahan selama 10 menit tanpa menyalin. Setelah itu bahan ditutup dan tersedia 35 menit untuk menulis ringkasan sekitar 400 karakter.':'请用10分钟阅读材料，不得抄写或做笔记。随后材料关闭，您有35分钟完成约400字的缩写。','Putar audio ujian':'播放考试音频','Audio mengikuti waktu listening. Saat dibuka kembali, pemutaran melanjutkan posisi waktu ujian; tidak mengulang dari awal.':'音频与听力考试计时同步。重新打开时将从当前考试时间对应的位置继续播放，不从头重播。','Lembar jawaban':'答题卡','Bagian ini belum menerima jawaban.':'当前阶段不接受作答。','Bahan bacaan telah ditutup. Tulis ringkasan dari ingatan Anda; jangan menambahkan pendapat pribadi.':'阅读材料已关闭。请凭记忆缩写原文，不要加入个人观点。','Tulis jawaban dalam Hanzi':'请用汉字作答','Audio sedang diputar':'音频播放中','Jawaban tulis menunggu penilaian':'书写答案待评分','Hasil simulasi internal. Nilai ini bukan skor HSK resmi terkalibrasi atau sertifikat.':'此为内部模拟成绩，并非经过官方标定的HSK成绩或证书。','Penilaian AI internal tersedia.':'可使用内部AI评分。','Penilaian AI belum dikonfigurasi. Jawaban tetap tersimpan; level tidak dinaikkan sebelum nilai lengkap.':'AI评分尚未配置。答案已保存，成绩完整前不会晋级。','Sedang dinilai…':'评分中…','Nilai jawaban dengan AI':'使用AI评分','Kebijakan kenaikan level internal: minimal 80% dari total skor simulasi. Nilai mingguan dan baseline awal tidak ditimpa.':'内部晋级标准为模拟总分的80%。不会覆盖每周测评成绩或初始基线成绩。','Kembali ke ujian naik level':'返回晋级考试','Penilaian jawaban tulis':'书写评分','Menunggu penilaian':'待评分','Menunggu':'待评分','Lulus kebijakan naik level':'达到内部晋级标准','Belum lulus kebijakan naik level':'尚未达到内部晋级标准','Perpustakaan sumber dikunci selama simulasi HSK berlangsung.':'HSK模拟考试期间，资料库暂时锁定。','Penilaian AI belum dikonfigurasi. Jawaban tersimpan dan menunggu penilaian.':'AI评分尚未配置。答案已保存并等待评分。'
 });
 Object.assign(zh,{'Penilaian Gemini tersedia dalam kuota gratis.':'可在免费额度内使用Gemini评分。','Kuota Gemini gratis sementara habis. Jawaban tersimpan; coba lagi nanti.':'Gemini免费额度暂时已用完。答案已保存，请稍后重试。'});
-const patterns = [
+Object.assign(zh,learningZh);Object.assign(id,learningId);
+const patterns = [...learningPatterns,
  [/^Soal (\d+): (.+) \/ (\d+)$/,m=>'第'+m[1]+'题：'+(m[2]==='Menunggu'?'待评分':m[2])+' / '+m[3]],
  [/^HSK (\d+) · (\d+) soal · (\d+) menit$/,m=>'HSK '+m[1]+'级 · '+m[2]+'题 · '+m[3]+'分钟'],
  [/^Halaman (\d+) \/ (\d+)$/,m=>'第'+m[1]+'页 / 共'+m[2]+'页'],
@@ -108,7 +110,7 @@ export function translateText(text,language='id'){
  const catalog=language==='zh'?zh:id;
  let translated=catalog[key];
  if(translated===undefined){
-  const decorated=key.match(/^([←→↗↓✓·] ?)?(.+?)( ?[←→↗↓])?$/);
+  const decorated=key.match(/^([←→↗↓✓✕▶●■🔊·] ?)?(.+?)( ?[←→↗↓])?$/);
   if(decorated&&(decorated[1]||decorated[3])){const middle=translateText(decorated[2],language);if(middle!==decorated[2])translated=(decorated[1]||'')+middle+(decorated[3]||'');}
  }
  if(language==='zh'&&translated===undefined){
@@ -125,7 +127,7 @@ let language='id';try{if(globalThis.localStorage?.getItem('ecb.uiLanguage')==='z
 export function languageSwitcher(){return `<label class="language-control" data-i18n-skip><span class="sr-only">Pilih bahasa / 选择语言</span><select data-language-switch aria-label="Pilih bahasa / 选择语言"><option value="id" lang="id" ${language==='id'?'selected':''}>Indonesia</option><option value="zh" lang="zh-CN" ${language==='zh'?'selected':''}>中文</option></select></label>`;}
 export function startLanguageUi(...containers){
  const originals=new WeakMap(),attributes=new WeakMap();let scheduled=false;
- const excluded='script,style,[data-i18n-skip],.user-copy strong,.avatar,.quiz-question,.option,.review h3,.hanzi,.pinyin,.meaning,.source-ref p,.source-examples p,.scroll-title';
+ const excluded='script,style,[data-i18n-skip],.user-copy strong,.avatar,.quiz-question,.option,.review h3,.hanzi,.pinyin,.meaning,.source-ref p,.source-examples p,.scroll-title,.lc-pattern,.lc-tokens,.lc-built,.lp-translation,#lp-speaking-id,#lp-speaking-line,#lp-speaking-zh,#lp-speaking-pinyin,[data-learning-content]';
  function apply(){
   scheduled=false;observer.disconnect();
   try{
@@ -139,7 +141,7 @@ export function startLanguageUi(...containers){
      const output=translateText(source,language);originals.set(node,{source,output});if(node.nodeValue!==output)node.nodeValue=output;
     }
     for(const element of container.querySelectorAll('[placeholder],[title],[aria-label]')){
-     if(element.closest('[data-i18n-skip]'))continue;
+     if(element.closest('[data-i18n-skip],[data-learning-content]'))continue;
      const record=attributes.get(element)||{};
      for(const name of ['placeholder','title','aria-label'])if(element.hasAttribute(name)){
       const value=element.getAttribute(name),prior=record[name],source=prior&&value===prior.output?prior.source:value,output=translateText(source,language);record[name]={source,output};if(value!==output)element.setAttribute(name,output);
