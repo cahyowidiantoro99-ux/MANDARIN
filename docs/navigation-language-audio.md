@@ -40,3 +40,12 @@ No schema migration, employee/account deletion, exam history reset, credential o
 Physical Android speaker output, media volume, installed Mandarin TTS and actual Google/device voice availability cannot be confirmed with desktop speech mocks. Inline feedback reports browser events; it does not claim audibility or pronunciation quality. No production employee study/exam result is generated for verification.
 
 Build/deploy uses the existing pnpm-locked Docker setup and `node scripts/start-production.mjs`. Existing secret configuration is retained.
+
+## Live verification
+
+- Render deployment `dep-dbk5k1g473hc73fmicd0` **Live** at 2026-11-02 09:40:57 UTC (17:40 Singapore/WITA), runtime commit `781f0356681f502bcff52906ec7a95a4ada6d285`.
+- `/api/health`: 200, production content, PostgreSQL. Served read-cache.js, learning-i18n.js, speech.js and learning-center.js: 200 and SHA-256 matches reviewed source (normalized line endings).
+- Immediate before/after counts unchanged: profiles 8, exam results 49, vocabulary progress 68, grammar attempts 1, review history 107, XP transactions 79. These are current production counts; earlier historical baselines are not used to overwrite user activity.
+- Current Render compute plan confirmed Free. No new billing setting or external speech provider configured.
+- Current production browser session is logged out. Authenticated navigation/grammar/source-preservation checks ran against isolated local accounts and real embedded PostgreSQL service tests; no employee password was retrieved and no synthetic production study/exam result was created.
+- Screenshot `artifacts/grammar-completed-green.png` shows the completed grammar card from the local bilingual UI test. Full-source Learning Center smoke also passed.
