@@ -38,3 +38,11 @@ Jalankan server sesuai konfigurasi existing; deploy dengan commit/push repositor
 ## Batasan
 
 Belum ada load test berskala besar atau pengujian login karyawan produksi untuk halaman baru. Tidak ada arsip pemenang historis. Render Free tetap dapat mengalami cold start. Data historis tanpa bukti recall tidak otomatis dihitung sebagai mastery terverifikasi.
+
+## Deploy produksi
+
+Render deploy `dep-dbkvj56c6qcc73bil7qg` berstatus Live untuk runtime commit `a1d33a9737c2a1b04dd5c12dba86f8154d84b175`.
+
+Verifikasi cloud: `/api/health` 200, production_content/PostgreSQL; `/achievements.js` 200 dan hash sesuai kode lokal; kedua endpoint peringkat menolak anonymous dengan 401.
+
+Hitungan sebelum/sesudah sama: 8 profil, 60 hasil ujian, 97 progres kosakata, 186 review, 155 transaksi XP, 0 ranking snapshot. Kebijakan resmi tetap `hsk3-source-v2`. Tidak ada akun atau hasil latihan uji ditambahkan ke produksi.
