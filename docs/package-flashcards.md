@@ -25,3 +25,11 @@ Runtime: `app/learning-center.mjs`, `public/learning-center.js`.
 Tests: new `tests/package-flashcards.test.mjs`; updated `tests/learning-center.test.mjs`, `tests/postgres-service.test.mjs`.
 
 No schema migration, seed/content replacement, progress reset, credential/billing change or exam/ranking policy change. Existing Node/pnpm Docker build and `node scripts/start-production.mjs` deployment are retained.
+
+## Live verification
+
+- Render deployment `dep-dbkuurgae00c73c5afig`: **Live**, runtime commit `b19494f8bb6fd54c85a6c0462c09e09ba41764ef`.
+- Health 200, production content/PostgreSQL. Served learning-center.js matches reviewed source (SHA-256, normalized line endings). Anonymous deck API returns 401.
+- Read-only production content query confirms HSK 6 Package 01 = 180 and Package 02 = 179 published vocabulary records.
+- Immediate production counts before → after: profiles 8 → 8, exam results 59 → 60, vocabulary progress 94 → 94, review history 181 → 181, XP transactions 152 → 152. One additional result appeared during rollout; verification made no production exam/study submissions and did not reset existing records.
+- Authenticated deck rendering/reveal/recall was verified locally against the full source corpus and real PostgreSQL/PGlite; no employee credentials or synthetic production accounts were used.
