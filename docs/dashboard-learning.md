@@ -28,3 +28,5 @@ Dasbor memuat data dashboard, summary dan modul UI secara paralel; summary mengg
 - Screenshot lokal memakai data DEMO: `artifacts/dashboard-learning-desktop.png`, `artifacts/dashboard-learning-mobile.png`, `artifacts/learning-guided-desktop.png`, `artifacts/learning-guided-mobile.png`.
 
 Deploy menggunakan alur existing: commit/push deployment repository, lalu manual deploy layanan ecb-mandarin. Tidak ada konfigurasi rahasia baru. Belum dilakukan load test besar atau pengujian login karyawan produksi. Render Free masih memiliki cold start.
+
+Deploy `dep-dbl043bm8hqs738on100` berstatus Live, runtime commit `0f41f40f25173fe55af596b6bbb3cf7ea8ac3b20`. Health produksi 200 (production_content/PostgreSQL); modul Learning Center dan CSS cocok dengan kode lokal. Bundle app.js dibandingkan dengan dist-production karena build produksi menghapus banner/akun demo.
