@@ -94,3 +94,5 @@ Object.assign(learningZh,{'menit':'分钟','terbukti lewat recall ·':'已通过
 learningPatterns.push([/^Baseline HSK: (.+) · Baseline Work: (.+)$/,m=>'HSK基准分：'+m[1]+' · 岗位词汇基准分：'+m[2]]);
 
 Object.assign(learningZh,{'Langkah berikutnya':'下一步学习'});
+
+Object.assign(learningZh,{"✓ Misi inti hari ini selesai":"✓ 今日核心任务已完成","✓ Bonus selesai":"✓ 额外任务已完成","✨ Bonus opsional":"✨ 可选额外任务","Latihan pilihan hari ini":"今日自选练习","Pilih satu: matching, susun kalimat, listening, kuis cerita, atau perbedaan kosakata. Nilai minimal 80.":"任选一项：词义配对、组句、听力、故事理解或词语辨析测验。成绩须达到80分。","XP mengikuti hadiah aktivitas, tanpa bonus XP ganda. Tidak menghalangi penyelesaian misi inti.":"经验值按练习原有规则发放，不重复奖励。不影响核心任务的完成状态。","Pilih latihan":"选择练习","Lihat dasbor":"查看学习概览","Jelajah 3 Jenis Game":"探索三类学习游戏","Lulus matching, susun kalimat, dan listening minggu ini (≥80%). Tidak memengaruhi ujian wajib.":"本周完成词义配对、组句和听力游戏，各项成绩须达到80分。不影响必修测评。","Memenuhi misi bonus · nilai ≥80":"可完成额外任务 · 成绩须≥80分","Kuis cerita memenuhi misi bonus · nilai ≥80":"故事测验可完成额外任务 · 成绩须≥80分","Kuis perbedaan kosakata memenuhi misi bonus · nilai ≥80":"词语辨析测验可完成额外任务 · 成绩须≥80分"});
