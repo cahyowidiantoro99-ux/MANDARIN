@@ -1,5 +1,5 @@
 // Short lived, in-memory and account scoped. Never caches exam sessions or mutations.
-export const cacheableRead=path=>/^\/(dashboard|packages|learn\/summary|play\/catalog)(\?.*)?$/.test(path);
+export const cacheableRead=path=>/^\/(dashboard|packages|learn\/summary|play\/catalog|leader\/(portal|learning))(\?.*)?$/.test(path);
 export function createReadCache({clock=()=>Date.now(),ttl=10000}={}){
  const values=new Map(),pending=new Map();let generation=0;
  return {invalidate(){generation++;values.clear();pending.clear();},async read(scope,path,load){
