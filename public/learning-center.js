@@ -37,10 +37,10 @@ export async function mountLearningCenter(ctx,mode='center',arg=''){
  }
  const params=new URLSearchParams();let title='Flashcard';
  if(arg==='saved'){params.set('queue','saved');title='Kosakata pribadi';}else if(arg==='review'){params.set('queue','review');title='Gudang kata · Review';}
- else if(arg.startsWith('package-')){pid=arg.slice(8);params.set('package',pid);const ps=await packages(),p=ps.find(p=>p.id===pid);params.set('track',p?.track||'hsk');params.set('level',p?.level||1);title=p?.title||title;}
+ else if(arg.startsWith('package-')){pid=arg.slice(8);params.set('package',pid);}
  else if(arg.startsWith('work-')){params.set('track','work');const [theme,department,difficulty]=arg.slice(5).split('~');params.set('theme',theme);if(department)params.set('department',decodeURIComponent(department));if(difficulty)params.set('difficulty',difficulty);title='岗位汉语 · Flashcard';}
  else{params.set('track','hsk');params.set('level',arg.split('-')[1]||user.placement_level||1);title='HSK '+params.get('level')+' · Flashcard';}
- let deck=await api('/learn/deck?'+params);if(disposed)return;let index=0,reviewed=0,showPinyin=false,filter='';
+ let deck=await api('/learn/deck?'+params);if(disposed)return;if(deck.package){title=deck.package.title;params.set('track',deck.package.track);params.set('level',deck.package.level||1);}let index=0,reviewed=0,showPinyin=false,filter='';
  if(!pid){const ps=await packages();pid=ps.find(p=>p.word_count&&p.track===(params.get('track')||'hsk')&&(p.track!=='hsk'||Number(p.level)===Number(params.get('level')||user.placement_level||1)))?.id;}
  async function start(){if(!pid||session||starting)return;starting=true;try{clearInterval(timer);session=await api('/learning/start',{method:'POST',body:{package_id:pid}});last=Date.now();if(disposed){await beat(true);session=null;return;}timer=setInterval(()=>beat(),15000);}catch(e){toast(e.message);}finally{starting=false;}}
  async function next(){if(disposed)return;if(index>=deck.words.length){await beat(true);render(`${back}<section class="panel lc-finish"><span class="lc-finish-mark">✓</span><h1>Sesi selesai!</h1><p>${reviewed} kartu direview. Jadwal pengulangan dan progres sudah tersimpan.</p><p>Hafal adalah penilaian diri. Kosakata dianggap terbukti hanya setelah dua recall benar pada waktu berbeda.</p><a class="btn" href="#learning">Lihat progres →</a><button class="btn secondary" id="lc-more">Sesi berikutnya</button></section>`);$('#lc-more').onclick=()=>location.reload();return;}
