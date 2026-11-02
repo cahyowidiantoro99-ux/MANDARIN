@@ -46,3 +46,7 @@ Render deploy `dep-dbkvj56c6qcc73bil7qg` berstatus Live untuk runtime commit `a1
 Verifikasi cloud: `/api/health` 200, production_content/PostgreSQL; `/achievements.js` 200 dan hash sesuai kode lokal; kedua endpoint peringkat menolak anonymous dengan 401.
 
 Hitungan sebelum/sesudah sama: 8 profil, 60 hasil ujian, 97 progres kosakata, 186 review, 155 transaksi XP, 0 ranking snapshot. Kebijakan resmi tetap `hsk3-source-v2`. Tidak ada akun atau hasil latihan uji ditambahkan ke produksi.
+
+## Penghentian Peringkat Resmi
+Atas permintaan pengguna, tab dan renderer Peringkat Resmi dihapus. URL lama #ranking/official membuka Panggung Prestasi; GET /api/rankings tidak tersedia lagi (404 setelah autentikasi). Data historis, tabel dan hasil ujian tidak dihapus. Build produksi dan tes achievements-ui lulus termasuk pemeriksaan menu hilang, URL lama dan endpoint 404.
+
