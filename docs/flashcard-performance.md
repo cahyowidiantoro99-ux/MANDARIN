@@ -26,3 +26,5 @@ File: public/learning-center.js, public/learning-i18n.js, tests/flashcard-queue.
 Kartu pertama, reveal dan konfirmasi simpan masih memerlukan jaringan. Prefetch yang belum selesai tidak dapat menjamin perpindahan instan. Tidak ada mode offline atau penilaian optimistis yang melewati server. Cache hanya berada pada mount aktif, bukan penyimpanan permanen. Tidak ada uji perangkat Android fisik/audio native atau load test produksi besar. Cold start Render Free tetap dapat terjadi.
 
 Deploy: build produksi existing, push repository deployment, manual deploy ecb-mandarin. Tidak perlu impor konten atau migrasi database.
+
+Rilis produksi: deploy `dep-dbl0ka15efls73ft63g0` Live, runtime commit `6a0f014b026f9b62eac57267b5d3250db819754d`. Pemeriksaan cloud health 200 (production_content/PostgreSQL); learning-center.js dan learning-i18n.js 200 dengan hash sesuai build lokal. Pengujian interaksi terautentikasi dilakukan pada fixture lokal, bukan akun karyawan produksi.
