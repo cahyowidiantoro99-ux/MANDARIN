@@ -51,3 +51,9 @@ Halaman baru lazy-loaded. Read cache existing diperluas untuk dua read model Lea
 ## Deploy dan batasan
 
 Deploy memakai push repository deployment dan manual deploy layanan ecb-mandarin, start command existing. Tidak ada impor materi atau migrasi. Belum melakukan load test cloud berskala besar maupun login Leader produksi dalam pengujian ini. Fitur audio bergantung perangkat existing. Render Free tetap bisa cold start. Statistik snapshot bukan rekonstruksi level karyawan pada tanggal historis.
+
+## Rilis produksi
+
+Deploy `dep-dbl12ojm8hqs738r114g` berstatus Live, runtime commit `a51c040120b16a80cc5e3cd1d3fa141c5e474ff8`. Health 200 (production_content/PostgreSQL), empat aset portal/viewer/app 200 dan hash sesuai build; GET `/api/leader/portal` tanpa login ditolak 401.
+
+Sebelum/sesudah deploy: 8 profil, 61 hasil ujian, 97 progres kosakata, 186 review, 156 transaksi XP. Kebijakan `hsk3-source-v2` tetap. Tidak membuat aktivitas, akun atau ujian uji di produksi.
