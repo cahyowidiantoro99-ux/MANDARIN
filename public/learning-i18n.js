@@ -84,3 +84,13 @@ learningPatterns.unshift([/^Posisi (\d+)$/,m=>'第'+m[1]+'名'],[/^\+(\d+) peser
 Object.assign(learningZh,{'Memperbarui peringkat…':'正在更新排名…','Posisi Anda tidak ditampilkan pada filter ini.':'当前筛选条件下不显示您的名次。','Pilih Semua departemen untuk melihat posisi Anda.':'选择所有部门以查看您的名次。'});
 
 Object.assign(learningZh,{'Soal Work dapat berbeda antar-departemen; gunakan filter departemen untuk perbandingan yang lebih sebanding.':'不同部门的岗位词汇试题可能不同，建议按部门筛选以提高可比性。','Rentetan yang tampil adalah rentetan berjalan, bukan rekor terpanjang sepanjang riwayat.':'此处显示当前连续学习记录，不是历史最长记录。'});
+
+Object.assign(learningZh,{"XP hari ini":"今日经验值","Total XP":"累计经验值","XP dari aktivitas belajar":"学习活动获得的经验值","Waktu aktif hari ini":"今日有效学习时长","Streak belajar":"连续学习","hari":"天","Mengikuti jadwal belajar pribadi":"按个人学习计划计算","✓ Misi hari ini selesai":"✓ 今日任务已完成","Selesaikan langkah kecil hari ini":"完成今天的小目标","Lanjutkan misi":"继续任务","Kosakata saya":"我的词汇","Hafal adalah penilaian diri; recall membantu membuktikan penguasaan.":"掌握状态为自我评价，回忆测验有助于验证掌握程度。","Belum dipelajari":"尚未学习","terbukti lewat recall":"已通过回忆测验验证","jatuh tempo":"待复习","Buka gudang kata":"打开复习词库","Tentang waktu dan kosakata":"关于时长和词汇统计","Waktu aktif dicatat saat tab aktif dan Anda berinteraksi. Waktu hari ini mengikuti tanggal mulai sesi (WITA). Jumlah kosakata mengikuti entri materi yang dapat Anda akses; ini bukan persentase kelulusan HSK.":"仅在页面处于活动状态且有学习交互时记录有效时长。今日时长按学习会话开始日期计算（印度尼西亚中部时间）。词汇数量按您可访问的学习资料条目统计，并非HSK考试通过率。","Lanjut dari terakhir":"继续上次学习","Alur belajar Anda":"您的学习路径","Pilih jalur dan paket, lalu ikuti langkah berikut. Anda tetap bebas memilih materi.":"选择学习方向和单元，然后按以下步骤学习。您也可以自由选择资料。","Pelajari kosakata":"学习词汇","Flashcard dan audio":"词卡与语音","Uji ingatan":"检验记忆","Recall setelah review kartu":"复习词卡后进行回忆测验","Pelajari grammar":"学习语法","Contoh dan latihan":"例句与练习","Latihan tambahan":"拓展练习","Listening, cerita, dan permainan":"听力、故事与游戏","Lihat misi dan progres di dasbor":"在学习概览查看任务与进度","Pilih game, listening, cerita, atau latihan berbicara.":"选择游戏、听力、故事或口语练习。","Belum mulai":"尚未开始","Sedang dipelajari":"学习中","✓ Semua kartu direview":"✓ 已复习全部词卡"});
+learningPatterns.push([/^Total (\d+) menit · (\d+) sesi$/,m=>'累计'+m[1]+'分钟 · '+m[2]+'次学习']);
+
+Object.assign(learningZh,{'Evaluasi minggu ini':'本周测评','Riwayat ujian dan baseline':'测评记录与基准分'});
+
+Object.assign(learningZh,{'menit':'分钟','terbukti lewat recall ·':'已通过回忆测验验证 ·'});
+learningPatterns.push([/^Baseline HSK: (.+) · Baseline Work: (.+)$/,m=>'HSK基准分：'+m[1]+' · 岗位词汇基准分：'+m[2]]);
+
+Object.assign(learningZh,{'Langkah berikutnya':'下一步学习'});
