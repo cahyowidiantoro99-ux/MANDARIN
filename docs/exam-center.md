@@ -56,3 +56,9 @@ Run regresi akhir: 83 unit/integration test lulus, 0 gagal; build produksi dan s
 Halaman dan MP3 dimuat sesuai permintaan, bukan seluruh bank ke browser. Katalog dipaginasi enam paket. Aset sumber berukuran sekitar 102 MB pada disk; Render Free masih bisa cold start. Tidak menambah paket hosting berbayar, kunci API atau penyedia AI.
 
 Deploy: jalankan build/import di lokal, commit sumber/data, push repository deployment, lalu manual deploy layanan existing. Startup menjalankan migrasi additive. Untuk rollback kode, pertahankan tabel dan data baru; jangan hapus data atau menimpa manifest sesi yang sudah digunakan. Tinjau sesi versi 2 aktif sebelum rollback agar tidak diproses dengan kebijakan lama.
+
+## Verifikasi rilis produksi
+
+Deploy `dep-dbl7mmtbedkc73893l40` Live, runtime commit `1d84c996ec9831ae3b8fa8ffe5ca709293d278eb`. Health 200 (production_content/PostgreSQL); exam-center.js, official-exam.js dan bundle app.js 200 dengan hash sesuai build. Endpoint hsk-center/hsk-mistakes menolak anonymous dengan 401; akses langsung JSON bank ditolak 404.
+
+Migrasi terverifikasi: tabel hsk_attempt_options dibuat, owner ecb_mandarin_app, RLS aktif, anon/authenticated tidak memiliki SELECT. Tabel berisi nol percobaan saat pemeriksaan karena tidak membuat transaksi uji produksi. Data sebelum/sesudah sama: 8 profil, 61 hasil ujian, 97 progres kosakata, 186 review dan 156 transaksi XP. Pengujian interaksi autentikasi, grading dan promosi dilakukan di fixture lokal/transport AI mock; belum memakai akun karyawan produksi atau pengujian beban besar cloud.
