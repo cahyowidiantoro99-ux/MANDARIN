@@ -1,0 +1,397 @@
+[
+  {
+    "id": "H10000",
+    "status": "excluded",
+    "reason": "Sampul tidak memiliki kode teks yang cocok"
+  },
+  {
+    "id": "H10901",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H10902",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11003",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11004",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11005",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11006",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11007",
+    "status": "legacy_retained",
+    "reason": "Paket terverifikasi pada manifest lama dipertahankan; parser baru tidak menggantinya."
+  },
+  {
+    "id": "H11008",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11329",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11330",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11331",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11332",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H11334",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H20901",
+    "status": "validated",
+    "pages": 13
+  },
+  {
+    "id": "H20902",
+    "status": "validated",
+    "pages": 13
+  },
+  {
+    "id": "H21003",
+    "status": "validated",
+    "pages": 13
+  },
+  {
+    "id": "H21004",
+    "status": "validated",
+    "pages": 13
+  },
+  {
+    "id": "H21005",
+    "status": "validated",
+    "pages": 13
+  },
+  {
+    "id": "H21006",
+    "status": "validated",
+    "pages": 13
+  },
+  {
+    "id": "H21329",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21330",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21331",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21332",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21334",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21335",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31001",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31002",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31003",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31004",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31005",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31006",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31007",
+    "status": "excluded",
+    "reason": "Kunci sumber tidak ditemukan"
+  },
+  {
+    "id": "H31008",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31327",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31328",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31329",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31330",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31332",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31333",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H41001",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41002",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41003",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41004",
+    "status": "excluded",
+    "reason": "Kunci tidak cocok jenis soal"
+  },
+  {
+    "id": "H41005",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41006",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41008",
+    "status": "excluded",
+    "reason": "Kunci sumber tidak ditemukan"
+  },
+  {
+    "id": "H41327",
+    "status": "excluded",
+    "reason": "Kunci tidak cocok jenis soal"
+  },
+  {
+    "id": "H41328",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41329",
+    "status": "excluded",
+    "reason": "Kunci tidak cocok jenis soal"
+  },
+  {
+    "id": "H41330",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41332",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41333",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H51001",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51002",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51003",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51004",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51005",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51006",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51008",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51113",
+    "status": "excluded",
+    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+  },
+  {
+    "id": "H51327",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51328",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51329",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51330",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51332",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51333",
+    "status": "excluded",
+    "reason": "Duplikasi kode dengan isi berbeda; perlu pemeriksaan manual"
+  },
+  {
+    "id": "H61001",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61002",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61003",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61004",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61005",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61006",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61327",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61328",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61329",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61330",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61332",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61333",
+    "status": "validated",
+    "pages": 21
+  }
+]

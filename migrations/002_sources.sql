@@ -31,3 +31,5 @@ CREATE TABLE IF NOT EXISTS lc_saved_words(user_id TEXT NOT NULL REFERENCES profi
 CREATE TABLE IF NOT EXISTS lc_preferences(user_id TEXT PRIMARY KEY REFERENCES profiles(id),work_days TEXT NOT NULL,rest_dates TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS lc_badges(user_id TEXT NOT NULL REFERENCES profiles(id),code TEXT NOT NULL,earned_at BIGINT NOT NULL,PRIMARY KEY(user_id,code));
 CREATE INDEX IF NOT EXISTS lc_activity_user ON lc_activity_results(user_id,created_at);
+
+CREATE TABLE IF NOT EXISTS hsk_attempt_options(session_id TEXT PRIMARY KEY REFERENCES exam_sessions(id),purpose TEXT NOT NULL CHECK(purpose IN ('promotion','simulation','learning','section','mistakes')),section TEXT CHECK(section IS NULL OR section IN ('listening','reading','writing')),policy_json TEXT NOT NULL);

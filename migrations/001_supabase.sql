@@ -224,4 +224,6 @@ ALTER TABLE lc_activity_results ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_acti
 ALTER TABLE lc_saved_words ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_saved_words FROM anon,authenticated;
 ALTER TABLE lc_preferences ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_preferences FROM anon,authenticated;
 ALTER TABLE lc_badges ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_badges FROM anon,authenticated;
+CREATE TABLE IF NOT EXISTS hsk_attempt_options(session_id UUID PRIMARY KEY REFERENCES exam_sessions(id),purpose TEXT NOT NULL CHECK(purpose IN ('promotion','simulation','learning','section','mistakes')),section TEXT CHECK(section IS NULL OR section IN ('listening','reading','writing')),policy_json TEXT NOT NULL);
+ALTER TABLE hsk_attempt_options ENABLE ROW LEVEL SECURITY; REVOKE ALL ON hsk_attempt_options FROM anon,authenticated;
 COMMIT;

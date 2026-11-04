@@ -1,5 +1,5 @@
 const titles={overview:'Ringkasan Program',employees:'Direktori Karyawan',results:'Hasil Evaluasi'};
-const modes={weekly:'Ujian mingguan',placement:'Placement awal',diagnostic:'Diagnostik kerja',levelup:'Ujian naik level',random30:'Latihan 30 soal',random100:'Latihan 100 soal',grammar:'Latihan grammar',translation:'Latihan terjemahan'};
+const modes={weekly:'Ujian mingguan',placement:'Placement awal',diagnostic:'Diagnostik kerja',levelup:'Ujian naik level',hsk_simulation:'Simulasi HSK penuh',hsk_learning:'HSK mode belajar',hsk_section:'Latihan bagian HSK',hsk_mistakes:'Latihan soal salah',random30:'Latihan 30 soal',random100:'Latihan 100 soal',grammar:'Latihan grammar',translation:'Latihan terjemahan'};
 let preference={owner:null,filters:{}};
 export async function mountLeaderPortal({api,shell,esc,root,user,cleanup},page='overview',uid=''){
  let disposed=false,sequence=0,data=null,index=0,tab='weekly',focus='',kind='',status='',examLevel='';cleanup(()=>{disposed=true;sequence++;});
