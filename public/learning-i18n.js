@@ -117,3 +117,6 @@ Object.assign(learningZh,{'Selesaikan ujian mingguan HSK dan Work pada level saa
 
 Object.assign(learningZh,{'Halaman sebelumnya':'上一页','Halaman berikutnya':'下一页'});
 learningPatterns.push([/^Listening (\d+) · Reading (\d+)(?: · Writing (\d+))?$/,m=>'听力 '+m[1]+' · 阅读 '+m[2]+(m[3]?' · 书写 '+m[3]:'' )]);
+
+Object.assign(learningZh,{'Memuat soal yang perlu diulang…':'正在加载待复习的错题…','Koneksi terlalu lambat. Coba muat halaman kembali.':'网络响应过慢，请重新加载页面。'});
+learningPatterns.push([/^Konsistensi ([\d.,]+)% · Misi (\d+\/\d+) · (\d+) XP · (\d+)$/,m=>'学习坚持率'+m[1]+'% · 任务'+m[2]+' · '+m[3]+'经验值 · '+m[4]],[/^Latihan ([\d.,]+|—) · (\d+)$/,m=>'练习成绩 '+m[1]+' · '+m[2]]);
