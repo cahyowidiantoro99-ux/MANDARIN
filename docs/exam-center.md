@@ -62,3 +62,13 @@ Deploy: jalankan build/import di lokal, commit sumber/data, push repository depl
 Deploy `dep-dbl7mmtbedkc73893l40` Live, runtime commit `1d84c996ec9831ae3b8fa8ffe5ca709293d278eb`. Health 200 (production_content/PostgreSQL); exam-center.js, official-exam.js dan bundle app.js 200 dengan hash sesuai build. Endpoint hsk-center/hsk-mistakes menolak anonymous dengan 401; akses langsung JSON bank ditolak 404.
 
 Migrasi terverifikasi: tabel hsk_attempt_options dibuat, owner ecb_mandarin_app, RLS aktif, anon/authenticated tidak memiliki SELECT. Tabel berisi nol percobaan saat pemeriksaan karena tidak membuat transaksi uji produksi. Data sebelum/sesudah sama: 8 profil, 61 hasil ujian, 97 progres kosakata, 186 review dan 156 transaksi XP. Pengujian interaksi autentikasi, grading dan promosi dilakukan di fixture lokal/transport AI mock; belum memakai akun karyawan produksi atau pengujian beban besar cloud.
+# Perbaikan mulai ujian pada PostgreSQL — 4 November 2026
+
+- Diagnosis produksi: log Render berulang dengan kode 22P02. Sebelum perbaikan belum ada attempt purpose=promotion yang tersimpan.
+- Reproduksi PostgreSQL/PGlite: durasi audio pecahan detik membuat deadline menjadi angka seperti 1793782403.21. Kolom exam_sessions.deadline adalah BIGINT, sehingga INSERT gagal dan transaksi dibatalkan. Pengujian SQLite lama menerima angka tersebut sehingga tidak mendeteksi masalah ini.
+- Perbaikan: bulatkan ke atas durasi total saat menghitung deadline ujian bertimer. Selisih kurang dari satu detik, tanpa memangkas audio atau mengubah fase sumber, nilai, kebijakan 80/60, cooldown tujuh hari, atau prasyarat.
+- Tes regresi baru tests/promotion-postgres.test.mjs membuka seluruh 51 paket publik dan kedua paket cadangan setiap level1–5 melalui alur sebenarnya. Seluruh 61 kode unik berhasil dimulai dan deadline selalu bilangan bulat.
+- Validasi: 85 tes Node lulus; tests/exam-center-ui.mjs dan tests/official-hsk-ui.mjs lulus; build produksi/syntax-security lint99JS lulus. Tidak membuat ujian sintetis atau mengganti nilai/level pada akun produksi.
+- Audit kelayakan saat diagnosis: tiga karyawan memenuhi syarat, empat belum melengkapi placement/dua hasil mingguan pada level saat ini, satu sudah HSK6. Prasyarat ini berbeda dari bug teknis di atas.
+- Kasus yang tetap mengikuti kebijakan: hasil Work pada level lama tidak memenuhi prasyarat level baru. Bila Work sudah selesai pada minggu yang sama, aturan hasil mingguan pertama tetap berlaku. Tidak mengubah atau menghapus hasil tersebut untuk melewati syarat.
+
