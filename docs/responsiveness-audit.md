@@ -53,3 +53,12 @@ Runtime: `app/static-assets.mjs` (baru), `app/server.mjs`, `public/app.js`, `pub
 Tes baru: `tests/public-assets.test.mjs`, `tests/responsiveness-ui.mjs`. Dokumen ini mencatat hasil dan batas audit.
 
 Jalankan build produksi, salin file tersebut ke repository deployment existing, commit/push `main`, trigger manual deploy pada layanan existing, tunggu Live lalu cek health, hash aset, gzip/ETag/304 dan no-store endpoint privat. Tidak ada migrasi atau perubahan rahasia. Rollback dengan deploy commit runtime sebelumnya `1d84c996ec9831ae3b8fa8ffe5ca709293d278eb` bila verifikasi gagal.
+
+## Verifikasi rilis Live
+
+- Deploy `dep-dbl8fhuc6qcc73anl7g0` **Live**; runtime commit `c32c4a5b42c80a5dcff273662e269d06e584f90d`. Selesai 4 November 2026 pukul 09.20.48 waktu Singapore/WITA.
+- `app.js`, `exam-center.js`, `speech.js`, `learning-i18n.js`: HTTP200/gzip, hash byte sesuai build produksi. ETag lalu `If-None-Match` menghasilkan **304 tanpa body** untuk setiap file.
+- CSS awalnya berbeda hash mentah akibat CRLF Windows versus LF Linux. Isi terbukti sama setelah normalisasi akhir baris terhadap build root **dan** sumber deployment. CSS gzip/ETag/304 lulus; tidak ada perubahan desain yang hilang.
+- `/` dan `/api/health` 200; health `production_content` / PostgreSQL. `/api/me`, `/api/hsk-center`, `/api/hsk-mistakes` tanpa login 401. `/data/official-hsk/bank.json` 404. Seluruhnya tetap `no-store`, tidak memasuki cache aset publik.
+- Hitungan read-only setelah rilis tetap: profiles8, exam_results61, vocabulary_progress97, lc_reviews186, lc_xp156. Tidak menjalankan login/ujian/aktivitas sintetis pada produksi.
+- Tidak mengklaim perbandingan latensi cloud sebelum/sesudah dari sampel satu kali. Manfaat produksi yang diverifikasi adalah pengunduhan ulang berubah menjadi validasi304; manfaat pengurangan request/lazy loading diuji pada browser lokal.
