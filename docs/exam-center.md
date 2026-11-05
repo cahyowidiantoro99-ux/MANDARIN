@@ -87,3 +87,5 @@ Rilis tanpa masa tunggu: dep-dblsvpbm8hqs73a4dj10 Live pada 5 November 2026 puku
 Instruksi pengguna: HSK1–4 minimal80/100, HSK5–6 minimal60/100. Berlaku pada sesi baru placement, mingguan HSK, latihan, simulasi dan promosi. Work tetap80, skill floor promosi tetap60; XP dan game tidak berubah. Snapshot pertanyaan dan policy_json menyimpan ambang setiap sesi; sesi lama tanpa metadata tetap80 dan hasil selesai tidak dinilai ulang. Tidak ada migrasi atau perubahan data akun.
 
 Validasi: 91 tes Node lulus, 0 gagal; browser exam-center termasuk ambang60 Indonesia/中文, official-hsk dan i18n lulus. Build produksi dan lint101JS lulus.
+
+Rilis aktif: commit4f0f65f5f5b8743e019ff780fac51bfaf914163f, Render dep-dblt95p42hec73eag5eg Live 5 November2026 09:01 Singapore. Health200, katalog tanpa login401. Lima berkas antarmuka cocok dengan build (official-exam.js dinormalisasi CRLF/LF). Tidak ada mutasi database produksi.
