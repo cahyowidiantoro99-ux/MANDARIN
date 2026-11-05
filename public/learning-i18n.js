@@ -119,4 +119,10 @@ Object.assign(learningZh,{'Halaman sebelumnya':'上一页','Halaman berikutnya':
 learningPatterns.push([/^Listening (\d+) · Reading (\d+)(?: · Writing (\d+))?$/,m=>'听力 '+m[1]+' · 阅读 '+m[2]+(m[3]?' · 书写 '+m[3]:'' )]);
 
 Object.assign(learningZh,{'Memuat soal yang perlu diulang…':'正在加载待复习的错题…','Koneksi terlalu lambat. Coba muat halaman kembali.':'网络响应过慢，请重新加载页面。'});
+Object.assign(learningZh,{'HSK 1–4: nilai minimal 80. HSK 5–6: nilai minimal 60.':'HSK一至四级：最低通过分数为80分。HSK五至六级：最低通过分数为60分。'});
+learningPatterns.push(
+ [/^Nilai total minimal (80|60)\/100 dan setiap keterampilan minimal 60\/100\.$/,m=>'总成绩至少'+m[1]+'分，各项技能至少60分（满分均为100分）。'],
+ [/^Ambang kelulusan (80|60)\/100\.$/,m=>'通过标准为'+m[1]+'分（满分100分）。'],
+ [/^Ujian penguasaan level HSK (.+); target belajar HSK (.+)\. Lulus membutuhkan total ≥60 dan setiap keterampilan ≥60\. Jika lulus, naik satu tingkat dan lanjut belajar, tanpa otomatis memulai ujian berikutnya\.$/,m=>'当前测评检验HSK'+m[1]+'级掌握情况，目标学习等级为HSK'+m[2]+'级。总分须≥60且各项≥60；通过后晋升一级并继续学习，不自动开始下一次考试。']
+);
 learningPatterns.push([/^Konsistensi ([\d.,]+)% · Misi (\d+\/\d+) · (\d+) XP · (\d+)$/,m=>'学习坚持率'+m[1]+'% · 任务'+m[2]+' · '+m[3]+'经验值 · '+m[4]],[/^Latihan ([\d.,]+|—) · (\d+)$/,m=>'练习成绩 '+m[1]+' · '+m[2]]);

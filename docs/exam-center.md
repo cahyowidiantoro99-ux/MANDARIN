@@ -14,11 +14,11 @@ Total 61 paket: 51 tersedia untuk simulasi/latihan, 10 dicadangkan untuk evaluas
 
 Data: `data/official-hsk/bank.json`, `bank-report.json`, manifest lama, dan JPG pertanyaan. Script: `scripts/build-hsk-bank.py`, membutuhkan Python+pypdf dan Poppler; runtime produksi tidak membutuhkan Python. Parser tidak mengganti PDF, membuat soal baru, atau mengarang terjemahan/pembahasan. Halaman gambar dipertahankan dari sumber. Ini validasi struktur/kunci dan pemeriksaan visual sampel, bukan audit linguistik manual setiap butir.
 
-## Naik level versi 3
+## Naik level versi 4
 
 - Menguji level belajar saat ini; lulus HSK n internal membuka belajar HSK n+1. HSK 6 tidak naik ke 7.
 - Memerlukan hasil mingguan valid HSK dan Work pada level saat ini. Tidak memaksa mengulang hasil valid hanya karena minggu kalender berganti. Skor mingguan tidak harus lulus untuk memenuhi syarat mengikuti evaluasi akhir.
-- Kelulusan internal: total >=80/100 dan setiap keterampilan yang diuji >=60/100. Pilihan Hafal, XP dan durasi tidak menjadi bukti kelulusan.
+- Kelulusan internal: total >=80/100 untuk HSK1–4, >=60/100 untuk HSK5–6; setiap keterampilan yang diuji tetap >=60/100. Pilihan Hafal, XP dan durasi tidak menjadi bukti kelulusan.
 - Paket dipilih server dari cadangan, terpisah dari katalog latihan. Retake memakai paket lain dari percobaan sebelumnya. Dengan dua paket, rotasi dapat kembali ke paket sebelumnya setelah digunakan bergantian; tidak menjanjikan soal selalu baru sepanjang waktu.
 - Jika gagal, karyawan dapat langsung mengulang dengan paket cadangan berbeda. Tidak ada masa tunggu. Berlaku juga untuk kegagalan lama; tidak perlu mengubah riwayat. Jawaban tulis yang pending tetap menunggu penilaian lengkap.
 - Promosi atomik satu tingkat, hanya jika profil masih berada pada level asal. Submit berulang tidak menaikkan lagi. Tidak otomatis membuka ujian berikutnya.
@@ -81,3 +81,9 @@ Atas instruksi pengguna, masa tunggu tujuh hari dihapus dari aturan penerimaan u
 Validasi penghapusan masa tunggu: 86 tes Node lulus, 0 gagal. Browser exam-center menguji gagal/akhiri lalu langsung memulai lagi, rotasi paket, keterangan ID/中文, serta kelulusan 80/60. Browser official-hsk lulus timer, halaman sumber, pending tulisan dan mobile. Build produksi/syntax-security lint99JS lulus.
 
 Rilis tanpa masa tunggu: dep-dblsvpbm8hqs73a4dj10 Live pada 5 November 2026 pukul 08.41.16 Singapore/WITA, runtime 9a61e685b434b94dff2def8cb8ad2cab781c11d1. Health200 production_content/PostgreSQL; hsk-center anonim401. File publik exam-center.js, official-exam.js dan learning-i18n.js hash sesuai build dan tidak lagi memuat keterangan tunggu tujuh hari. Pemeriksaan log pascarilis tidak menemukan Request failed/Expiry worker. Tidak membuat attempt sintetis pada produksi.
+
+## Ambang kelulusan per level — 5 November 2026
+
+Instruksi pengguna: HSK1–4 minimal80/100, HSK5–6 minimal60/100. Berlaku pada sesi baru placement, mingguan HSK, latihan, simulasi dan promosi. Work tetap80, skill floor promosi tetap60; XP dan game tidak berubah. Snapshot pertanyaan dan policy_json menyimpan ambang setiap sesi; sesi lama tanpa metadata tetap80 dan hasil selesai tidak dinilai ulang. Tidak ada migrasi atau perubahan data akun.
+
+Validasi: 91 tes Node lulus, 0 gagal; browser exam-center termasuk ambang60 Indonesia/中文, official-hsk dan i18n lulus. Build produksi dan lint101JS lulus.
