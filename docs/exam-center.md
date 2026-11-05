@@ -14,15 +14,15 @@ Total 61 paket: 51 tersedia untuk simulasi/latihan, 10 dicadangkan untuk evaluas
 
 Data: `data/official-hsk/bank.json`, `bank-report.json`, manifest lama, dan JPG pertanyaan. Script: `scripts/build-hsk-bank.py`, membutuhkan Python+pypdf dan Poppler; runtime produksi tidak membutuhkan Python. Parser tidak mengganti PDF, membuat soal baru, atau mengarang terjemahan/pembahasan. Halaman gambar dipertahankan dari sumber. Ini validasi struktur/kunci dan pemeriksaan visual sampel, bukan audit linguistik manual setiap butir.
 
-## Naik level versi 2
+## Naik level versi 3
 
 - Menguji level belajar saat ini; lulus HSK n internal membuka belajar HSK n+1. HSK 6 tidak naik ke 7.
 - Memerlukan hasil mingguan valid HSK dan Work pada level saat ini. Tidak memaksa mengulang hasil valid hanya karena minggu kalender berganti. Skor mingguan tidak harus lulus untuk memenuhi syarat mengikuti evaluasi akhir.
 - Kelulusan internal: total >=80/100 dan setiap keterampilan yang diuji >=60/100. Pilihan Hafal, XP dan durasi tidak menjadi bukti kelulusan.
 - Paket dipilih server dari cadangan, terpisah dari katalog latihan. Retake memakai paket lain dari percobaan sebelumnya. Dengan dua paket, rotasi dapat kembali ke paket sebelumnya setelah digunakan bergantian; tidak menjanjikan soal selalu baru sepanjang waktu.
-- Jika gagal, masa tunggu tujuh hari dihitung sejak nilai akhir tersedia. Jawaban tulis yang pending tidak bernilai nol dan belum memberi keputusan/promosi.
+- Jika gagal, karyawan dapat langsung mengulang dengan paket cadangan berbeda. Tidak ada masa tunggu. Berlaku juga untuk kegagalan lama; tidak perlu mengubah riwayat. Jawaban tulis yang pending tetap menunggu penilaian lengkap.
 - Promosi atomik satu tingkat, hanya jika profil masih berada pada level asal. Submit berulang tidak menaikkan lagi. Tidak otomatis membuka ujian berikutnya.
-- Mengakhiri evaluasi aktif lebih awal adalah gagal bernilai 0 dengan masa tunggu tujuh hari; UI menjelaskan sebelum tombol konfirmasi. Pembatalan latihan tidak menghasilkan nilai akhir.
+- Mengakhiri evaluasi aktif lebih awal adalah gagal bernilai 0; karyawan dapat langsung mengulang. UI menjelaskan sebelum tombol konfirmasi. Pembatalan latihan tidak menghasilkan nilai akhir.
 - Sesi lama tanpa opsi versi 2 tetap memakai kebijakan saat dibuat. Riwayat tidak dinilai ulang. Pending evaluasi lama juga harus diselesaikan sebelum promosi baru.
 
 ## Simulasi dan latihan
@@ -47,7 +47,7 @@ Backend: `app/hsk-bank.mjs`, `app/official-hsk.mjs`, `app/service.mjs`, `app/ser
 
 ## Verifikasi dan batasan
 
-Tes mencakup tepat 80/60, total tinggi dengan keterampilan rendah yang tetap gagal, cooldown, rotasi paket, maksimum level, pending tulisan, idempotensi promosi, baseline, source hashes, batas halaman, reserved access, ownership, mode belajar tanpa perpanjangan login, resume setelah autentikasi, Buku Kesalahan, serta regresi SQLite/PostgreSQL/RLS dan portal existing.
+Tes mencakup tepat 80/60, total tinggi dengan keterampilan rendah yang tetap gagal, pengulangan langsung, rotasi paket, maksimum level, pending tulisan, idempotensi promosi, baseline, source hashes, batas halaman, reserved access, ownership, mode belajar tanpa perpanjangan login, resume setelah autentikasi, Buku Kesalahan, serta regresi SQLite/PostgreSQL/RLS dan portal existing.
 
 Tes browser mencakup ketiga jalur, promosi satu tingkat tanpa auto-next, pagination katalog, mode belajar, audio/halaman sumber, bantuan setelah simpan, pergantian bagian, refresh, bank kesalahan, viewport 360px, bahasa Indonesia/中文, dan tidak ada XP tambahan. Pemeriksaan media menggunakan file asli; audio di perangkat fisik serta penilaian bahasa manusia belum diuji. Pengujian AI menggunakan transport mock; kuota cloud Gemini bergantung layanan existing. Tidak dilakukan transaksi ujian uji pada akun karyawan produksi.
 
@@ -73,3 +73,9 @@ Migrasi terverifikasi: tabel hsk_attempt_options dibuat, owner ecb_mandarin_app,
 - Kasus yang tetap mengikuti kebijakan: hasil Work pada level lama tidak memenuhi prasyarat level baru. Bila Work sudah selesai pada minggu yang sama, aturan hasil mingguan pertama tetap berlaku. Tidak mengubah atau menghapus hasil tersebut untuk melewati syarat.
 
 Rilis perbaikan: deploy dep-dblfiirbc2fs73e54ar0 Live pada 4 November 2026 pukul 17.25.33 Singapore/WITA, runtime commit ffeb5960826f6dfd94751225b06f2075948501c5. Health HTTP200 production_content/PostgreSQL; hsk-center anonim401. Pemeriksaan log setelah rilis tidak menemukan Request failed/Expiry worker. Verifikasi terautentikasi dan seluruh paket dijalankan pada PostgreSQL lokal terisolasi, tanpa membuat attempt produksi. Sebelum/sesudah: profiles9 tetap, sessions65 tetap, promotion_attempts0 tetap. Results58 menjadi59, reviews250 menjadi252 dan XP223 menjadi225 ketika aplikasi tetap digunakan; tidak mereset data aktivitas berjalan.
+
+## Penghapusan masa tunggu — 5 November 2026
+
+Atas instruksi pengguna, masa tunggu tujuh hari dihapus dari aturan penerimaan ujian dan keterangan Indonesia/中文, termasuk peringatan mengakhiri sesi lebih awal. Kebijakan baru versi3 memiliki cooldown_days0 dan retry_at null. Riwayat lama tidak ditulis ulang, nilai 80/60, prasyarat mingguan, pending penilaian, batas HSK6 dan pemilihan paket berbeda tetap berlaku. Rotasi memakai opened_at_ms agar pengulangan pada detik yang sama memilih paket sesudah percobaan terakhir. Tidak ada migrasi, penghapusan data, atau perubahan rahasia/biaya. File: app/hsk-bank.mjs, app/official-hsk.mjs, public/exam-center.js, public/official-exam.js, public/learning-i18n.js, tests/hsk-center.test.mjs, tests/exam-center-ui.mjs.
+
+Validasi penghapusan masa tunggu: 86 tes Node lulus, 0 gagal. Browser exam-center menguji gagal/akhiri lalu langsung memulai lagi, rotasi paket, keterangan ID/中文, serta kelulusan 80/60. Browser official-hsk lulus timer, halaman sumber, pending tulisan dan mobile. Build produksi/syntax-security lint99JS lulus.
