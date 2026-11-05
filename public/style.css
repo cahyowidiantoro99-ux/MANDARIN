@@ -58,24 +58,23 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .exam-center{display:grid;gap:22px}.exam-bank-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.exam-bank-grid article{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:0}.exam-bank-grid h3,.exam-bank-grid p{margin:0}.exam-bank-grid .btn{margin-top:auto}.exam-last{font-size:12px}.exam-history{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 0;border-bottom:1px solid #dce5e6}.exam-history small{display:block;margin-top:7px;line-height:1.6}.exam-section-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}.exam-section-grid article{padding:18px;background:#edf5f2;border-radius:12px}.exam-promotion li{margin:12px 0;line-height:1.65}.exam-study-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.official-feedback{display:block;font-size:12px;margin-top:8px}.exam-center .notice p:last-child{margin-bottom:0}.exam-center details>summary{cursor:pointer;font-weight:650}.exam-center details[open]>summary{margin-bottom:18px}.exam-center .panel{margin-bottom:0}.exam-center .filters select{min-width:0;max-width:100%}.exam-center .grid2{margin:0}.exam-center .grid2>.panel{min-width:0}
 @media(max-width:850px){.exam-bank-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.exam-bank-grid,.exam-section-grid{grid-template-columns:1fr}.exam-center .leader-tabs{display:grid;grid-template-columns:1fr}.exam-center .panel{padding:20px}.exam-center .filters{display:grid;grid-template-columns:1fr}.exam-history{flex-wrap:wrap}.exam-center .leader-hero{padding:22px}}
 
-/* ECB Learning: shared surfaces and controls for the existing learning views. */
-.shell:has(.nav-item.active[href="#learning"]) {
+/* Shared ECB theme for both portals and account pages. */
+:root {
   --navy: #10303b;
   --teal: #117c78;
-  --learning-gold: #dca53a;
-  --learning-cream: #f8f5ed;
-  --learning-border: #dfdacf;
-  --learning-shadow: 0 4px 14px rgb(16 48 59 / 5%);
-  background: var(--learning-cream);
+  --ecb-gold: #dca53a;
+  --ecb-cream: #f8f5ed;
+  --ecb-border: #dfdacf;
+  --ecb-shadow: 0 4px 14px rgb(16 48 59 / 5%);
+  --bg: var(--ecb-cream);
+  --line: var(--ecb-border);
+  --ink: var(--navy);
 }
-.shell:has(.nav-item.active[href="#learning"]) .nav-item.active {
-  box-shadow: inset 3px 0 var(--learning-gold);
-}
-.shell:has(.nav-item.active[href="#learning"]) .content :is(h1, h2, h3) {
-  color: var(--navy);
+.sidebar .nav-item.active {
+  box-shadow: inset 3px 0 var(--ecb-gold);
 }
 .lc, .lp {
-  --lc-line: var(--learning-border, #dfdacf);
+  --lc-line: var(--ecb-border, #dfdacf);
   --muted: #52676c;
   line-height: 1.5;
 }
@@ -85,14 +84,14 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 }
 .lc :is(.panel, .lc-course, .lc-flip-inner),
 .lp :is(.panel, .lp-sentence) {
-  border-color: var(--learning-border);
+  border-color: var(--ecb-border);
   border-radius: 18px;
-  box-shadow: var(--learning-shadow);
+  box-shadow: var(--ecb-shadow);
 }
 .lc-journey {
   background: linear-gradient(115deg, #e8f2ee, #fffaf0);
-  border-color: var(--learning-border);
-  border-inline-start: 3px solid var(--learning-gold);
+  border-color: var(--ecb-border);
+  border-inline-start: 3px solid var(--ecb-gold);
   padding: clamp(18px, 3vw, 32px);
 }
 .lc .lc-course {
@@ -105,7 +104,7 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .lc-tabs button {
   min-width: 0;
   padding: clamp(12px, 2vw, 18px);
-  border-color: var(--learning-border);
+  border-color: var(--ecb-border);
 }
 .lc-tabs button.selected {
   background: var(--navy);
@@ -136,7 +135,7 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 :is(.lc, .lp) :is(.btn, .speak-button, input, select) { border-radius: 11px; }
 :is(.lc, .lp) :is(.btn, .speak-button) { min-height: 44px; }
 :is(.lc, .lp) :is(button, a, input, select):focus-visible {
-  outline: 3px solid var(--learning-gold, #dca53a);
+  outline: 3px solid var(--ecb-gold, #dca53a);
   outline-offset: 3px;
 }
 @media (max-width: 760px) {
@@ -240,3 +239,21 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .lc :is(.lc-card-front,.lc-card-back) h2[lang="zh"] {
   font-family: "KaiTi", "STKaiti", "Microsoft YaHei", sans-serif;
 }
+
+/* Lightweight accents on existing controls and featured cards. */
+.shell .main, .auth-page { background-color: var(--ecb-cream); }
+.panel, .stat, .auth-form { border-color: var(--ecb-border); }
+.content :is(.panel, .stat) {
+  border-radius: 16px;
+  box-shadow: var(--ecb-shadow);
+}
+.btn { border-radius: 11px; }
+.btn.secondary:hover:not(:disabled) { border-color: var(--teal); }
+:is(button, a, input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--ecb-gold);
+  outline-offset: 3px;
+}
+.content :is(.hero, .leader-hero, .exam-promotion) {
+  border-inline-start: 3px solid var(--ecb-gold);
+}
+.topbar { border-bottom-color: var(--ecb-border); }
