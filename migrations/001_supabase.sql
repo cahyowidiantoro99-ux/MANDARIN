@@ -227,3 +227,10 @@ ALTER TABLE lc_badges ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_badges FROM an
 CREATE TABLE IF NOT EXISTS hsk_attempt_options(session_id UUID PRIMARY KEY REFERENCES exam_sessions(id),purpose TEXT NOT NULL CHECK(purpose IN ('promotion','simulation','learning','section','mistakes')),section TEXT CHECK(section IS NULL OR section IN ('listening','reading','writing')),policy_json TEXT NOT NULL);
 ALTER TABLE hsk_attempt_options ENABLE ROW LEVEL SECURITY; REVOKE ALL ON hsk_attempt_options FROM anon,authenticated;
 COMMIT;
+
+CREATE TABLE IF NOT EXISTS atlas_progress(
+ user_id UUID PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,
+ state TEXT NOT NULL DEFAULT '{}'
+);
+ALTER TABLE atlas_progress ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON atlas_progress FROM anon,authenticated;

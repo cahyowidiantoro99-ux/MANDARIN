@@ -279,3 +279,14 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .song-meta span{color:#52676c}
 .song-lesson input[type="search"]{border-color:var(--teal)}
 @media(max-width:760px){.song-grid{grid-template-columns:minmax(0,1fr)}}
+
+.atlas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:14px}
+.atlas-nav{margin-bottom:16px}
+.atlas-word p{margin:8px 0}
+.atlas-examples{padding-inline-start:22px}
+.atlas-tiles,.atlas-answers{display:flex;flex-wrap:wrap;gap:8px}
+.atlas-tiles .btn{flex:1 1 104px;flex-direction:column;gap:3px;text-align:center}
+.atlas-tiles strong{font-size:1.6rem}
+.atlas .recall-feedback{margin-top:14px}
+#atlas-error:empty{display:none}
+#atlas-error{color:#9d2a32}

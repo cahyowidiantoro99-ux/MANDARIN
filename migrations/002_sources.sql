@@ -33,3 +33,8 @@ CREATE TABLE IF NOT EXISTS lc_badges(user_id TEXT NOT NULL REFERENCES profiles(i
 CREATE INDEX IF NOT EXISTS lc_activity_user ON lc_activity_results(user_id,created_at);
 
 CREATE TABLE IF NOT EXISTS hsk_attempt_options(session_id TEXT PRIMARY KEY REFERENCES exam_sessions(id),purpose TEXT NOT NULL CHECK(purpose IN ('promotion','simulation','learning','section','mistakes')),section TEXT CHECK(section IS NULL OR section IN ('listening','reading','writing')),policy_json TEXT NOT NULL);
+
+CREATE TABLE IF NOT EXISTS atlas_progress(
+ user_id TEXT PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,
+ state TEXT NOT NULL DEFAULT '{}'
+);

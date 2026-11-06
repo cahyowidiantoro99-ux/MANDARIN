@@ -1,0 +1,67 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {openDatabase} from '../app/db.mjs';
+import {seed} from '../scripts/seed.mjs';
+import {createApp} from '../app/server.mjs';
+import {atlasCatalog} from '../app/hanzi-atlas.mjs';
+
+const db=await openDatabase({file:':memory:',url:null});
+await db.migrate();await seed(db,{demo:true});
+const app=await createApp({db,demo:true,migrate:false,auth:{supabase:false}});
+await new Promise(resolve=>app.server.listen(0,'127.0.0.1',resolve));
+const base='http://127.0.0.1:'+app.server.address().port;
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+const page=await browser.newPage({viewport:{width:1365,height:900}});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));
+const heading=name=>page.getByRole('heading',{name,exact:true});
+try{
+  assert.equal((await page.request.get(base+'/api/atlas/catalog')).status(),401);
+  await page.goto(base);
+  await page.locator('[name=username]').fill('DEMO002');
+  await page.locator('[name=password]').fill('DemoMandarin!2026');
+  await page.locator('#login-form [type=submit]').click();
+  await page.locator('.dash-missions').waitFor();
+  await page.goto(base+'/#learning');
+  await page.locator('a[href="#hanzi"]').click();
+  await heading('Katalog Hanzi HSK 1–9').waitFor();
+  assert.match(await page.locator('#atlas-count').innerText(),/3\.000/);
+  await page.locator('#atlas-q').fill('ai');
+  assert(await page.locator('.atlas-word').count()>0);
+  await page.locator('#atlas-kind').selectOption('structure');
+  assert.match(await page.locator('#atlas-value').innerText(),/⿰/);
+  await page.locator('a[href="#hanzi-compare"]').first().click();
+  await heading('Bentuk Mirip 形近字').waitFor();
+  await page.locator('#atlas-q').fill('未');
+  await page.locator('.atlas-tiles a').first().click();
+  await page.locator('.atlas-word').waitFor();
+  assert.equal(await page.locator('.atlas-word .hanzi').innerText(),'未');
+
+  await page.setViewportSize({width:360,height:800});
+  await page.goto(base+'/#examination');
+  await page.locator('[data-exam-tab=practice]').click();
+  await page.locator('a[href="#pinyin"]').click();
+  await heading('Latihan Pinyin').waitFor();
+  assert.equal(await page.locator('[data-pack]').count(),30);
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await page.locator('[data-pack="1"]').click();
+  const word=await page.locator('#atlas-body .hanzi').innerText();
+  const row=atlasCatalog().rows.find(r=>r.hanzi===word);
+  const options=await page.locator('[data-choice]').allTextContents();
+  await page.locator('[data-choice]').nth(options.findIndex(o=>!row.pinyin.includes(o))).click();
+  await page.locator('.recall-feedback.wrong').waitFor();
+  assert((await page.locator('.recall-feedback').innerText()).includes(row.gloss_id));
+  await page.reload();
+  await page.locator('.recall-feedback.wrong').waitFor();
+  await page.locator('a[href="#pinyin-mistakes"]').click();
+  await page.getByText('Perlu diulang',{exact:true}).waitFor();
+  await page.locator('#atlas-review').click();
+  await page.getByRole('button',{name:row.pinyin[0],exact:true}).click();
+  await page.getByText('Selesai · Skor 1/1 · +0 XP',{exact:true}).waitFor();
+  await page.getByText('Lihat Gudang Kesalahan',{exact:true}).click();
+  await page.getByText('Sudah diperbaiki',{exact:true}).waitFor();
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  assert.deepEqual(errors,[]);
+  console.log('PASS desktop and 360px, menu links, catalog search and structure, similar detail, practice feedback, refresh, repair and history');
+}finally{
+  await browser.close();await new Promise(resolve=>app.server.close(resolve));await db.close();
+}
