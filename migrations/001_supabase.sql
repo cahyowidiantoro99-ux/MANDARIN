@@ -234,3 +234,11 @@ CREATE TABLE IF NOT EXISTS atlas_progress(
 );
 ALTER TABLE atlas_progress ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON atlas_progress FROM anon,authenticated;
+
+CREATE TABLE IF NOT EXISTS employee_learning_targets(
+ user_id UUID PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,
+ level INTEGER NOT NULL CHECK(level BETWEEN 1 AND 8),
+ target_date TEXT NOT NULL
+);
+ALTER TABLE employee_learning_targets ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON employee_learning_targets FROM anon,authenticated;

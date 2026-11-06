@@ -290,3 +290,12 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .atlas .recall-feedback{margin-top:14px}
 #atlas-error:empty{display:none}
 #atlas-error{color:#9d2a32}
+
+.dashboard-checklist{display:grid;gap:8px;padding:0;list-style:none}
+.dashboard-checklist li{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:8px}
+.dashboard-checklist label{display:flex;align-items:flex-start;gap:8px}
+.dashboard-history{border-top:1px solid var(--line);padding:12px 0}
+.dashboard-history summary{cursor:pointer;font-weight:650}
+.dashboard-history-list:not(:empty){margin-top:10px}
+#dashboard-plan-error:empty{display:none}
+#dashboard-countdown{font-variant-numeric:tabular-nums;font-weight:650}

@@ -38,3 +38,9 @@ CREATE TABLE IF NOT EXISTS atlas_progress(
  user_id TEXT PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,
  state TEXT NOT NULL DEFAULT '{}'
 );
+
+CREATE TABLE IF NOT EXISTS employee_learning_targets(
+ user_id TEXT PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,
+ level INTEGER NOT NULL CHECK(level BETWEEN 1 AND 8),
+ target_date TEXT NOT NULL
+);
