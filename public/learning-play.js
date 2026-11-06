@@ -51,47 +51,71 @@ const songVideos = [
   {title:'月亮代表我的心', pinyin:'Yuèliang dàibiǎo wǒ de xīn', credit:'Robynn & Kendy · Cover Teresa Teng', video:'nuw5bx3O8lg', note:'Panda Media · Terjemahan Indonesia'},
   {title:'小幸运', pinyin:'Xiǎo xìngyùn', credit:'田馥甄 · Hebe Tien', video:'ZQPaU0QPUgE', note:'BLM KARAOKE · Versi karaoke dengan pinyin dan terjemahan'},
   {title:'甜蜜蜜', pinyin:'Tiánmìmì', credit:'邓丽君 · Teresa Teng', video:'jz2sD77Ejv0', note:'Versi remix · Terjemahan Indonesia'},
+  {title:'朋友', pinyin:'Péngyou', video:'Ztr4waDsiEk'},
+  {title:'后来', pinyin:'Hòulái', video:'RgjFq6VJ9Z0'},
+  {title:'星语心愿', pinyin:'Xīngyǔ Xīnyuàn', video:'msmFFEcjx8A'},
+  {title:'告白气球', pinyin:'Gàobái Qìqiú', video:'Mrxx9N4zbMY'},
+  {title:'想见你', pinyin:'Xiǎng Jiàn Nǐ', video:'uwocgi4NMIk'},
+  {title:'离别', pinyin:'Líbié', video:'1XK3KiiYl-g'},
+  {title:'有没有人告诉你', pinyin:'Yǒu Méiyǒu Rén Gàosu Nǐ', video:'yssq2kJ_J38'},
 ];
 
 function mountSong({shell,esc,root,cleanup}) {
+  let query='', selected=null;
+  const normalize=value=>value.normalize('NFD').replace(/\p{M}/gu,'').toLowerCase().trim();
   shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
     <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
-    <header class="lc-journey"><div><div class="section-tag">MANDARIN POP</div>
-      <h1>Belajar lewat lagu</h1><p>Pilih video untuk berlatih menyimak dan mengikuti lirik.</p>
-    </div></header>
-    <label class="field">Pilih lagu<select id="song-select">
-      ${songVideos.map((song,i)=>`<option value="${i}">${esc(song.title)} · ${esc(song.pinyin)}</option>`).join('')}
-    </select></label>
-    <div class="panel">
-      <h2 id="song-title" lang="zh"></h2><p id="song-credit"></p><p class="muted" id="song-note"></p>
-      <div id="song-video"></div>
-      <button class="btn" id="song-load" type="button">Putar video</button>
-      <a class="btn secondary" id="song-link" target="_blank" rel="noopener">Buka di YouTube ↗</a>
-    </div></section>`);
+    <header class="lc-journey"><div><h1>Belajar lewat lagu</h1>
+      <p>Latih kemampuan menyimak lewat lagu Mandarin.</p></div></header>
+    <div id="song-gallery">
+      <label class="field">Cari lagu<input type="search" id="song-query" placeholder="Cari judul, pinyin, atau penyanyi"></label>
+      <div class="song-grid" id="song-grid"></div><p id="song-empty" role="status" hidden>Lagu tidak ditemukan.</p>
+    </div><div id="song-detail" hidden></div></section>`);
   const find=selector=>root.querySelector(selector);
-  const select=find('#song-select'), container=find('#song-video'), play=find('#song-load');
-  function selectedSong(){return songVideos[Number(select.value)];}
-  function showSong(){
-    const song=selectedSong();
-    container.replaceChildren();
-    find('#song-title').textContent=song.title;
-    find('#song-credit').textContent=song.pinyin+' · '+song.credit;
-    find('#song-note').textContent=song.note;
-    find('#song-link').href='https://www.youtube.com/watch?v='+song.video;
-    play.hidden=false;
+  const gallery=find('#song-gallery'), detail=find('#song-detail'), grid=find('#song-grid'), search=find('#song-query');
+  function filter(){
+    query=normalize(search.value);
+    let count=0;
+    for(const card of grid.children){
+      card.hidden=!card.dataset.search.includes(query);
+      if(!card.hidden)count++;
+    }
+    find('#song-empty').hidden=count!==0;
   }
-  select.onchange=showSong;
-  play.onclick=()=>{
-    const song=selectedSong(),frame=document.createElement('iframe');
-    frame.className='song-video';
-    frame.title=song.title+' · '+song.credit;
-    frame.referrerPolicy='strict-origin-when-cross-origin';
-    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
-    frame.allowFullscreen=true;
-    frame.src='https://www.youtube-nocookie.com/embed/'+song.video+'?autoplay=1&cc_load_policy=1';
-    container.replaceChildren(frame);
-    play.hidden=true;
-  };
-  cleanup(()=>container.replaceChildren());
-  showSong();
+  function play(song,card){
+    selected=card;
+    gallery.hidden=true;
+    detail.hidden=false;
+    detail.innerHTML=`<section class="panel">
+      <button class="btn secondary" id="song-back" type="button">← Kembali ke galeri</button>
+      <h2 class="mt" lang="zh">${esc(song.title)}</h2>
+      <p>${esc([song.pinyin,song.credit].filter(Boolean).join(' · '))}</p>
+      ${song.note?`<p class="muted">${esc(song.note)}</p>`:''}
+      <iframe class="song-video" title="${esc(song.title)}" referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen
+        src="https://www.youtube-nocookie.com/embed/${song.video}?autoplay=1&amp;cc_load_policy=1"></iframe>
+      <a class="btn secondary" href="https://www.youtube.com/watch?v=${song.video}" target="_blank" rel="noopener">Buka di YouTube ↗</a>
+    </section>`;
+    const back=find('#song-back');
+    back.onclick=()=>{
+      detail.replaceChildren();
+      detail.hidden=true;
+      gallery.hidden=false;
+      selected.focus();
+    };
+    back.focus();
+  }
+  grid.innerHTML=songVideos.map((song,i)=>`<button class="song-card" type="button" data-song="${i}" data-search="${esc(normalize([song.title,song.pinyin,song.credit].filter(Boolean).join(' ')))}">
+    <span class="song-thumb"><img alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://i.ytimg.com/vi/${song.video}/mqdefault.jpg">
+      <span class="song-play-icon" aria-hidden="true">▶</span></span>
+    <span class="song-meta"><strong lang="zh">${esc(song.title)}</strong>
+      <span>${esc([song.pinyin,song.credit].filter(Boolean).join(' · '))}</span></span>
+  </button>`).join('');
+  for(const card of grid.children){
+    card.onclick=()=>play(songVideos[Number(card.dataset.song)],card);
+    const image=card.querySelector('img');
+    image.onerror=()=>{image.hidden=true;};
+  }
+  search.oninput=filter;
+  cleanup(()=>detail.replaceChildren());
 }
