@@ -6,6 +6,7 @@ import {resolve} from 'node:path';
 import {id,assert,periodBounds} from './domain.mjs';
 export const officialPapers=legacyPapers;
 const paperFor=getPaper;
+const preparationSeconds=paper=>paper.phases.filter(phase=>phase.id==='preparation').reduce((sum,phase)=>sum+(phase.seconds||phase.minutes*60),0);
 export const aiGradingReady=writingProviderReady;
 export async function startOfficial(service,u,input={}){service.employee(u);return service.db.tx(async t=>{
  assert(!input.track||input.track==='hsk',400,'Jalur ujian HSK tidak valid.');const purpose=({hsk_simulation:'simulation',hsk_learning:'learning',hsk_section:'section',hsk_mistakes:'mistakes',levelup:'promotion'})[input.mode||'levelup'];assert(purpose,400,'Mode HSK tidak valid.');
@@ -17,7 +18,10 @@ export async function startOfficial(service,u,input={}){service.employee(u);retu
  if(purpose==='mistakes'){const mistakes=await mistakeBank(service,u);policy.numbers=mistakes.filter(i=>i.paper_id===p.id).map(i=>i.number);assert(policy.numbers.length,409,'Belum ada soal salah untuk paket ini.');section=p.items.find(i=>policy.numbers.includes(i.number)).section;}
  // Imported MP3 durations can include fractional seconds. PostgreSQL stores epoch
  // deadlines as BIGINT; round up so no source audio time is cut short.
- if(purpose==='learning')section='listening';const n=service.clock(),sid=id(),mode=input.mode||'levelup',deadline=n+(['simulation','promotion'].includes(purpose)?Math.ceil(p.total_seconds):30*86400),s={id:sid,user_id:u.id,track:'hsk',mode,level:p.level,week:periodBounds('weekly',n).key,status:'active',started_at:n,deadline,official:0,demo:service.demo?1:0};
+ if(purpose==='learning')section='listening';
+ const timed=['simulation','promotion'].includes(purpose);
+ if(timed)policy.skipped_seconds=preparationSeconds(p);
+ const n=service.clock(),sid=id(),mode=input.mode||'levelup',deadline=n+(timed?Math.ceil(p.total_seconds-policy.skipped_seconds):30*86400),s={id:sid,user_id:u.id,track:'hsk',mode,level:p.level,week:periodBounds('weekly',n).key,status:'active',started_at:n,deadline,official:0,demo:service.demo?1:0};
  await t.run('INSERT INTO exam_sessions(id,user_id,track,mode,level,week,status,started_at,deadline,demo) VALUES(?,?,?,?,?,?,?,?,?,?)',[sid,u.id,'hsk',mode,p.level,s.week,'active',n,deadline,s.demo]);await t.run('INSERT INTO exam_session_metadata(session_id,curriculum,content_mode) VALUES(?,?,?)',[sid,'HSK_ARCHIVE','official_archive']);await t.run("INSERT INTO official_exam_state(session_id,paper_id,answers_json,grading_status) VALUES(?,?,?,'active')",[sid,p.id,'{}']);await t.run('INSERT INTO hsk_attempt_options(session_id,purpose,section,policy_json) VALUES(?,?,?,?)',[sid,purpose,section,JSON.stringify(policy)]);await service.audit(u,'hsk_archive_start',p.id+':'+purpose,t);return officialView(service,t,s);
  });}
 export async function changeStudySection(service,u,sid,section){service.employee(u);return service.db.tx(async t=>{const {s,state,p}=await ownedOfficial(service,u,sid,t),o=await attemptOptions(t,sid);assert(s.status==='active'&&untimed(o),403,'Pergantian bagian hanya untuk mode belajar.');assert(p.items.some(i=>i.section===section),400,'Bagian tidak tersedia.');await t.run('UPDATE hsk_attempt_options SET section=? WHERE session_id=?',[section,sid]);return officialView(service,t,s,state);});}
@@ -25,7 +29,7 @@ export async function studyFeedback(service,u,sid,number){service.employee(u);co
 export async function abandonOfficial(service,u,sid){service.employee(u);return service.db.tx(async t=>{const {s,state,p}=await ownedOfficial(service,u,sid,t),o=await attemptOptions(t,sid);assert(s.status==='active',409,'Sesi tidak dapat diakhiri.');if(o?.purpose==='promotion'){const scores={listening:{score:0,total:p.counts.listening},reading:{score:0,total:p.counts.reading},writing:p.counts.writing?{score:0,items:[]}:null};await t.run("UPDATE exam_sessions SET status='submitted',submitted_at=? WHERE id=?",[service.clock(),sid]);await completeOfficial(service,t,{...s,status:'submitted'},state,scores);await t.run("UPDATE official_exam_state SET grading_status='cancelled' WHERE session_id=?",[sid]);}else{await t.run("UPDATE exam_sessions SET status='void',submitted_at=? WHERE id=?",[service.clock(),sid]);await t.run("UPDATE official_exam_state SET grading_status='cancelled' WHERE session_id=?",[sid]);}await service.audit(u,'hsk_archive_abandon',p.id,t);return {closed:true};});}
 export function officialPhase(paper,started,now){let end=Number(started);for(const phase of paper.phases){const start=end;end+=phase.seconds||phase.minutes*60;if(now<end)return {...phase,start,end};}return null;}
 function sessionPhase(paper,session,options,now){
- const skipped=options?.purpose==='simulation'?Number(parsePolicy(options)?.skipped_seconds||0):0;
+ const skipped=Number(parsePolicy(options)?.skipped_seconds||0);
  return officialPhase(paper,Number(session.started_at)-skipped,now);
 }
 

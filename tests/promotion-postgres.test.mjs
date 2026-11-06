@@ -24,14 +24,14 @@ test('PostgreSQL promotion opens a reserved paper for a qualified employee',asyn
   const timedPapers=new Set([exam.paper.id]);await db.run("UPDATE exam_sessions SET status='void' WHERE id=?",[exam.id]);
   for(const paper of archivePapers.filter(p=>!p.reserved)){
    const q=await service.startExam(u,{mode:'hsk_simulation',paper_id:paper.id});timedPapers.add(q.paper.id);
-   assert.equal(q.deadline-time,Math.ceil(paper.total_seconds),paper.id);assert.equal(Number.isInteger(q.deadline),true,paper.id);
+   assert.equal(q.deadline-time,Math.ceil(paper.total_seconds-paper.phases.filter(p=>p.id==='preparation').reduce((n,p)=>n+(p.seconds||p.minutes*60),0)),paper.id);assert.equal(Number.isInteger(q.deadline),true,paper.id);
    await db.run("UPDATE exam_sessions SET status='void' WHERE id=?",[q.id]);
   }
   // Rotate both reserved sources at every eligible level through real promotion starts.
   for(const level of [1,2,3,4,5]){
    await db.run('UPDATE profiles SET placement_level=? WHERE id=?',[level,uid]);
    if(level!==1)for(const track of ['hsk','work']){const sid=id();await db.run("INSERT INTO exam_sessions(id,user_id,track,mode,level,week,status,started_at,deadline,submitted_at) VALUES(?,?,?,'weekly',?,?,'submitted',?,?,?)",[sid,uid,track,level,periodBounds('weekly',time).key,time-100,time+100,time-50]);await db.run('INSERT INTO exam_results(id,session_id,user_id,score,passed,official_key,created_at) VALUES(?,?,?,80,1,?,?)',[id(),sid,uid,id(),time-50]);await db.run("INSERT INTO exam_session_metadata(session_id,curriculum,content_mode) VALUES(?,'HSK3.0','source')",[sid]);}
-   for(let i=0;i<2;i++){service.clock=()=>time+level*10+i;const q=await service.startExam(u,{mode:'levelup'}),paper=archivePapers.find(p=>p.id===q.paper.id);timedPapers.add(paper.id);assert.equal(Number.isInteger(q.deadline),true);assert.equal(q.deadline-q.started_at,Math.ceil(paper.total_seconds));assert.equal(q.policy.target_level,level+1);await db.run("UPDATE exam_sessions SET status='void' WHERE id=?",[q.id]);}
+   for(let i=0;i<2;i++){service.clock=()=>time+level*10+i;const q=await service.startExam(u,{mode:'levelup'}),paper=archivePapers.find(p=>p.id===q.paper.id);timedPapers.add(paper.id);assert.equal(Number.isInteger(q.deadline),true);assert.equal(q.deadline-q.started_at,Math.ceil(paper.total_seconds-paper.phases.filter(p=>p.id==='preparation').reduce((n,p)=>n+(p.seconds||p.minutes*60),0)));assert.equal(q.policy.target_level,level+1);await db.run("UPDATE exam_sessions SET status='void' WHERE id=?",[q.id]);}
   }
   assert.equal(timedPapers.size,archivePapers.length,'every public and reserved timed paper starts with an integer deadline');
  }finally{await pg.close();}
