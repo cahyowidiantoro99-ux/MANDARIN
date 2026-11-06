@@ -47,6 +47,10 @@ export async function mountLearningPlay(ctx,mode,arg=''){
 }
 
 const songs = [
+  {title:'童话', pinyin:'Tónghuà', translation:'Dongeng', credit:'光良 · Michael Wong', video:'bBcp_ljCBGU', version:'Video musik resmi'},
+  {title:'情非得已', pinyin:'Qíng fēi dé yǐ', translation:'Tak bisa menahan perasaan', credit:'庾澄庆 · Harlem Yu', video:'EUxsTXGy1wE', version:'Penampilan langsung · MangoTV'},
+  {title:'你，好不好？', pinyin:'Nǐ, hǎo bu hǎo?', translation:'Apa kabarmu?', credit:'周兴哲 · Eric Chou', video:'wSBXfzgqHtE', version:'Video musik resmi'},
+
   { title:'两只老虎', pinyin:'Liǎng zhī lǎohǔ', translation:'Dua harimau', credit:'Lagu anak tradisional', lines:[
     ['两只老虎，两只老虎','Liǎng zhī lǎohǔ, liǎng zhī lǎohǔ','Dua harimau, dua harimau',[60,62,64,60,60,62,64,60]],
     ['跑得快，跑得快','Pǎo de kuài, pǎo de kuài','Larinya cepat, larinya cepat',[64,65,67,67,64,65,67,67]],
@@ -96,13 +100,43 @@ function mountSong({shell,esc,root,cleanup}) {
   function draw(index) {
   release?.();
   const song=songs[index];
+  const selector=`<label class="field">Pilih lagu<select id="song-select">${songs.map((item,i)=>`<option value="${i}" ${i===index?'selected':''}>${esc(item.title)} · ${esc(item.credit)}</option>`).join('')}</select></label>`;
+  const selectSong=()=>{root.querySelector('#song-select').onchange=event=>draw(Number(event.target.value));};
+  if(song.video){
+    shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
+      <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
+      <header class="lc-journey"><div><div class="section-tag">MANDARIN POP</div>
+        <h1 lang="zh">${esc(song.title)}</h1><p>${esc(song.pinyin)} · ${esc(song.translation)}</p>
+        <small>${esc(song.credit)} · ${esc(song.version)}</small></div></header>
+      ${selector}
+      <div class="panel"><div id="song-video"></div>
+        <button class="btn" id="song-load" type="button">Muat video dengan vokal</button>
+        <a class="btn secondary" href="https://www.youtube.com/watch?v=${song.video}" target="_blank" rel="noopener">Buka di YouTube ↗</a>
+        <p class="muted mt">Gunakan CC jika tersedia di video.</p>
+      </div></section>`);
+    const container=root.querySelector('#song-video');
+    root.querySelector('#song-load').onclick=event=>{
+      const frame=document.createElement('iframe');
+      frame.className='song-video';
+      frame.title=song.title+' · '+song.credit;
+      frame.referrerPolicy='strict-origin-when-cross-origin';
+      frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+      frame.allowFullscreen=true;
+      frame.src='https://www.youtube-nocookie.com/embed/'+song.video+'?autoplay=1&cc_load_policy=1';
+      container.append(frame);
+      event.currentTarget.hidden=true;
+    };
+    release=()=>container.replaceChildren();
+    selectSong();
+    return;
+  }
   shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
     <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
     <header class="lc-journey"><div><div class="section-tag">跟着唱 · IKUT BERNYANYI</div>
       <h1 lang="zh">${esc(song.title)}</h1><p>${esc(song.pinyin)} · ${esc(song.translation)}</p>
       <small>${esc(song.credit)} · Iringan instrumental</small>
     </div></header>
-    <label class="field">Pilih lagu<select id="song-select">${songs.map((item,i)=>`<option value="${i}" ${i===index?'selected':''}>${esc(item.title)} · ${esc(item.translation)}</option>`).join('')}</select></label>
+    ${selector}
     <div class="panel song-lines">${song.lines.map(([zh,pinyin,id],i)=>`<button type="button" data-song-line="${i}" aria-label="Putar baris ${i+1}">
       <span lang="zh-Latn">${esc(pinyin)}</span><strong lang="zh">${esc(zh)}</strong><span>${esc(id)}</span>
     </button>`).join('')}</div>
@@ -136,7 +170,7 @@ function mountSong({shell,esc,root,cleanup}) {
   play.onclick=()=>start();
   lines.forEach((line,i)=>line.onclick=()=>start(i*lineSeconds));
   for (const event of ['timeupdate','seeking','ended']) audio.addEventListener(event,highlight);
-  root.querySelector('#song-select').onchange=event=>draw(Number(event.target.value));
+  selectSong();
   release=()=>{audio.pause();if(url)URL.revokeObjectURL(url);};
   }
   draw(0);
