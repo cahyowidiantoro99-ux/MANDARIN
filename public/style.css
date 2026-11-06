@@ -313,3 +313,4 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .vocab-audio:not([hidden]){display:inline-grid;place-items:center;width:44px;height:44px;flex:none;padding:0;border-radius:50%}
 .vocab-audio[aria-pressed=true]{background:#117c78;color:#fff}
 .vocab-spoken .speech-feedback{flex-basis:100%;overflow-wrap:anywhere}
+.dashboard-target-guidance summary{cursor:pointer;color:var(--teal);font-weight:650}.dashboard-target-guidance[open] summary{margin-bottom:12px}

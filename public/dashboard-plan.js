@@ -33,7 +33,7 @@ export function mountDashboardPlan({api,root,esc,date,fmtTime,historyHTML,cleanu
       const formatted=new Intl.DateTimeFormat('id-ID',{dateStyle:'long',timeZone:'UTC'}).format(new Date(current.date+'T00:00:00Z'));
       panel.innerHTML=`<p><strong>Level Perusahaan ${current.level}</strong> · ${esc(formatted)} (WITA)</p>
         <button class="btn secondary" id="dashboard-target-edit" type="button">Edit target</button>
-        <div class="mt">${guidance(current)}</div>`;
+        <details class="mt dashboard-target-guidance"><summary>Syarat target dan saran latihan</summary>${guidance(current)}</details>`;
       $('#dashboard-target-edit').onclick=()=>{errors.textContent='';draw(payload,true,base);$('#dashboard-target-form select').focus();};
       return;
     }
