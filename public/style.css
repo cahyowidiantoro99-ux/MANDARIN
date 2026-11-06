@@ -257,3 +257,12 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
   border-inline-start: 3px solid var(--ecb-gold);
 }
 .topbar { border-bottom-color: var(--ecb-border); }
+
+.song-lines button{display:grid;gap:4px;width:100%;padding:14px;text-align:start;border-radius:12px;background:#fffdf8;color:var(--navy)}
+.song-lines button+button{margin-top:6px}
+.song-lines strong{font-size:clamp(21px,5vw,28px)}
+.song-lines span{color:#52676c}
+.song-lines button[aria-current]{background:#e7f3ee;box-shadow:inset 3px 0 var(--ecb-gold);color:var(--teal)}
+.song-player{position:sticky;bottom:8px;margin-top:12px}
+.song-player audio{width:100%}
+.song-player p:empty{display:none}
