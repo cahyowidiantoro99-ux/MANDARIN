@@ -1,0 +1,64 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {openDatabase} from '../app/db.mjs';
+import {seed} from '../scripts/seed.mjs';
+import {createApp} from '../app/server.mjs';
+
+
+const db=await openDatabase({file:':memory:',url:null});
+await db.migrate();await seed(db,{demo:true});
+const app=await createApp({db,demo:true,migrate:false,auth:{supabase:false}});
+await new Promise(resolve=>app.server.listen(0,'127.0.0.1',resolve));
+const base='http://127.0.0.1:'+app.server.address().port;
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+const page=await browser.newPage({viewport:{width:1365,height:900}});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));
+const heading=name=>page.getByRole('heading',{name,exact:true});
+try{
+  page.setDefaultTimeout(10000);
+  assert.equal((await page.request.get(base+'/api/vocabulary/list')).status(),401);
+  await page.addInitScript(()=>{
+    const voice={lang:'zh-CN',name:'Fixture Mandarin',localService:true};
+    const synth=Object.assign(new EventTarget(),{getVoices:()=>[voice],speak(utterance){window.lastSpoken=utterance.text;utterance.onstart?.();},cancel(){}});
+    Object.defineProperty(window,'speechSynthesis',{value:synth});
+    window.SpeechSynthesisUtterance=class {constructor(text){this.text=text;}};
+  });
+  await page.goto(base);
+  await page.locator('[name=username]').fill('DEMO002');
+  await page.locator('[name=password]').fill('DemoMandarin!2026');
+  await page.locator('#login-form [type=submit]').click();
+  await page.locator('a[href="#learning"]').first().click();
+  await page.getByRole('link',{name:/Katalog Kosakata HSK/}).click();
+  await page.getByRole('status').filter({hasText:'11.092 hasil'}).waitFor();
+  await page.locator('input[type=search]').fill('tigao');
+  await heading('提高').waitFor();
+  await page.getByRole('combobox',{name:'Level HSK'}).selectOption('2');
+  await page.waitForFunction(()=>document.querySelector('#vocab-results')?.getAttribute('aria-busy')===null);
+  await heading('提高').waitFor();
+  const vocabularyAudio=page.getByRole('button',{name:'Dengarkan 提高',exact:true});
+  await vocabularyAudio.click();
+  assert.equal(await page.evaluate(()=>window.lastSpoken),'提高');
+  assert.equal(await vocabularyAudio.getAttribute('aria-pressed'),'true');
+  const sentenceAudio=page.locator('.notice button[data-speak]').first();
+  await sentenceAudio.click();
+  assert.equal(await page.evaluate(()=>window.lastSpoken),'该项目旨在提高员工素质。');
+  await sentenceAudio.click();
+  await page.screenshot({path:'artifacts/atlas-kosakata-desktop.png'});
+  await page.getByRole('link',{name:/Lihat Pasangan Kata/}).first().click();
+  await page.locator('.vocab-relation').first().waitFor();
+  assert.equal(await page.locator('input[type=search]').inputValue(),'提高');
+  await page.setViewportSize({width:390,height:850});
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  assert(await page.locator('.vocab-relation button[data-speak]:visible').count()>=2);
+  await page.screenshot({path:'artifacts/atlas-pasangan-hp.png'});
+  await page.goto(base+'/#pair-practice');
+  await page.getByRole('combobox',{name:'Bank soal'}).selectOption('10');
+  await page.getByRole('button',{name:'Mulai bank'}).click();
+  await page.getByText('Soal 1 / 36').waitFor();
+  assert.equal(await page.locator('#vocab-host button[lang=zh]').count(),4);
+  await page.locator('#vocab-host button[lang=zh]').first().click();
+  await page.locator('.vocab-relation').waitFor();
+  await page.screenshot({path:'artifacts/atlas-pembahasan-hp.png'});
+  assert.deepEqual(errors,[]);
+  console.log('PASS navigation, authenticated catalog, filters, cross-link, bank 10, feedback and mobile');
+}finally{await browser.close();await new Promise(resolve=>app.server.close(resolve));await db.close();}

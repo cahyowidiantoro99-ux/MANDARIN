@@ -299,3 +299,17 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .dashboard-history-list:not(:empty){margin-top:10px}
 #dashboard-plan-error:empty{display:none}
 #dashboard-countdown{font-variant-numeric:tabular-nums;font-weight:650}
+
+.vocab-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.vocab-controls input{flex:1 1 16rem;min-width:0}
+.vocab-controls input,.vocab-controls select{max-width:100%}
+.vocab-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.vocab-results h3{font-size:1.55rem;margin:.45em 0 .15em}
+.vocab-relation{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px;overflow-wrap:anywhere}
+.vocab-relation strong{font-size:1.35rem}
+.vocab-relation b{color:var(--teal);font-size:1.2rem}
+.vocab-spoken{display:flex;align-items:center;gap:6px 10px;flex-wrap:wrap}
+.vocab-spoken :is(strong,h3){min-width:0;overflow-wrap:anywhere}
+.vocab-audio:not([hidden]){display:inline-grid;place-items:center;width:44px;height:44px;flex:none;padding:0;border-radius:50%}
+.vocab-audio[aria-pressed=true]{background:#117c78;color:#fff}
+.vocab-spoken .speech-feedback{flex-basis:100%;overflow-wrap:anywhere}

@@ -37,7 +37,7 @@ async function owned(db,user,attempt){
 
 function stateFrom(row){
   const state=JSON.parse(row?.state||'{}');
-  return {best:state.best||{},mistakes:state.mistakes||{},latest:state.latest||{}};
+  return {...state,best:state.best||{},mistakes:state.mistakes||{},latest:state.latest||{}};
 }
 
 export async function atlasProgress(db,user){
@@ -45,7 +45,7 @@ export async function atlasProgress(db,user){
   return {best,mistakes};
 }
 
-async function updateUser(db,user,run){
+export async function updateUser(db,user,run){
   // The upsert locks the account row before reading score and mistake state.
   // PostgreSQL SERIALIZABLE can reject the competing transaction. Retry its whole unit of work.
   for(let retry=0;;retry++){
