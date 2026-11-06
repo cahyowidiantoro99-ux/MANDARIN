@@ -46,73 +46,17 @@ export async function mountLearningPlay(ctx,mode,arg=''){
  const Recognition=globalThis.SpeechRecognition||globalThis.webkitSpeechRecognition;if(!Recognition){$('#lp-recognize').disabled=true;$('#lp-transcript').textContent='Transkripsi otomatis tidak tersedia di browser ini. Rekaman lokal tetap dapat digunakan.';}else{$('#lp-recognize').onclick=()=>{releaseMic();stop();recognition=new Recognition();recognition.lang='zh-CN';recognition.interimResults=false;recognition.onresult=e=>{if(disposed)return;$('#lp-transcript').innerHTML='<span>Transkripsi:</span> <span data-learning-content>'+esc([...e.results].map(r=>r[0].transcript).join(' '))+'</span><span>Bandingkan dengan teks contoh; ini bukan skor pelafalan.</span>';};recognition.onerror=()=>{if(disposed)return;$('#lp-transcript').textContent='Transkripsi tidak tersedia atau izin ditolak. Gunakan rekam dan putar ulang.';};recognition.onend=()=>{if(!disposed){$('#lp-recognize').disabled=false;$('#lp-recognize-stop').disabled=true;}};try{recognition.start();$('#lp-recognize').disabled=true;$('#lp-recognize-stop').disabled=false;}catch{toast('Transkripsi tidak dapat dimulai.');}};$('#lp-recognize-stop').onclick=()=>recognition?.stop();}
 }
 
-const songs = [
-  {title:'童话', pinyin:'Tónghuà', translation:'Dongeng', credit:'光良 · Michael Wong', video:'bBcp_ljCBGU', version:'Video musik resmi'},
-  {title:'情非得已', pinyin:'Qíng fēi dé yǐ', translation:'Tak bisa menahan perasaan', credit:'庾澄庆 · Harlem Yu', video:'EUxsTXGy1wE', version:'Penampilan langsung · MangoTV'},
-  {title:'你，好不好？', pinyin:'Nǐ, hǎo bu hǎo?', translation:'Apa kabarmu?', credit:'周兴哲 · Eric Chou', video:'wSBXfzgqHtE', version:'Video musik resmi'},
-
-  { title:'两只老虎', pinyin:'Liǎng zhī lǎohǔ', translation:'Dua harimau', credit:'Lagu anak tradisional', lines:[
-    ['两只老虎，两只老虎','Liǎng zhī lǎohǔ, liǎng zhī lǎohǔ','Dua harimau, dua harimau',[60,62,64,60,60,62,64,60]],
-    ['跑得快，跑得快','Pǎo de kuài, pǎo de kuài','Larinya cepat, larinya cepat',[64,65,67,67,64,65,67,67]],
-    ['一只没有耳朵，一只没有尾巴','Yì zhī méiyǒu ěrduo, yì zhī méiyǒu wěiba','Yang satu tidak punya telinga, yang satu tidak punya ekor',[67,69,67,65,64,60,67,69,67,65,64,60]],
-    ['真奇怪，真奇怪','Zhēn qíguài, zhēn qíguài','Aneh sekali, aneh sekali',[60,55,60,60,60,55,60,60]],
-  ]},
-  { title:'小星星', pinyin:'Xiǎo xīngxing', translation:'Bintang kecil', credit:'Melodi tradisional · Lirik Mandarin latihan', lines:[
-    ['小星星啊亮晶晶','Xiǎo xīngxing a liàngjīngjīng','Bintang kecil berkilau',[60,60,67,67,69,69,67,67]],
-    ['天上闪着小眼睛','Tiānshang shǎnzhe xiǎo yǎnjing','Mata kecil berkelip di langit',[65,65,64,64,62,62,60,60]],
-    ['夜空安静又美丽','Yèkōng ānjìng yòu měilì','Langit malam tenang dan indah',[67,67,65,65,64,64,62,62]],
-    ['陪我一起数星星','Péi wǒ yìqǐ shǔ xīngxing','Temani aku menghitung bintang',[67,67,65,65,64,64,62,62]],
-    ['小星星啊亮晶晶','Xiǎo xīngxing a liàngjīngjīng','Bintang kecil berkilau',[60,60,67,67,69,69,67,67]],
-    ['天上闪着小眼睛','Tiānshang shǎnzhe xiǎo yǎnjing','Mata kecil berkelip di langit',[65,65,64,64,62,62,60,60]],
-  ]},
-  { title:'茉莉花', pinyin:'Mòlìhuā', translation:'Bunga melati', credit:'Melodi rakyat Jiangsu · Lirik Mandarin latihan', lines:[
-    ['好一朵茉莉花','Hǎo yì duǒ mòlìhuā','Betapa indahnya bunga melati',[64,64,67,69,72,72,69,67]],
-    ['好一朵茉莉花','Hǎo yì duǒ mòlìhuā','Betapa indahnya bunga melati',[64,64,67,69,72,72,69,67]],
-    ['白白的花香又美','Báibái de huā xiāng yòu měi','Bunga putih itu harum dan indah',[67,67,67,64,67,69,72,72]],
-    ['我在花旁轻轻唱','Wǒ zài huā páng qīngqīng chàng','Aku bernyanyi pelan di samping bunga',[69,67,64,67,62,64,60,60]],
-  ]},
-];
-const lineSeconds = 6;
-
-function songTrack(song) {
-  const phrases = song.lines.map(line => line[3]);
-  const rate = 16000, seconds = phrases.length * lineSeconds, buffer = new ArrayBuffer(44 + rate * seconds * 2);
-  const view = new DataView(buffer);
-  for (const [offset, label] of [[0,'RIFF'],[8,'WAVE'],[12,'fmt '],[36,'data']]) {
-    for (let i=0;i<label.length;i++) view.setUint8(offset+i,label.charCodeAt(i));
-  }
-  for (const [offset,value] of [[4,buffer.byteLength-8],[16,16],[24,rate],[28,rate*2],[40,buffer.byteLength-44]]) view.setUint32(offset,value,true);
-  for (const [offset,value] of [[20,1],[22,1],[32,2],[34,16]]) view.setUint16(offset,value,true);
-  for (let sample=0;sample<rate*seconds;sample++) {
-    const time=sample/rate, phrase=phrases[Math.floor(time/lineSeconds)], within=time%lineSeconds;
-    const step=lineSeconds/phrase.length, note=phrase[Math.floor(within/step)];
-    const elapsed=within%step, frequency=440*2**((note-69)/12);
-    const envelope=Math.min(1,elapsed*90)*Math.exp(-elapsed*4)*Math.min(1,(step-elapsed)*30);
-    const tone=Math.sin(2*Math.PI*frequency*elapsed)+.22*Math.sin(4*Math.PI*frequency*elapsed);
-    view.setInt16(44+sample*2,8500*envelope*tone,true);
-  }
-  return URL.createObjectURL(new Blob([buffer],{type:'audio/wav'}));
-}
-
 function mountSong({shell,esc,root,cleanup}) {
-  let release;
-  cleanup(()=>release?.());
-  function draw(index) {
-  release?.();
-  const song=songs[index];
-  const selector=`<label class="field">Pilih lagu<select id="song-select">${songs.map((item,i)=>`<option value="${i}" ${i===index?'selected':''}>${esc(item.title)} · ${esc(item.credit)}</option>`).join('')}</select></label>`;
-  const selectSong=()=>{root.querySelector('#song-select').onchange=event=>draw(Number(event.target.value));};
-  if(song.video){
+    const song={title:'童话',pinyin:'Tónghuà',translation:'Dongeng',credit:'光良 · Michael Wong',video:'OSCuOsaOE48',version:'Rekaman studio resmi'};
     shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
       <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
       <header class="lc-journey"><div><div class="section-tag">MANDARIN POP</div>
         <h1 lang="zh">${esc(song.title)}</h1><p>${esc(song.pinyin)} · ${esc(song.translation)}</p>
         <small>${esc(song.credit)} · ${esc(song.version)}</small></div></header>
-      ${selector}
       <div class="panel"><div id="song-video"></div>
-        <button class="btn" id="song-load" type="button">Muat video dengan vokal</button>
+        <button class="btn" id="song-load" type="button">Putar rekaman studio</button>
         <a class="btn secondary" href="https://www.youtube.com/watch?v=${song.video}" target="_blank" rel="noopener">Buka di YouTube ↗</a>
-        <p class="muted mt">Gunakan CC jika tersedia di video.</p>
+        <a class="btn secondary" href="https://tfaparty.com/lyrics/lyrics-bBcp_ljCBGU" target="_blank" rel="noopener">Buka lirik sinkron ↗</a><p class="muted mt">Lirik sinkron dibuka di situs karaoke dengan versi MV.</p>
       </div></section>`);
     const container=root.querySelector('#song-video');
     root.querySelector('#song-load').onclick=event=>{
@@ -126,52 +70,5 @@ function mountSong({shell,esc,root,cleanup}) {
       container.append(frame);
       event.currentTarget.hidden=true;
     };
-    release=()=>container.replaceChildren();
-    selectSong();
-    return;
-  }
-  shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
-    <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
-    <header class="lc-journey"><div><div class="section-tag">跟着唱 · IKUT BERNYANYI</div>
-      <h1 lang="zh">${esc(song.title)}</h1><p>${esc(song.pinyin)} · ${esc(song.translation)}</p>
-      <small>${esc(song.credit)} · Iringan instrumental</small>
-    </div></header>
-    ${selector}
-    <div class="panel song-lines">${song.lines.map(([zh,pinyin,id],i)=>`<button type="button" data-song-line="${i}" aria-label="Putar baris ${i+1}">
-      <span lang="zh-Latn">${esc(pinyin)}</span><strong lang="zh">${esc(zh)}</strong><span>${esc(id)}</span>
-    </button>`).join('')}</div>
-    <div class="panel song-player"><button class="btn" id="song-play" type="button">Putar iringan</button>
-      <audio controls preload="none" hidden aria-label="Iringan ${esc(song.translation)}"></audio>
-      <p role="status" id="song-status"></p>
-    </div></section>`);
-  const audio=root.querySelector('.song-player audio'), play=root.querySelector('#song-play');
-  const lines=[...root.querySelectorAll('[data-song-line]')];
-  const status=root.querySelector('#song-status');
-  let url, previous=-1;
-  function highlight() {
-    const active=audio.ended?-1:Math.floor(audio.currentTime/lineSeconds);
-    if(active===previous)return;
-    previous=active;
-    lines.forEach((line,i)=>line.toggleAttribute('aria-current',i===active));
-    if(active>=0&&!audio.paused)lines[active]?.scrollIntoView({block:'nearest'});
-  }
-  async function start(at) {
-    try {
-      if (!url) { url=songTrack(song);audio.src=url; }
-      if (at!==undefined) audio.currentTime=at;
-      await audio.play();
-      audio.hidden=false;
-      play.hidden=true;
-      status.textContent='';
-    } catch {
-      status.textContent='Iringan belum bisa diputar. Coba lagi.';
-    }
-  }
-  play.onclick=()=>start();
-  lines.forEach((line,i)=>line.onclick=()=>start(i*lineSeconds));
-  for (const event of ['timeupdate','seeking','ended']) audio.addEventListener(event,highlight);
-  selectSong();
-  release=()=>{audio.pause();if(url)URL.revokeObjectURL(url);};
-  }
-  draw(0);
+    cleanup(()=>container.replaceChildren());
 }
