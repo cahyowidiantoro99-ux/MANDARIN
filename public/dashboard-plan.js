@@ -28,7 +28,7 @@ export function mountDashboardPlan({api,root,esc,date,fmtTime,historyHTML,cleanu
       update();timer=setInterval(update,1000);
     }
     const guidance=plan=>`<p><strong>${esc(plan.reference)}</strong></p><p class="muted">Saran latihan</p>
-      <ul class="dashboard-checklist">${plan.tasks.map(task=>`<li><span>${esc(task.label)}</span>${task.href?`<a href="${esc(task.href)}">Buka latihan →</a>`:''}</li>`).join('')}</ul>`;
+      <ul class="dashboard-checklist" tabindex="0" aria-label="Saran latihan">${plan.tasks.map(task=>`<li><span>${esc(task.label)}</span>${task.href?`<a href="${esc(task.href)}">Buka latihan →</a>`:''}</li>`).join('')}</ul>`;
     if(current&&!editing){
       const formatted=new Intl.DateTimeFormat('id-ID',{dateStyle:'long',timeZone:'UTC'}).format(new Date(current.date+'T00:00:00Z'));
       panel.innerHTML=`<p><strong>Level Perusahaan ${current.level}</strong> · ${esc(formatted)} (WITA)</p>
