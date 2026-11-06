@@ -46,29 +46,52 @@ export async function mountLearningPlay(ctx,mode,arg=''){
  const Recognition=globalThis.SpeechRecognition||globalThis.webkitSpeechRecognition;if(!Recognition){$('#lp-recognize').disabled=true;$('#lp-transcript').textContent='Transkripsi otomatis tidak tersedia di browser ini. Rekaman lokal tetap dapat digunakan.';}else{$('#lp-recognize').onclick=()=>{releaseMic();stop();recognition=new Recognition();recognition.lang='zh-CN';recognition.interimResults=false;recognition.onresult=e=>{if(disposed)return;$('#lp-transcript').innerHTML='<span>Transkripsi:</span> <span data-learning-content>'+esc([...e.results].map(r=>r[0].transcript).join(' '))+'</span><span>Bandingkan dengan teks contoh; ini bukan skor pelafalan.</span>';};recognition.onerror=()=>{if(disposed)return;$('#lp-transcript').textContent='Transkripsi tidak tersedia atau izin ditolak. Gunakan rekam dan putar ulang.';};recognition.onend=()=>{if(!disposed){$('#lp-recognize').disabled=false;$('#lp-recognize-stop').disabled=true;}};try{recognition.start();$('#lp-recognize').disabled=true;$('#lp-recognize-stop').disabled=false;}catch{toast('Transkripsi tidak dapat dimulai.');}};$('#lp-recognize-stop').onclick=()=>recognition?.stop();}
 }
 
+const songVideos = [
+  {title:'童话', pinyin:'Tónghuà', credit:'光良 · Michael Wong', video:'1texfPfHACk', note:'Hualong Studio · Pinyin dan terjemahan Indonesia'},
+  {title:'月亮代表我的心', pinyin:'Yuèliang dàibiǎo wǒ de xīn', credit:'Robynn & Kendy · Cover Teresa Teng', video:'nuw5bx3O8lg', note:'Panda Media · Terjemahan Indonesia'},
+  {title:'小幸运', pinyin:'Xiǎo xìngyùn', credit:'田馥甄 · Hebe Tien', video:'ZQPaU0QPUgE', note:'BLM KARAOKE · Versi karaoke dengan pinyin dan terjemahan'},
+  {title:'甜蜜蜜', pinyin:'Tiánmìmì', credit:'邓丽君 · Teresa Teng', video:'jz2sD77Ejv0', note:'Versi remix · Terjemahan Indonesia'},
+];
+
 function mountSong({shell,esc,root,cleanup}) {
-    const song={title:'童话',pinyin:'Tónghuà',translation:'Dongeng',credit:'光良 · Michael Wong',video:'OSCuOsaOE48',version:'Rekaman studio resmi'};
-    shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
-      <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
-      <header class="lc-journey"><div><div class="section-tag">MANDARIN POP</div>
-        <h1 lang="zh">${esc(song.title)}</h1><p>${esc(song.pinyin)} · ${esc(song.translation)}</p>
-        <small>${esc(song.credit)} · ${esc(song.version)}</small></div></header>
-      <div class="panel"><div id="song-video"></div>
-        <button class="btn" id="song-load" type="button">Putar rekaman studio</button>
-        <a class="btn secondary" href="https://www.youtube.com/watch?v=${song.video}" target="_blank" rel="noopener">Buka di YouTube ↗</a>
-        <a class="btn secondary" href="https://tfaparty.com/lyrics/lyrics-bBcp_ljCBGU" target="_blank" rel="noopener">Buka lirik sinkron ↗</a><p class="muted mt">Lirik sinkron dibuka di situs karaoke dengan versi MV.</p>
-      </div></section>`);
-    const container=root.querySelector('#song-video');
-    root.querySelector('#song-load').onclick=event=>{
-      const frame=document.createElement('iframe');
-      frame.className='song-video';
-      frame.title=song.title+' · '+song.credit;
-      frame.referrerPolicy='strict-origin-when-cross-origin';
-      frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
-      frame.allowFullscreen=true;
-      frame.src='https://www.youtube-nocookie.com/embed/'+song.video+'?autoplay=1&cc_load_policy=1';
-      container.append(frame);
-      event.currentTarget.hidden=true;
-    };
-    cleanup(()=>container.replaceChildren());
+  shell('learning','Belajar lewat lagu',`<section class="lc song-lesson">
+    <a class="lc-back" href="#learning">← Pusat Pembelajaran</a>
+    <header class="lc-journey"><div><div class="section-tag">MANDARIN POP</div>
+      <h1>Belajar lewat lagu</h1><p>Pilih video untuk berlatih menyimak dan mengikuti lirik.</p>
+    </div></header>
+    <label class="field">Pilih lagu<select id="song-select">
+      ${songVideos.map((song,i)=>`<option value="${i}">${esc(song.title)} · ${esc(song.pinyin)}</option>`).join('')}
+    </select></label>
+    <div class="panel">
+      <h2 id="song-title" lang="zh"></h2><p id="song-credit"></p><p class="muted" id="song-note"></p>
+      <div id="song-video"></div>
+      <button class="btn" id="song-load" type="button">Putar video</button>
+      <a class="btn secondary" id="song-link" target="_blank" rel="noopener">Buka di YouTube ↗</a>
+    </div></section>`);
+  const find=selector=>root.querySelector(selector);
+  const select=find('#song-select'), container=find('#song-video'), play=find('#song-load');
+  function selectedSong(){return songVideos[Number(select.value)];}
+  function showSong(){
+    const song=selectedSong();
+    container.replaceChildren();
+    find('#song-title').textContent=song.title;
+    find('#song-credit').textContent=song.pinyin+' · '+song.credit;
+    find('#song-note').textContent=song.note;
+    find('#song-link').href='https://www.youtube.com/watch?v='+song.video;
+    play.hidden=false;
+  }
+  select.onchange=showSong;
+  play.onclick=()=>{
+    const song=selectedSong(),frame=document.createElement('iframe');
+    frame.className='song-video';
+    frame.title=song.title+' · '+song.credit;
+    frame.referrerPolicy='strict-origin-when-cross-origin';
+    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allowFullscreen=true;
+    frame.src='https://www.youtube-nocookie.com/embed/'+song.video+'?autoplay=1&cc_load_policy=1';
+    container.replaceChildren(frame);
+    play.hidden=true;
+  };
+  cleanup(()=>container.replaceChildren());
+  showSong();
 }
