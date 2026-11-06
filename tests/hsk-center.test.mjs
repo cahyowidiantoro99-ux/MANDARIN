@@ -17,3 +17,19 @@ test('learning and mistakes preserve context, ownership, saved answers and level
 test('promotion pending and maximum level block new promotion; early termination counts failure without granting level',()=>fixture(async({db,service,u,weekly})=>{await weekly(1);const q=await service.startExam(u,{mode:'levelup'});await abandonOfficial(service,u,q.id);assert.equal((await db.get('SELECT score FROM exam_results WHERE session_id=?',[q.id])).score,0);assert.equal((await promotionReadiness(service,u)).retry_at,null);assert.equal((await promotionReadiness(service,u)).eligible,true);assert.equal((await db.get('SELECT placement_level FROM profiles WHERE id=?',[u.id])).placement_level,1);await db.run('UPDATE profiles SET placement_level=6 WHERE id=?',[u.id]);assert.equal((await promotionReadiness(service,u)).eligible,false);await assert.rejects(()=>service.startExam(u,{mode:'levelup'}),/tertinggi/);}));
 
 test('HSK5 promotion accepts 60 in each skill and preserves old policy thresholds',()=>fixture(async({db,service,u,weekly})=>{await db.run('UPDATE profiles SET placement_level=5 WHERE id=?',[u.id]);await weekly(5);let q=await service.startExam(u,{mode:'levelup'});assert.equal(q.policy.total,60);let policy=JSON.parse((await db.get('SELECT policy_json FROM hsk_attempt_options WHERE session_id=?',[q.id])).policy_json);await db.run('UPDATE hsk_attempt_options SET policy_json=? WHERE session_id=?',[JSON.stringify({...policy,version:3,total:80}),q.id]);await db.run("UPDATE exam_sessions SET status='submitted' WHERE id=?",[q.id]);const scores={listening:{score:60,total:45},reading:{score:60,total:45},writing:{score:60,items:[]}};let r=await db.tx(async t=>completeOfficial(service,t,{...q,status:'submitted'},await officialState(t,q.id),scores));assert.equal(r.result.passed,false);q=await service.startExam(u,{mode:'levelup'});await db.run("UPDATE exam_sessions SET status='submitted' WHERE id=?",[q.id]);r=await db.tx(async t=>completeOfficial(service,t,{...q,status:'submitted'},await officialState(t,q.id),scores));assert.equal(r.result.score,60);assert.equal(r.result.passed,true);assert.equal((await db.get('SELECT placement_level FROM profiles WHERE id=?',[u.id])).placement_level,6);}));
+
+test('timed simulations can skip preparation and end listening without losing saved answers',()=>fixture(async({service,u})=>{
+ const {advanceSimulation}=await import('../app/official-hsk.mjs');
+ const initial=await service.startExam(u,{mode:'hsk_simulation',paper_id:'H11007'});
+ assert.equal(initial.phase.id,'preparation');
+ const listening=await advanceSimulation(service,u,initial.id,'preparation');
+ assert.equal(listening.phase.id,'listening');
+ assert.equal(listening.deadline,initial.deadline-300);
+ await assert.rejects(()=>advanceSimulation(service,u,initial.id,'preparation'),/sudah berubah/);
+ await saveOfficial(service,u,initial.id,{1:'√'});
+ const next=await advanceSimulation(service,u,initial.id,'listening');
+ assert.notEqual(next.phase.id,'listening');
+ assert(next.deadline<listening.deadline);
+ assert.equal(next.answers[1],'√');
+ assert.equal((await service.getExam(u,initial.id)).phase.id,next.phase.id);
+}));
