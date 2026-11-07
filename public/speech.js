@@ -1,3 +1,4 @@
+export const speakerIcon='<span class="speaker-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h4l5-4v14l-5-4H3zM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></span>';
 let current=null,currentButton=null,startTimer=null;
 const engine=()=>globalThis.speechSynthesis;
 const voices=()=>engine()?.getVoices().filter(v=>/^(zh|cmn)(-|_|$)/i.test(v.lang)&&!/^zh[-_]HK/i.test(v.lang))||[];

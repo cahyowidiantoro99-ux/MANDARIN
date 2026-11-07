@@ -19,11 +19,13 @@ export function mountDashboardPlan({api,root,esc,date,fmtTime,historyHTML,cleanu
     clearInterval(timer);
     if(current){
       const node=$('#dashboard-countdown');
+      node.innerHTML='<svg class="target-stopwatch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="14" r="8"/><path d="M9 2h6m-3 0v4m6 2 2-2m-8 4v5"/></svg><span></span>';
+      const countdownText=node.lastElementChild;
       node.hidden=false;
       const update=()=>{
         const seconds=Math.max(0,Math.ceil(Number(current.deadline)-Number(server_now)-(performance.now()-base)/1000));
         const parts=[Math.floor(seconds/86400),Math.floor(seconds%86400/3600),Math.floor(seconds%3600/60),seconds%60];
-        node.textContent=seconds?`Target Level ${current.level} · ${parts[0]} hari ${parts[1]} jam ${parts[2]} menit ${parts[3]} detik`:`Tanggal target Level ${current.level} sudah lewat. Perbarui tanggal jika ingin lanjut.`;
+        countdownText.textContent=seconds?`Target Level ${current.level} · ${parts[0]} hari ${parts[1]} jam ${parts[2]} menit ${parts[3]} detik`:`Tanggal target Level ${current.level} sudah lewat. Perbarui tanggal jika ingin lanjut.`;
       };
       update();timer=setInterval(update,1000);
     }

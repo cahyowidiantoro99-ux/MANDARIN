@@ -1,4 +1,4 @@
-import {wireSpeech} from './speech.js';
+import {wireSpeech,speakerIcon} from './speech.js';
 
 const levels=['1','2','3','4','5','6','7-9'];
 const levelOptions='<option value="">Semua level HSK</option>'+levels.map(x=>'<option value="'+x+'">HSK '+x+'</option>').join('');
