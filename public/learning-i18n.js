@@ -126,3 +126,5 @@ learningPatterns.push(
  [/^Ujian penguasaan level HSK (.+); target belajar HSK (.+)\. Lulus membutuhkan total ≥60 dan setiap keterampilan ≥60\. Jika lulus, naik satu tingkat dan lanjut belajar, tanpa otomatis memulai ujian berikutnya\.$/,m=>'当前测评检验HSK'+m[1]+'级掌握情况，目标学习等级为HSK'+m[2]+'级。总分须≥60且各项≥60；通过后晋升一级并继续学习，不自动开始下一次考试。']
 );
 learningPatterns.push([/^Konsistensi ([\d.,]+)% · Misi (\d+\/\d+) · (\d+) XP · (\d+)$/,m=>'学习坚持率'+m[1]+'% · 任务'+m[2]+' · '+m[3]+'经验值 · '+m[4]],[/^Latihan ([\d.,]+|—) · (\d+)$/,m=>'练习成绩 '+m[1]+' · '+m[2]]);
+
+Object.assign(learningZh,{"Setelah lulus, Anda dapat langsung mencoba ujian naik level berikutnya dalam minggu yang sama.":"通过晋级考试后，同一周内即可继续参加下一等级的晋级考试。"});
