@@ -3,7 +3,7 @@ import {openDatabase} from '../app/db.mjs';import {seed} from '../scripts/seed.m
 
 test('Evaluation pairs the same week across promotions and distinguishes missing from other levels',()=>{
  const rows=[{track:'hsk',level:3,score:80,week:'a',started_at:1},{track:'work',level:2,score:100,week:'a',started_at:2},{track:'hsk',level:3,score:20,week:'b',started_at:3},{track:'work',level:3,score:40,week:'c',started_at:4}];
- const combined=evaluationSummary(rows,3,'combined');assert.equal(combined.score,90);assert.equal(combined.completed_weeks,1);assert.equal(evaluationSummary(rows,2,'combined').status,'other_level');assert.equal(evaluationSummary(rows,6,'work').score,70);
+ const combined=evaluationSummary(rows,3,'combined');assert.equal(combined.score,90);assert.equal(combined.hsk,80);assert.equal(combined.work,100);assert.equal(combined.completed_weeks,1);assert.equal(evaluationSummary(rows,2,'combined').status,'other_level');assert.equal(evaluationSummary(rows,6,'work').score,70);
  assert.equal(evaluationSummary(rows.filter(r=>r.track==='hsk'),3,'combined').status,'missing_work');assert.equal(evaluationSummary(rows.filter(r=>r.track==='work'),3,'combined').status,'missing_hsk');assert.equal(evaluationSummary([],3,'combined').status,'no_results');assert.equal(evaluationSummary(rows.slice(2),3,'combined').status,'unpaired');assert.equal(evaluationSummary([{track:'hsk',level:3,score:null}],3,'hsk').score,null);
 });
 

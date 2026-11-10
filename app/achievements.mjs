@@ -28,7 +28,8 @@ export function evaluationSummary(results,level,track){
  if(score!=null)score=Math.round(score*100)/100;
  const levels=[...new Set(valid.filter(r=>r.track==='hsk').map(r=>Number(r.level)))].sort();
  const status=score!=null?'complete':hsk.length&&work.length&&track==='combined'?'unpaired':track!=='work'&&!hsk.length&&levels.length?'other_level':track==='work'||hsk.length?'missing_work':work.length||track==='hsk'?'missing_hsk':'no_results';
- return {score,hsk:h,work:w,completed_weeks:paired.length,hsk_levels:levels,status};
+ // For a combined ranking, the displayed components must explain that exact score.
+ return {score,hsk:track==='combined'&&paired.length?mean(paired.map(p=>({score:p.hsk}))):h,work:track==='combined'&&paired.length?mean(paired.map(p=>({score:p.work}))):w,completed_weeks:paired.length,hsk_levels:levels,status};
 }
 
 export async function achievements(service,user,filters={}){
