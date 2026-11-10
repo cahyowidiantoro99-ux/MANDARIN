@@ -33,8 +33,8 @@ export function mountDashboardPlan({api,root,esc,date,fmtTime,historyHTML,cleanu
       <ul class="dashboard-checklist" tabindex="0" aria-label="Saran latihan">${plan.tasks.map(task=>`<li><span>${esc(task.label)}</span>${task.href?`<a href="${esc(task.href)}">Buka latihan →</a>`:''}</li>`).join('')}</ul>`;
     if(current&&!editing){
       const formatted=new Intl.DateTimeFormat('id-ID',{dateStyle:'long',timeZone:'UTC'}).format(new Date(current.date+'T00:00:00Z'));
-      panel.innerHTML=`<p><strong>Level Perusahaan ${current.level}</strong> · ${esc(formatted)} (WITA)</p>
-        <button class="btn secondary" id="dashboard-target-edit" type="button">Edit target</button>
+      panel.innerHTML=`<div class="dashboard-target-saved"><p><strong>Level Perusahaan ${current.level}</strong> · ${esc(formatted)} (WITA)</p>
+        <button class="btn secondary" id="dashboard-target-edit" type="button">Edit target</button></div>
         <details class="mt dashboard-target-guidance"><summary>Syarat target dan saran latihan</summary>${guidance(current)}</details>`;
       $('#dashboard-target-edit').onclick=()=>{errors.textContent='';draw(payload,true,base);$('#dashboard-target-form select').focus();};
       return;
