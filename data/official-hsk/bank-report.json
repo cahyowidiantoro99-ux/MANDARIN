@@ -1,51 +1,71 @@
 [
   {
-    "id": "H10000",
-    "status": "excluded",
-    "reason": "Sampul tidak memiliki kode teks yang cocok"
-  },
-  {
     "id": "H10901",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H10902",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11003",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11004",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11005",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11006",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
-  },
-  {
-    "id": "H11007",
-    "status": "legacy_retained",
-    "reason": "Paket terverifikasi pada manifest lama dipertahankan; parser baru tidak menggantinya."
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11008",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
-    "id": "H11329",
+    "id": "H11009",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11112",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11113",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11220",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11221",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11222",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11223",
     "status": "validated",
     "pages": 10
   },
@@ -56,18 +76,33 @@
   },
   {
     "id": "H11331",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11332",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11333",
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H11334",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11335",
+    "status": "validated",
+    "pages": 10
+  },
+  {
+    "id": "H11440",
+    "status": "validated",
+    "pages": 10
   },
   {
     "id": "H20901",
@@ -98,6 +133,51 @@
     "id": "H21006",
     "status": "validated",
     "pages": 13
+  },
+  {
+    "id": "H21007",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21008",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21009",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21112",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21113",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21220",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21221",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21222",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H21223",
+    "status": "validated",
+    "pages": 14
   },
   {
     "id": "H21329",
@@ -161,11 +241,46 @@
   },
   {
     "id": "H31007",
-    "status": "excluded",
-    "reason": "Kunci sumber tidak ditemukan"
+    "status": "validated",
+    "pages": 14
   },
   {
     "id": "H31008",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31009",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31110",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31111",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31218",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31219",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31220",
+    "status": "validated",
+    "pages": 14
+  },
+  {
+    "id": "H31221",
     "status": "validated",
     "pages": 14
   },
@@ -216,11 +331,6 @@
   },
   {
     "id": "H41004",
-    "status": "excluded",
-    "reason": "Kunci tidak cocok jenis soal"
-  },
-  {
-    "id": "H41005",
     "status": "validated",
     "pages": 16
   },
@@ -230,24 +340,54 @@
     "pages": 16
   },
   {
-    "id": "H41008",
-    "status": "excluded",
-    "reason": "Kunci sumber tidak ditemukan"
+    "id": "H41007",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41009",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H41110",
+    "status": "validated",
+    "pages": 22
+  },
+  {
+    "id": "H41111",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41218",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41219",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41220",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41221",
+    "status": "validated",
+    "pages": 16
   },
   {
     "id": "H41327",
-    "status": "excluded",
-    "reason": "Kunci tidak cocok jenis soal"
+    "status": "validated",
+    "pages": 16
   },
   {
     "id": "H41328",
     "status": "validated",
     "pages": 16
-  },
-  {
-    "id": "H41329",
-    "status": "excluded",
-    "reason": "Kunci tidak cocok jenis soal"
   },
   {
     "id": "H41330",
@@ -261,6 +401,21 @@
   },
   {
     "id": "H41333",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41553B",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41553C",
+    "status": "validated",
+    "pages": 16
+  },
+  {
+    "id": "H41553D",
     "status": "validated",
     "pages": 16
   },
@@ -295,14 +450,49 @@
     "pages": 17
   },
   {
+    "id": "H51007",
+    "status": "validated",
+    "pages": 17
+  },
+  {
     "id": "H51008",
     "status": "validated",
     "pages": 17
   },
   {
-    "id": "H51113",
-    "status": "excluded",
-    "reason": "Jumlah/waktu 听力 tidak dapat diverifikasi"
+    "id": "H51009",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51110",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51111",
+    "status": "validated",
+    "pages": 17
+  },
+  {
+    "id": "H51218",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51219",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51220",
+    "status": "validated",
+    "pages": 18
+  },
+  {
+    "id": "H51221",
+    "status": "validated",
+    "pages": 18
   },
   {
     "id": "H51327",
@@ -331,8 +521,8 @@
   },
   {
     "id": "H51333",
-    "status": "excluded",
-    "reason": "Duplikasi kode dengan isi berbeda; perlu pemeriksaan manual"
+    "status": "validated",
+    "pages": 18
   },
   {
     "id": "H61001",
@@ -363,6 +553,51 @@
     "id": "H61006",
     "status": "validated",
     "pages": 20
+  },
+  {
+    "id": "H61007",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61008",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61009",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61110",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61111",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61218",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61219",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61220",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
+  },
+  {
+    "id": "H61221",
+    "status": "excluded",
+    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
   },
   {
     "id": "H61327",

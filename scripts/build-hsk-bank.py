@@ -1,10 +1,14 @@
 from pathlib import Path
 from pypdf import PdfReader
-import re,json,hashlib,subprocess,concurrent.futures
-ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'data/official-hsk'; CACHE=ROOT/'artifacts/hsk-text';CACHE.mkdir(exist_ok=True)
+import re,json,hashlib,subprocess,concurrent.futures,os
+ROOT=Path(__file__).resolve().parents[1]; SOURCE=Path(os.environ.get('HSK_SOURCE_ROOT',str(ROOT))); OUT=ROOT/'data/official-hsk'; CACHE=ROOT/'artifacts/hsk-text';CACHE.mkdir(parents=True,exist_ok=True)
+selection=json.loads((OUT/'selection-plan.json').read_text(encoding='utf8')); selected={p['id']:p for p in selection['papers']}
+overrides=json.loads((OUT/'verified-source-overrides.json').read_text(encoding='utf8'))
+previous=json.loads((OUT/'bank.json').read_text(encoding='utf8')) if (OUT/'bank.json').exists() else []
 legacy=json.loads((OUT/'manifest.json').read_text(encoding='utf8')); groups={};report=[];bank=[]
-for p in (ROOT/'SOAL HSK LENGKAP').rglob('*.pdf'):
- if re.fullmatch(r'H[1-6]\d{4}',p.stem):groups.setdefault(p.stem,[]).append(p)
+for p in (SOURCE/'SOAL HSK LENGKAP').rglob('*.pdf'):
+ code=p.stem.removesuffix('_soal_dan_kunci')
+ if code in selected:groups.setdefault(code,[]).append(p)
 def texts(p):
  h=hashlib.sha256(p.read_bytes()).hexdigest();c=CACHE/(h+'.json')
  if c.exists():return json.loads(c.read_text(encoding='utf8'))
@@ -41,18 +45,23 @@ for code,files in sorted(groups.items()):
   if level<3:counts.append(0);minutes.append(0)
   assert tuple(counts)=={1:(20,20,0),2:(35,25,0),3:(40,30,10),4:(45,40,15),5:(45,45,10),6:(50,50,1)}[level],'Struktur berbeda; perlu pemetaan manual'
   tm=re.search(r'听力结束后[，,]有(\d+)分钟',front);assert tm and re.search(r'填写个人信息时间5分钟',front),'Waktu persiapan/pemindahan belum terverifikasi'
-  transfer=int(tm[1]);keyidx=next((i for i,t in enumerate(compact) if '卷答案' in t),None);keytext=''
-  if keyidx is not None:keytext='\n'.join(pages[keyidx:])
+  transfer=int(tm[1]);override=overrides.get(code);keyidx=next((i for i,t in enumerate(compact) if '卷答案' in t),None);keytext=''
+  if override:
+   assert override['sha256']==next(iter(hashes)),'Sumber berubah; transkripsi kunci harus diverifikasi ulang'
+   keyidx=override['key_page_index'];keytext=override['key_text']
+  elif keyidx is not None:keytext='\n'.join(pages[keyidx:])
   else:
    k=next((x for x in p.parent.glob('*.pdf') if '答案' in x.name and x!=p),None);assert k,'Kunci sumber tidak ditemukan';keytext='\n'.join(texts(k))
   norm=re.sub(r'(?<=\d)\s+(?=\d)','',keytext);keys={int(n):a for n,a in re.findall(r'(\d{1,3})\s*[．.、]\s*([A-F]{1,3}|[√×])',norm)};lc,rc,wc=counts
+  if 'Salinan teks' in keytext:keys.update({int(n):a for n,a in re.findall(r'(?<!\d)(\d{1,3})[ \t]+([A-F]{1,3}|[√×])(?=\s|$)',keytext)})
   assert set(range(1,lc+rc+1)).issubset(keys),'Kunci objektif belum lengkap'
   def section_start(marker):return next(i for i,t in enumerate(compact) if marker in t[:220] and '卷答案' not in t and '听力材料' not in t[:220])
   ls=section_start('一、听力');rs=section_start('二、阅读');ws=section_start('三、书写') if wc else None
-  transcript=next((i for i,t in enumerate(compact) if '卷听力材料' in t[:100]),None);stops=[x for x in [transcript,keyidx] if x is not None];assert stops,'Batas soal dengan kunci/transkrip belum jelas';end=min(stops);assert 0<ls<rs<end and (not wc or rs<ws<end),'Urutan bagian tidak konsisten'
+  assert not wc or ws is not None and (keyidx is None or ws<keyidx),'Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode'
+  transcript=next((i for i,t in enumerate(compact) if '卷听力材料' in t[:100]),None);stops=[x for x in [transcript,keyidx] if x is not None];assert stops,'Batas soal dengan kunci/transkrip belum jelas';end=min([x for x in stops if x>rs]);assert 0<ls<rs<end and (not wc or rs<ws<end),'Urutan bagian tidak konsisten'
   lp=list(range(ls+1,rs+1));rp=list(range(rs+1,(ws if wc else end)+1));wp=list(range(ws+1,end+1)) if wc else []
   assert all('卷答案' not in compact[i-1] and '卷听力材料' not in compact[i-1][:100] for i in lp+rp+wp),'Kunci tercampur halaman soal'
-  audio=p.with_suffix('.mp3');assert audio.exists(),'Audio belum ada';secs=duration(audio);assert minutes[0]*30<secs<minutes[0]*105,'Durasi audio tidak wajar'
+  audio=p.with_name(code+'.mp3');assert audio.exists(),'Audio belum ada';secs=duration(audio);assert minutes[0]*30<secs<minutes[0]*105,'Durasi audio tidak wajar'
   items=[]
   for n in range(1,sum(counts)+1):
    section='listening' if n<=lc else 'reading' if n<=lc+rc else 'writing';cs=choices(level,n);item={'number':n,'section':section,'kind':'writing' if section=='writing' else 'judgment' if cs==['√','×'] else 'ordering' if level==4 and 56<=n<=65 else 'choice','choices':[] if section=='writing' else cs}
@@ -62,21 +71,22 @@ for code,files in sorted(groups.items()):
    items.append(item)
   phases=[{'id':'preparation','minutes':5,'pages':[1],'section':None},{'id':'listening','minutes':minutes[0],'seconds':secs,'pages':lp,'section':'listening'},{'id':'transfer','minutes':transfer,'pages':lp,'section':'listening'},{'id':'reading','minutes':minutes[1],'pages':rp,'section':'reading'}]
   if wc:phases+=([{'id':'writing_read','minutes':10,'pages':wp,'section':None},{'id':'writing','minutes':35,'pages':[],'section':'writing'}] if level==6 else [{'id':'writing','minutes':minutes[2],'pages':wp,'section':'writing'}])
-  paper={'id':code,'level':level,'source':str(p.relative_to(ROOT)).replace('\\','/'),'sha256':next(iter(hashes)),'audio':str(audio.relative_to(ROOT)).replace('\\','/'),'audio_sha256':hashlib.sha256(audio.read_bytes()).hexdigest(),'audio_seconds':secs,'minutes':5+sum(minutes)+transfer,'total_seconds':sum(x.get('seconds',x['minutes']*60) for x in phases),'counts':dict(zip(['listening','reading','writing'],counts)),'total':sum(counts),'max_score':300 if wc else 200,'items':items,'phases':phases,'writing_pages':wp,'writing_context':'\n'.join(pages[ws:end]) if wc else '', 'writing_key_context':keytext.split('三、',1)[-1] if wc else '', 'question_last_page':end,'validated':'source-structure-keys-audio-v1'}
-  bank.append(paper);report.append({'id':code,'status':'validated','pages':end})
+  paper={'id':code,'level':level,'source':str(p.relative_to(SOURCE)).replace('\\','/'),'sha256':next(iter(hashes)),'audio':str(audio.relative_to(SOURCE)).replace('\\','/'),'audio_sha256':hashlib.sha256(audio.read_bytes()).hexdigest(),'audio_seconds':secs,'minutes':5+sum(minutes)+transfer,'total_seconds':sum(x.get('seconds',x['minutes']*60) for x in phases),'counts':dict(zip(['listening','reading','writing'],counts)),'total':sum(counts),'max_score':300 if wc else 200,'items':items,'phases':phases,'writing_pages':wp,'writing_context':'\n'.join(pages[ws:end]) if wc else '', 'writing_key_context':keytext.split('三、',1)[-1] if wc else '', 'page_numbers':{str(page):sorted({int(n) for n in re.findall(r'(?<![0-9A-Za-z])(\d{1,3})\s*[．.、]',pages[page-1]) if 1<=int(n)<=sum(counts)} | {n for a,b in re.findall(r'(\d{1,3})\s*[-–]\s*(\d{1,3})',pages[page-1]) if 1<=int(a)<=int(b)<=sum(counts) and int(b)-int(a)<20 for n in range(int(a),int(b)+1)}) for page in lp+rp+wp},'question_last_page':end,'validated':'source-structure-keys-audio-v1'}
+  paper.update(difficulty=selected[code]['difficulty'],reserved=selected[code]['purpose']=='promotion');bank.append(paper);report.append({'id':code,'status':'validated','pages':end})
  except Exception as e:report.append({'id':code,'status':'legacy_retained' if any(x['id']==code for x in legacy) else 'excluded','reason':str(e)})
 # Preserve every legacy paper byte-for-byte for existing sessions. New bank is separate.
 legacyids={p['id'] for p in legacy}
-for level in range(1,6):
- candidates=[p for p in bank if p['level']==level and p['id'] not in legacyids]
- for p in candidates[-2:]:p['reserved']=True
 def render(p):
- target=OUT/p['id'];target.mkdir(exist_ok=True);last=p['question_last_page']
+ import pypdfium2 as pdfium
+ target=OUT/p['id'];target.mkdir(exist_ok=True);last=p['question_last_page'];doc=None
  for page in range(1,last+1):
   image=target/(str(page)+'.jpg')
-  if not image.exists():subprocess.run(['pdftoppm','-f',str(page),'-l',str(page),'-scale-to','1400','-jpeg','-jpegopt','quality=80','-singlefile',str(ROOT/p['source']),str(target/str(page))],check=True,capture_output=True)
+  if not image.exists():
+   if doc is None:doc=pdfium.PdfDocument(str(SOURCE/p['source']))
+   pg=doc[page-1];scale=1400/max(pg.get_size());pg.render(scale=scale).to_pil().convert('RGB').save(image,quality=80)
  return p['id']
-with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
- for code in pool.map(render,bank):print(code,flush=True)
-(OUT/'bank.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2),encoding='utf8');(OUT/'bank-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf8')
+with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+ for code in pool.map(render,[] if os.environ.get('HSK_VALIDATE_ONLY') else bank):print(code,flush=True)
+if not os.environ.get('HSK_VALIDATE_ONLY'):bank += [p for p in previous if not any(n['id']==p['id'] for n in bank)]
+(OUT/('bank-candidate.json' if os.environ.get('HSK_VALIDATE_ONLY') else 'bank.json')).write_text(json.dumps(bank,ensure_ascii=False,indent=2),encoding='utf8');(OUT/'bank-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf8')
 print(json.dumps({'validated':len(bank),'excluded':sum(r['status']=='excluded' for r in report),'levels':{n:sum(p['level']==n for p in bank) for n in range(1,7)}}),flush=True)

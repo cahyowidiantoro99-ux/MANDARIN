@@ -1,0 +1,767 @@
+{
+  "version": 1,
+  "classification": "user-defined",
+  "papers": [
+    {
+      "id": "H11112",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11222",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11006",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11440",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11330",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H10901",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11005",
+      "level": 1,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11335",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11221",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11003",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11004",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11334",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11331",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H10902",
+      "level": 1,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11332",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H11220",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11223",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H11009",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11113",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11008",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H11333",
+      "level": 1,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H21222",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H20902",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21113",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21004",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21007",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H20901",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21006",
+      "level": 2,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21223",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21220",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21003",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21221",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21335",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21329",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21334",
+      "level": 2,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21112",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21330",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H21009",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21008",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21005",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H21331",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H21332",
+      "level": 2,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H31002",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31327",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31005",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31218",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31219",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31001",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31330",
+      "level": 3,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31007",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31332",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31333",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31006",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31221",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31111",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31328",
+      "level": 3,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31110",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H31009",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31220",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H31008",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31329",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H31004",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H31003",
+      "level": 3,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41553B",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41553C",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41553D",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41001",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41002",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41111",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41328",
+      "level": 4,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41003",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41110",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41332",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41007",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41219",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41006",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41333",
+      "level": 4,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41330",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H41009",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41327",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H41221",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H41004",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41218",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H41220",
+      "level": 4,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51001",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51002",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51006",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51328",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51327",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51009",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51220",
+      "level": 5,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51221",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51007",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51008",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51218",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51005",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51333",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51003",
+      "level": 5,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51330",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H51110",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51111",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51332",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H51219",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H51329",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H51004",
+      "level": 5,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61009",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61220",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61110",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61218",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61111",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61219",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61008",
+      "level": 6,
+      "difficulty": "easy",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61221",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61002",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61006",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61003",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61327",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61005",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61001",
+      "level": 6,
+      "difficulty": "medium",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61007",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61004",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61330",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H61332",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    },
+    {
+      "id": "H61329",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61328",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "simulation"
+    },
+    {
+      "id": "H61333",
+      "level": 6,
+      "difficulty": "hard",
+      "purpose": "promotion"
+    }
+  ],
+  "reserve": [
+    "H41005",
+    "H41008",
+    "H41329"
+  ]
+}
