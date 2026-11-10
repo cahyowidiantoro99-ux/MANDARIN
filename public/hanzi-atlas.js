@@ -1,3 +1,4 @@
+import {materialDownload,wireMaterialDownload} from './material-download.js';
 const normalize=value=>String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u0304\u030c]/g,'').normalize('NFC');
 const symbols={'Kiri–kanan':'⿰','Atas–bawah':'⿱','Tiga bagian horizontal':'⿲','Tiga bagian vertikal':'⿳','Keliling penuh':'⿴','Keliling dari atas':'⿵','Keliling dari bawah':'⿶','Keliling dari kiri':'⿷','Keliling dari kiri atas':'⿸','Keliling dari kanan atas':'⿹','Keliling dari kiri bawah':'⿺','Bertumpuk':'⿻'};
 const modes={curated:'Contoh dengan petunjuk',stroke:'Titik atau goresan',left:'Bagian kiri',right:'Bagian kanan',top:'Bagian atas',bottom:'Bagian bawah',overall:'Siluet dan posisi goresan'};
@@ -18,6 +19,7 @@ export async function mountAtlas({api,shell,esc,root,cleanup},route,arg){
   const title={hanzi:'Katalog Hanzi HSK 1–9','hanzi-compare':'Bentuk Mirip 形近字',pinyin:'Latihan Pinyin','pinyin-mistakes':'Gudang Kesalahan'}[route];
   const nav=learning?'<a class="btn secondary" href="#hanzi">Katalog Hanzi</a><a class="btn secondary" href="#hanzi-compare">Bentuk Mirip</a>':'<a class="btn secondary" href="#pinyin">Latihan Pinyin</a><a class="btn secondary" href="#learning-mistakes">Gudang Kesalahan</a>';
   shell('learning',title,`<div class="lc atlas"><a class="lc-back" href="#learning">← ${learning?'Pusat Pembelajaran':'Zona Interaktif'}</a><header class="lc-journey"><div><div class="section-tag">ATLAS HANZI · 字形与拼音</div><h1>${title}</h1></div></header><div class="split atlas-nav">${nav}</div><p id="atlas-error" role="alert"></p><div id="atlas-body"></div>${sources}</div>`);
+  if(route==='hanzi'){root.querySelector('.atlas-nav').insertAdjacentHTML('afterend',materialDownload('hanzi'));wireMaterialDownload(root);}
   const $=selector=>root.querySelector(selector), host=$('#atlas-body');
   const link=hanzi=>'#hanzi/'+encodeURIComponent(hanzi);
   function examples(row){

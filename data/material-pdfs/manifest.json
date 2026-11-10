@@ -1,0 +1,114 @@
+[
+  {
+    "kind": "kosakata",
+    "level": "1",
+    "entries": 500,
+    "pages": 85,
+    "file": "kosakata-hsk-1.pdf",
+    "bytes": 459069
+  },
+  {
+    "kind": "hanzi",
+    "level": "1",
+    "entries": 300,
+    "pages": 76,
+    "file": "hanzi-hsk-1.pdf",
+    "bytes": 363878
+  },
+  {
+    "kind": "kosakata",
+    "level": "2",
+    "entries": 772,
+    "pages": 130,
+    "file": "kosakata-hsk-2.pdf",
+    "bytes": 630624
+  },
+  {
+    "kind": "hanzi",
+    "level": "2",
+    "entries": 300,
+    "pages": 76,
+    "file": "hanzi-hsk-2.pdf",
+    "bytes": 363855
+  },
+  {
+    "kind": "kosakata",
+    "level": "3",
+    "entries": 973,
+    "pages": 164,
+    "file": "kosakata-hsk-3.pdf",
+    "bytes": 758136
+  },
+  {
+    "kind": "hanzi",
+    "level": "3",
+    "entries": 300,
+    "pages": 76,
+    "file": "hanzi-hsk-3.pdf",
+    "bytes": 364731
+  },
+  {
+    "kind": "kosakata",
+    "level": "4",
+    "entries": 1000,
+    "pages": 168,
+    "file": "kosakata-hsk-4.pdf",
+    "bytes": 757434
+  },
+  {
+    "kind": "hanzi",
+    "level": "4",
+    "entries": 300,
+    "pages": 76,
+    "file": "hanzi-hsk-4.pdf",
+    "bytes": 363279
+  },
+  {
+    "kind": "kosakata",
+    "level": "5",
+    "entries": 1071,
+    "pages": 180,
+    "file": "kosakata-hsk-5.pdf",
+    "bytes": 802302
+  },
+  {
+    "kind": "hanzi",
+    "level": "5",
+    "entries": 300,
+    "pages": 76,
+    "file": "hanzi-hsk-5.pdf",
+    "bytes": 361266
+  },
+  {
+    "kind": "kosakata",
+    "level": "6",
+    "entries": 1140,
+    "pages": 191,
+    "file": "kosakata-hsk-6.pdf",
+    "bytes": 852325
+  },
+  {
+    "kind": "hanzi",
+    "level": "6",
+    "entries": 300,
+    "pages": 76,
+    "file": "hanzi-hsk-6.pdf",
+    "bytes": 360122
+  },
+  {
+    "kind": "kosakata",
+    "level": "7-9",
+    "entries": 5636,
+    "pages": 941,
+    "file": "kosakata-hsk-7-9.pdf",
+    "bytes": 3594089
+  },
+  {
+    "kind": "hanzi",
+    "level": "7-9",
+    "entries": 1200,
+    "pages": 301,
+    "file": "hanzi-hsk-7-9.pdf",
+    "bytes": 891215
+  }
+]

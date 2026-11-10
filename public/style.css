@@ -946,3 +946,38 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
  .dashboard-redesign .recommend-friend img{width:145px;height:180px;margin-left:-8px}
  .dashboard-redesign .recommend-friend .btn{font-size:10px;padding:9px 10px}
 }
+
+.learning-tool-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:14px;align-items:stretch;margin:16px 0}
+.learning-tool-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.learning-tool-links a{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px 9px;border:1px solid #d9e3dc;background:#fffdf7;border-radius:12px;color:#10303b;font-weight:650;font-size:13px;line-height:1.4}
+.learning-tool-links a:hover{background:#e9f4ed;border-color:#117c78;text-decoration:none}
+.learning-tool-row .learning-zone-banner{margin:0;padding:14px 18px;gap:14px}
+.learning-tool-row .learning-zone-banner strong{font-size:24px}
+.learning-tool-row .learning-zone-banner small{font-size:12px;line-height:1.5}
+.learning-launchers{grid-template-columns:repeat(3,minmax(0,1fr))}
+.learning-extra-card{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 42%;background:linear-gradient(135deg,#f8fcf7,#e8f3e9);border-radius:17px;padding:22px;align-items:center;min-height:200px;gap:4px}
+.learning-extra-card>div{grid-column:1;grid-row:1;position:relative;z-index:1}
+.learning-extra-card .learning-extra-panda{grid-column:2;grid-row:1;display:block;width:100%;height:auto;object-fit:contain;aspect-ratio:1/1}
+.learning-extra-card h3{font-size:22px;line-height:1.2;margin-bottom:11px}
+.learning-extra-card p{font-size:12px;line-height:1.65}
+.learning-extra-card .btn{font-size:12px;min-height:42px;padding:10px 12px;white-space:normal}
+.learning-extra-card:nth-child(2){background:linear-gradient(135deg,#fffcf4,#f9edcd);border-color:#e8dab5}
+.learning-utility-links:empty{display:none}
+.recall-heading{display:grid;grid-template-columns:minmax(0,1fr) 200px;align-items:center;gap:20px;margin:25px 0;background:linear-gradient(110deg,#edf7f0,#fffbec);border:1px solid #deded0;border-left:5px solid #dca53a;border-radius:18px;padding:22px}
+.recall-heading h1{margin:12px 0 9px}
+.recall-heading p{font-size:13px;color:#61777e;max-width:600px}
+.recall-heading img{display:block;width:100%;height:150px;object-fit:contain}
+.recall-page>.lc-recall{max-width:780px;margin:20px auto}
+.recall-progress{display:flex;justify-content:space-between;font-size:13px;color:#117c78;margin-bottom:12px}
+.recall-options{display:grid;gap:10px}
+.recall-options button{width:100%;min-height:48px;white-space:normal}
+.recall-page .lc-recall>.hanzi{font-size:clamp(42px,6vw,66px)}
+.material-download{border:1px solid #dbdfd2;border-left:4px solid #dca53a;border-radius:12px;background:#fffdf5;margin:18px 0;padding:15px 18px}
+.material-download summary{cursor:pointer;font-size:14px;font-weight:700;color:#117c78}
+.material-download>div{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:end;margin-top:14px}
+.material-download p,.material-download small{width:100%;margin:0;font-size:12px;color:#60777e;line-height:1.6}
+.material-download label{font-size:12px;display:grid;gap:7px;min-width:160px}
+.material-download .btn{font-size:13px;min-height:44px}
+.lc-rating button:disabled{cursor:wait}
+@media(max-width:1000px){.learning-tool-row{grid-template-columns:1fr}.learning-extra-card{grid-template-columns:minmax(0,1fr) 36%;padding:18px}.learning-extra-card h3{font-size:20px}}
+@media(max-width:650px){.learning-launchers{grid-template-columns:repeat(2,minmax(0,1fr))}.learning-launchers>:last-child{grid-column:1/-1}.learning-tool-row{gap:10px}.learning-tool-links a{font-size:11px;padding:13px 8px}.learning-tool-row .learning-zone-banner strong{font-size:22px}.learning-tool-row .learning-zone-banner small{font-size:11px}.learning-extra-card{grid-template-columns:minmax(0,1fr) 35%;min-height:185px;padding:18px}.learning-extra-card h3{font-size:21px}.learning-extra-card p{font-size:11px}.learning-extra-card .learning-extra-panda{width:140%;max-width:none;margin-left:-15%}.recall-heading{grid-template-columns:minmax(0,1fr) 95px;gap:6px;padding:18px}.recall-heading h1{font-size:27px}.recall-heading p{font-size:11px}.recall-heading img{height:110px}.recall-page>.lc-recall{padding:19px}.material-download{padding:14px}.material-download>div{align-items:stretch}.material-download label,.material-download .btn{width:100%}}
