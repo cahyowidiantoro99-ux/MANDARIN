@@ -8,7 +8,7 @@ import {learningAnalytics,scheduledDays} from '../app/learning-analytics.mjs';
 import {id,periodBounds} from '../app/domain.mjs';
 
 test('Learning analytics batches queries, scopes mastery, separates official scores and excludes unfinished days',async()=>{
- const db=await openDatabase({file:':memory:',url:null});await db.migrate();await seed(db,{demo:true});const now=Date.parse('2026-11-05T12:00:00+08:00')/1000,s=new Service(db,{demo:true,clock:()=>now});
+ const db=await openDatabase({file:':memory:',url:null});await db.migrate();await seed(db,{demo:true,clock:()=>Date.parse('2026-11-05T12:00:00+08:00')/1000});const now=Date.parse('2026-11-05T12:00:00+08:00')/1000,s=new Service(db,{demo:true,clock:()=>now});
  try{
  const u=await db.get("SELECT * FROM profiles WHERE employee_id='DEMO002'"),leader=await db.get("SELECT * FROM profiles WHERE role='leader'");await db.run('UPDATE profiles SET placement_level=1,created_at=? WHERE id=?',[now-30*86400,u.id]);
  await assert.rejects(()=>learningAnalytics(s,u),/Leader/);await assert.rejects(()=>learningAnalytics(s,leader,{at:'nonsense'}),/Tanggal/);

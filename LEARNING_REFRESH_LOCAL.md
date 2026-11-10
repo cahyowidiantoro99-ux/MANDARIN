@@ -1,6 +1,6 @@
 # Pembaruan Pembelajaran — verifikasi lokal 10 November 2026
 
-Belum diterbitkan. Dasar commit live acd110073cf1d318124bffb75f7dee67ad5935d3.
+Diterbitkan pada 10 November 2026: commit aplikasi 5e16bf0d338ba874ec8763beea746a092a8e1e43, Render dep-dbph1vmc6qcc73al0hbg (Deploy succeeded | Live).
 
 ## Fitur
 - Kosakata dasbor memakai entri flashcard HSK pada level aktif, tanpa kosakata kerja atau level lain. Label HSK, persentase dan jumlah dipelajari memakai denominator yang sama.
@@ -24,7 +24,7 @@ Tidak ada migrasi database, penghapusan data, atau perubahan nilai ujian/placeme
 - 7 tes fokus summary/SRS/progress/recall/akses/XP lulus.
 - Browser Edge headless: desktop dan lebar 360/390/768, direct rating tanpa reveal, 10 kartu lengkap, link recall akhir, feedback benar/salah, PDF authenticated dan larangan anonymous/Leader, header ujian, redirect hub lama, bahasa Mandarin, tanpa pageerror. Screenshot artifacts/refresh-*.png.
 - 14 PDF diperiksa halaman landscape, jumlah halaman/cakupan, dan 4 halaman dirender untuk pemeriksaan visual. Preview artifacts/pdf-*.png.
-- Regresi menyeluruh: 95 dari 98 lulus. Tiga tes lama juga gagal pada baseline: leader-portal dan learning-analytics mengasumsikan fixture belum mempunyai skor 90; level-up masih mengharapkan syarat ujian mingguan yang telah dihapus atas permintaan sebelumnya. Tidak mengubah aturan bisnis untuk menyesuaikan tes lama.
+- Tindak lanjut regresi: 98 dari 98 tes lulus. Fixture Leader dan analitik memakai clock tetap yang sama dengan tanggal tes agar seed historis tidak masuk periode pengujian. Tes naik level memastikan ujian arsip dapat dimulai tanpa assessment mingguan, sesi aktif dilanjutkan tanpa duplikasi, baseline tetap utuh, dan permulaan sesi baru ditolak pada level tertinggi. Tidak mengubah kode aplikasi untuk menyesuaikan tes.
 
 ## Menjalankan
 node scripts/build-production.mjs
@@ -33,4 +33,4 @@ node tests/learning-refresh-ui.mjs
 
 PDF sudah disertakan dalam data/material-pdfs dan Dockerfile. Generator PDF merupakan langkah authoring lokal menggunakan Python/reportlab, font Arial Windows, dan font CID STSong-Light; runtime server tidak memerlukan Python. Pembaca PDF menggunakan font CID CJK standar/substitusi bila diperlukan.
 
-Log rinci terdapat di artifacts/learning-refresh-*.log. Tidak ada git push atau deploy pada pekerjaan ini.
+Log rinci: artifacts/regression-followup-all.log, regression-followup-build.log, regression-followup-ui.log. Verifikasi produksi: health200, sembilan aset rilis cocok, endpoint PDF/recall tanpa login401, dan menu baru terlihat pada browser akun aktif. Perubahan tindak lanjut hanya tes/dokumentasi, tanpa migrasi atau perubahan data produksi.
