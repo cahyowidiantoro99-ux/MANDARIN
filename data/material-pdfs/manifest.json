@@ -3,112 +3,112 @@
     "kind": "kosakata",
     "level": "1",
     "entries": 500,
-    "pages": 85,
+    "pages": 30,
     "file": "kosakata-hsk-1.pdf",
-    "bytes": 459069
+    "bytes": 355636
   },
   {
     "kind": "hanzi",
     "level": "1",
     "entries": 300,
-    "pages": 76,
+    "pages": 7,
     "file": "hanzi-hsk-1.pdf",
-    "bytes": 363878
+    "bytes": 196962
   },
   {
     "kind": "kosakata",
     "level": "2",
     "entries": 772,
-    "pages": 130,
+    "pages": 48,
     "file": "kosakata-hsk-2.pdf",
-    "bytes": 630624
+    "bytes": 475400
   },
   {
     "kind": "hanzi",
     "level": "2",
     "entries": 300,
-    "pages": 76,
+    "pages": 7,
     "file": "hanzi-hsk-2.pdf",
-    "bytes": 363855
+    "bytes": 197613
   },
   {
     "kind": "kosakata",
     "level": "3",
     "entries": 973,
-    "pages": 164,
+    "pages": 61,
     "file": "kosakata-hsk-3.pdf",
-    "bytes": 758136
+    "bytes": 562730
   },
   {
     "kind": "hanzi",
     "level": "3",
     "entries": 300,
-    "pages": 76,
+    "pages": 7,
     "file": "hanzi-hsk-3.pdf",
-    "bytes": 364731
+    "bytes": 197334
   },
   {
     "kind": "kosakata",
     "level": "4",
     "entries": 1000,
-    "pages": 168,
+    "pages": 59,
     "file": "kosakata-hsk-4.pdf",
-    "bytes": 757434
+    "bytes": 549604
   },
   {
     "kind": "hanzi",
     "level": "4",
     "entries": 300,
-    "pages": 76,
+    "pages": 7,
     "file": "hanzi-hsk-4.pdf",
-    "bytes": 363279
+    "bytes": 197428
   },
   {
     "kind": "kosakata",
     "level": "5",
     "entries": 1071,
-    "pages": 180,
+    "pages": 65,
     "file": "kosakata-hsk-5.pdf",
-    "bytes": 802302
+    "bytes": 583276
   },
   {
     "kind": "hanzi",
     "level": "5",
     "entries": 300,
-    "pages": 76,
+    "pages": 7,
     "file": "hanzi-hsk-5.pdf",
-    "bytes": 361266
+    "bytes": 197091
   },
   {
     "kind": "kosakata",
     "level": "6",
     "entries": 1140,
-    "pages": 191,
+    "pages": 69,
     "file": "kosakata-hsk-6.pdf",
-    "bytes": 852325
+    "bytes": 621076
   },
   {
     "kind": "hanzi",
     "level": "6",
     "entries": 300,
-    "pages": 76,
+    "pages": 7,
     "file": "hanzi-hsk-6.pdf",
-    "bytes": 360122
+    "bytes": 197364
   },
   {
     "kind": "kosakata",
     "level": "7-9",
     "entries": 5636,
-    "pages": 941,
+    "pages": 347,
     "file": "kosakata-hsk-7-9.pdf",
-    "bytes": 3594089
+    "bytes": 2465969
   },
   {
     "kind": "hanzi",
     "level": "7-9",
     "entries": 1200,
-    "pages": 301,
+    "pages": 25,
     "file": "hanzi-hsk-7-9.pdf",
-    "bytes": 891215
+    "bytes": 286582
   }
 ]
