@@ -1,0 +1,51 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {openDatabase} from '../app/db.mjs';
+import {seed} from '../scripts/seed.mjs';
+import {createApp} from '../app/server.mjs';
+import {atlasCatalog} from '../app/hanzi-atlas.mjs';
+
+const db=await openDatabase({file:':memory:',url:null});
+await db.migrate();await seed(db,{demo:true});
+const app=await createApp({db,demo:true,migrate:false,auth:{supabase:false}});
+await new Promise(resolve=>app.server.listen(0,'127.0.0.1',resolve));
+const base='http://127.0.0.1:'+app.server.address().port;
+const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});
+const page=await browser.newPage({viewport:{width:1365,height:900}});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));
+const heading=name=>page.getByRole('heading',{name,exact:true});
+
+try{
+ await page.goto(base);await page.locator('[name=username]').fill('DEMO002');await page.locator('[name=password]').fill('DemoMandarin!2026');await page.locator('#login-form [type=submit]').click();await page.waitForURL('**/#dashboard');
+ await page.goto(base+'/#learning');await page.locator('.learning-launchers').waitFor();
+ assert.equal(await page.locator('.learning-launchers > *').count(),8);
+ assert.equal(await page.locator('.learning-game-card').count(),3);
+ await page.locator('.learning-game-art img').evaluateAll(async imgs=>{await Promise.all(imgs.map(i=>i.decode()));});
+ await page.screenshot({path:'artifacts/pembelajaran-menu-baru-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:850});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ await page.screenshot({path:'artifacts/pembelajaran-menu-baru-hp.png',fullPage:true});
+ await page.getByRole('link',{name:'Latihan Pinyin →',exact:true}).first().click();
+ await page.locator('#atlas-body').waitFor();
+ assert(await page.locator('.nav-item[href="#learning"]').getAttribute('aria-current')==='page');
+ await page.goto(base+'/#learning');await page.locator('.learning-launchers').waitFor();
+ await page.getByRole('link',{name:'Latihan Sinonim & Antonim →',exact:true}).click();
+ await page.locator('#vocab-quick').waitFor();
+ assert(await page.locator('.nav-item[href="#learning"]').getAttribute('aria-current')==='page');
+ await page.goto(base+'/#learning');await page.getByRole('link',{name:'Gudang Kesalahan →',exact:true}).click();
+ await page.getByRole('heading',{name:'Gudang Kesalahan',exact:true}).waitFor();
+ await page.getByRole('link',{name:'Buka kesalahan Pinyin →'}).waitFor();
+ await page.getByRole('link',{name:'Buka kesalahan pasangan →'}).waitFor();
+ await page.screenshot({path:'artifacts/gudang-kesalahan-pembelajaran-hp.png',fullPage:true});
+ await page.goto(base+'/#examination');await page.locator('[data-exam-tab=practice]').click();
+ assert.equal(await page.locator('a[href="#pinyin"],a[href="#pair-practice"],a[href="#pinyin-mistakes"]').count(),0);
+ assert.equal(await page.getByRole('heading',{name:'Buku Kesalahan Saya'}).count(),0);
+ await page.goto(base+'/#learning');await page.locator('[data-hub-level="3"]').click();assert((await page.getByRole('link',{name:'Mulai bermain →'}).first().getAttribute('href')).includes('~3~'));
+ await page.locator('[data-learning-menu=hsk]').click();assert(await page.locator('.lc-courses').isVisible());assert.equal(await page.locator('#lc-grammar-list').isVisible(),false);
+ await page.locator('[data-learning-menu=grammar]').click();assert(await page.locator('#lc-grammar-search').isVisible());
+ await page.locator('#lc-grammar-search').fill('xyz');assert((await page.locator('#lc-grammar-list').innerText()).includes('Tidak ada'));
+ await page.locator('[data-learning-menu=work]').click();assert(await page.locator('#lc-work-filter').isVisible());
+ await page.locator('[data-learning-menu=stories]').click();await page.getByRole('link',{name:'Baca & dengarkan →'}).first().waitFor();
+ await page.locator('[data-learning-menu=interactive]').click();await page.getByRole('link',{name:'Mulai bermain →'}).first().click();await page.locator('#lp-submit').waitFor();
+ assert.deepEqual(errors,[]);
+ console.log('PASS all 8 navigation items, HSK levels, flashcards, grammar search, work filters, stories and playable matching');
+}finally{await browser.close();await new Promise(r=>app.server.close(r));await db.close();}

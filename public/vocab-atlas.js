@@ -11,8 +11,8 @@ export async function mountVocabulary({api,shell,esc,root,cleanup},page,arg){
   let disposed=false,request=0,timer;
   let cleanupAudio;
   cleanup(()=>{disposed=true;clearTimeout(timer);cleanupAudio?.();});
-  const nav=learning?'<a href="#learning">← Pusat Pembelajaran</a> · <a href="#vocab-atlas">Katalog Kosakata</a> · <a href="#word-pairs">Pasangan Kata</a>':'<a href="#examination">← Pusat Ujian</a> · <a href="#pair-practice">Latihan Sinonim &amp; Antonim</a> · <a href="#pinyin-mistakes">Gudang Kesalahan</a>';
-  shell(learning?'learning':'examination',titles[page],'<div>'+nav+'</div><h1 class="mt">'+esc(titles[page])+'</h1><div id="vocab-host"></div>'+source);
+  const nav=learning?'<a href="#learning">← Pusat Pembelajaran</a> · <a href="#vocab-atlas">Katalog Kosakata</a> · <a href="#word-pairs">Pasangan Kata</a>':'<a href="#learning">← Zona Interaktif</a> · <a href="#pair-practice">Latihan Sinonim &amp; Antonim</a> · <a href="#learning-mistakes">Gudang Kesalahan</a>';
+  shell('learning',titles[page],'<div>'+nav+'</div><h1 class="mt">'+esc(titles[page])+'</h1><div id="vocab-host"></div>'+source);
   const host=root.querySelector('#vocab-host'), select=(name,options)=>'<select aria-label="'+name+'">'+options+'</select>';
   cleanupAudio=wireSpeech(host);
   const audio=text=>'<button type="button" class="vocab-audio speak-button" data-speak="'+esc(encodeURIComponent(text))+'" aria-label="Dengarkan '+esc(text)+'" aria-pressed="false" hidden><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3zM16 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></button>';
