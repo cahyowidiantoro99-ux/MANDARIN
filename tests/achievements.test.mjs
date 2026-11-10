@@ -1,5 +1,11 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {openDatabase} from '../app/db.mjs';import {seed} from '../scripts/seed.mjs';import {Service} from '../app/service.mjs';import {achievements,rankAchievement} from '../app/achievements.mjs';import {id,periodBounds} from '../app/domain.mjs';import {learningDay} from '../app/learning-motivation.mjs';import {createApp} from '../app/server.mjs';
+import {openDatabase} from '../app/db.mjs';import {seed} from '../scripts/seed.mjs';import {Service} from '../app/service.mjs';import {achievements,rankAchievement,evaluationSummary} from '../app/achievements.mjs';import {id,periodBounds} from '../app/domain.mjs';import {learningDay} from '../app/learning-motivation.mjs';import {createApp} from '../app/server.mjs';
+
+test('Evaluation pairs the same week across promotions and distinguishes missing from other levels',()=>{
+ const rows=[{track:'hsk',level:3,score:80,week:'a',started_at:1},{track:'work',level:2,score:100,week:'a',started_at:2},{track:'hsk',level:3,score:20,week:'b',started_at:3},{track:'work',level:3,score:40,week:'c',started_at:4}];
+ const combined=evaluationSummary(rows,3,'combined');assert.equal(combined.score,90);assert.equal(combined.completed_weeks,1);assert.equal(evaluationSummary(rows,2,'combined').status,'other_level');assert.equal(evaluationSummary(rows,6,'work').score,70);
+ assert.equal(evaluationSummary(rows.filter(r=>r.track==='hsk'),3,'combined').status,'missing_work');assert.equal(evaluationSummary(rows.filter(r=>r.track==='work'),3,'combined').status,'missing_hsk');assert.equal(evaluationSummary([],3,'combined').status,'no_results');assert.equal(evaluationSummary(rows.slice(2),3,'combined').status,'unpaired');assert.equal(evaluationSummary([{track:'hsk',level:3,score:null}],3,'hsk').score,null);
+});
 
 test('Achievement ties share competition ranks; missing/zero activity never receives a winner',()=>{
  const rows=rankAchievement([{id:'a',value:6},{id:'b',value:6},{id:'c',value:5},{id:'d',value:0},{id:'e',value:null}]);assert.deepEqual(rows.map(r=>r.rank),[1,1,3,null,null]);assert.equal(rankAchievement([{id:'a',value:0}],{allowZero:true})[0].rank,1);

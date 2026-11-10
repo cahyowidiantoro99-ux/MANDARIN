@@ -1,5 +1,8 @@
 // Interface only. Source lessons, translations, answers and employee data are protected in markup.
 export const learningZh={
+ 'Hanya hasil valid pertama ujian mingguan resmi pada level ujian yang dipilih. Gabungan menghitung rata-rata HSK dan Work dengan bobot sama, serta memerlukan kedua jalur. Work tidak dibatasi level HSK; gabungan hanya memakai minggu yang lengkap. Latihan, placement dan simulasi naik level tidak dihitung.':'仅统计所选HSK等级每周正式测评的首次有效成绩。综合成绩对HSK与岗位词汇等权计算，须在同一周完成两类测评。岗位词汇不受HSK等级限制。不计入练习、分级测评或晋级模拟成绩。',
+ 'Work tidak dibatasi level HSK; gabungan hanya memakai minggu yang lengkap.':'岗位词汇不受HSK等级限制；综合成绩仅统计两类测评均已完成的周次。',
+ 'Perbarui data':'刷新数据','Data terbaru saat dimuat':'加载时的最新数据','Diperbarui:':'更新时间：','Hasil tersedia':'成绩已就绪','Hasil HSK tersedia pada level lain':'其他HSK等级有测评成绩','Belum ada hasil Kosakata Kerja':'暂无岗位词汇测评成绩','Belum ada hasil HSK pada level ini':'此等级暂无HSK测评成绩','Belum ada hasil valid pada periode ini':'此时段暂无有效测评成绩','Kedua jalur belum lengkap pada minggu yang sama':'同一周内尚未完成两类测评','Kosakata Kerja dibandingkan tanpa filter level HSK.':'岗位词汇成绩不按HSK等级筛选。','Perbandingan mengikuti level saat ujian HSK, bukan level belajar saat ini. Gabungan memerlukan kedua jalur pada minggu yang sama.':'比较依据为HSK测评时的等级，而非当前学习等级。综合成绩须在同一周完成两类测评。',
  'Analitik Belajar':'学习数据分析','Analitik Pembelajaran':'学习数据分析','Analitik pembelajaran':'学习数据分析',
  'BELAJAR · LATIH · BERTUMBUH':'学习 · 练习 · 成长','BELAJAR':'学习','LATIH':'练习','BERTUMBUH':'成长',
  'Satu langkah kecil hari ini. Kemampuan yang bertahan lebih lama.':'每天进步一点，让所学知识掌握得更牢。','Gudang kata':'复习词库','Lanjutkan perjalanan Mandarin Anda.':'继续您的汉语学习之旅。','Langkah berikutnya untuk Anda':'为您推荐下一步学习',
