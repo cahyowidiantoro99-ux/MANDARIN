@@ -242,3 +242,7 @@ CREATE TABLE IF NOT EXISTS employee_learning_targets(
 );
 ALTER TABLE employee_learning_targets ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON employee_learning_targets FROM anon,authenticated;
+
+CREATE TABLE IF NOT EXISTS lc_saved_materials(user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,kind TEXT NOT NULL CHECK(kind IN ('atlas-vocab','hanzi','grammar')),target_id TEXT NOT NULL,created_at BIGINT NOT NULL,PRIMARY KEY(user_id,kind,target_id));
+ALTER TABLE lc_saved_materials ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON lc_saved_materials FROM anon,authenticated;

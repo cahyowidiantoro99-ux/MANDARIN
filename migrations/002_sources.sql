@@ -44,3 +44,5 @@ CREATE TABLE IF NOT EXISTS employee_learning_targets(
  level INTEGER NOT NULL CHECK(level BETWEEN 1 AND 8),
  target_date TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS lc_saved_materials(user_id TEXT NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,kind TEXT NOT NULL CHECK(kind IN ('atlas-vocab','hanzi','grammar')),target_id TEXT NOT NULL,created_at BIGINT NOT NULL,PRIMARY KEY(user_id,kind,target_id));

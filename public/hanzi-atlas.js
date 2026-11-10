@@ -1,3 +1,4 @@
+import {bookmarkButton,wireBookmarks} from './bookmarks.js';
 import {materialDownload,wireMaterialDownload} from './material-download.js';
 const normalize=value=>String(value).toLowerCase().normalize('NFD').replace(/[\u0300-\u0304\u030c]/g,'').normalize('NFC');
 const symbols={'Kiri–kanan':'⿰','Atas–bawah':'⿱','Tiga bagian horizontal':'⿲','Tiga bagian vertikal':'⿳','Keliling penuh':'⿴','Keliling dari atas':'⿵','Keliling dari bawah':'⿶','Keliling dari kiri':'⿷','Keliling dari kiri atas':'⿸','Keliling dari kanan atas':'⿹','Keliling dari kiri bawah':'⿺','Bertumpuk':'⿻'};
@@ -6,9 +7,9 @@ const sources='<details class="panel mt"><summary>Sumber Atlas dan cakupan</summ
 let catalogRequest;
 const loadCatalog=api=>catalogRequest??=api('/atlas/catalog').catch(error=>{catalogRequest=null;throw error;});
 
-export async function mountAtlas({api,shell,esc,root,cleanup},route,arg){
-  let disposed=false, busy=false;
-  cleanup(()=>{disposed=true;});
+export async function mountAtlas({api,shell,esc,root,cleanup,toast},route,arg){
+  let disposed=false, busy=false;const stopBookmarks=wireBookmarks(root,{api,toast});
+  cleanup(()=>{stopBookmarks();disposed=true;});
   const learning=route==='hanzi'||route==='hanzi-compare';
   const [catalog,progress,attempt]=await Promise.all([
     loadCatalog(api),learning?null:api('/atlas/progress'),
@@ -26,7 +27,7 @@ export async function mountAtlas({api,shell,esc,root,cleanup},route,arg){
     return row.examples.length?`<ul class="atlas-examples">${row.examples.map(e=>`<li><strong lang="zh">${esc(e.word)}</strong> ${esc(e.pinyin||'')} · ${esc(e.meaning_id)}</li>`).join('')}</ul>`:'<p class="muted">Contoh tidak tercantum dalam sumber kosakata.</p>';
   }
   function detail(row){
-    return `<article class="panel atlas-word"><div class="hanzi" lang="zh">${esc(row.hanzi)}</div><strong>${esc(row.pinyin.join(' / '))}</strong><p>${esc(row.gloss_id)}</p><small>HSK ${esc(row.level)} · ${esc(row.strokes)} goresan · Trad. ${esc(row.traditional)}</small><p>Radikal ${esc(row.radical)} (${esc(row.radical_form)}) · ${esc(symbols[row.structure]||'')} ${esc(row.structure)}<br>Komponen ${esc(row.components.join(' + ')||'—')} · IDS ${esc(row.ids)}</p>${examples(row)}</article>`;
+    return `<article class="panel atlas-word bookmark-card">${bookmarkButton('hanzi',row.hanzi)}<div class="hanzi" lang="zh">${esc(row.hanzi)}</div><strong>${esc(row.pinyin.join(' / '))}</strong><p>${esc(row.gloss_id)}</p><small>HSK ${esc(row.level)} · ${esc(row.strokes)} goresan · Trad. ${esc(row.traditional)}</small><p>Radikal ${esc(row.radical)} (${esc(row.radical_form)}) · ${esc(symbols[row.structure]||'')} ${esc(row.structure)}<br>Komponen ${esc(row.components.join(' + ')||'—')} · IDS ${esc(row.ids)}</p>${examples(row)}</article>`;
   }
   function paged(render,size){
     let page=0;

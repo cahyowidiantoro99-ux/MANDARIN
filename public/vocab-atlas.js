@@ -1,3 +1,4 @@
+import {bookmarkButton,wireBookmarks} from './bookmarks.js';
 import {materialDownload,wireMaterialDownload} from './material-download.js';
 import {wireSpeech,speakerIcon} from './speech.js';
 
@@ -7,11 +8,11 @@ const typeOptions='<option value="">Semua hubungan</option><option value="S">Sin
 const titles={'vocab-atlas':'Katalog Kosakata HSK 1–9','word-pairs':'Pasangan Kata 同义词／反义词','pair-practice':'Latihan Sinonim & Antonim','pair-mistakes':'Gudang Kesalahan · Pasangan Kata'};
 const source='<details class="panel mt"><summary>Sumber dan cakupan</summary><p>Daftar GF 0025–2021 melalui <a href="https://github.com/ivankra/hsk30">ivankra/hsk30</a>. HSK 7–9 merupakan satu kelompok. Arti Indonesia berasal dari Atlas Hanzi dan memakai rujukan <a href="https://www.mdbg.net/chinese/dictionary?page=cc-cedict">CC-CEDICT</a>. Kandidat kamus memakai <a href="https://github.com/jaaack-wang/Chinese-Synonyms">Chinese-Synonyms</a> dan <a href="https://github.com/guotong1988/chinese_dictionary">chinese_dictionary</a>. Pinyin konteks berasal dari katalog atau pypinyin. Contoh berasal dari <a href="https://github.com/saymei/zhongdex">Zhongdex</a>, <a href="https://gushichinese.com/hsk-3.0/downloads">Gushi</a>, dan contoh orisinal. Data adaptasi dan terjemahan menggunakan <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Sebagian terjemahan menggunakan bantuan mesin dan bergantung pada konteks.</p></details>';
 
-export async function mountVocabulary({api,shell,esc,root,cleanup},page,arg){
+export async function mountVocabulary({api,shell,esc,root,cleanup,toast},page,arg){
   const pairMode=page==='word-pairs',learning=pairMode||page==='vocab-atlas';
   let disposed=false,request=0,timer;
-  let cleanupAudio;
-  cleanup(()=>{disposed=true;clearTimeout(timer);cleanupAudio?.();});
+  let cleanupAudio;const stopBookmarks=wireBookmarks(root,{api,toast});
+  cleanup(()=>{stopBookmarks();disposed=true;clearTimeout(timer);cleanupAudio?.();});
   const nav=learning?'<a href="#learning">← Pusat Pembelajaran</a> · <a href="#vocab-atlas">Katalog Kosakata</a>':'<a href="#learning">← Zona Interaktif</a> · <a href="#pair-practice">Latihan Sinonim &amp; Antonim</a> · <a href="#learning-mistakes">Gudang Kesalahan</a>';
   shell('learning',titles[page],'<div>'+nav+'</div><h1 class="mt">'+esc(titles[page])+'</h1><div id="vocab-host"></div>'+source);
   if(page==='vocab-atlas'){root.querySelector('#vocab-host').insertAdjacentHTML('beforebegin',materialDownload('kosakata'));wireMaterialDownload(root);}
@@ -26,14 +27,14 @@ export async function mountVocabulary({api,shell,esc,root,cleanup},page,arg){
     return '<article class="panel"><span class="pill '+(p.curated?'green':'gold')+'">'+relation+' · '+(p.curated?'Terkurasi':'Kandidat kamus')+'</span><div class="vocab-relation mt">'+word(p.words[0])+'<b aria-label="'+relation+'">'+(p.type==='S'?'=':'X')+'</b>'+word(p.words[1])+'</div>'+
       (p.context?'<p class="mt">'+esc(p.context)+'<br><small>'+esc(p.contextReading)+'</small></p>':'')+(p.note?'<p>'+esc(p.note)+'</p>':'')+(p.examples.length?'<h4 class="mt">'+(p.joint?'Contoh kedua kata':'Contoh penggunaan per kata')+'</h4>'+p.examples.map(example).join(''):'')+'</article>';
   };
-  const card=w=>'<article class="panel"><span class="pill">HSK '+esc(w.level)+'</span>'+spoken(w.hanzi,'<h3 lang="zh">'+esc(w.hanzi)+'</h3>')+'<div class="pinyin">'+esc(w.pinyin)+'</div><p>'+esc(w.meaning)+'</p>'+(w.example?example(w.example):'')+
+  const card=w=>'<article class="panel bookmark-card">'+bookmarkButton('atlas-vocab',w.bookmark_id)+'<span class="pill">HSK '+esc(w.level)+'</span>'+spoken(w.hanzi,'<h3 lang="zh">'+esc(w.hanzi)+'</h3>')+'<div class="pinyin">'+esc(w.pinyin)+'</div><p>'+esc(w.meaning)+'</p>'+(w.example?example(w.example):'')+
     (w.link?'<a href="#word-pairs/'+encodeURIComponent(w.link)+'">Lihat Pasangan Kata →</a>':'')+'</article>';
 
   if(learning){
     host.innerHTML='<div class="panel vocab-controls"><input type="search" aria-label="Cari kosakata" placeholder="Cari Hanzi, pinyin, atau arti Indonesia">'+select('Level HSK',levelOptions)+(pairMode?select('Jenis hubungan',typeOptions):'')+'</div><div id="vocab-results" class="mt"></div>';
     const input=host.querySelector('input'),[level,type]=host.querySelectorAll('select'),results=host.querySelector('#vocab-results');
     let exact=pairMode&&arg?arg:'';
-    input.value=exact;
+    input.value=exact;if(!pairMode&&arg){try{input.value=decodeURIComponent(arg);}catch{input.value=arg;}}
     async function load(offset=0){
       const token=++request;
       results.setAttribute('aria-busy','true');

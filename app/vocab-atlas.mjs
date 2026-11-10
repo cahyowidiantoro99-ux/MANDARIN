@@ -37,7 +37,7 @@ export function vocabularyAtlas(){
   };
   const curated=data.curated.map(row=>pairCard(row,true));
   const pairs=[...curated,...data.candidates.map(row=>pairCard(row,false))];
-  const words=data.words.map(([hanzi,pinyin,level,,meaning],i)=>({hanzi,pinyin,level,meaning,example:data.examples[i],link:hanzi.split('|').find(w=>links.has(w))}));
+  const words=data.words.map(([hanzi,pinyin,level,,meaning],i)=>({bookmark_id:createHash('sha256').update(level+'|'+hanzi).digest('hex').slice(0,24),hanzi,pinyin,level,meaning,example:data.examples[i],link:hanzi.split('|').find(w=>links.has(w))}));
   const pools=Object.fromEntries(['S','A'].map(type=>[type,[...new Set(curated.filter(p=>p.type===type).flatMap(p=>p.words.map(w=>w.hanzi)))]]));
   return cache={words,pairs,curated,banks:data.banks,examContext:data.examContext,related,pools,byId:new Map(curated.map(p=>[p.id,p])),
     wordSearch:words.map(w=>normalize([w.hanzi,w.pinyin,w.meaning].join(' '))),
