@@ -1,0 +1,2316 @@
+{
+  "version": "placement-first-error-v2",
+  "curriculum": "HSK3.0",
+  "policy": {
+    "max_questions": 30,
+    "questions_per_level": 5,
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "kind_order": [
+      "vocabulary",
+      "hanzi",
+      "sentence",
+      "grammar",
+      "translation"
+    ],
+    "stop_on_first_error": true,
+    "assigned_level": "level_of_first_incorrect_answer",
+    "all_correct_level": 6
+  },
+  "notes": [
+    "Bank placement aktif untuk sesi baru pada CONTENT_MODE=source setelah deployment.",
+    "Pilih satu variasi per level/jenis; acak opsi, pertahankan urutan level dan jenis.",
+    "Kesulitan mengikuti kurikulum dan kompleksitas bahasa; belum dikalibrasi menggunakan statistik peserta.",
+    "Menyusun kalimat menggunakan pilihan urutan lengkap untuk penilaian objektif; bukan esai bebas.",
+    "Jangan kirim correct_id, explanation, atau soal berikutnya sebelum jawaban dikunci."
+  ],
+  "questions": [
+    {
+      "id": "placement-v2-h1-vocabulary-1",
+      "level": 1,
+      "kind": "vocabulary",
+      "variant": 1,
+      "prompt": "Apa arti “茶”?",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "teh"
+        },
+        {
+          "id": "2",
+          "label": "kopi"
+        },
+        {
+          "id": "3",
+          "label": "air putih"
+        },
+        {
+          "id": "4",
+          "label": "susu"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "茶 (chá) berarti teh.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 29
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-vocabulary-2",
+      "level": 1,
+      "kind": "vocabulary",
+      "variant": 2,
+      "prompt": "Apa arti “杯子”?",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "gelas"
+        },
+        {
+          "id": "2",
+          "label": "mangkuk"
+        },
+        {
+          "id": "3",
+          "label": "piring"
+        },
+        {
+          "id": "4",
+          "label": "sendok"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "杯子 (bēi zi) berarti gelas.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 21
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-hanzi-1",
+      "level": 1,
+      "kind": "hanzi",
+      "variant": 1,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bā” (delapan).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "八"
+        },
+        {
+          "id": "2",
+          "label": "六"
+        },
+        {
+          "id": "3",
+          "label": "九"
+        },
+        {
+          "id": "4",
+          "label": "十"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "八 (bā) berarti delapan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 15
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-hanzi-2",
+      "level": 1,
+      "kind": "hanzi",
+      "variant": 2,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bà ba” (ayah).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "爸爸"
+        },
+        {
+          "id": "2",
+          "label": "妈妈"
+        },
+        {
+          "id": "3",
+          "label": "哥哥"
+        },
+        {
+          "id": "4",
+          "label": "弟弟"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "爸爸 (bà ba) berarti ayah.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 16
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-sentence-1",
+      "level": 1,
+      "kind": "sentence",
+      "variant": 1,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Saya minum teh.",
+      "tokens": [
+        "我",
+        "喝",
+        "茶"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "我喝茶。"
+        },
+        {
+          "id": "2",
+          "label": "我茶喝。"
+        },
+        {
+          "id": "3",
+          "label": "喝我茶。"
+        },
+        {
+          "id": "4",
+          "label": "茶喝我。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "Urutan dasar: subjek 我 + kata kerja 喝 + objek 茶。",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 6
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-sentence-2",
+      "level": 1,
+      "kind": "sentence",
+      "variant": 2,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Dia sedang membaca buku.",
+      "tokens": [
+        "他",
+        "在",
+        "看",
+        "书"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "他在看书。"
+        },
+        {
+          "id": "2",
+          "label": "他看书在。"
+        },
+        {
+          "id": "3",
+          "label": "在他书看。"
+        },
+        {
+          "id": "4",
+          "label": "他书在看。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "在 berada sebelum kata kerja untuk menyatakan kegiatan yang sedang berlangsung.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 6
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-grammar-1",
+      "level": 1,
+      "kind": "grammar",
+      "variant": 1,
+      "prompt": "Lengkapi: 我___吃饭。 (Saya sedang makan.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "在"
+        },
+        {
+          "id": "2",
+          "label": "是"
+        },
+        {
+          "id": "3",
+          "label": "有"
+        },
+        {
+          "id": "4",
+          "label": "的"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "在 + kata kerja menyatakan kegiatan yang sedang berlangsung.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 6
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-grammar-2",
+      "level": 1,
+      "kind": "grammar",
+      "variant": 2,
+      "prompt": "Lengkapi: 我___有哥哥。 (Saya tidak mempunyai kakak laki-laki.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "没"
+        },
+        {
+          "id": "2",
+          "label": "不"
+        },
+        {
+          "id": "3",
+          "label": "是"
+        },
+        {
+          "id": "4",
+          "label": "在"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "Negasi 有 menggunakan 没有, bukan 不有.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 7
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-translation-1",
+      "level": 1,
+      "kind": "translation",
+      "variant": 1,
+      "prompt": "Terjemahkan: 我今天不去学校。",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "Hari ini saya tidak pergi ke sekolah."
+        },
+        {
+          "id": "2",
+          "label": "Kemarin saya tidak pergi ke sekolah."
+        },
+        {
+          "id": "3",
+          "label": "Hari ini saya pergi ke sekolah."
+        },
+        {
+          "id": "4",
+          "label": "Hari ini dia tidak pergi ke sekolah."
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "今天 = hari ini; 不去 = tidak pergi; 学校 = sekolah.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 16
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h1-translation-2",
+      "level": 1,
+      "kind": "translation",
+      "variant": 2,
+      "prompt": "Pilih terjemahan: Ayah saya sedang minum teh.",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "我爸爸在喝茶。"
+        },
+        {
+          "id": "2",
+          "label": "我爸爸在吃饭。"
+        },
+        {
+          "id": "3",
+          "label": "你爸爸在喝茶。"
+        },
+        {
+          "id": "4",
+          "label": "我爸爸不喝茶。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "我爸爸 = ayah saya; 在喝茶 = sedang minum teh.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 1 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 6
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 1
+    },
+    {
+      "id": "placement-v2-h2-vocabulary-1",
+      "level": 2,
+      "kind": "vocabulary",
+      "variant": 1,
+      "prompt": "Apa arti “车站”?",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "stasiun"
+        },
+        {
+          "id": "2",
+          "label": "bandara"
+        },
+        {
+          "id": "3",
+          "label": "pelabuhan"
+        },
+        {
+          "id": "4",
+          "label": "persimpangan"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "车站 (chē zhàn) berarti stasiun.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 27
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-vocabulary-2",
+      "level": 2,
+      "kind": "vocabulary",
+      "variant": 2,
+      "prompt": "Apa arti “爱好”?",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "hobi"
+        },
+        {
+          "id": "2",
+          "label": "pekerjaan"
+        },
+        {
+          "id": "3",
+          "label": "kebiasaan"
+        },
+        {
+          "id": "4",
+          "label": "rencana"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "爱好 (ài hào) berarti hobi.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 14
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-hanzi-1",
+      "level": 2,
+      "kind": "hanzi",
+      "variant": 1,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bái sè” (warna putih).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "白色"
+        },
+        {
+          "id": "2",
+          "label": "百色"
+        },
+        {
+          "id": "3",
+          "label": "自色"
+        },
+        {
+          "id": "4",
+          "label": "目色"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "白色 (bái sè) berarti warna putih.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 15
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-hanzi-2",
+      "level": 2,
+      "kind": "hanzi",
+      "variant": 2,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bǐ” (pena).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "笔"
+        },
+        {
+          "id": "2",
+          "label": "比"
+        },
+        {
+          "id": "3",
+          "label": "北"
+        },
+        {
+          "id": "4",
+          "label": "本"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "笔 (bǐ) berarti pena.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 22
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-sentence-1",
+      "level": 2,
+      "kind": "sentence",
+      "variant": 1,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Saya sudah makan.",
+      "tokens": [
+        "我",
+        "已经",
+        "吃饭",
+        "了"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "我已经吃饭了。"
+        },
+        {
+          "id": "2",
+          "label": "我了已经吃饭。"
+        },
+        {
+          "id": "3",
+          "label": "已经了我吃饭。"
+        },
+        {
+          "id": "4",
+          "label": "我吃饭了已经。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "已经…了 menyatakan sesuatu yang sudah terjadi.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 12
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-sentence-2",
+      "level": 2,
+      "kind": "sentence",
+      "variant": 2,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Rumah saya lebih jauh daripada rumahnya.",
+      "tokens": [
+        "我家",
+        "比",
+        "他家",
+        "远"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "我家比他家远。"
+        },
+        {
+          "id": "2",
+          "label": "我家远比他家。"
+        },
+        {
+          "id": "3",
+          "label": "比我家他家远。"
+        },
+        {
+          "id": "4",
+          "label": "我家他家比远。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "Perbandingan: A + 比 + B + kata sifat.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 20
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-grammar-1",
+      "level": 2,
+      "kind": "grammar",
+      "variant": 1,
+      "prompt": "Lengkapi: 我___吃饭了，不饿。 (Saya sudah makan, jadi tidak lapar.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "已经"
+        },
+        {
+          "id": "2",
+          "label": "正在"
+        },
+        {
+          "id": "3",
+          "label": "还没"
+        },
+        {
+          "id": "4",
+          "label": "别"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "已经…了 sesuai dengan kegiatan yang sudah selesai; 还没 bertentangan dengan 不饿 dalam konteks ini.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 12
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-grammar-2",
+      "level": 2,
+      "kind": "grammar",
+      "variant": 2,
+      "prompt": "Lengkapi: ___说话，老师在上课。 (Jangan berbicara, guru sedang mengajar.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "别"
+        },
+        {
+          "id": "2",
+          "label": "已经"
+        },
+        {
+          "id": "3",
+          "label": "离"
+        },
+        {
+          "id": "4",
+          "label": "更"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "别 + kata kerja digunakan untuk melarang suatu tindakan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 16
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-translation-1",
+      "level": 2,
+      "kind": "translation",
+      "variant": 1,
+      "prompt": "Terjemahkan: 他还没有回家。",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "Dia belum pulang ke rumah."
+        },
+        {
+          "id": "2",
+          "label": "Dia sudah pulang ke rumah."
+        },
+        {
+          "id": "3",
+          "label": "Dia tidak akan pernah pulang ke rumah."
+        },
+        {
+          "id": "4",
+          "label": "Dia sedang pergi dari rumah."
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "还没有 + kata kerja berarti belum melakukan suatu tindakan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 6
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h2-translation-2",
+      "level": 2,
+      "kind": "translation",
+      "variant": 2,
+      "prompt": "Pilih terjemahan: Stasiun itu tidak jauh dari rumah saya.",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "那个车站离我家不远。"
+        },
+        {
+          "id": "2",
+          "label": "那个车站比我家远。"
+        },
+        {
+          "id": "3",
+          "label": "我家在那个车站里。"
+        },
+        {
+          "id": "4",
+          "label": "那个车站离我家很远。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "离 menyatakan jarak; 不远 berarti tidak jauh.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 2 - Grammar Clarity Guide (V2).xlsx",
+        "sheet": "Grammar List",
+        "row": 19
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 2
+    },
+    {
+      "id": "placement-v2-h3-vocabulary-1",
+      "level": 3,
+      "kind": "vocabulary",
+      "variant": 1,
+      "prompt": "安全第一，工作时请戴好安全帽。 Dalam konteks ini, “安全” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "aman"
+        },
+        {
+          "id": "2",
+          "label": "berbahaya"
+        },
+        {
+          "id": "3",
+          "label": "ramai"
+        },
+        {
+          "id": "4",
+          "label": "sempit"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "安全 (ān quán) berarti aman.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 3 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 16
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-vocabulary-2",
+      "level": 3,
+      "kind": "vocabulary",
+      "variant": 2,
+      "prompt": "请保持安静，大家正在听老师讲课。 Dalam konteks ini, “安静” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "tenang"
+        },
+        {
+          "id": "2",
+          "label": "bising"
+        },
+        {
+          "id": "3",
+          "label": "sibuk"
+        },
+        {
+          "id": "4",
+          "label": "terburu-buru"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "安静 (ān jìng) berarti tenang.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 3 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 15
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-hanzi-1",
+      "level": 3,
+      "kind": "hanzi",
+      "variant": 1,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “ǎi” (rendah).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "矮"
+        },
+        {
+          "id": "2",
+          "label": "委"
+        },
+        {
+          "id": "3",
+          "label": "短"
+        },
+        {
+          "id": "4",
+          "label": "低"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "矮 (ǎi) berarti rendah.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 3 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 13
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-hanzi-2",
+      "level": 3,
+      "kind": "hanzi",
+      "variant": 2,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bào zhǐ” (surat kabar).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "报纸"
+        },
+        {
+          "id": "2",
+          "label": "抱纸"
+        },
+        {
+          "id": "3",
+          "label": "报低"
+        },
+        {
+          "id": "4",
+          "label": "服纸"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "报纸 (bào zhǐ) berarti surat kabar.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 3 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 28
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-sentence-1",
+      "level": 3,
+      "kind": "sentence",
+      "variant": 1,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Saya memeriksa peralatan terlebih dahulu, lalu mulai bekerja.",
+      "tokens": [
+        "我",
+        "先",
+        "检查设备",
+        "再",
+        "开始工作"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "我先检查设备，再开始工作。"
+        },
+        {
+          "id": "2",
+          "label": "我再检查设备，先开始工作。"
+        },
+        {
+          "id": "3",
+          "label": "先我设备检查，再工作开始。"
+        },
+        {
+          "id": "4",
+          "label": "我检查先设备，开始再工作。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "先…再… menunjukkan urutan dua kegiatan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK3 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 17
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-sentence-2",
+      "level": 3,
+      "kind": "sentence",
+      "variant": 2,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Dia mendengarkan musik sambil memasak.",
+      "tokens": [
+        "她",
+        "一边",
+        "听音乐",
+        "一边",
+        "做饭"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "她一边听音乐，一边做饭。"
+        },
+        {
+          "id": "2",
+          "label": "她一边音乐听，做饭一边。"
+        },
+        {
+          "id": "3",
+          "label": "她听一边音乐，一边饭做。"
+        },
+        {
+          "id": "4",
+          "label": "一边她听音乐，饭一边做。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "一边…一边… menghubungkan dua kegiatan yang berlangsung bersamaan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK3 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 18
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-grammar-1",
+      "level": 3,
+      "kind": "grammar",
+      "variant": 1,
+      "prompt": "Lengkapi: 昨天他迟到了，今天他___迟到了。 (Kemarin dia terlambat, hari ini dia terlambat lagi.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "又"
+        },
+        {
+          "id": "2",
+          "label": "再"
+        },
+        {
+          "id": "3",
+          "label": "才"
+        },
+        {
+          "id": "4",
+          "label": "只"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "又 menyatakan kejadian yang sudah terulang; 再 lazimnya untuk pengulangan yang belum terjadi.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK3 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 9
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-grammar-2",
+      "level": 3,
+      "kind": "grammar",
+      "variant": 2,
+      "prompt": "Lengkapi: 八点上班，他九点___到。 (Mulai kerja pukul delapan, tetapi dia baru tiba pukul sembilan.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "才"
+        },
+        {
+          "id": "2",
+          "label": "就"
+        },
+        {
+          "id": "3",
+          "label": "只"
+        },
+        {
+          "id": "4",
+          "label": "又"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "才 menekankan bahwa suatu kejadian terjadi lebih lambat daripada yang diharapkan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK3 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 14
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-translation-1",
+      "level": 3,
+      "kind": "translation",
+      "variant": 1,
+      "prompt": "Terjemahkan: 他一边检查设备，一边记录问题。",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "Dia memeriksa peralatan sambil mencatat masalah."
+        },
+        {
+          "id": "2",
+          "label": "Dia mencatat masalah sebelum memeriksa peralatan."
+        },
+        {
+          "id": "3",
+          "label": "Dia selesai memeriksa peralatan lalu berhenti mencatat."
+        },
+        {
+          "id": "4",
+          "label": "Dia hanya mencatat masalah tanpa memeriksa peralatan."
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "一边…一边… berarti dua kegiatan dilakukan bersamaan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK3 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 18
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h3-translation-2",
+      "level": 3,
+      "kind": "translation",
+      "variant": 2,
+      "prompt": "Pilih terjemahan: Kami akhirnya menemukan cara untuk menyelesaikan masalah itu.",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "我们终于找到了解决那个问题的办法。"
+        },
+        {
+          "id": "2",
+          "label": "我们一直没有找到解决那个问题的办法。"
+        },
+        {
+          "id": "3",
+          "label": "我们只想到了那个问题，没有办法。"
+        },
+        {
+          "id": "4",
+          "label": "我们先发现问题，再找不到办法。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "终于 menandai hasil yang akhirnya tercapai; 解决问题的办法 = cara menyelesaikan masalah.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK3 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 13
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 3
+    },
+    {
+      "id": "placement-v2-h4-vocabulary-1",
+      "level": 4,
+      "kind": "vocabulary",
+      "variant": 1,
+      "prompt": "为了不影响生产，请大家按时到岗。 Dalam konteks ini, “按时” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "tepat waktu"
+        },
+        {
+          "id": "2",
+          "label": "lebih awal"
+        },
+        {
+          "id": "3",
+          "label": "terlambat"
+        },
+        {
+          "id": "4",
+          "label": "sewaktu-waktu"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "按时 (àn shí) berarti tepat waktu.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 4 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 19
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-vocabulary-2",
+      "level": 4,
+      "kind": "vocabulary",
+      "variant": 2,
+      "prompt": "主管负责安排明天的工作。 Dalam konteks ini, “安排” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "mengatur"
+        },
+        {
+          "id": "2",
+          "label": "membatalkan"
+        },
+        {
+          "id": "3",
+          "label": "menunda"
+        },
+        {
+          "id": "4",
+          "label": "mengabaikan"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "安排 (ān pái) berarti mengatur.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 4 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 18
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-hanzi-1",
+      "level": 4,
+      "kind": "hanzi",
+      "variant": 1,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bǎo hù” (melindungi).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "保护"
+        },
+        {
+          "id": "2",
+          "label": "保持"
+        },
+        {
+          "id": "3",
+          "label": "保证"
+        },
+        {
+          "id": "4",
+          "label": "保留"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "保护 (bǎo hù) berarti melindungi.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 4 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 27
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-hanzi-2",
+      "level": 4,
+      "kind": "hanzi",
+      "variant": 2,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bào míng” (mendaftar).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "报名"
+        },
+        {
+          "id": "2",
+          "label": "报明"
+        },
+        {
+          "id": "3",
+          "label": "报告"
+        },
+        {
+          "id": "4",
+          "label": "报到"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "报名 (bào míng) berarti mendaftar.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 4 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 29
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-sentence-1",
+      "level": 4,
+      "kind": "sentence",
+      "variant": 1,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Karena hujan deras, kami terpaksa mengubah rencana.",
+      "tokens": [
+        "雨太大了",
+        "我们",
+        "不得不",
+        "改变计划"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "雨太大了，我们不得不改变计划。"
+        },
+        {
+          "id": "2",
+          "label": "雨太大了，我们不改变不得计划。"
+        },
+        {
+          "id": "3",
+          "label": "雨太大了，不得我们不计划改变。"
+        },
+        {
+          "id": "4",
+          "label": "雨太大了，我们不得计划不改变。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "不得不 + kata kerja menyatakan tindakan yang terpaksa dilakukan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK4 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 23
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-sentence-2",
+      "level": 4,
+      "kind": "sentence",
+      "variant": 2,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Mesinnya rusak, jadi kami tidak punya pilihan selain menghentikan produksi.",
+      "tokens": [
+        "机器坏了",
+        "我们",
+        "只好",
+        "停止生产"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "机器坏了，我们只好停止生产。"
+        },
+        {
+          "id": "2",
+          "label": "机器坏了，我们停止只好生产。"
+        },
+        {
+          "id": "3",
+          "label": "机器坏了，只好我们生产停止。"
+        },
+        {
+          "id": "4",
+          "label": "机器坏了，我们只停止好生产。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "只好 menunjukkan pilihan yang terpaksa diambil karena keadaan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK4 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 11
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-grammar-1",
+      "level": 4,
+      "kind": "grammar",
+      "variant": 1,
+      "prompt": "Lengkapi: 雨太大，我们___取消今天的活动。 (Hujan terlalu deras, kami terpaksa membatalkan kegiatan hari ini.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "不得不"
+        },
+        {
+          "id": "2",
+          "label": "从来不"
+        },
+        {
+          "id": "3",
+          "label": "差不多"
+        },
+        {
+          "id": "4",
+          "label": "正好"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "不得不 menyatakan keterpaksaan akibat keadaan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK4 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 23
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-grammar-2",
+      "level": 4,
+      "kind": "grammar",
+      "variant": 2,
+      "prompt": "Lengkapi: 我以前___没见过这种设备，这是第一次。 (Saya belum pernah melihat peralatan semacam ini; ini pertama kalinya.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "从来"
+        },
+        {
+          "id": "2",
+          "label": "正好"
+        },
+        {
+          "id": "3",
+          "label": "只好"
+        },
+        {
+          "id": "4",
+          "label": "甚至"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "从来没… berarti tidak pernah sampai saat ini.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK4 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 16
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-translation-1",
+      "level": 4,
+      "kind": "translation",
+      "variant": 1,
+      "prompt": "Terjemahkan: 机器突然坏了，我们只好停止生产。",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "Mesin tiba-tiba rusak, sehingga kami terpaksa menghentikan produksi."
+        },
+        {
+          "id": "2",
+          "label": "Mesin sudah diperbaiki, sehingga kami melanjutkan produksi."
+        },
+        {
+          "id": "3",
+          "label": "Kami menghentikan produksi agar mesin menjadi rusak."
+        },
+        {
+          "id": "4",
+          "label": "Mesin hampir rusak, tetapi kami tidak menghentikan produksi."
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "突然 = tiba-tiba; 只好 = terpaksa/tidak punya pilihan lain.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK4 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 11
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h4-translation-2",
+      "level": 4,
+      "kind": "translation",
+      "variant": 2,
+      "prompt": "Pilih terjemahan: Dia belum pernah terlambat sejak mulai bekerja di sini.",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "他来这里工作以后，从来没迟到过。"
+        },
+        {
+          "id": "2",
+          "label": "他来这里工作以后，总是迟到。"
+        },
+        {
+          "id": "3",
+          "label": "他来这里工作以前，从来没上过班。"
+        },
+        {
+          "id": "4",
+          "label": "他来这里工作以后，只好迟到。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "从来没…过 mengungkapkan belum pernah; 以后 menetapkan batas waktu sejak mulai bekerja.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK4 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 16
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 4
+    },
+    {
+      "id": "placement-v2-h5-vocabulary-1",
+      "level": 5,
+      "kind": "vocabulary",
+      "variant": 1,
+      "prompt": "新设备安装完毕后，还需要进行测试。 Dalam konteks ini, “安装” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "memasang"
+        },
+        {
+          "id": "2",
+          "label": "membongkar"
+        },
+        {
+          "id": "3",
+          "label": "memindahkan"
+        },
+        {
+          "id": "4",
+          "label": "mengoperasikan"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "安装 (ān zhuāng) berarti memasang.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 21
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-vocabulary-2",
+      "level": 5,
+      "kind": "vocabulary",
+      "variant": 2,
+      "prompt": "他因工作失误而难过，同事们都来安慰他。 Dalam konteks ini, “安慰” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "menghibur"
+        },
+        {
+          "id": "2",
+          "label": "menyalahkan"
+        },
+        {
+          "id": "3",
+          "label": "memerintah"
+        },
+        {
+          "id": "4",
+          "label": "memuji"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "安慰 (ān wèi) berarti menghibur.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 20
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-hanzi-1",
+      "level": 5,
+      "kind": "hanzi",
+      "variant": 1,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “áo yè” (begadang).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "熬夜"
+        },
+        {
+          "id": "2",
+          "label": "傲夜"
+        },
+        {
+          "id": "3",
+          "label": "遨夜"
+        },
+        {
+          "id": "4",
+          "label": "熬液"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "熬夜 (áo yè) berarti begadang.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 22
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-hanzi-2",
+      "level": 5,
+      "kind": "hanzi",
+      "variant": 2,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “ān quán dài” (sabuk pengaman).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "安全带"
+        },
+        {
+          "id": "2",
+          "label": "安全代"
+        },
+        {
+          "id": "3",
+          "label": "安金带"
+        },
+        {
+          "id": "4",
+          "label": "按全带"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "安全带 (ān quán dài) berarti sabuk pengaman.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 19
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-sentence-1",
+      "level": 5,
+      "kind": "sentence",
+      "variant": 1,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Bagaimanapun juga, dia baru mulai bekerja, jadi berilah dia sedikit waktu.",
+      "tokens": [
+        "他",
+        "毕竟",
+        "刚开始工作",
+        "给他一点时间吧"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "他毕竟刚开始工作，给他一点时间吧。"
+        },
+        {
+          "id": "2",
+          "label": "他刚毕竟工作开始，给他一点时间吧。"
+        },
+        {
+          "id": "3",
+          "label": "他开始工作刚毕竟，给他一点时间吧。"
+        },
+        {
+          "id": "4",
+          "label": "他毕竟工作刚开始一点，给他时间吧。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "毕竟 memperkenalkan fakta yang perlu dipertimbangkan sebelum mengambil sikap.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 13
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-sentence-2",
+      "level": 5,
+      "kind": "sentence",
+      "variant": 2,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Jika kita tidak berangkat sekarang, kita akan ketinggalan kereta.",
+      "tokens": [
+        "我们",
+        "再不出发",
+        "就",
+        "赶不上火车了"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "我们再不出发，就赶不上火车了。"
+        },
+        {
+          "id": "2",
+          "label": "我们不再出发，就火车赶不上了。"
+        },
+        {
+          "id": "3",
+          "label": "我们再不火车，就出发赶不上了。"
+        },
+        {
+          "id": "4",
+          "label": "我们出发再不，就不上赶火车了。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "再不…就… menyatakan akibat jika tindakan tidak segera dilakukan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 14
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-grammar-1",
+      "level": 5,
+      "kind": "grammar",
+      "variant": 1,
+      "prompt": "Lengkapi: ___他经验不多，但他愿意认真学习。 (Meskipun pengalamannya belum banyak, dia mau belajar dengan sungguh-sungguh.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "尽管"
+        },
+        {
+          "id": "2",
+          "label": "既然"
+        },
+        {
+          "id": "3",
+          "label": "除非"
+        },
+        {
+          "id": "4",
+          "label": "为了"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "尽管…但… menyatakan konsesi: fakta pertama tidak menghalangi fakta berikutnya.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 20
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-grammar-2",
+      "level": 5,
+      "kind": "grammar",
+      "variant": 2,
+      "prompt": "Lengkapi: 他___是新员工，我们应该给他一些时间适应。 (Bagaimanapun juga, dia karyawan baru; kita sebaiknya memberinya waktu beradaptasi.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "毕竟"
+        },
+        {
+          "id": "2",
+          "label": "反而"
+        },
+        {
+          "id": "3",
+          "label": "偶然"
+        },
+        {
+          "id": "4",
+          "label": "立即"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "毕竟 menekankan fakta yang menjadi alasan untuk bersikap memahami.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 13
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-translation-1",
+      "level": 5,
+      "kind": "translation",
+      "variant": 1,
+      "prompt": "Terjemahkan: 我们再不采取措施，问题就会越来越严重。",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "Jika kita tidak segera mengambil tindakan, masalahnya akan semakin serius."
+        },
+        {
+          "id": "2",
+          "label": "Setelah kita mengambil tindakan, masalahnya sudah selesai seluruhnya."
+        },
+        {
+          "id": "3",
+          "label": "Walaupun kita tidak mengambil tindakan, masalahnya pasti akan hilang."
+        },
+        {
+          "id": "4",
+          "label": "Kita tidak perlu mengambil tindakan karena masalahnya semakin ringan."
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "再不…就… menekankan urgensi; 采取措施 = mengambil tindakan; 越来越严重 = semakin serius.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 14
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h5-translation-2",
+      "level": 5,
+      "kind": "translation",
+      "variant": 2,
+      "prompt": "Pilih terjemahan: Dia pernah bekerja di luar negeri, jadi dia memahami pentingnya komunikasi.",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "他曾经在国外工作过，所以了解沟通的重要性。"
+        },
+        {
+          "id": "2",
+          "label": "他准备去国外工作，所以从未与人沟通过。"
+        },
+        {
+          "id": "3",
+          "label": "他从来没在国外工作过，所以不重视沟通。"
+        },
+        {
+          "id": "4",
+          "label": "他已经回国了，所以不再需要与人沟通。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "曾经…过 menyatakan pengalaman lampau; 所以 menghubungkan pengalaman dengan pemahaman.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 5 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 23
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 5
+    },
+    {
+      "id": "placement-v2-h6-vocabulary-1",
+      "level": 6,
+      "kind": "vocabulary",
+      "variant": 1,
+      "prompt": "他没有明确反对，却用沉默暗示自己并不赞同。 Dalam konteks ini, “暗示” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "mengisyaratkan"
+        },
+        {
+          "id": "2",
+          "label": "menegaskan secara langsung"
+        },
+        {
+          "id": "3",
+          "label": "menyangkal"
+        },
+        {
+          "id": "4",
+          "label": "merahasiakan sepenuhnya"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "暗示 (àn shì) berarti mengisyaratkan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 17
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-vocabulary-2",
+      "level": 6,
+      "kind": "vocabulary",
+      "variant": 2,
+      "prompt": "企业要摆脱对单一市场的依赖，就必须开拓新的销售渠道。 Dalam konteks ini, “摆脱” berarti …",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "melepaskan diri"
+        },
+        {
+          "id": "2",
+          "label": "menyesuaikan diri"
+        },
+        {
+          "id": "3",
+          "label": "mengandalkan"
+        },
+        {
+          "id": "4",
+          "label": "mempertahankan"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "摆脱 (bǎi tuō) berarti melepaskan diri.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 27
+      },
+      "content_origin": "ECB authored context; target vocabulary attested in repository",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-hanzi-1",
+      "level": 6,
+      "kind": "hanzi",
+      "variant": 1,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “áng guì” (mahal).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "昂贵"
+        },
+        {
+          "id": "2",
+          "label": "仰贵"
+        },
+        {
+          "id": "3",
+          "label": "昂责"
+        },
+        {
+          "id": "4",
+          "label": "昂贾"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "昂贵 (áng guì) berarti mahal.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 14
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-hanzi-2",
+      "level": 6,
+      "kind": "hanzi",
+      "variant": 2,
+      "prompt": "Pilih Hanzi yang sesuai dengan pinyin “bǎi fēn diǎn” (poin persentase).",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "百分点"
+        },
+        {
+          "id": "2",
+          "label": "百分店"
+        },
+        {
+          "id": "3",
+          "label": "百分典"
+        },
+        {
+          "id": "4",
+          "label": "百份点"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "百分点 (bǎi fēn diǎn) berarti poin persentase.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Vocab Growth Tracker - New HSK 3.0.xlsx",
+        "sheet": "Vocab List",
+        "row": 23
+      },
+      "content_origin": "repository vocabulary",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-sentence-1",
+      "level": 6,
+      "kind": "sentence",
+      "variant": 1,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Langkah-langkah yang kami usulkan bertujuan meningkatkan efisiensi.",
+      "tokens": [
+        "我们",
+        "所提出的措施",
+        "旨在",
+        "提高效率"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "我们所提出的措施旨在提高效率。"
+        },
+        {
+          "id": "2",
+          "label": "我们旨在所提出的措施提高效率。"
+        },
+        {
+          "id": "3",
+          "label": "所提出的我们措施旨在效率提高。"
+        },
+        {
+          "id": "4",
+          "label": "我们提高所措施提出的旨在效率。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "所 + kata kerja membentuk pewatas nominal: 我们所提出的措施 = langkah-langkah yang kami usulkan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 31
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-sentence-2",
+      "level": 6,
+      "kind": "sentence",
+      "variant": 2,
+      "prompt": "Pilih susunan yang sesuai dengan arti: Hanya jika risiko sudah dikendalikan secara efektif, produksi boleh dilanjutkan.",
+      "tokens": [
+        "除非",
+        "风险已得到有效控制",
+        "才",
+        "可以恢复生产"
+      ],
+      "options": [
+        {
+          "id": "1",
+          "label": "除非风险已得到有效控制，才可以恢复生产。"
+        },
+        {
+          "id": "2",
+          "label": "除非才风险已得到有效控制，可以恢复生产。"
+        },
+        {
+          "id": "3",
+          "label": "风险除非已控制得到有效，才可以恢复生产。"
+        },
+        {
+          "id": "4",
+          "label": "除非风险已得到有效控制，可以才生产恢复。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "除非…才… menetapkan syarat yang harus dipenuhi sebelum suatu tindakan diperbolehkan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 59
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-grammar-1",
+      "level": 6,
+      "kind": "grammar",
+      "variant": 1,
+      "prompt": "Lengkapi: ___已经采取了预防措施，___不能保证绝对安全。 (Sekalipun langkah pencegahan sudah diambil, keamanan mutlak tetap tidak dapat dijamin.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "就算 / 也"
+        },
+        {
+          "id": "2",
+          "label": "只有 / 才"
+        },
+        {
+          "id": "3",
+          "label": "既然 / 就"
+        },
+        {
+          "id": "4",
+          "label": "因为 / 所以"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "就算…也… menyatakan bahwa kesimpulan tetap berlaku meskipun kondisi tersebut terpenuhi.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 61
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-grammar-2",
+      "level": 6,
+      "kind": "grammar",
+      "variant": 2,
+      "prompt": "Lengkapi: 提前整理好资料，___各部门及时核实数据。 (Rapikan dokumen terlebih dahulu agar setiap departemen dapat segera memverifikasi data.)",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "以便"
+        },
+        {
+          "id": "2",
+          "label": "不料"
+        },
+        {
+          "id": "3",
+          "label": "至于"
+        },
+        {
+          "id": "4",
+          "label": "未必"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "以便 memperkenalkan tujuan: agar tindakan berikutnya lebih mudah atau memungkinkan dilakukan.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 62
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-translation-1",
+      "level": 6,
+      "kind": "translation",
+      "variant": 1,
+      "prompt": "Terjemahkan: 凡是涉及安全的决定，都必须经过充分论证。",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "Setiap keputusan yang menyangkut keselamatan harus melalui kajian yang memadai."
+        },
+        {
+          "id": "2",
+          "label": "Hanya keputusan yang tidak berkaitan dengan keselamatan yang perlu dikaji."
+        },
+        {
+          "id": "3",
+          "label": "Keputusan keselamatan boleh diterapkan sebelum kajian apa pun dilakukan."
+        },
+        {
+          "id": "4",
+          "label": "Beberapa keputusan keselamatan sudah dibatalkan setelah kajian."
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "凡是…都… mencakup seluruh anggota kategori tanpa pengecualian; 充分论证 = kajian/argumentasi yang memadai.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 58
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    },
+    {
+      "id": "placement-v2-h6-translation-2",
+      "level": 6,
+      "kind": "translation",
+      "variant": 2,
+      "prompt": "Pilih terjemahan: Sekalipun rencana itu tampak layak, risikonya tetap tidak boleh diabaikan.",
+      "tokens": [],
+      "options": [
+        {
+          "id": "1",
+          "label": "就算这个方案看起来可行，也不能忽视其中的风险。"
+        },
+        {
+          "id": "2",
+          "label": "既然这个方案看起来可行，就可以忽视其中的风险。"
+        },
+        {
+          "id": "3",
+          "label": "只有忽视其中的风险，这个方案才会变得可行。"
+        },
+        {
+          "id": "4",
+          "label": "这个方案之所以不可行，是因为我们已经消除了风险。"
+        }
+      ],
+      "correct_id": "1",
+      "explanation": "就算…也… mempertahankan kewajiban memperhatikan risiko meskipun rencana tampak layak.",
+      "show_pinyin": false,
+      "source_ref": {
+        "file": "MATERI HSK LENGKAP\\HSK 6 - Grammar Clarity Guide.xlsx",
+        "sheet": "Grammar List",
+        "row": 61
+      },
+      "content_origin": "ECB authored assessment; curriculum pattern from repository; not an official HSK paper",
+      "review_status": "editorial_reviewed",
+      "difficulty": 6
+    }
+  ]
+}

@@ -8,6 +8,7 @@ COPY scripts ./scripts
 COPY tests ./tests
 COPY migrations ./migrations
 COPY data/source-release.json data/hanzi-atlas.json data/vocab-atlas.json ./data/
+COPY data/placement ./data/placement
 COPY data/official-hsk ./data/official-hsk
 COPY data/material-pdfs ./data/material-pdfs
 RUN node scripts/build-production.mjs
@@ -22,6 +23,7 @@ COPY --chown=node:node --from=build /app/scripts ./scripts
 COPY --chown=node:node --from=build /app/migrations ./migrations
 COPY --chown=node:node certs ./certs
 COPY --chown=node:node --from=build /app/data/source-release.json /app/data/hanzi-atlas.json /app/data/vocab-atlas.json ./data/
+COPY --chown=node:node --from=build /app/data/placement ./data/placement
 COPY --chown=node:node --from=build /app/data/official-hsk ./data/official-hsk
 COPY --chown=node:node --from=build /app/data/material-pdfs ./data/material-pdfs
 COPY --chown=node:node --from=build /app/dist-production ./public
