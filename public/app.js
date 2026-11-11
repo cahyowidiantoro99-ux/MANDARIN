@@ -7,7 +7,7 @@ const $=s=>document.querySelector(s), root=$('#app');
 startLanguageUi(root,document.querySelector('#toast'));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let user=null,csrf='',meta={},cleanup=()=>{},routeVersion=0,loginPortal='employee';
-const icons={dashboard:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',learning:'M4 3h7v17H4z M11 5h9v17h-9 M6 7h3 M14 9h4',examination:'M7 4H4v18h16V4h-3 M8 2h8v5H8z M8 12h8 M8 16h5',ranking:'M7 3h10v6a5 5 0 0 1-10 0z M7 5H3v3a4 4 0 0 0 4 4 M17 5h4v3a4 4 0 0 1-4 4 M12 14v6 M7 21h10',profile:'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z M4 22v-3a8 8 0 0 1 16 0v3',employees:'M10 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z M2 19v-3a5 5 0 0 1 10 0v3 M15 3a3 3 0 0 1 0 6 M15 12a5 5 0 0 1 6 5v2',clock:'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z M12 6v6l4 2',arrow:'M4 12h16 M14 6l6 6-6 6',logout:'M9 4H3v16h6 M9 12h12 M16 7l5 5-5 5'};
+const icons={edit:"M4 20l4-1L21 6l-3-3L5 16z M15 6l3 3",work:"M3 7h18v14H3z M8 7V4h8v3 M3 12h18 M10 11v3h4v-3",info:"M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0 M12 11v6 M12 7h.01",dashboard:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',learning:'M4 3h7v17H4z M11 5h9v17h-9 M6 7h3 M14 9h4',examination:'M7 4H4v18h16V4h-3 M8 2h8v5H8z M8 12h8 M8 16h5',ranking:'M7 3h10v6a5 5 0 0 1-10 0z M7 5H3v3a4 4 0 0 0 4 4 M17 5h4v3a4 4 0 0 1-4 4 M12 14v6 M7 21h10',profile:'M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0z M4 22v-3a8 8 0 0 1 16 0v3',employees:'M10 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z M2 19v-3a5 5 0 0 1 10 0v3 M15 3a3 3 0 0 1 0 6 M15 12a5 5 0 0 1 6 5v2',clock:'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z M12 6v6l4 2',arrow:'M4 12h16 M14 6l6 6-6 6',logout:'M9 4H3v16h6 M9 12h12 M16 7l5 5-5 5'};
 const icon=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${(icons[k]||icons.dashboard).split(' M').map((p,i)=>`<path d="${i?'M':''}${p}"/>`).join('')}</svg>`;
 const num=(v,d=0)=>v==null?'—':Number(v).toLocaleString('id-ID',{maximumFractionDigits:d});
 const date=(t,short=false)=>new Intl.DateTimeFormat('id-ID',{timeZone:'Asia/Makassar',day:'numeric',month:short?'short':'long',year:short?undefined:'numeric'}).format(new Date(t*1000));
@@ -87,8 +87,17 @@ async function resultPage(q,autoAdvance=false){const viewVersion=routeVersion,me
 async function ranking(){const version=routeVersion;const {mountAchievements}=await import('./achievements.js');if(version!==routeVersion)return;await mountAchievements({api,shell,esc,root,user,cleanup:fn=>{cleanup=fn;}});}
 async function profile(editing=false){const viewVersion=routeVersion;
  const d=await api('/dashboard');if(viewVersion!==routeVersion)return;user=d.profile;
- if(viewVersion!==routeVersion)return;shell('profile','Profile',heading('YOUR PERSONAL SPACE','Profil Anda.','Kelola informasi pribadi dan data pekerjaan Anda.','<button type="button" id="edit-profile" class="btn secondary">Edit profil</button>')+`
- <section class="panel max-form"><div class="panel-head"><h2>Informasi karyawan</h2>${badge('Employee','green')}</div>
+ const summary = [
+  ['ranking','Level HSK',user.placement_level ? 'HSK '+user.placement_level : 'Belum selesai'],
+  ['learning','Departemen',user.department],
+  ['work','Jabatan',user.job_title]
+ ];
+ shell('profile','Profile',`<div class="employee-profile">`+
+ heading('YOUR PERSONAL SPACE','Profil Anda.','Kelola informasi pribadi dan data pekerjaan Anda.',
+ '<button type="button" id="edit-profile" class="btn secondary">'+icon('edit')+'Edit profil</button>')+
+ `<dl class="profile-summary">${summary.map(([symbol,label,value])=>`<div class="profile-summary-item">
+ <span class="profile-symbol">${icon(symbol)}</span><div><dt>${label}</dt><dd>${esc(value||'—')}</dd></div></div>`).join('')}</dl>
+ <section class="panel employee-profile-panel"><div class="panel-head"><h2><span class="profile-symbol">${icon('profile')}</span><span>Informasi karyawan</span></h2>${badge('Employee','green')}</div>
  <form id="profile-form"><fieldset id="profile-fields" class="profile-fields" disabled><div class="form-grid">
  <label class="field">Nomor ID<input name="employee_id" value="${esc(user.employee_id)}" required pattern="[A-Za-z0-9-]{3,30}" maxlength="30"><small>Nomor ID digunakan sebagai username login. Gunakan ID baru setelah disimpan.</small></label>
  <label class="field">Departemen<select name="department">${meta.departments.map(item=>`<option value="${esc(item.id)}" ${item.id===user.department?'selected':''}>${esc(item.id)}</option>`).join('')}</select></label>
@@ -99,7 +108,7 @@ async function profile(editing=false){const viewVersion=routeVersion;
  <label class="field full">Level self-assessed<select aria-label="Level self-assessed" name="self_level">${[1,2,3,4,5,6].map(level=>`<option value="${level}" ${level===user.self_level?'selected':''}>${level}</option>`).join('')}</select><small>Mengubah self-assessed tidak menaikkan level placement.</small></label>
  </div><label class="field" id="profile-password-field" hidden>Password saat ini<input name="current_password" type="password" autocomplete="current-password" maxlength="128"><small>Diperlukan hanya saat mengubah Nomor ID atau email pemulihan.</small></label><label class="check-label"><input type="checkbox" name="in_app" ${d.preferences.in_app?'checked':''}>Aktifkan pengingat in-app</label></fieldset>
  <div class="form-error" role="alert"></div><div id="profile-actions" class="split" hidden><button class="btn" type="submit">Simpan profil</button><button class="btn secondary" type="button" id="cancel-profile">Batal</button></div></form>
- <div class="notice mt">Placement: ${user.placement_level?'HSK '+user.placement_level:'Belum selesai'} · Baseline HSK: ${num(user.baseline_hsk)} · Baseline Work: ${num(user.baseline_work)}.<br>Perubahan departemen berlaku pada materi berikutnya.</div></section>`);
+ <div class="notice mt profile-placement"><span class="profile-symbol">${icon('info')}</span><div><strong>Placement: ${user.placement_level?'HSK '+user.placement_level:'Belum selesai'} · Baseline HSK: ${num(user.baseline_hsk)} · Baseline Work: ${num(user.baseline_work)}.</strong><br>Perubahan departemen berlaku pada materi berikutnya.</div></div></section></div>`);
  const enable=()=>{$('#profile-fields').disabled=false;$('#profile-actions').hidden=false;$('#edit-profile').hidden=true;};
  bind('#edit-profile','click',enable);bind('#cancel-profile','click',()=>profile());if(editing)enable();
  const checkIdentity=()=>{const changed=$('[name=employee_id]').value.toUpperCase()!==user.employee_id||$('[name=email]').value.toLowerCase()!==user.email;$('#profile-password-field').hidden=!changed;$('[name=current_password]').required=changed;};bind('[name=employee_id]','input',checkIdentity);bind('[name=email]','input',checkIdentity);
