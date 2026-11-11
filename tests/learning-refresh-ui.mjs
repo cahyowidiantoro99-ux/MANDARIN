@@ -23,7 +23,7 @@ try{
  await page.goto(base);await page.locator('[name=username]').fill('DEMO002');await page.locator('[name=password]').fill('DemoMandarin!2026');await page.locator('#login-form [type=submit]').click();await page.locator('.dash-vocabulary').waitFor();
  assert.match(await page.locator('.dash-vocabulary').innerText(),/HSK 1/);await shot('dashboard');
  console.log('CENTER PREF', (await (await page.request.get(base+'/api/learn/summary?view=center')).json()).preferences);await page.goto(base+'/#learning');await page.locator('.learning-game-card').first().waitFor();
- assert.equal(await page.locator('.learning-tool-links a').count(),3);assert.equal(await page.locator('a[href="#library"]').count(),0);
+ assert.equal(await page.locator('.learning-tool-links a').count(),3);assert.equal(await page.locator('.learning-tool-links svg').count(),3);assert.equal(await page.locator('.learning-zone-banner small').count(),0);assert.equal(await page.locator('.learning-game-card').count(),6);assert.equal(await page.locator('a[href="#library"]').count(),0);
  await shot('learning-desktop');
  for(const width of [360,390,768]){await page.setViewportSize({width,height:850});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+width);if(width===390)await shot('learning-hp');}
  await page.setViewportSize({width:1672,height:1000});
@@ -31,7 +31,7 @@ try{
  await db.run('UPDATE learning_packages SET demo=1 WHERE id=?',[pkg.id]);await page.goto(base+'/#study/package-'+pkg.id);await page.locator('#lc-reveal').waitFor();assert(await page.locator('[data-rating=known]').isEnabled());await shot('flashcard-optional');
  let n=0;
  while(await page.locator('[data-rating=known]').count()){
-  now+=12;await page.locator('[data-rating=known]').click();await page.locator('#lc-next').waitFor();assert.equal(await page.locator('.lc-recall').count(),0);await page.locator('#lc-next').click();
+  now+=12;await page.locator('[data-rating=known]').click();assert.equal(await page.locator('.lc-recall').count(),0);
   await page.waitForFunction(()=>document.querySelector('[data-rating=known]:not(:disabled)')||document.querySelector('.lc-finish'));if(++n>200)throw Error('deck loop');
  }
  await shot('flashcard-finish');await page.locator('.lc-finish a[href^="#recall/"]').click();await page.locator('[data-recall]').first().waitFor();
