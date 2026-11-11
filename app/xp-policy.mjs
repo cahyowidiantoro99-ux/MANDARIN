@@ -1,7 +1,8 @@
 import {createHash} from 'node:crypto';
 import {learningDay} from './learning-motivation.mjs';
-export const dailyXpLimits={review:50,recall:20,grammar:5,matching:2,listening:2,sentence:2,story:2,contrast:5,pair_quick:3};
+export const dailyXpLimits={chengyu_review:20,review:50,recall:20,grammar:5,matching:2,listening:2,sentence:2,story:2,contrast:5,pair_quick:3};
 export const xpRules=[
+ ['Belajar Idiom / Chengyu','2 XP per idiom berbeda yang diberi status per hari, maksimal 20 idiom (40 XP). Status Hafal, Ragu, dan Belum Hafal bernilai sama.'],
  ['Review flashcard HSK / pekerjaan','2 XP per kosakata berbeda per hari; maksimal 50 kosakata (100 XP/hari). Hafal, Ragu, dan Belum Hafal bernilai sama.'],
  ['Uji Ingatan / recall','3 XP per jawaban benar pada kosakata berbeda per hari; maksimal 20 (60 XP/hari). Recall kata yang sama menunggu 1 jam.'],
  ['Grammar pembelajaran','15 XP bila ketiga jawaban benar; maksimal 5 materi berbeda per hari (75 XP).'],

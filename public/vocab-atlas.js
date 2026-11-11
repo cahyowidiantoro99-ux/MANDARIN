@@ -14,7 +14,7 @@ export async function mountVocabulary({api,shell,esc,root,cleanup,toast},page,ar
   let cleanupAudio;const stopBookmarks=wireBookmarks(root,{api,toast});
   cleanup(()=>{stopBookmarks();disposed=true;clearTimeout(timer);cleanupAudio?.();});
   const nav=learning?'<a href="#learning">← Pusat Pembelajaran</a> · <a href="#vocab-atlas">Katalog Kosakata</a>':'<a href="#learning">← Zona Interaktif</a> · <a href="#pair-practice">Latihan Sinonim &amp; Antonim</a> · <a href="#learning-mistakes">Gudang Kesalahan</a>';
-  shell('learning',titles[page],'<div>'+nav+'</div><h1 class="mt">'+esc(titles[page])+'</h1><div id="vocab-host"></div>'+source);
+  shell('learning',titles[page],'<div>'+nav+'</div>'+(learning?'<nav class="catalog-tabs" aria-label="Bagian katalog kosakata"><a class="btn secondary" href="#vocab-atlas" aria-current="'+(!pairMode?'page':'false')+'">Katalog Kosakata</a><a class="btn secondary" href="#word-pairs" aria-current="'+(pairMode?'page':'false')+'">Pasangan Kata</a></nav>':'')+'<h1 class="mt">'+esc(titles[page])+'</h1><div id="vocab-host"></div>'+source);
   if(page==='vocab-atlas'){root.querySelector('#vocab-host').insertAdjacentHTML('beforebegin',materialDownload('kosakata'));wireMaterialDownload(root);}
   const host=root.querySelector('#vocab-host'), select=(name,options)=>'<select aria-label="'+name+'">'+options+'</select>';
   cleanupAudio=wireSpeech(host);

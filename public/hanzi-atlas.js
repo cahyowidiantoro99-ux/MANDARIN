@@ -18,7 +18,7 @@ export async function mountAtlas({api,shell,esc,root,cleanup,toast},route,arg){
   if(disposed)return;
   const rows=catalog.rows, byHanzi=new Map(rows.map(row=>[row.hanzi,row]));
   const title={hanzi:'Katalog Hanzi HSK 1–9','hanzi-compare':'Bentuk Mirip 形近字',pinyin:'Latihan Pinyin','pinyin-mistakes':'Gudang Kesalahan'}[route];
-  const nav=learning?'<a class="btn secondary" href="#hanzi">Katalog Hanzi</a><a class="btn secondary" href="#hanzi-compare">Bentuk Mirip</a>':'<a class="btn secondary" href="#pinyin">Latihan Pinyin</a><a class="btn secondary" href="#learning-mistakes">Gudang Kesalahan</a>';
+  const nav=learning?'<a class="btn secondary" href="#hanzi" aria-current="'+(route==='hanzi'?'page':'false')+'">Katalog Hanzi</a><a class="btn secondary" href="#hanzi-compare" aria-current="'+(route==='hanzi-compare'?'page':'false')+'">Bentuk Mirip</a>':'<a class="btn secondary" href="#pinyin">Latihan Pinyin</a><a class="btn secondary" href="#learning-mistakes">Gudang Kesalahan</a>';
   shell('learning',title,`<div class="lc atlas"><a class="lc-back" href="#learning">← ${learning?'Pusat Pembelajaran':'Zona Interaktif'}</a><header class="lc-journey"><div><div class="section-tag">ATLAS HANZI · 字形与拼音</div><h1>${title}</h1></div></header><div class="split atlas-nav">${nav}</div><p id="atlas-error" role="alert"></p><div id="atlas-body"></div>${sources}</div>`);
   if(route==='hanzi'){root.querySelector('.atlas-nav').insertAdjacentHTML('afterend',materialDownload('hanzi'));wireMaterialDownload(root);}
   const $=selector=>root.querySelector(selector), host=$('#atlas-body');
