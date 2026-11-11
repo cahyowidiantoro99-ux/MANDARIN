@@ -89,19 +89,20 @@ async function profile(editing=false){const viewVersion=routeVersion;
  if(viewVersion!==routeVersion)return;shell('profile','Profile',heading('YOUR PERSONAL SPACE','Profil Anda.','Kelola informasi pribadi dan data pekerjaan Anda.','<button type="button" id="edit-profile" class="btn secondary">Edit profil</button>')+`
  <section class="panel max-form"><div class="panel-head"><h2>Informasi karyawan</h2>${badge('Employee','green')}</div>
  <form id="profile-form"><fieldset id="profile-fields" class="profile-fields" disabled><div class="form-grid">
- <label class="field">Nomor ID<input readonly value="${esc(user.employee_id)}"><small>Nomor ID untuk login dikelola oleh IT.</small></label>
+ <label class="field">Nomor ID<input name="employee_id" value="${esc(user.employee_id)}" required pattern="[A-Za-z0-9-]{3,30}" maxlength="30"><small>Nomor ID digunakan sebagai username login. Gunakan ID baru setelah disimpan.</small></label>
  <label class="field">Departemen<select name="department">${meta.departments.map(item=>`<option value="${esc(item.id)}" ${item.id===user.department?'selected':''}>${esc(item.id)}</option>`).join('')}</select></label>
  <label class="field">Divisi<input name="division" value="${esc(user.division)}" required minlength="2" maxlength="80"></label>
  <label class="field">Jabatan<input name="job_title" value="${esc(user.job_title)}" required minlength="2" maxlength="80"></label>
  <label class="field full">Nama lengkap<input name="name" value="${esc(user.name)}" required minlength="3" maxlength="100"></label>
- <label class="field full">Email pemulihan<input readonly value="${esc(user.email)}"></label>
+ <label class="field full">Email pemulihan<input name="email" type="email" value="${esc(user.email)}" required maxlength="200"><small>Pastikan alamat benar dan dapat Anda akses untuk pemulihan password.</small></label>
  <label class="field full">Level self-assessed<select aria-label="Level self-assessed" name="self_level">${[1,2,3,4,5,6].map(level=>`<option value="${level}" ${level===user.self_level?'selected':''}>${level}</option>`).join('')}</select><small>Mengubah self-assessed tidak menaikkan level placement.</small></label>
- </div><label class="check-label"><input type="checkbox" name="in_app" ${d.preferences.in_app?'checked':''}>Aktifkan pengingat in-app</label></fieldset>
+ </div><label class="field" id="profile-password-field" hidden>Password saat ini<input name="current_password" type="password" autocomplete="current-password" maxlength="128"><small>Diperlukan hanya saat mengubah Nomor ID atau email pemulihan.</small></label><label class="check-label"><input type="checkbox" name="in_app" ${d.preferences.in_app?'checked':''}>Aktifkan pengingat in-app</label></fieldset>
  <div class="form-error" role="alert"></div><div id="profile-actions" class="split" hidden><button class="btn" type="submit">Simpan profil</button><button class="btn secondary" type="button" id="cancel-profile">Batal</button></div></form>
  <div class="notice mt">Placement: ${user.placement_level?'HSK '+user.placement_level:'Belum selesai'} · Baseline HSK: ${num(user.baseline_hsk)} · Baseline Work: ${num(user.baseline_work)}.<br>Perubahan departemen berlaku pada materi berikutnya.</div></section>`);
  const enable=()=>{$('#profile-fields').disabled=false;$('#profile-actions').hidden=false;$('#edit-profile').hidden=true;};
  bind('#edit-profile','click',enable);bind('#cancel-profile','click',()=>profile());if(editing)enable();
- form('#profile-form',async fd=>{user=await api('/profile',{method:'PATCH',body:{name:fd.get('name'),department:fd.get('department'),division:fd.get('division'),job_title:fd.get('job_title'),self_level:Number(fd.get('self_level')),in_app:fd.has('in_app')}});await profile();toast('Profil tersimpan.');});
+ const checkIdentity=()=>{const changed=$('[name=employee_id]').value.toUpperCase()!==user.employee_id||$('[name=email]').value.toLowerCase()!==user.email;$('#profile-password-field').hidden=!changed;$('[name=current_password]').required=changed;};bind('[name=employee_id]','input',checkIdentity);bind('[name=email]','input',checkIdentity);
+ form('#profile-form',async fd=>{user=await api('/profile',{method:'PATCH',body:{employee_id:fd.get('employee_id'),email:fd.get('email'),current_password:fd.get('current_password'),name:fd.get('name'),department:fd.get('department'),division:fd.get('division'),job_title:fd.get('job_title'),self_level:Number(fd.get('self_level')),in_app:fd.has('in_app')}});await profile();toast('Profil tersimpan.');});
 }
 
 async function leaderPage(page){const version=routeVersion;const {mountLeaderPortal}=await import('./leader-portal.js');if(version!==routeVersion)return;await mountLeaderPortal({api,shell,esc,root,user,cleanup:fn=>{cleanup=fn;}},page);}
