@@ -1,0 +1,958 @@
+{
+  "H11007": {
+    "source_sha256": "e7619d0b7e0f8f4c58cf8ab2995f08768797099832fafa0b65bc1d3cadd26f78",
+    "transcription": "Native text manually checked against source pages 2–10; original illustration objects preserved.",
+    "items": {
+      "1": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [],
+        "figures": [
+          3
+        ],
+        "group": null
+      },
+      "2": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [],
+        "figures": [
+          4
+        ],
+        "group": null
+      },
+      "3": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [],
+        "figures": [
+          5
+        ],
+        "group": null
+      },
+      "4": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [],
+        "figures": [
+          6
+        ],
+        "group": null
+      },
+      "5": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [],
+        "figures": [
+          7
+        ],
+        "group": null
+      },
+      "6": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 11
+          },
+          {
+            "value": "B",
+            "image": 12
+          },
+          {
+            "value": "C",
+            "image": 13
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "7": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 14
+          },
+          {
+            "value": "B",
+            "image": 15
+          },
+          {
+            "value": "C",
+            "image": 16
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "8": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 17
+          },
+          {
+            "value": "B",
+            "image": 18
+          },
+          {
+            "value": "C",
+            "image": 19
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "9": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 20
+          },
+          {
+            "value": "B",
+            "image": 21
+          },
+          {
+            "value": "C",
+            "image": 22
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "10": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 23
+          },
+          {
+            "value": "B",
+            "image": 24
+          },
+          {
+            "value": "C",
+            "image": 25
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "11": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 26
+          },
+          {
+            "value": "B",
+            "image": 27
+          },
+          {
+            "value": "C",
+            "image": 28
+          },
+          {
+            "value": "D",
+            "image": 29
+          },
+          {
+            "value": "E",
+            "image": 30
+          },
+          {
+            "value": "F",
+            "image": 31
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "11-15",
+          "label": "Pilihan bersama untuk soal 11–15"
+        }
+      },
+      "12": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 26
+          },
+          {
+            "value": "B",
+            "image": 27
+          },
+          {
+            "value": "C",
+            "image": 28
+          },
+          {
+            "value": "D",
+            "image": 29
+          },
+          {
+            "value": "E",
+            "image": 30
+          },
+          {
+            "value": "F",
+            "image": 31
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "11-15",
+          "label": "Pilihan bersama untuk soal 11–15"
+        }
+      },
+      "13": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 26
+          },
+          {
+            "value": "B",
+            "image": 27
+          },
+          {
+            "value": "C",
+            "image": 28
+          },
+          {
+            "value": "D",
+            "image": 29
+          },
+          {
+            "value": "E",
+            "image": 30
+          },
+          {
+            "value": "F",
+            "image": 31
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "11-15",
+          "label": "Pilihan bersama untuk soal 11–15"
+        }
+      },
+      "14": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 26
+          },
+          {
+            "value": "B",
+            "image": 27
+          },
+          {
+            "value": "C",
+            "image": 28
+          },
+          {
+            "value": "D",
+            "image": 29
+          },
+          {
+            "value": "E",
+            "image": 30
+          },
+          {
+            "value": "F",
+            "image": 31
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "11-15",
+          "label": "Pilihan bersama untuk soal 11–15"
+        }
+      },
+      "15": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "image": 26
+          },
+          {
+            "value": "B",
+            "image": 27
+          },
+          {
+            "value": "C",
+            "image": 28
+          },
+          {
+            "value": "D",
+            "image": 29
+          },
+          {
+            "value": "E",
+            "image": 30
+          },
+          {
+            "value": "F",
+            "image": 31
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "11-15",
+          "label": "Pilihan bersama untuk soal 11–15"
+        }
+      },
+      "16": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "text": "我朋友"
+          },
+          {
+            "value": "B",
+            "text": "老师的儿子"
+          },
+          {
+            "value": "C",
+            "text": "爸爸的学生"
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "17": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "text": "7点"
+          },
+          {
+            "value": "B",
+            "text": "8点"
+          },
+          {
+            "value": "C",
+            "text": "9点"
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "18": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "text": "不高兴"
+          },
+          {
+            "value": "B",
+            "text": "很少说话"
+          },
+          {
+            "value": "C",
+            "text": "不爱喝水"
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "19": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "text": "3岁"
+          },
+          {
+            "value": "B",
+            "text": "4岁"
+          },
+          {
+            "value": "C",
+            "text": "5岁"
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "20": {
+        "prompt": "Dengarkan audio dan pilih jawaban.",
+        "options": [
+          {
+            "value": "A",
+            "text": "学习"
+          },
+          {
+            "value": "B",
+            "text": "买电视"
+          },
+          {
+            "value": "C",
+            "text": "看电影"
+          }
+        ],
+        "figures": [],
+        "group": null
+      },
+      "21": {
+        "prompt": "二",
+        "options": [],
+        "figures": [
+          34
+        ],
+        "group": null
+      },
+      "22": {
+        "prompt": "读",
+        "options": [],
+        "figures": [
+          35
+        ],
+        "group": null
+      },
+      "23": {
+        "prompt": "狗",
+        "options": [],
+        "figures": [
+          36
+        ],
+        "group": null
+      },
+      "24": {
+        "prompt": "先生",
+        "options": [],
+        "figures": [
+          37
+        ],
+        "group": null
+      },
+      "25": {
+        "prompt": "写",
+        "options": [],
+        "figures": [
+          38
+        ],
+        "group": null
+      },
+      "26": {
+        "prompt": "住饭店了？好，5分钟后见，再见。",
+        "options": [
+          {
+            "value": "A",
+            "image": 39
+          },
+          {
+            "value": "B",
+            "image": 40
+          },
+          {
+            "value": "C",
+            "image": 41
+          },
+          {
+            "value": "D",
+            "image": 42
+          },
+          {
+            "value": "E",
+            "image": 43
+          },
+          {
+            "value": "F",
+            "image": 44
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "26-30",
+          "label": "Pilihan bersama untuk soal 26–30"
+        }
+      },
+      "27": {
+        "prompt": "他们都是我的同学。",
+        "options": [
+          {
+            "value": "A",
+            "image": 39
+          },
+          {
+            "value": "B",
+            "image": 40
+          },
+          {
+            "value": "C",
+            "image": 41
+          },
+          {
+            "value": "D",
+            "image": 42
+          },
+          {
+            "value": "E",
+            "image": 43
+          },
+          {
+            "value": "F",
+            "image": 44
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "26-30",
+          "label": "Pilihan bersama untuk soal 26–30"
+        }
+      },
+      "28": {
+        "prompt": "这里面是什么呢？",
+        "options": [
+          {
+            "value": "A",
+            "image": 39
+          },
+          {
+            "value": "B",
+            "image": 40
+          },
+          {
+            "value": "C",
+            "image": 41
+          },
+          {
+            "value": "D",
+            "image": 42
+          },
+          {
+            "value": "E",
+            "image": 43
+          },
+          {
+            "value": "F",
+            "image": 44
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "26-30",
+          "label": "Pilihan bersama untuk soal 26–30"
+        }
+      },
+      "29": {
+        "prompt": "米饭在桌子上。",
+        "options": [
+          {
+            "value": "A",
+            "image": 39
+          },
+          {
+            "value": "B",
+            "image": 40
+          },
+          {
+            "value": "C",
+            "image": 41
+          },
+          {
+            "value": "D",
+            "image": 42
+          },
+          {
+            "value": "E",
+            "image": 43
+          },
+          {
+            "value": "F",
+            "image": 44
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "26-30",
+          "label": "Pilihan bersama untuk soal 26–30"
+        }
+      },
+      "30": {
+        "prompt": "这个菜多少钱？30块？",
+        "options": [
+          {
+            "value": "A",
+            "image": 39
+          },
+          {
+            "value": "B",
+            "image": 40
+          },
+          {
+            "value": "C",
+            "image": 41
+          },
+          {
+            "value": "D",
+            "image": 42
+          },
+          {
+            "value": "E",
+            "image": 43
+          },
+          {
+            "value": "F",
+            "image": 44
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "26-30",
+          "label": "Pilihan bersama untuk soal 26–30"
+        }
+      },
+      "31": {
+        "prompt": "昨天天气怎么样？",
+        "options": [
+          {
+            "value": "A",
+            "text": "很热。"
+          },
+          {
+            "value": "B",
+            "text": "回家。"
+          },
+          {
+            "value": "C",
+            "text": "她是医生。"
+          },
+          {
+            "value": "D",
+            "text": "我打车。"
+          },
+          {
+            "value": "E",
+            "text": "在学校。"
+          },
+          {
+            "value": "F",
+            "text": "好的，谢谢！"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "31-35",
+          "label": "Pilihan bersama untuk soal 31–35"
+        }
+      },
+      "32": {
+        "prompt": "你的电脑呢？",
+        "options": [
+          {
+            "value": "A",
+            "text": "很热。"
+          },
+          {
+            "value": "B",
+            "text": "回家。"
+          },
+          {
+            "value": "C",
+            "text": "她是医生。"
+          },
+          {
+            "value": "D",
+            "text": "我打车。"
+          },
+          {
+            "value": "E",
+            "text": "在学校。"
+          },
+          {
+            "value": "F",
+            "text": "好的，谢谢！"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "31-35",
+          "label": "Pilihan bersama untuk soal 31–35"
+        }
+      },
+      "33": {
+        "prompt": "你怎么来茶馆儿？",
+        "options": [
+          {
+            "value": "A",
+            "text": "很热。"
+          },
+          {
+            "value": "B",
+            "text": "回家。"
+          },
+          {
+            "value": "C",
+            "text": "她是医生。"
+          },
+          {
+            "value": "D",
+            "text": "我打车。"
+          },
+          {
+            "value": "E",
+            "text": "在学校。"
+          },
+          {
+            "value": "F",
+            "text": "好的，谢谢！"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "31-35",
+          "label": "Pilihan bersama untuk soal 31–35"
+        }
+      },
+      "34": {
+        "prompt": "你去哪儿？",
+        "options": [
+          {
+            "value": "A",
+            "text": "很热。"
+          },
+          {
+            "value": "B",
+            "text": "回家。"
+          },
+          {
+            "value": "C",
+            "text": "她是医生。"
+          },
+          {
+            "value": "D",
+            "text": "我打车。"
+          },
+          {
+            "value": "E",
+            "text": "在学校。"
+          },
+          {
+            "value": "F",
+            "text": "好的，谢谢！"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "31-35",
+          "label": "Pilihan bersama untuk soal 31–35"
+        }
+      },
+      "35": {
+        "prompt": "你妈妈做什么工作？",
+        "options": [
+          {
+            "value": "A",
+            "text": "很热。"
+          },
+          {
+            "value": "B",
+            "text": "回家。"
+          },
+          {
+            "value": "C",
+            "text": "她是医生。"
+          },
+          {
+            "value": "D",
+            "text": "我打车。"
+          },
+          {
+            "value": "E",
+            "text": "在学校。"
+          },
+          {
+            "value": "F",
+            "text": "好的，谢谢！"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "31-35",
+          "label": "Pilihan bersama untuk soal 31–35"
+        }
+      },
+      "36": {
+        "prompt": "后面太冷，请（　）前面。",
+        "options": [
+          {
+            "value": "A",
+            "text": "坐"
+          },
+          {
+            "value": "B",
+            "text": "下午"
+          },
+          {
+            "value": "C",
+            "text": "中国"
+          },
+          {
+            "value": "D",
+            "text": "名字"
+          },
+          {
+            "value": "E",
+            "text": "小"
+          },
+          {
+            "value": "F",
+            "text": "能"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "36-40",
+          "label": "Pilihan bersama untuk soal 36–40"
+        }
+      },
+      "37": {
+        "prompt": "下个月，她和朋友去（　）。",
+        "options": [
+          {
+            "value": "A",
+            "text": "坐"
+          },
+          {
+            "value": "B",
+            "text": "下午"
+          },
+          {
+            "value": "C",
+            "text": "中国"
+          },
+          {
+            "value": "D",
+            "text": "名字"
+          },
+          {
+            "value": "E",
+            "text": "小"
+          },
+          {
+            "value": "F",
+            "text": "能"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "36-40",
+          "label": "Pilihan bersama untuk soal 36–40"
+        }
+      },
+      "38": {
+        "prompt": "喂？（　）听见我说话吗？",
+        "options": [
+          {
+            "value": "A",
+            "text": "坐"
+          },
+          {
+            "value": "B",
+            "text": "下午"
+          },
+          {
+            "value": "C",
+            "text": "中国"
+          },
+          {
+            "value": "D",
+            "text": "名字"
+          },
+          {
+            "value": "E",
+            "text": "小"
+          },
+          {
+            "value": "F",
+            "text": "能"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "36-40",
+          "label": "Pilihan bersama untuk soal 36–40"
+        }
+      },
+      "39": {
+        "prompt": "女：我们什么时候去医院？星期日？\n男：不，今天（　）去。",
+        "options": [
+          {
+            "value": "A",
+            "text": "坐"
+          },
+          {
+            "value": "B",
+            "text": "下午"
+          },
+          {
+            "value": "C",
+            "text": "中国"
+          },
+          {
+            "value": "D",
+            "text": "名字"
+          },
+          {
+            "value": "E",
+            "text": "小"
+          },
+          {
+            "value": "F",
+            "text": "能"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "36-40",
+          "label": "Pilihan bersama untuk soal 36–40"
+        }
+      },
+      "40": {
+        "prompt": "男：我很喜欢这个（　）猫，谢谢你！",
+        "options": [
+          {
+            "value": "A",
+            "text": "坐"
+          },
+          {
+            "value": "B",
+            "text": "下午"
+          },
+          {
+            "value": "C",
+            "text": "中国"
+          },
+          {
+            "value": "D",
+            "text": "名字"
+          },
+          {
+            "value": "E",
+            "text": "小"
+          },
+          {
+            "value": "F",
+            "text": "能"
+          }
+        ],
+        "figures": [],
+        "group": {
+          "id": "36-40",
+          "label": "Pilihan bersama untuk soal 36–40"
+        }
+      }
+    }
+  }
+}
