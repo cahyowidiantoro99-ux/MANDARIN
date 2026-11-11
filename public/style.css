@@ -1018,3 +1018,7 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 @media(max-width:900px){.learning-tool-row{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.learning-tool-links a{padding:14px 12px;gap:10px;font-size:14px}.learning-tool-links svg{width:25px;height:25px}.learning-tool-row .learning-zone-banner{padding:14px 12px;gap:10px;min-height:84px}.learning-tool-row .learning-zone-banner strong{font-size:18px}.exam-mode-tabs{flex-direction:column}.exam-paper-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.exam-paper-tile{padding:12px}.exam-paper-tile small{font-size:11px}}
 
 .exam-sim-panel .exam-step-title{display:block;font-family:inherit;font-size:15px;font-weight:700;line-height:1.5;color:#10303b;margin:0 0 10px}.exam-direct-actions{display:flex;flex-direction:column;gap:10px;margin-top:14px}.exam-direct-actions .btn{margin:0;width:100%}
+
+.ach-xp-rules{width:100%;border-collapse:collapse;font-size:14px}.ach-xp-rules th,.ach-xp-rules td{padding:12px;text-align:left;vertical-align:top;border-bottom:1px solid #dce5df}.ach-xp-rules tbody th{min-width:150px;color:#10303b}.ach-xp-rules td{min-width:240px;line-height:1.6}
+
+.ach .ach-xp-rules{table-layout:fixed;min-width:0}.ach .ach-xp-rules th,.ach .ach-xp-rules td{white-space:normal;overflow-wrap:anywhere;min-width:0}.ach .ach-xp-rules th:first-child{width:30%}@media(max-width:650px){.ach .ach-xp-rules{font-size:12px}.ach .ach-xp-rules th,.ach .ach-xp-rules td{padding:9px}.ach .ach-xp-rules th:first-child{width:34%}}

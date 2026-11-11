@@ -1,3 +1,5 @@
+import {grantBestXp,dailyXpLimits} from './xp-policy.mjs';
+import {learningDay} from './learning-motivation.mjs';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {assert,id,shuffle} from './domain.mjs';
@@ -67,11 +69,11 @@ function question(pair,reverse,atlas,index){
 }
 
 function view(row){
-  const {questions,results,score}=JSON.parse(row.payload);
+  const {questions,results,score,xp=0}=JSON.parse(row.payload);
   const q=questions[results.length];
   const {to,...visible}=q||{};
   const last=results.at(-1);
-  return {id:row.id,total:questions.length,answered:results.length,score,question:q?visible:null,last:last?{...last,pair:vocabularyAtlas().byId.get(last.pairId)}:null};
+  return {id:row.id,total:questions.length,answered:results.length,score,xp,question:q?visible:null,last:last?{...last,pair:vocabularyAtlas().byId.get(last.pairId)}:null};
 }
 
 export async function startVocabulary(db,user,input,now){
@@ -123,6 +125,14 @@ export async function answerVocabulary(db,user,attempt,{index,choice},now){
     else if(mistake?.active)mistakes[q.pairId]={...mistake,active:false,repairedAt:now};
     run.score+=Number(correct);
     run.results.push({correct,choice,answer:q.to,pairId:q.pairId});
+    const completed=run.results.length===run.questions.length;
+    if(completed&&row.target_id.startsWith('bank-'))run.xp=await grantBestXp(t,user.id,'pair_bank',row.target_id,run.score,now);
+    else if(completed&&row.target_id==='quick'&&run.score/run.questions.length>=.8){
+      const day=learningDay(now),count=await t.get("SELECT COUNT(*) AS n FROM lc_xp WHERE user_id=? AND day=? AND activity='pair_quick'",[user.id,day]);
+      if(Number(count.n)<dailyXpLimits.pair_quick){const target=createHash('sha256').update(run.questions.map(q=>q.pairId).sort().join('|')).digest('hex');
+      const old=await t.get("SELECT amount FROM lc_xp WHERE user_id=? AND day=? AND activity='pair_quick' AND target_id=?",[user.id,day,target]);
+      if(!old){await t.run('INSERT INTO lc_xp(user_id,day,activity,target_id,amount,created_at) VALUES(?,?,?,?,?,?)',[user.id,day,'pair_quick',target,5,now]);run.xp=5;}}
+    }
     const payload=JSON.stringify(run);
     await t.run('UPDATE lc_challenges SET payload=?,submitted=? WHERE id=? AND user_id=?',[payload,Number(run.results.length===run.questions.length),attempt,user.id]);
     return view({...row,payload});

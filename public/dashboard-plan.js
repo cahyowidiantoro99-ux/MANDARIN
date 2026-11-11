@@ -3,7 +3,7 @@ export function mountDashboardPlan({api,root,esc,date,fmtTime,historyHTML,cleanu
   cleanup(()=>{disposed=true;clearInterval(timer);});
   const $=selector=>root.querySelector(selector);
   const panel=$('#dashboard-plan'), errors=$('#dashboard-plan-error');
-  const activityNames={atlas_pinyin:'Latihan Pinyin',review:'Review kosakata',recall:'Recall kosakata',grammar:'Tata bahasa',matching:'Mencocokkan kata',sentence:'Susun kalimat',listening:'Menyimak',story:'Cerita',contrast:'Perbedaan kosakata'};
+  const activityNames={pair_bank:'Bank Sinonim & Antonim',pair_quick:'Latihan cepat pasangan kata',exam_weekly:'Assessment mingguan',exam_practice:'Latihan Pusat Ujian',exam_simulation:'Simulasi / belajar HSK',exam_skill:'HSK per keterampilan',exam_promotion:'Ujian naik level',atlas_pinyin:'Latihan Pinyin',review:'Review kosakata',recall:'Recall kosakata',grammar:'Tata bahasa',matching:'Mencocokkan kata',sentence:'Susun kalimat',listening:'Menyimak',story:'Cerita',contrast:'Perbedaan kosakata'};
   async function target(){
     if(loaded)return;
     loaded=true;

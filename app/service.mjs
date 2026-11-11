@@ -1,3 +1,4 @@
+import {grantExamXp} from './xp-policy.mjs';
 import {startPlacementV2,placementV2Rows,placementV2View,answerPlacementV2,finishPlacementV2} from './placement-v2.mjs';
 import {examPassThreshold,savedPassThreshold} from './exam-policy.mjs';
 import {startOfficial,officialState,officialView,finishOfficial} from './official-hsk.mjs';
@@ -89,6 +90,7 @@ export class Service {
    if(s.mode==='levelup'){if(existing.placement_level&&passed)await t.run('UPDATE profiles SET placement_level=? WHERE id=?',[Math.max(Number(existing.placement_level),Number(s.level)),s.user_id]);}
    else if(!passed||s.level===6){const finalLevel=passed?s.level:Math.max(1,s.level-1);const stage=await t.get("SELECT p.score,p.benchmark FROM placement_sessions p JOIN exam_sessions e ON e.id=p.id WHERE e.user_id=? AND e.mode='placement' AND p.level=? AND p.score IS NOT NULL ORDER BY e.started_at DESC",[s.user_id,finalLevel]);await t.run('UPDATE profiles SET placement_level=?,baseline_hsk=?,hsk_benchmark=? WHERE id=?',[finalLevel,stage?.score??score,stage?.benchmark??benchmark,s.user_id]);}
   }
+  await grantExamXp(t,s,score,passed,qs.length>0&&qs.every(q=>answers[q.id]),n);
   if(s.mode==='diagnostic')await t.run('UPDATE profiles SET baseline_work=?,work_benchmark=? WHERE id=? AND baseline_work IS NULL',[score,benchmark,s.user_id]);
   await this.audit(u,'exam_submit',`${s.mode}:${score}:${officialKey?'official':'nonofficial'}`,t);return this.examView(t,{...s,status:'submitted',submitted_at:n,official:officialKey?1:0});
  }

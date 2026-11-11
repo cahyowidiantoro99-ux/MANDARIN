@@ -71,7 +71,7 @@ export async function mountVocabulary({api,shell,esc,root,cleanup,toast},page,ar
     if(feedback){
       const last=run.last;
       host.innerHTML='<p role="status"><strong>'+(last.correct?'✓ Benar':'Jawaban benar: '+esc(last.answer))+'</strong> · Pilihan Anda: '+esc(last.choice)+'</p>'+pair(last.pair)+
-        (q?'<button class="btn mt" id="vocab-next">Soal berikutnya →</button>':'<h2 class="mt">Skor '+run.score+' / '+run.total+'</h2><div class="split"><button class="btn" id="vocab-repeat">Ulangi latihan</button><a href="#pair-mistakes">Lihat Gudang Kesalahan</a></div><p role="alert"></p>');
+        (q?'<button class="btn mt" id="vocab-next">Soal berikutnya →</button>':'<h2 class="mt">Skor '+run.score+' / '+run.total+'</h2><p>XP diperoleh: <strong>'+(run.xp||0)+'</strong> · Mengikuti batas hadiah dan skor terbaik.</p><div class="split"><button class="btn" id="vocab-repeat">Ulangi latihan</button><a href="#pair-mistakes">Lihat Gudang Kesalahan</a></div><p role="alert"></p>');
       host.querySelector('#vocab-next')?.addEventListener('click',()=>question());
       host.querySelector('#vocab-repeat')?.addEventListener('click',e=>start(lastConfig,e.currentTarget));
       return;

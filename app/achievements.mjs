@@ -1,3 +1,4 @@
+import {xpRules} from './xp-policy.mjs';
 import {assert,periodBounds} from './domain.mjs';
 import {learningDay,streakFor} from './learning-motivation.mjs';
 
@@ -54,5 +55,5 @@ export async function achievements(service,user,filters={}){
  const metrics=new Map(participants.map(p=>{const s=ss.get(p.id)||[],x=xx.get(p.id)||[],pref=pp.get(p.id),days=new Set([...s.filter(s=>Number(s.active_seconds)>=60).map(s=>learningDay(Number(s.started_at))),...x.map(x=>x.day),...(aa.get(p.id)||[]).map(a=>learningDay(Number(a.created_at)))]),score=evaluations.get(p.id).score;
   return [p.id,{hsk:Number.isInteger(p.level)&&p.level>=1&&p.level<=6?p.level:null,time:s.reduce((n,s)=>n+Math.max(0,Number(s.active_seconds)||0),0),xp:x.reduce((n,x)=>n+Number(x.amount),0),mastery:new Set((mm.get(p.id)||[]).map(w=>String(w.hanzi).normalize('NFKC').replace(/\s/g,''))).size,weekly:score,streak:streakFor([...days],{work_days:json(pref?.work_days,[0,1,2,3,4,5,6]),rest_dates:json(pref?.rest_dates,[])},learningDay(now))}];
  }));
- return {period:{...bounds,end},as_of:now,departments,department:filters.department||'',exam_level:examLevel,exam_track:examTrack,participants,self_id:user.role==='employee'?user.id:null,categories:achievementCategories.map(c=>{const rows=rankAchievement(participants.map(p=>({id:p.id,value:metrics.get(p.id)[c.key],...(c.key==='weekly'?{evaluation:evaluations.get(p.id)}:{})})),{allowZero:c.key==='weekly'});return {...c,rows,eligible_count:rows.filter(r=>r.rank!=null).length};})};
+ return {period:{...bounds,end},as_of:now,departments,department:filters.department||'',exam_level:examLevel,exam_track:examTrack,participants,self_id:user.role==='employee'?user.id:null,categories:achievementCategories.map(c=>{const rows=rankAchievement(participants.map(p=>({id:p.id,value:metrics.get(p.id)[c.key],...(c.key==='weekly'?{evaluation:evaluations.get(p.id)}:{})})),{allowZero:c.key==='weekly'});return {...c,...(c.key==='xp'?{xp_rules:xpRules}:{}),rows,eligible_count:rows.filter(r=>r.rank!=null).length};})};
 }
