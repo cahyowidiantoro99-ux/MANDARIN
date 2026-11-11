@@ -18,7 +18,8 @@ export async function chengyuList(db,user,params){
 }
 export async function chengyuDetail(db,user,uid){
  const data=chengyuData(),record=data.byId.get(uid);assert(record,404,'Idiom tidak ditemukan.');const stored=await db.get('SELECT state FROM atlas_progress WHERE user_id=?',[user.id]);const marks=JSON.parse(stored?.state||'{}').chengyu||{};
- return {...record,status:marks[uid]?.status||'new',relations:data.relations.filter(p=>p.a===record.h||p.b===record.h).map(p=>({...p,other:data.records.find(r=>r.h===(p.a===record.h?p.b:p.a))})),attribution:data.attribution};
+ const index=data.records.indexOf(record),neighbor=r=>r?{uid:r.uid,h:r.h,p:r.p}:null;
+ return {...record,status:marks[uid]?.status||'new',position:index+1,total:data.records.length,previous:neighbor(data.records[index-1]),next:neighbor(data.records[index+1]),relations:data.relations.filter(p=>p.a===record.h||p.b===record.h).map(p=>({...p,other:data.records.find(r=>r.h===(p.a===record.h?p.b:p.a))})),attribution:data.attribution};
 }
 export async function markChengyu(db,user,uid,status,now,learning){
  assert(chengyuData().byId.has(uid),404,'Idiom tidak ditemukan.');assert(['known','review','unknown'].includes(status),400,'Status tidak valid.');

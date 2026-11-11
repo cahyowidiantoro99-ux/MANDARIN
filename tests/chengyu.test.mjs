@@ -14,7 +14,7 @@ test('Chengyu complete source, search, filters, detail, isolated progress and de
  let found=await chengyuList(db,u,new URLSearchParams({q:r.h}));assert(found.rows.some(v=>v.uid===r.uid));assert.equal(found.rows.length<=12,true);
  found=await chengyuList(db,u,new URLSearchParams({q:r.p.normalize('NFD').replace(/\p{M}/gu,'')}));assert(found.rows.some(v=>v.uid===r.uid));
  assert((await chengyuList(db,u,new URLSearchParams({theme:r.themes[0]}))).rows.every(v=>v.themes.includes(r.themes[0])||v.subthemes.includes(r.themes[0])));
- assert((await chengyuDetail(db,u,r.uid)).attribution.includes('Sumber'));
+ assert((await chengyuDetail(db,u,r.uid)).attribution.includes('Sumber'));const first=await chengyuDetail(db,u,r.uid);assert.equal(first.previous,null);assert.equal(first.next.uid,d.records[1].uid);const last=await chengyuDetail(db,u,d.records.at(-1).uid);assert.equal(last.next,null);assert.equal(last.position,2144);
  await markChengyu(db,u,r.uid,'known',now,learning);await markChengyu(db,u,r.uid,'review',now,learning);
  assert.equal((await chengyuDetail(db,u,r.uid)).status,'review');assert.equal((await chengyuDetail(db,other,r.uid)).status,'new');
  assert.equal(Number((await db.get("SELECT SUM(amount) AS n FROM lc_xp WHERE user_id=? AND activity='chengyu_review'",[u.id])).n),2);

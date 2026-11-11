@@ -21,13 +21,14 @@ export async function mountRecall({api,shell,esc,root,toast,cleanup,packages,use
   render('<section class="panel"><p role="status">Menyiapkan Uji Ingatan…</p></section>');
   try{
    const q=await api('/learn/challenges',{method:'POST',body:{kind:'recall',target:word.id}});if(disposed)return;
-   render(`<div class="recall-progress"><strong>${index+1} / ${words.length}</strong><span>${correct} benar</span></div><progress max="${words.length}" value="${index}" aria-label="Progres recall"></progress><section class="panel lc-recall"><h2>Uji Ingatan · Ingat tanpa melihat arti</h2><h3 class="hanzi" lang="zh" data-learning-content>${esc(word.hanzi)}</h3>${speak(word.hanzi)}<div class="recall-options">${q.options.map(o=>`<button class="btn secondary" data-recall="${o.id}"><span data-learning-content>${esc(o.label)}</span></button>`).join('')}</div><p id="recall-feedback" role="status"></p><button class="btn" id="recall-next" hidden>Berikutnya →</button></section>`);
+   render(`<div class="recall-progress"><strong>${index+1} / ${words.length}</strong><span>${correct} benar</span></div><progress max="${words.length}" value="${index}" aria-label="Progres recall"></progress><section class="panel lc-recall"><h2>Uji Ingatan · Ingat tanpa melihat arti</h2><h3 class="hanzi" lang="zh" data-learning-content>${esc(word.hanzi)}</h3><p class="pinyin recall-answer-pinyin" id="recall-answer-pinyin" data-learning-content hidden></p>${speak(word.hanzi)}<div class="recall-options">${q.options.map(o=>`<button class="btn secondary" data-recall="${o.id}"><span data-learning-content>${esc(o.label)}</span></button>`).join('')}</div><p id="recall-feedback" role="status"></p><button class="btn" id="recall-next" hidden>Berikutnya →</button></section>`);
    const buttons=[...root.querySelectorAll('[data-recall]')],feedback=root.querySelector('#recall-feedback'),advance=root.querySelector('#recall-next');
    buttons.forEach(button=>button.onclick=async()=>{
     buttons.forEach(b=>b.disabled=true);feedback.textContent='Memeriksa jawaban…';
     try{
      const result=await api('/learn/challenges/'+q.id+'/submit',{method:'POST',body:{choice:button.dataset.recall}});if(disposed)return;
      answered++;correct+=Number(result.correct);
+     const reading=root.querySelector('#recall-answer-pinyin');reading.textContent=word.pinyin||q.word?.pinyin||'';reading.hidden=!reading.textContent;
      buttons.forEach(b=>{const right=b.dataset.recall===result.answer;b.classList.add(right?'recall-correct':b===button?'recall-wrong':'recall-other');if(right)b.insertAdjacentHTML('beforeend','<span> · ✓ Jawaban benar</span>');});
      feedback.className=result.correct?'recall-feedback correct':'recall-feedback wrong';feedback.textContent=result.feedback;
      advance.hidden=false;advance.onclick=()=>{index++;void next();};
