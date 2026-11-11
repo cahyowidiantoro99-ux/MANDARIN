@@ -80,9 +80,25 @@ export async function mountExamCenter({api,shell,esc,root,user,cleanup},view='ce
  }
 
  async function start(button,body){
-  button.disabled=true;$('#exam-error').textContent='';
-  try{const q=await api('/exams',{method:'POST',body});if(!disposed)location.hash='exam/'+q.id;}
-  catch(error){if(!disposed){$('#exam-error').className='notice error';$('#exam-error').textContent=error.message;button.disabled=false;}}
+  if(button.disabled||disposed)return;
+  const original=button.innerHTML;
+  button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Menyiapkan ujian…';
+  const errorBox=$('#exam-error');if(errorBox)errorBox.textContent='';
+  const feedback=document.createElement('p');feedback.className='exam-start-feedback';feedback.setAttribute('role','status');feedback.textContent='Sedang menyiapkan sesi ujian Anda…';button.after(feedback);
+  try{
+   const q=await api('/exams',{method:'POST',body});
+   if(disposed)return;
+   if(!q?.id)throw Error('Sesi ujian belum dapat dibuka. Silakan coba kembali.');
+   feedback.textContent='Ujian siap. Membuka soal…';
+   location.hash='exam/'+q.id;
+  }catch(error){
+   if(!disposed){
+    feedback.className='notice error exam-start-feedback';feedback.setAttribute('role','alert');feedback.textContent=error.message;
+    feedback.scrollIntoView({block:'nearest'});
+    button.disabled=false;button.removeAttribute('aria-busy');button.innerHTML=original;
+   }
+  }
  }
+
  draw();
 }

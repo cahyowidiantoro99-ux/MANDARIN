@@ -8,7 +8,7 @@ previous=json.loads((OUT/'bank.json').read_text(encoding='utf8')) if (OUT/'bank.
 legacy=json.loads((OUT/'manifest.json').read_text(encoding='utf8')); groups={};report=[];bank=[]
 for p in (SOURCE/'SOAL HSK LENGKAP').rglob('*.pdf'):
  code=p.stem.removesuffix('_soal_dan_kunci')
- if code in selected:groups.setdefault(code,[]).append(p)
+ if code in selected and (not os.environ.get('HSK_CODES') or code in os.environ['HSK_CODES'].split(',')):groups.setdefault(code,[]).append(p)
 def texts(p):
  h=hashlib.sha256(p.read_bytes()).hexdigest();c=CACHE/(h+'.json')
  if c.exists():return json.loads(c.read_text(encoding='utf8'))
@@ -61,6 +61,7 @@ for code,files in sorted(groups.items()):
   transcript=next((i for i,t in enumerate(compact) if '卷听力材料' in t[:100]),None);stops=[x for x in [transcript,keyidx] if x is not None];assert stops,'Batas soal dengan kunci/transkrip belum jelas';end=min([x for x in stops if x>rs]);assert 0<ls<rs<end and (not wc or rs<ws<end),'Urutan bagian tidak konsisten'
   lp=list(range(ls+1,rs+1));rp=list(range(rs+1,(ws if wc else end)+1));wp=list(range(ws+1,end+1)) if wc else []
   assert all('卷答案' not in compact[i-1] and '卷听力材料' not in compact[i-1][:100] for i in lp+rp+wp),'Kunci tercampur halaman soal'
+  if level==6:assert len(re.findall(r'[\u3400-\u9fff]',''.join(pages[ws:end])))>500,'Naskah Writing hanya petunjuk atau belum lengkap'
   audio=p.with_name(code+'.mp3');assert audio.exists(),'Audio belum ada';secs=duration(audio);assert minutes[0]*30<secs<minutes[0]*105,'Durasi audio tidak wajar'
   items=[]
   for n in range(1,sum(counts)+1):

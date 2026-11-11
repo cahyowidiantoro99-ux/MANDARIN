@@ -560,46 +560,6 @@
     "pages": 20
   },
   {
-    "id": "H61008",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61009",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61110",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61111",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61218",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61219",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61220",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
-    "id": "H61221",
-    "status": "excluded",
-    "reason": "Naskah Writing tidak ditemukan sebelum halaman kunci; perlu lampiran Writing sesuai kode"
-  },
-  {
     "id": "H61327",
     "status": "validated",
     "pages": 21
@@ -626,6 +586,46 @@
   },
   {
     "id": "H61333",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61008",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61009",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61110",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61111",
+    "status": "validated",
+    "pages": 20
+  },
+  {
+    "id": "H61218",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61219",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61220",
+    "status": "validated",
+    "pages": 21
+  },
+  {
+    "id": "H61221",
     "status": "validated",
     "pages": 21
   }

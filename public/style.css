@@ -1128,3 +1128,7 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .structured-context{padding:20px;background:#f8f5ed;border:1px solid #e4ddcf;border-radius:12px;font-size:20px;line-height:1.9;white-space:normal;margin:16px 0;overflow-wrap:anywhere}
 
 .structured-question .structured-context{max-height:38vh;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}.structured-context:focus-visible{outline:3px solid #dca53a;outline-offset:3px}@media(max-width:640px){.structured-context{font-size:18px;padding:14px}.structured-question .structured-context{max-height:30vh}}
+
+.exam-start-feedback{grid-column:1/-1;margin:8px 0 0;font-size:14px;line-height:1.5}.exam-direct-actions .exam-start-feedback{flex-basis:100%}.exam-start-feedback.error{white-space:normal}
+
+.structured-question .field{display:grid;gap:10px;margin:20px 0}.structured-question textarea{display:block;width:100%;min-height:220px;resize:vertical;padding:14px;border:1px solid #b8cecb;border-radius:12px;font:inherit;line-height:1.8;background:#fff;color:#10303b;box-sizing:border-box}.structured-question textarea:focus{outline:2px solid #117c78;outline-offset:2px}

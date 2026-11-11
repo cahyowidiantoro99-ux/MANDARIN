@@ -1,6 +1,6 @@
 # Native HSK question content
 
-121 source archives, 9,473 numbered items. The catalog still controls which papers are available for simulation or reserved for promotion. No activation, answer keys, scoring policy, exam history or employee data is changed.
+129 source archives, 10,281 numbered items. The catalog still controls which papers are available for simulation or reserved for promotion. No activation, answer keys, scoring policy, exam history or employee data is changed.
 
 content.json holds source-hash-bound prompts, shared passages and option values. Original illustration objects are extracted from the supplied PDFs; split image strips are reassembled. Only referenced WebP assets are shipped (1,801). Answer keys and writing reference answers remain in the server bank and are never copied into client content. HSK6 writing reading material is sent only in its designated reading phase, not the writing response.
 

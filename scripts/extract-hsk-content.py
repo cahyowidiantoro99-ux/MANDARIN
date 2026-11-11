@@ -2,14 +2,15 @@
 Run after layout audit. Source hashes and review report protect published content.
 """
 from pathlib import Path
-import json,re,io,hashlib
+import json,re,io,hashlib,os
 import pdfplumber
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1];CACHE=ROOT/'artifacts/hsk-layout';OUT=ROOT/'data/official-hsk/structured'
 HAN=re.compile(r'[\u3400-\u9fff]'); NUM=re.compile(r'^(\d{1,3})[．.、](.*)$'); LETTER=re.compile(r'^([A-F])(?:[．.、])?(.*)$')
 # active-papers.json is an export of archivePapers from app/hsk-bank.mjs.
 bank=json.loads((ROOT/'artifacts/active-papers.json').read_text(encoding='utf8'))
-previous=json.loads((OUT/'content.json').read_text(encoding='utf8'));results={k:v for k,v in previous.items() if k in ['H11112','H31002']};report=[]
+previous=json.loads((OUT/'content.json').read_text(encoding='utf8'));only=set(filter(None,os.environ.get('HSK_CODES','').split(',')));results={k:v for k,v in previous.items() if k not in only} if only else {k:v for k,v in previous.items() if k in ['H11112','H31002']};report=[]
+if only:bank=[p for p in bank if p['id'] in only]
 def lines(words,latin=True):
  rows=[]
  for w in sorted(words,key=lambda w:(round(w['top']/3),w['x0'])):

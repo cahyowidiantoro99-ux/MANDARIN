@@ -17,7 +17,7 @@ export async function mountOfficialExam(initial,{api,shell,heading,esc,fmtTime,t
  $('.official-status')?.classList.add('structured-status');
  all('[data-answer]').forEach(el=>el.closest('label').remove());
  $('#official-group').textContent='Progres sesi';
- mountStructuredQuestions($('#official-paper'),{items,answers,sessionId:q.id,esc,onAnswer:(number,value)=>{
+ mountStructuredQuestions($('#official-paper'),{items,answers,sessionId:q.id,readingContext:q.reading_context,esc,onAnswer:(number,value)=>{
   dirty[number]=value;
   $('#official-count').textContent=Object.values(answers).filter(Boolean).length+'/'+p.total+' soal terisi';
   $('#official-save').textContent='Menyimpan jawaban…';
