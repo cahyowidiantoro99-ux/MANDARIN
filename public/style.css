@@ -1132,3 +1132,5 @@ html[lang="zh-CN"] .lc-intro h1>span:not([data-learning-content]){display:none}h
 .exam-start-feedback{grid-column:1/-1;margin:8px 0 0;font-size:14px;line-height:1.5}.exam-direct-actions .exam-start-feedback{flex-basis:100%}.exam-start-feedback.error{white-space:normal}
 
 .structured-question .field{display:grid;gap:10px;margin:20px 0}.structured-question textarea{display:block;width:100%;min-height:220px;resize:vertical;padding:14px;border:1px solid #b8cecb;border-radius:12px;font:inherit;line-height:1.8;background:#fff;color:#10303b;box-sizing:border-box}.structured-question textarea:focus{outline:2px solid #117c78;outline-offset:2px}
+
+.structured-instruction{padding:12px 16px;border-left:3px solid #DCA53A;background:#f8f5eb;color:#10303B;font-weight:600;line-height:1.6}.structured-prompt{white-space:normal;overflow-wrap:anywhere}

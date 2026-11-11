@@ -57565,7 +57565,7 @@
         "section": "writing",
         "kind": "writing",
         "choices": [],
-        "reference": "请按从小到大的顺序排列这些数字。/ 这些数字请按从小到大的顺序",
+        "reference": "请按从小到大的顺序排列这些数字。/ 这些数字请按从小到大的顺序排列。",
         "weight": 6
       },
       {
@@ -59103,7 +59103,7 @@
         "section": "writing",
         "kind": "writing",
         "choices": [],
-        "reference": "这次电影艺术节也许会在北京举行。  / 也许这次电影艺术节会在北",
+        "reference": "这次电影艺术节也许会在北京举行。 / 也许这次电影艺术节会在北京举行。",
         "weight": 6
       },
       {
@@ -87939,7 +87939,7 @@
         "section": "writing",
         "kind": "writing",
         "choices": [],
-        "reference": "他偶尔会去健身房锻炼。/ 他会偶尔去健身房锻炼。 / 偶尔他会去健",
+        "reference": "他偶尔会去健身房锻炼。/ 他会偶尔去健身房锻炼。 / 偶尔他会去健身房锻炼。",
         "weight": 5
       },
       {
