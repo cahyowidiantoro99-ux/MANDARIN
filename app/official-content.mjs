@@ -10,5 +10,5 @@ export function structuredItems(paper,items){
 }
 export function structuredFigure(paper,items,figure){
  if(!Number.isInteger(figure))return false;
- return structuredItems(paper,items).some(item=>item.content&&(item.content.figures.includes(figure)||item.content.options.some(option=>option.image===figure)));
+ return structuredItems(paper,items).some(item=>item.content&&([...item.content.figures,...(item.content.example_figures||[])].includes(figure)||item.content.options.some(option=>option.image===figure)));
 }

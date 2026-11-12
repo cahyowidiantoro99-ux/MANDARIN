@@ -1147,3 +1147,39 @@ body{font-size:16px}.btn{font-size:14px}.nav-item{font-size:15px;min-height:48px
 .recall-pending{border-color:#117c78!important;background:#e7f3ef!important;box-shadow:inset 0 0 0 1px #117c78}.recall-options button:disabled{cursor:default}
 
 .auth-language .language-control select{width:144px;min-width:144px;padding-right:28px;padding-left:12px}.topbar .language-control select{width:140px;padding-right:28px;padding-left:12px}@media(max-width:420px){.topbar .language-control select{width:124px;min-width:124px;font-size:13px}}
+
+/* Study controls remain in the viewport; long answer examples scroll inside the card. */
+.content:has(#lc-card),.content:has(.recall-options){padding:14px 24px;height:calc(100dvh - 76px);min-height:520px;max-width:none}
+.content:has(#lc-card)>.footer-note,.content:has(.recall-options)>.footer-note{display:none}
+.lc:has(#lc-card),.recall-page:has(.recall-options){height:100%;max-width:1080px;display:flex;flex-direction:column;min-height:0}
+.lc:has(#lc-card)>.lc-back,.recall-page:has(.recall-options)>a{margin:0 0 7px;font-size:13px;flex-shrink:0}
+.lc:has(#lc-card)>.lc-intro{margin:0 0 6px;gap:8px;flex-direction:row;align-items:center;flex-shrink:0}
+.lc:has(#lc-card) .lc-intro h1{font-size:clamp(21px,2vw,28px);margin:4px 0}.lc:has(#lc-card) .lc-intro p{font-size:12px;margin:3px 0}.lc:has(#lc-card) .lc-tag{padding:3px 7px;font-size:10px}
+.lc:has(#lc-card)>progress,.recall-page:has(.recall-options)>progress{margin:6px 0 10px;height:6px;flex-shrink:0}
+#lc-study-stage{display:flex;flex-direction:column;flex:1;min-height:0;width:100%}
+#lc-study-stage .lc-flashcard{flex:1;min-height:0;width:100%;max-width:780px;margin:0 auto 10px;display:flex}
+#lc-study-stage .lc-flip-inner{width:100%;min-height:0;overflow:auto;overscroll-behavior:contain}
+#lc-study-stage .lc-card-front{height:100%;min-height:280px;justify-content:center;padding:16px;gap:10px}
+#lc-study-stage .lc-card-front h2{font-size:clamp(44px,6vw,76px);margin:6px 0;line-height:1.25}
+#lc-study-stage .speak-button{margin:2px 0;min-height:40px}#lc-study-stage .lc-text-button{padding:4px;font-size:13px}#lc-study-stage .lc-card-front small{font-size:12px}
+#lc-study-stage .lc-rating{width:100%;max-width:780px;flex-shrink:0;gap:10px}#lc-study-stage .lc-rating button{min-height:56px;padding:10px;font-size:13px}
+#lc-save-status{font-size:12px;margin:5px 0;min-height:18px;flex-shrink:0}#lc-study-stage #lc-recall:empty{display:none}#lc-study-stage .lc-card-back{padding:16px 22px}#lc-study-stage .lc-card-back h2{font-size:44px;margin:0 0 6px}
+.recall-page:has(.recall-options) .recall-heading{margin:0 0 8px;padding:8px 14px;grid-template-columns:1fr 62px;gap:8px;flex-shrink:0}.recall-page:has(.recall-options) .recall-heading h1{font-size:23px;margin:0}.recall-page:has(.recall-options) .recall-heading p,.recall-page:has(.recall-options) .recall-heading .lc-tag{display:none}.recall-page:has(.recall-options) .recall-heading img{height:46px}
+.recall-page:has(.recall-options) .recall-progress{margin:2px 0;font-size:13px;flex-shrink:0}
+.recall-page:has(.recall-options)>.lc-recall{flex:1;min-height:0;overflow:auto;width:100%;max-width:860px;margin:0 auto;padding:16px 22px;display:flex;flex-direction:column;justify-content:center}
+.recall-page .lc-recall h2{font-size:17px;margin:0 0 6px}.recall-page .lc-recall>.hanzi{font-size:clamp(40px,6vw,64px);line-height:1.2;margin:8px 0}.recall-page .lc-recall>.speak-button{width:auto;align-self:center;display:inline-flex;margin:4px 0 10px;min-height:40px}
+.recall-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}.recall-options button{margin:0;min-height:48px;font-size:14px;padding:9px 12px;line-height:1.35}.recall-page #recall-feedback{font-size:13px;margin:8px 0;line-height:1.4}.recall-page #recall-next{margin:4px 0 0;min-height:44px}.recall-page #recall-answer-pinyin{margin:3px 0;font-size:15px}
+.exam-difficulty-group{margin:18px 0 24px;padding:14px;border:1px solid #dce5df;border-radius:14px;background:#f6faf7}.exam-difficulty-group>h3{margin:0 0 12px;font-size:18px;color:#167243}.difficulty-medium{background:#fffaf0;border-color:#eadcb7}.difficulty-medium>h3{color:#916409}.difficulty-hard{background:#fff5f5;border-color:#edcccc}.difficulty-hard>h3{color:#a63a45}.exam-difficulty-group .exam-paper-grid{margin:0;overflow:visible;max-height:none}.exam-paper-tile{min-height:120px}
+@media(max-width:650px){.content:has(#lc-card),.content:has(.recall-options){padding:10px 12px;height:calc(100dvh - 76px)}.lc:has(#lc-card) .lc-intro h1{font-size:21px}.lc:has(#lc-card) .lc-intro p{font-size:11px}.lc:has(#lc-card) .lc-session-count b{font-size:20px}.lc:has(#lc-card) .lc-session-count{flex-direction:column;gap:2px}.lc:has(#lc-card) .lc-intro .lc-tag{display:none}#lc-study-stage .lc-card-front{min-height:240px;padding:12px;gap:8px}#lc-study-stage .lc-rating{gap:6px}#lc-study-stage .lc-rating button{padding:9px 3px;font-size:11px}#lc-study-stage .lc-card-front .btn{min-height:42px;padding:10px 14px}.recall-page:has(.recall-options)>.lc-recall{padding:12px 14px;justify-content:flex-start}.recall-options{grid-template-columns:1fr;gap:7px}.recall-options button{min-height:44px;font-size:14px;padding:8px}.recall-page .lc-recall h2{font-size:15px}.recall-page .lc-recall>.hanzi{font-size:44px;margin:7px 0}.exam-difficulty-group{padding:10px}.exam-difficulty-group .exam-paper-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.structured-source-example{margin:10px 0 16px;padding:10px;border:1px solid #d8e4dc;background:#fff;border-radius:10px}.structured-source-example summary{cursor:pointer;color:#117c78;font-weight:600}.structured-source-example img{display:block;width:100%;height:auto;max-height:220px;object-fit:contain;margin-top:8px}.structured-source-example[open] summary{margin-bottom:4px}
+
+.main:has(#lc-card),.main:has(.recall-options){height:100dvh;display:flex;flex-direction:column;min-height:0}.main:has(#lc-card)>.topbar,.main:has(.recall-options)>.topbar,.main:has(#lc-card)>.demo,.main:has(.recall-options)>.demo{flex-shrink:0}.main>.content:has(#lc-card),.main>.content:has(.recall-options){flex:1;height:auto;min-height:0;width:100%}
+
+@media(max-width:650px){.recall-page:has(.recall-options) .recall-heading{display:none}.recall-page .lc-recall>.hanzi{font-size:40px;margin:5px 0}.recall-page .lc-recall>#recall-next{flex-shrink:0}.recall-page #recall-feedback{font-size:12px;padding:8px;margin:5px 0}}
+
+.structured-source-example .source-example-hanzi{font-size:20px;line-height:1.6;white-space:normal;margin:5px 0;color:#10303b}.structured-source-example .pinyin{font-size:15px;line-height:1.5;margin:5px 0;white-space:normal}@media(max-width:650px){.structured-source-example .source-example-hanzi{font-size:17px}.structured-source-example .pinyin{font-size:14px}}
+
+.source-option-pinyin{display:block;font-size:13px;line-height:1.4;margin-top:4px;font-weight:400}
+
+.structured-option{position:relative}.structured-option:has(.source-option-code){padding-left:39px}.source-option-code{position:absolute;left:11px;top:12px;font-size:12px;font-weight:700;color:#117c78}.structured-options.with-images .source-option-code{left:8px;top:8px;background:#edf6f1;border-radius:5px;padding:3px 6px}

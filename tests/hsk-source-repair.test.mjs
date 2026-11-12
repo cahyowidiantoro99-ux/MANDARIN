@@ -8,8 +8,8 @@ test('Every item has a meaningful stem and cloze groups expose their numbered bl
  for(const p of archivePapers)for(const item of p.items){
   count++;const c=data[p.id].items[item.number];
   assert(!/^[A-F\s.．、]+$/.test(c.prompt),p.id+' '+item.number+' orphan label');
-  if(item.section==='listening')assert(c.instruction,p.id+' '+item.number+' task');
-  if(p.level===6&&item.number>=51&&item.number<=60)assert.equal(c.instruction,'Pilih kalimat yang mengandung kesalahan tata bahasa.');
+  assert(!/\b(?:Pilih|Dengarkan|Tulis|Tuliskan|Susun|Bacalah)\b/.test([c.prompt,c.instruction,c.context].filter(Boolean).join(' ')),p.id+' '+item.number+' source-only language');
+  if(c.instruction)assert(/\p{Script=Han}/u.test(c.instruction),p.id+' source section heading');
   if(p.level===6&&item.number>=61&&item.number<=70){
    assert(c.blank_count>=2,p.id+' '+item.number+' blanks');
    for(let i=1;i<=c.blank_count;i++)assert(c.prompt.includes('【'+i+'】____'));
@@ -22,7 +22,7 @@ test('Every item has a meaningful stem and cloze groups expose their numbered bl
 test('Reported H61009 and H31002 defects stay repaired',()=>{
  assert.equal(data.H61009.items[62].blank_count,3);
  assert.match(data.H61009.items[62].prompt,/在【1】____不同/);
- for(const n of [1,35])assert.match(data.H31002.items[n].prompt,/Dengarkan audio/);
+ for(const n of [1,35])assert.equal(data.H31002.items[n].prompt,'');
  assert.match(data.H31001.items[76].pinyin,/chū/);
 });
 

@@ -11,14 +11,14 @@ test('Structured HSK source covers every item and preserves source answer identi
   assert.equal(items.length,total);
   assert.equal(new Set(items.map(i=>i.number)).size,total);
   for(const item of items){
-   assert(item.content.prompt.trim(),code+' '+item.number);
+   assert(item.content.prompt.trim()||item.section==='listening'||item.content.context||item.content.instruction,code+' '+item.number+' source task or audio');
    if(item.kind==='judgment'&&(p.level===1||(p.level===2&&item.number<=10)))assert(item.content.figures.length,code+' '+item.number+' picture');
    if(item.kind==='ordering')assert(/[ABC]/.test(item.content.prompt),code+' '+item.number+' ordering');
    if(item.content.group)assert(items.filter(i=>i.content.group?.id===item.content.group.id).length<=6,code+' bounded group');
    assert(!JSON.stringify(item.content).includes('"key"'));
    assert(!JSON.stringify(item.content).includes('"reference"'));
    if(item.key)assert(item.choices.includes(item.key));
-   for(const image of [...item.content.figures,...item.content.options.filter(o=>o.image).map(o=>o.image)]){
+   for(const image of [...item.content.figures,...(item.content.example_figures||[]),...item.content.options.filter(o=>o.image).map(o=>o.image)]){
     assert(existsSync(new URL('../data/official-hsk/structured/'+code+'-'+image+'.webp',import.meta.url)));
     assert(structuredFigure(p,[item],image));
    }
