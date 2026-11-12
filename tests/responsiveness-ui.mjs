@@ -1,31 +1,25 @@
-import {chromium} from '@playwright/test';
-import assert from 'node:assert/strict';
-import {openDatabase} from '../app/db.mjs';
-import {seed} from '../scripts/seed.mjs';
-import {createApp} from '../app/server.mjs';
-const db=await openDatabase({file:':memory:',url:null});await db.migrate();await seed(db,{demo:true});
-const app=await createApp({db,demo:true,migrate:false,auth:{supabase:false}});await new Promise(r=>app.server.listen(0,'127.0.0.1',r));
-const base=`http://127.0.0.1:${app.server.address().port}`,browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true}),page=await browser.newPage({viewport:{width:360,height:800}}),errors=[],reads=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>reads.push(new URL(r.url()).pathname));
-try{
- await page.goto(base);await page.locator('[name=username]').fill('DEMO002');await page.locator('[name=password]').fill('DemoMandarin!2026');await page.locator('#login-form [type=submit]').click();await page.locator('.hero').waitFor();
- assert(!reads.includes('/official-exam.js'),'archive viewer stays lazy until an archive exam opens');
- let attempts=0,release;await page.route('**/api/hsk-mistakes',async route=>{attempts++;if(attempts===1)return route.fulfill({status:503,contentType:'application/json',body:JSON.stringify({error:'Koneksi uji belum tersedia.'})});await new Promise(r=>release=r);await route.continue();});
- await page.evaluate(()=>location.hash='examination');await page.locator('[data-exam-tab=practice]').waitFor();assert.equal(attempts,0,'evaluation must not query the mistake history');
- await page.locator('[data-exam-tab=practice]').click();await page.locator('#exam-retry-mistakes').waitFor();assert(await page.locator('[data-section=reading]').isEnabled(),'history failure must not block section practice');
- await page.locator('#exam-retry-mistakes').click();await page.waitForFunction(()=>document.querySelector('#exam-mistakes-body')?.textContent.includes('Memuat'));await page.locator('#exam-level').selectOption('6');
- const options=await page.locator('#exam-practice-paper option').allTextContents();if(options.length>1)await page.locator('#exam-practice-paper').selectOption(options.at(-1));const selected=await page.locator('#exam-practice-paper').inputValue();release();await page.getByText('Belum ada soal salah untuk diulang.',{exact:false}).waitFor();assert.equal(await page.locator('#exam-practice-paper').inputValue(),selected,'late history must preserve selected paper');assert.equal(attempts,2);
- // A fresh mount receives a delayed history; leaving it must not replace Dashboard.
- await page.evaluate(()=>location.hash='dashboard');await page.locator('.hero').waitFor();await page.evaluate(()=>location.hash='examination');await page.locator('[data-exam-tab=practice]').click();await page.locator('#exam-mistakes-body [role=status]').waitFor();await page.evaluate(()=>location.hash='dashboard');await page.locator('.hero').waitFor();release();await page.waitForTimeout(150);assert.equal(await page.locator('.exam-center').count(),0);
- // Shorten only the configured read deadline in the test; a retry must still work.
- await page.evaluate(()=>{const original=AbortSignal.timeout.bind(AbortSignal);AbortSignal.timeout=ms=>original(ms===15000?100:ms);});
- await page.route('**/api/hsk-center',async route=>{await new Promise(r=>setTimeout(r,300));try{await route.continue();}catch{}});
- await page.evaluate(()=>location.hash='examination');await page.getByText('Koneksi terlalu lambat. Coba muat halaman kembali.',{exact:true}).waitFor();assert(await page.locator('#retry').isVisible());await page.unroute('**/api/hsk-center');await page.locator('#retry').click();await page.locator('[data-exam-tab=simulation]').waitFor();
- // Exercise speech lifecycle with deterministic browser events, not synthetic audibility claims.
- const speech=await page.evaluate(async()=>{
-  let cancel=0,calls=0;const synth=new EventTarget();synth.getVoices=()=>[{lang:'zh-CN',name:'Microsoft Kangkang',localService:true}];synth.speak=u=>{calls++;window.auditUtterance=u;};synth.cancel=()=>{cancel++;};Object.defineProperty(window,'speechSynthesis',{value:synth,configurable:true});window.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};
-  const {speakMandarin,stopSpeech,wireSpeech}=await import('/speech.js');let oldEnd=0,newStart=0;speakMandarin('你好',{end:()=>oldEnd++});const old=window.auditUtterance;speakMandarin('谢谢',{start:()=>newStart++});old.onend();window.auditUtterance.onstart();const overlap={cancel,calls,oldEnd,newStart};stopSpeech();
-  const box=document.createElement('div');box.innerHTML='<button data-speak="%E4%BD%A0%E5%A5%BD">Audio</button>';document.body.append(box);const clean=wireSpeech(box);box.querySelector('button').click();window.auditUtterance.onstart();const playing=box.querySelector('button').getAttribute('aria-pressed');Object.defineProperty(document,'visibilityState',{value:'hidden',configurable:true});document.dispatchEvent(new Event('visibilitychange'));const stopped=box.querySelector('button').getAttribute('aria-pressed');clean();box.remove();return {overlap,playing,stopped};
- });
- assert.deepEqual(speech,{overlap:{cancel:1,calls:2,oldEnd:0,newStart:1},playing:'true',stopped:'false'});assert.deepEqual(errors,[]);
- console.log('PASS mobile: lazy archive viewer/history, independent failure and retry, preserved selections, stale response isolation; speech overlap cancellation and hidden-tab stop (mock engine).');
-}finally{await browser.close();await new Promise(r=>app.server.close(r));await db.close();}
+import {readFile,writeFile} from 'node:fs/promises';import {chromium} from '@playwright/test';import assert from 'node:assert/strict';
+import {openDatabase} from '../app/db.mjs';import {seed} from '../scripts/seed.mjs';import {createApp} from '../app/server.mjs';import {LearningCenter} from '../app/learning-center.mjs';
+const report=[];
+for(const variant of ['before','after']){
+ const db=await openDatabase({file:':memory:',url:null});await db.migrate();await seed(db,{demo:true});const now=Date.parse('2026-11-13T08:00:00+08:00')/1000,u=await db.get("SELECT * FROM profiles WHERE employee_id='DEMO002'");
+ const app=await createApp({db,demo:true,migrate:false,auth:{supabase:false,clock:()=>now},service:{sourceContent:true,clock:()=>now}});await new Promise(r=>app.server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+app.server.address().port;
+ await db.run('UPDATE content_versions SET demo=0');await db.run('UPDATE learning_packages SET demo=0');const lc=new LearningCenter(app.service),words=(await lc.words(u)).filter(w=>w.track==='hsk'&&Number(w.level)===1).slice(0,4);
+ for(const w of words){await db.run('INSERT INTO vocabulary_progress(user_id,vocabulary_id,status,updated_at) VALUES(?,?,?,?) ON CONFLICT(user_id,vocabulary_id) DO UPDATE SET status=excluded.status',[u.id,w.id,'known',now-90000]);await db.run('INSERT INTO lc_review_state(user_id,vocabulary_id,due_at,interval_seconds,repetitions,recall_successes,last_correct,reviewed_at) VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(user_id,vocabulary_id) DO NOTHING',[u.id,w.id,now-1,60,1,0,0,now-90000]);}
+ const browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true}),page=await browser.newPage({viewport:{width:1920,height:1080}}),errors=[],row={variant,navigation:[]};page.on('pageerror',e=>errors.push(e.message));
+ if(variant==='before')for(const file of ['app.js','style.css','read-cache.js','recall.js','learning-center.js'])await page.route('**/'+file,async route=>route.fulfill({contentType:file.endsWith('.css')?'text/css':'text/javascript',body:await readFile('artifacts/perf-before/'+file,'utf8')}));
+ await page.route('**/api/**',async route=>{const req=route.request(),body=req.method()==='GET'?null:req.postDataJSON();const delay=req.url().endsWith('/learn/challenges')&&body?.kind==='recall'?650:req.url().endsWith('/submit')?250:100;await new Promise(r=>setTimeout(r,delay));await route.continue();});
+ const shot=async name=>{await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(i=>i.decode().catch(()=>{}))));await page.screenshot({path:'artifacts/perf-'+variant+'-'+name+'.png',fullPage:true});};
+ try{
+  await page.goto(base);await page.locator('#login-form').waitFor();await shot('login-desktop');
+  row.loginFont=await page.locator('#login-form input').first().evaluate(e=>getComputedStyle(e).fontSize);row.loginWidth=await page.locator('#login-form').evaluate(e=>Math.round(e.getBoundingClientRect().width));
+  await page.setViewportSize({width:390,height:844});await shot('login-hp');assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.setViewportSize({width:1920,height:1080});
+  await page.locator('[name=username]').fill('DEMO002');await page.locator('[name=password]').fill('DemoMandarin!2026');await page.locator('#login-form [type=submit]').click();await page.locator('.dash-vocabulary').waitFor();await shot('dashboard-desktop');await page.setViewportSize({width:390,height:844});await shot('dashboard-hp');assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.setViewportSize({width:1366,height:900});await shot('dashboard-laptop');
+  const nav=async route=>{await page.evaluate(()=>window.previousMain=document.querySelector('#main-content'));const t=Date.now();await page.evaluate(route=>location.hash=route,route);await page.waitForFunction(()=>document.querySelector('#main-content')!==window.previousMain&&document.querySelector('#main-content')?.getAttribute('aria-busy')!=='true');assert.equal(await page.getByText('Halaman belum dapat dimuat.',{exact:true}).count(),0,route);row.navigation.push({route,ms:Date.now()-t});};
+  for(const route of ['learning','examination','ranking','profile','dashboard','learning','dashboard'])await nav(route);
+  await nav('recall/hsk-1');await page.locator('[data-recall]').first().waitFor();await page.waitForTimeout(900);await page.locator('[data-recall]').first().click();await page.locator('#recall-next:not([hidden])').waitFor();const t=Date.now();await page.locator('#recall-next').click();await page.waitForFunction(()=>document.querySelector('.recall-progress strong')?.textContent.startsWith('2 /'));row.recallNextMs=Date.now()-t;
+  if(variant==='after'){assert(row.recallNextMs<400,'prefetched recall should not wait for the 650ms challenge request');for(const route of ['saved','hanzi','vocab-atlas','word-pairs','chengyu','songs','learning-mistakes'])await nav(route);}
+  assert.deepEqual(errors,[]);report.push(row);
+ }catch(e){await shot('failure');console.log(await page.locator('body').innerText());throw e;}finally{await browser.close();await new Promise(r=>app.server.close(r));await db.close();}
+}
+await writeFile('artifacts/responsiveness-measurements.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));

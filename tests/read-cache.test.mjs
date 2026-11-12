@@ -10,3 +10,10 @@ test('Cache invalidation prevents a stale in-flight response from repopulating v
  const c=createReadCache();let resolve,calls=0;const old=c.read('A','/dashboard',()=>new Promise(r=>resolve=r));await Promise.resolve();c.invalidate();resolve({old:true});await old;
  assert.deepEqual(await c.read('A','/dashboard',async()=>({new:true})),{new:true});c.invalidate();await assert.rejects(()=>c.read('A','/packages',async()=>{calls++;throw Error('offline');}));await c.read('A','/packages',async()=>{calls++;return {};});assert.equal(calls,2);
 });
+
+test('Preparation preserves navigation cache; saved progress and completed sessions invalidate it',async()=>{
+ const {invalidatesReads}=await import('../public/read-cache.js');
+ for(const path of ['/learn/challenges','/learn/challenges/id/reveal','/learning/start','/learning/id/heartbeat'])assert.equal(invalidatesReads(path,{}),false,path);
+ for(const path of ['/learn/challenges/id/submit','/official-exams/id/answers','/official-exams/id/submit','/logout','/profile'])assert.equal(invalidatesReads(path,{}),true,path);
+ assert.equal(invalidatesReads('/learning/id/heartbeat',{complete:true}),true);
+});

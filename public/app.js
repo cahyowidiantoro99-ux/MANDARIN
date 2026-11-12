@@ -1,6 +1,6 @@
 import {confirmSubmit} from './confirm-submit.js';
 import {mountSaved} from './saved-materials.js';
-import {createReadCache} from './read-cache.js';
+import {createReadCache,invalidatesReads} from './read-cache.js';
 import {speechSettings,wireSpeech,stopSpeech,speakerIcon} from './speech.js';
 import {languageSwitcher,startLanguageUi} from './i18n.js';
 const $=s=>document.querySelector(s), root=$('#app');
@@ -15,7 +15,7 @@ const fmtTime=s=>`${String(Math.floor(Math.max(0,s)/60)).padStart(2,'0')}:${Stri
 const badge=(text,color='')=>`<span class="pill ${color}">${esc(text)}</span>`;
 function toast(msg){$('#toast').textContent=msg;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),4000);}
 const readCache=createReadCache();
-async function api(path,{method='GET',body}={}){if(method!=='GET')readCache.invalidate();const load=async()=>{let res;try{res=await fetch('/api'+path,{method,headers:method==='GET'?{}:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:body===undefined?undefined:JSON.stringify(body),signal:method==='GET'?AbortSignal.timeout(15000):undefined});}catch(error){if(error.name==='TimeoutError')throw Error('Koneksi terlalu lambat. Coba muat halaman kembali.');throw Error('Koneksi terputus. Jawaban yang belum tersimpan akan dicoba kembali selama halaman tetap terbuka.');}const data=await res.json();if(!res.ok){if(res.status===401&&user){readCache.invalidate();user=null;csrf='';location.hash='login';}throw Error(data.error||'Request gagal.');}return data;};try{return method==='GET'?await readCache.read(user?.id,path,load):await load();}finally{if(method!=='GET')readCache.invalidate();}}
+async function api(path,{method='GET',body}={}){const invalidates=method!=='GET'&&invalidatesReads(path,body);const load=async()=>{let res;try{res=await fetch('/api'+path,{method,headers:method==='GET'?{}:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:body===undefined?undefined:JSON.stringify(body),signal:method==='GET'?AbortSignal.timeout(15000):undefined});}catch(error){if(error.name==='TimeoutError')throw Error('Koneksi terlalu lambat. Coba muat halaman kembali.');throw Error('Koneksi terputus. Jawaban yang belum tersimpan akan dicoba kembali selama halaman tetap terbuka.');}const data=await res.json();if(!res.ok){if(res.status===401&&user){readCache.invalidate();user=null;csrf='';location.hash='login';}throw Error(data.error||'Request gagal.');}return data;};try{return method==='GET'?await readCache.read(user?.id,path,load):await load();}finally{if(invalidates)readCache.invalidate();}}
 function bind(id,event,fn){const el=$(id);if(el)el.addEventListener(event,fn);}
 function form(id,fn){bind(id,'submit',async e=>{e.preventDefault();const btn=e.currentTarget.querySelector('[type=submit]'),error=e.currentTarget.querySelector('.form-error');btn.disabled=true;if(error)error.textContent='';try{await fn(new FormData(e.currentTarget));}catch(err){if(error)error.textContent=err.message;else toast(err.message);}finally{btn.disabled=false;}});}
 const empty=(title,copy='')=>`<div class="empty"><strong>${esc(title)}</strong>${esc(copy)}</div>`;
@@ -141,7 +141,7 @@ root.addEventListener('pointerover',prefetchNavigation);
 root.addEventListener('focusin',prefetchNavigation);
 root.addEventListener('pointerdown',prefetchNavigation);
 window.addEventListener('hashchange',route);
-async function boot(){try{meta=await api('/meta');const fragment=new URLSearchParams(location.hash.slice(1));if(fragment.get('type')==='recovery'&&fragment.get('access_token')){window.recoveryToken=fragment.get('access_token');history.replaceState(null,'','#recovery');}try{const me=await api('/me');user=me.user;csrf=me.csrf;}catch{}await route();}catch(e){root.innerHTML=empty('Server belum tersedia',e.message);}}
+async function boot(){try{const [metadata,session]=await Promise.all([api('/meta'),api('/me').catch(()=>null)]);meta=metadata;const fragment=new URLSearchParams(location.hash.slice(1));if(fragment.get('type')==='recovery'&&fragment.get('access_token')){window.recoveryToken=fragment.get('access_token');history.replaceState(null,'','#recovery');}if(session){user=session.user;csrf=session.csrf;}await route();}catch(e){root.innerHTML=empty('Server belum tersedia',e.message);}}
 boot();
 function parsed(value,fallback={}){try{return typeof value==='string'?JSON.parse(value):value||fallback;}catch{return fallback;}}
 function sourceRef(value){return "";}

@@ -1,6 +1,8 @@
 // Short lived, in-memory and account scoped. Never caches exam sessions or mutations.
+// Challenge creation/reveal and active heartbeats do not change displayed mastery.
+export const invalidatesReads=(path,body)=>!(/^\/learn\/challenges(?:$|\/[^/]+\/reveal$)/.test(path)||(/^\/learning\//.test(path)&&!body?.complete));
 export const cacheableRead=path=>/^\/(dashboard|packages|learn\/summary|play\/catalog|leader\/(portal|learning))(\?.*)?$/.test(path);
-export function createReadCache({clock=()=>Date.now(),ttl=10000}={}){
+export function createReadCache({clock=()=>Date.now(),ttl=30000}={}){
  const values=new Map(),pending=new Map();let generation=0;
  return {invalidate(){generation++;values.clear();pending.clear();},async read(scope,path,load){
   if(!scope||!cacheableRead(path))return load();const key=scope+':'+path,g=generation,hit=values.get(key);

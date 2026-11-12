@@ -1,3 +1,4 @@
+import {postgresTransaction} from './postgres-transaction.mjs';
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -14,7 +15,7 @@ export async function openDatabase({url=process.env.DATABASE_URL, file=process.e
     async run(sql,params=[]) { if(client){let n=0;return client.query(sql.replace(/\?/g,()=>`$${++n}`),params);}return sqlite.prepare(sql).run(...params); },
   });
   const db=wrap(pool); let tail=Promise.resolve();
-  db.tx=async fn=>{let release;const prev=tail;tail=new Promise(r=>release=r);await prev;let client;
+  db.tx=async (fn,options)=>{if(pool)return postgresTransaction(pool,wrap,fn,options);let release;const prev=tail;tail=new Promise(r=>release=r);await prev;let client;
     try { client=pool?await pool.connect():null; const t=wrap(client);await t.run(pool?'BEGIN ISOLATION LEVEL SERIALIZABLE':'BEGIN IMMEDIATE');try{const result=await fn(t);await t.run('COMMIT');return result;}catch(e){await t.run('ROLLBACK');throw e;} }
     finally{client?.release();release();}
   };
