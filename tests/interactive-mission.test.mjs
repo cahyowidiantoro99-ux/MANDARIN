@@ -1,3 +1,4 @@
+import {fiveMissions} from '../app/learning-missions.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {openDatabase} from '../app/db.mjs';
@@ -14,3 +15,5 @@ test('interactive bonus uses employee-owned valid results, WITA day, and never g
  assert.equal(Number((await db.get('SELECT COUNT(*) AS n FROM lc_xp')).n),before);
  }finally{await db.close();}
 });
+
+test('Five core missions complete independently from a partially completed two-step bonus',()=>{const missions=fiveMissions().map(m=>({...m,current:m.target})),d={level:1,stats:{due:0,total:10,studied:0,known:0,review:0,unknown:0,proven:0},grammar:[],daily:{xp:0,seconds:600},xp:0,learning:{seconds:600,sessions:1},motivation:{streak:1},missions,bonus:{title:'Jelajahi dua jenis latihan',description:'Dua jenis berbeda.',current:1,target:2,href:'#learning'}};const html=learningOverview(d,String);assert(html.includes('✓ 5/5 misi inti selesai'));assert(html.includes('✨ Bonus opsional'));assert(html.includes('1/2'));assert(html.includes('class="interactive-bonus "'));assert(!html.includes('href="undefined"'));});

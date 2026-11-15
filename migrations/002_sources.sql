@@ -46,3 +46,9 @@ CREATE TABLE IF NOT EXISTS employee_learning_targets(
 );
 
 CREATE TABLE IF NOT EXISTS lc_saved_materials(user_id TEXT NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,kind TEXT NOT NULL CHECK(kind IN ('atlas-vocab','hanzi','grammar')),target_id TEXT NOT NULL,created_at BIGINT NOT NULL,PRIMARY KEY(user_id,kind,target_id));
+
+CREATE TABLE IF NOT EXISTS lc_mission_events(user_id TEXT NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,day TEXT NOT NULL,kind TEXT NOT NULL,target_id TEXT NOT NULL,amount INTEGER NOT NULL DEFAULT 1 CHECK(amount>=0),created_at BIGINT NOT NULL,PRIMARY KEY(user_id,day,kind,target_id));
+CREATE INDEX IF NOT EXISTS lc_mission_period ON lc_mission_events(day,user_id);
+CREATE TABLE IF NOT EXISTS lc_mission_errors(user_id TEXT NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,area TEXT NOT NULL,target_id TEXT NOT NULL,active INTEGER NOT NULL,updated_at BIGINT NOT NULL,PRIMARY KEY(user_id,area,target_id));
+CREATE TABLE IF NOT EXISTS lc_daily_bonus(user_id TEXT NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,day TEXT NOT NULL,kind TEXT NOT NULL,target_id TEXT NOT NULL,PRIMARY KEY(user_id,day));
+CREATE TABLE IF NOT EXISTS lc_study_clock(user_id TEXT PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,token TEXT NOT NULL,scope TEXT NOT NULL,started_at BIGINT NOT NULL,last_heartbeat BIGINT NOT NULL);

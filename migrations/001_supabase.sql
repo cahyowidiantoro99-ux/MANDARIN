@@ -246,3 +246,13 @@ REVOKE ALL ON employee_learning_targets FROM anon,authenticated;
 CREATE TABLE IF NOT EXISTS lc_saved_materials(user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,kind TEXT NOT NULL CHECK(kind IN ('atlas-vocab','hanzi','grammar')),target_id TEXT NOT NULL,created_at BIGINT NOT NULL,PRIMARY KEY(user_id,kind,target_id));
 ALTER TABLE lc_saved_materials ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON lc_saved_materials FROM anon,authenticated;
+
+CREATE TABLE IF NOT EXISTS lc_mission_events(user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,day TEXT NOT NULL,kind TEXT NOT NULL,target_id TEXT NOT NULL,amount INTEGER NOT NULL DEFAULT 1 CHECK(amount>=0),created_at BIGINT NOT NULL,PRIMARY KEY(user_id,day,kind,target_id));
+CREATE INDEX IF NOT EXISTS lc_mission_period ON lc_mission_events(day,user_id);
+CREATE TABLE IF NOT EXISTS lc_mission_errors(user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,area TEXT NOT NULL,target_id TEXT NOT NULL,active INTEGER NOT NULL,updated_at BIGINT NOT NULL,PRIMARY KEY(user_id,area,target_id));
+CREATE TABLE IF NOT EXISTS lc_daily_bonus(user_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,day TEXT NOT NULL,kind TEXT NOT NULL,target_id TEXT NOT NULL,PRIMARY KEY(user_id,day));
+CREATE TABLE IF NOT EXISTS lc_study_clock(user_id UUID PRIMARY KEY REFERENCES profiles(id) ON DELETE CASCADE,token TEXT NOT NULL,scope TEXT NOT NULL,started_at BIGINT NOT NULL,last_heartbeat BIGINT NOT NULL);
+ALTER TABLE lc_mission_events ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_mission_events FROM anon,authenticated;
+ALTER TABLE lc_mission_errors ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_mission_errors FROM anon,authenticated;
+ALTER TABLE lc_daily_bonus ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_daily_bonus FROM anon,authenticated;
+ALTER TABLE lc_study_clock ENABLE ROW LEVEL SECURITY; REVOKE ALL ON lc_study_clock FROM anon,authenticated;

@@ -1,3 +1,4 @@
+import {recordMission,practiceMission,answerMission} from './learning-missions.mjs';
 import {grantBestXp,dailyXpLimits} from './xp-policy.mjs';
 import {learningDay} from './learning-motivation.mjs';
 import {readFileSync} from 'node:fs';
@@ -123,9 +124,11 @@ export async function answerVocabulary(db,user,attempt,{index,choice},now){
     const mistakes=state.vocabulary.mistakes,mistake=mistakes[q.pairId];
     if(!correct)mistakes[q.pairId]={count:(mistake?.count||0)+1,active:true,choice,wrongAt:now,repairedAt:mistake?.repairedAt??null};
     else if(mistake?.active)mistakes[q.pairId]={...mistake,active:false,repairedAt:now};
+    await answerMission(t,user.id,'atlas_vocab_pairs',q.pairId,correct,now,{knownWrong:!!mistake?.active});
     run.score+=Number(correct);
     run.results.push({correct,choice,answer:q.to,pairId:q.pairId});
     const completed=run.results.length===run.questions.length;
+    if(completed&&row.target_id!=='review')await practiceMission(t,user.id,'word_pairs',row.target_id,100*run.score/run.questions.length,now);
     if(completed&&row.target_id.startsWith('bank-'))run.xp=await grantBestXp(t,user.id,'pair_bank',row.target_id,run.score,now);
     else if(completed&&row.target_id==='quick'&&run.score/run.questions.length>=.8){
       const day=learningDay(now),count=await t.get("SELECT COUNT(*) AS n FROM lc_xp WHERE user_id=? AND day=? AND activity='pair_quick'",[user.id,day]);

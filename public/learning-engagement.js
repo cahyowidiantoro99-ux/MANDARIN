@@ -1,0 +1,9 @@
+// Shared employee-only timer. Server owns elapsed time and permits one active tab.
+let owner=null,scope='',apiCall=null,token=null,timer=null,pending=false,lastInteraction=0,blocked=false;
+const scopes=new Set(['learning','learning-mistakes','study','recall','grammar','practice','story','speaking','songs','chengyu','hanzi','hanzi-compare','pinyin','pinyin-mistakes','vocab-atlas','word-pairs','pair-practice','pair-mistakes','package','exam','source']);
+async function beat(){if(!owner||!scope||pending||blocked)return;const active=document.visibilityState==='visible'&&document.hasFocus()&&Date.now()-lastInteraction<60000;if(!active)return;pending=true;const who=owner;try{const r=await apiCall('/learn/engagement',{method:'POST',body:{scope,token,active}});if(who!==owner)return;token=r.closed?null:r.token;if(r.closed&&!r.token)blocked=true;}catch(e){if(who===owner){token=null;if(e.status===409)blocked=true;}}finally{pending=false;}}
+function interact(){lastInteraction=Date.now();if(blocked){blocked=false;token=null;}}
+for(const name of ['pointerdown','keydown','touchstart','wheel'])addEventListener(name,interact,{passive:true});
+addEventListener('pagehide',()=>{clearInterval(timer);timer=null;token=null;});
+addEventListener('pageshow',e=>{if(e.persisted&&owner&&scope&&!timer){lastInteraction=Date.now();blocked=false;void beat();timer=setInterval(beat,15000);}});
+export function syncLearningEngagement(api,user,page){const active=user?.role==='employee'&&scopes.has(page);if(!active){clearInterval(timer);timer=null;owner=null;scope='';token=null;blocked=false;return;}apiCall=api;scope=['learning','learning-mistakes'].includes(page)?'study':page;if(owner!==user.id){owner=user.id;token=null;blocked=false;lastInteraction=Date.now();}if(!timer){void beat();timer=setInterval(beat,15000);}}

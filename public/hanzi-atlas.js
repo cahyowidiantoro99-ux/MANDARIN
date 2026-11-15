@@ -67,7 +67,8 @@ export async function mountAtlas({api,shell,esc,root,cleanup,toast},route,arg){
   if(route==='hanzi-compare'){
     const groups=[...catalog.curatedShapes.map(([chars,tip])=>({chars,tip,mode:'curated'})),...catalog.scannedShapes.map(([chars,mode])=>({chars,mode}))];
     const coverage=new Set(groups.flatMap(g=>[...g.chars])).size;
-    host.innerHTML=`<p>${coverage} hanzi memiliki pembanding visual. Semua 3.000 tetap tersedia di Katalog.</p><div class="filters"><label>Kemiripan<select id="atlas-mode">${Object.entries(modes).map(([key,label])=>`<option value="${key}">${label}</option>`).join('')}</select></label><label>Cari hanzi atau pinyin<input id="atlas-q" type="search"></label></div><p id="atlas-tip"></p>${list}`;
+    host.innerHTML=`<button class="btn" id="atlas-shape-start">Latih 5 soal bentuk mirip →</button><div id="atlas-shape-run"></div><p>${coverage} hanzi memiliki pembanding visual. Semua 3.000 tetap tersedia di Katalog.</p><div class="filters"><label>Kemiripan<select id="atlas-mode">${Object.entries(modes).map(([key,label])=>`<option value="${key}">${label}</option>`).join('')}</select></label><label>Cari hanzi atau pinyin<input id="atlas-q" type="search"></label></div><p id="atlas-tip"></p>${list}`;
+    $('#atlas-shape-start').onclick=()=>action($('#atlas-shape-start'),async()=>{const run=await api('/atlas/attempts',{method:'POST',body:{mode:'shape'}});if(!disposed)location.hash='pinyin/'+run.id;});
     const mode=$('#atlas-mode'),q=$('#atlas-q');
     const refresh=paged(()=>{
       const query=normalize(q.value.trim());
@@ -104,12 +105,12 @@ export async function mountAtlas({api,shell,esc,root,cleanup,toast},route,arg){
   }
   function exercise(run,showLast=false){
     const question=run.question,last=run.last,word=last&&byHanzi.get(last.hanzi);
-    const label=run.package?'Paket '+String(run.package).padStart(2,'0'):'Review kesalahan';
+    const label=run.kind==='atlas_shape'?'Latihan Bentuk Mirip':run.package?'Paket '+String(run.package).padStart(2,'0'):'Review kesalahan';
     const complete=!question;
     host.innerHTML=`<section class="panel"><h2>${label}</h2><p>${run.answered}/${run.total} terjawab · Benar ${run.score}</p><progress value="${run.answered}" max="${run.total}" aria-label="Progres soal"></progress>
       ${showLast&&word?`<div class="recall-feedback ${last.correct?'correct':'wrong'}" role="status"><strong>${last.correct?'Benar':'Belum tepat'} · ${esc(word.hanzi)} · ${esc(word.pinyin.join(' / '))}</strong><p>${esc(word.gloss_id)}</p>${examples(word)}</div>`:''}
       ${complete?`<h3 class="mt">Selesai · Skor ${run.score}/${run.total} · +${run.xp} XP</h3><div class="split"><a class="btn secondary" href="#pinyin-mistakes">Lihat Gudang Kesalahan</a>${run.package?'<button class="btn" id="atlas-repeat">Ulangi paket</button>':''}</div>`:
-        showLast?'<button class="btn mt" id="atlas-next-question">Soal berikutnya →</button>':`<p class="hanzi" lang="zh">${esc(question.hanzi)}</p><div class="atlas-answers">${question.options.map((option,i)=>`<button class="btn secondary" data-choice="${i}">${esc(option)}</button>`).join('')}</div>`}
+        showLast?'<button class="btn mt" id="atlas-next-question">Soal berikutnya →</button>':`<p class="${question.type==='shape'?'':'hanzi'}" lang="${question.type==='shape'?'id':'zh'}">${esc(question.prompt||question.hanzi)}</p><div class="atlas-answers">${question.options.map((option,i)=>`<button class="btn secondary" data-choice="${i}">${esc(option)}</button>`).join('')}</div>`}
     </section>`;
     for(const button of host.querySelectorAll('[data-choice]'))button.onclick=()=>action(button,async()=>{
       const next=await api('/atlas/attempts/'+run.id,{method:'PUT',body:{index:run.answered,choice:question.options[Number(button.dataset.choice)]}});

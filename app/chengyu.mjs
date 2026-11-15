@@ -1,3 +1,4 @@
+import {recordMission,practiceMission,answerMission} from './learning-missions.mjs';
 import {readFileSync} from 'node:fs';
 import {assert,id} from './domain.mjs';
 import {updateUser} from './hanzi-atlas.mjs';
@@ -26,5 +27,5 @@ export async function markChengyu(db,user,uid,status,now,learning){
  return updateUser(db,user,async(t,state)=>{state.chengyu??={};state.chengyu[uid]={status,updated_at:now};const day=learningDay(now),target=uid+':'+day;
  const old=await t.get("SELECT id FROM lc_activity_results WHERE user_id=? AND kind='chengyu_review' AND target_id=?",[user.id,target]);
  if(!old){await t.run('INSERT INTO lc_activity_results(id,user_id,kind,target_id,score,completed,created_at) VALUES(?,?,?,?,0,1,?)',[id(),user.id,'chengyu_review',target,now]);await learning.reward(t,user,'chengyu_review',uid,2,now);}
- return {saved:true,status};});
+ await recordMission(t,user.id,'review','idiom:'+uid,now);return {saved:true,status};});
 }

@@ -1,3 +1,4 @@
+import {studyTimeSource} from './learning-missions.mjs';
 import {assert} from './domain.mjs';
 
 // TSZ15025-S01A, pp. 10–14. Activities are preparation, not official assessment results.
@@ -40,7 +41,7 @@ export async function dashboardHistory(service,u,kind,offset){
   const queries={
     exams:'SELECT s.id,s.track,s.mode,s.level,s.status,s.started_at,s.official,r.score,r.passed FROM exam_sessions s LEFT JOIN exam_results r ON r.session_id=s.id WHERE s.user_id=? ORDER BY s.started_at DESC,s.id DESC',
     xp:'SELECT activity,SUM(amount) AS amount,MAX(created_at) AS created_at FROM lc_xp WHERE user_id=? GROUP BY activity,day,CASE WHEN activity=\'atlas_pinyin\' THEN substr(target_id,1,36) ELSE target_id END ORDER BY MAX(created_at) DESC,activity,day',
-    learning:'SELECT p.title,l.started_at,l.active_seconds FROM learning_sessions l JOIN learning_packages p ON p.id=l.package_id WHERE l.user_id=? ORDER BY l.started_at DESC,l.id DESC',
+    learning:"SELECT COALESCE(p.title,'Sesi belajar aktif') AS title,l.started_at,l.active_seconds FROM "+studyTimeSource(service.sourceContent)+" l LEFT JOIN learning_sessions ls ON CAST(ls.id AS TEXT)=l.id LEFT JOIN learning_packages p ON p.id=ls.package_id WHERE l.user_id=? ORDER BY l.started_at DESC,l.id DESC",
     activities:"SELECT kind,score,created_at FROM (SELECT id,kind,score,created_at FROM lc_activity_results WHERE user_id=? UNION ALL SELECT id,'grammar' AS kind,score,created_at FROM lc_practice WHERE user_id=?) events ORDER BY created_at DESC,id DESC",
   };
   assert(Object.hasOwn(queries,kind)&&Number.isSafeInteger(offset)&&offset>=0,400,'Riwayat tidak valid.');

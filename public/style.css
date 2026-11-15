@@ -1186,3 +1186,5 @@ body{font-size:16px}.btn{font-size:14px}.nav-item{font-size:15px;min-height:48px
 
 /* Leader module usage: scoped to analytics, no employee layout changes. */
 .leader-modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin:20px 0}.leader-modules article{padding:18px;border:1px solid var(--border,#dce4df);border-radius:14px;background:linear-gradient(140deg,#f4fbf7,#fff)}.leader-modules h3{font-size:1rem;margin:0 0 12px}.leader-modules strong{font-size:1.6rem;color:#087e7d}.leader-modules strong small{font-size:.85rem;font-weight:400}.leader-modules p{margin:8px 0}.leader-modules small{color:#52717b}
+
+.mission-description{font-size:.85rem;line-height:1.55;color:#68828c;margin:7px 0 10px}.mission-rules{margin:20px 0 0;padding:16px;border:1px solid #e6e1d5;border-radius:12px}.mission-rules summary{cursor:pointer;color:#0b7d76;font-weight:600}.mission-rules p{font-size:.85rem;line-height:1.65}.leader-mission-list{display:grid;gap:12px}.leader-mission-list article{padding:14px;border:1px solid #e3e6df;border-radius:12px}.leader-mission-list p{margin:5px 0;font-size:.85rem}
