@@ -1183,3 +1183,6 @@ body{font-size:16px}.btn{font-size:14px}.nav-item{font-size:15px;min-height:48px
 .source-option-pinyin{display:block;font-size:13px;line-height:1.4;margin-top:4px;font-weight:400}
 
 .structured-option{position:relative}.structured-option:has(.source-option-code){padding-left:39px}.source-option-code{position:absolute;left:11px;top:12px;font-size:12px;font-weight:700;color:#117c78}.structured-options.with-images .source-option-code{left:8px;top:8px;background:#edf6f1;border-radius:5px;padding:3px 6px}
+
+/* Leader module usage: scoped to analytics, no employee layout changes. */
+.leader-modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin:20px 0}.leader-modules article{padding:18px;border:1px solid var(--border,#dce4df);border-radius:14px;background:linear-gradient(140deg,#f4fbf7,#fff)}.leader-modules h3{font-size:1rem;margin:0 0 12px}.leader-modules strong{font-size:1.6rem;color:#087e7d}.leader-modules strong small{font-size:.85rem;font-weight:400}.leader-modules p{margin:8px 0}.leader-modules small{color:#52717b}
