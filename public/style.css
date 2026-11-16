@@ -1188,3 +1188,21 @@ body{font-size:16px}.btn{font-size:14px}.nav-item{font-size:15px;min-height:48px
 .leader-modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin:20px 0}.leader-modules article{padding:18px;border:1px solid var(--border,#dce4df);border-radius:14px;background:linear-gradient(140deg,#f4fbf7,#fff)}.leader-modules h3{font-size:1rem;margin:0 0 12px}.leader-modules strong{font-size:1.6rem;color:#087e7d}.leader-modules strong small{font-size:.85rem;font-weight:400}.leader-modules p{margin:8px 0}.leader-modules small{color:#52717b}
 
 .mission-description{font-size:.85rem;line-height:1.55;color:#68828c;margin:7px 0 10px}.mission-rules{margin:20px 0 0;padding:16px;border:1px solid #e6e1d5;border-radius:12px}.mission-rules summary{cursor:pointer;color:#0b7d76;font-weight:600}.mission-rules p{font-size:.85rem;line-height:1.65}.leader-mission-list{display:grid;gap:12px}.leader-mission-list article{padding:14px;border:1px solid #e3e6df;border-radius:12px}.leader-mission-list p{margin:5px 0;font-size:.85rem}
+
+/* Practice level choices share the catalog's active teal/gold treatment. */
+.exam-practice-levels{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 20px}
+.exam-practice-levels button{font:inherit;font-size:14px;font-weight:700;min-height:42px;padding:10px 20px;background:#fff;border:1px solid #dcd8cd;border-radius:12px;color:#10303b;cursor:pointer}
+.exam-practice-levels button[aria-pressed=true]{background:#117c78;border-color:#c6a34e;color:#fff}
+.exam-practice-levels button:focus-visible{outline:3px solid #c6a34e;outline-offset:3px}
+.dashboard-redesign .dash-mission-grid>.interactive-bonus{margin:12px 0 23px}
+.dashboard-redesign .learn-overview{grid-template-columns:minmax(0,1fr)}
+@media(min-width:1100px){
+ .dashboard-redesign .dash-mission-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px;padding-bottom:20px;align-items:stretch}
+ .dashboard-redesign .dash-mission-grid>.interactive-bonus{margin:14px 0 0;align-self:stretch;min-width:0}
+ .dashboard-redesign .dash-vocabulary-header{grid-template-columns:minmax(0,1fr) 140px;min-height:120px}
+ .dashboard-redesign .dash-vocabulary-header p{max-width:none}
+ .dashboard-redesign .dash-word-counts{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .dashboard-redesign .dash-review-line{display:flex;justify-content:space-between;align-items:center;gap:16px}
+ .dashboard-redesign .dash-review-line .btn{width:auto;min-width:245px;margin-top:0}
+}
+@media(max-width:600px){.exam-practice-levels{gap:7px}.exam-practice-levels button{flex:1 0 27%;padding:10px 13px}}
